@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Márquez บิดครบทุกรอบ คว้า Pole ที่อิตาลี GP — Life of Bike</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E8132A;
+    --black: #0A0A0A;
+    --white: #F5F0E8;
+    --gray: #1C1C1C;
+    --mid: #2E2E2E;
+    --gold: #C9A84C;
+    --text-muted: #888;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-serif: 'DM Serif Display', serif;
+    --font-body: 'IBM Plex Sans Thai', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── TICKER ─── */
+  .ticker-wrap {
+    background: var(--red);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 6px 0;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 28px; left: 0; right: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 40px;
+    background: rgba(10,10,10,.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #222;
+  }
+  .logo { font-family: var(--font-display); font-size: 30px; letter-spacing: .04em; color: var(--white); text-decoration: none; }
+  .logo span { color: var(--red); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta { background: var(--red); color: #fff !important; padding: 8px 18px; }
+
+  /* ─── PAGE WRAPPER ─── */
+  .page { padding-top: 96px; }
+
+  /* ─── AD LEADERBOARD ─── */
+  .ad-slot {
+    border: 1px dashed #2a2a2a;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 11px; color: #3a3a3a;
+    letter-spacing: .08em; text-transform: uppercase;
+    background: #0f0f0f; position: relative;
+  }
+  .ad-slot::before { content: 'AD'; position: absolute; top: 6px; left: 8px; font-size: 9px; color: #2a2a2a; }
+  .ad-top { padding: 0 40px; margin-bottom: 0; }
+  .ad-top .ad-slot { height: 90px; }
+
+  /* ─── ARTICLE HERO ─── */
+  .article-hero {
+    padding: 40px 40px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    display: flex; gap: 8px; align-items: center;
+  }
+  .breadcrumb span { color: var(--red); }
+  .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--white); }
+
+  .article-category {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .article-category::before { content: ''; display: block; width: 24px; height: 2px; background: var(--red); }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 76px);
+    line-height: 1;
+    letter-spacing: .02em;
+    color: var(--white);
+    margin-bottom: 24px;
+    max-width: 860px;
+  }
+
+  .article-deck {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-style: italic;
+    color: #bbb;
+    line-height: 1.5;
+    max-width: 720px;
+    margin-bottom: 28px;
+    border-left: 3px solid var(--red);
+    padding-left: 20px;
+  }
+
+  .article-meta-bar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 18px 0;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+  }
+  .author-block { display: flex; align-items: center; gap: 10px; }
+  .author-avatar {
+    width: 38px; height: 38px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .author-name { font-size: 13px; font-weight: 600; color: var(--white); }
+  .author-role { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: .06em; }
+  .meta-divider { width: 1px; height: 32px; background: #333; }
+  .meta-item { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: var(--text-muted); text-transform: uppercase; }
+  .meta-item strong { display: block; color: var(--white); font-size: 12px; margin-bottom: 2px; }
+  .share-bar { margin-left: auto; display: flex; gap: 8px; }
+  .share-btn {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid #333;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: border-color .2s, color .2s;
+  }
+  .share-btn:hover { border-color: var(--white); color: var(--white); }
+
+  /* ─── MAIN LAYOUT ─── */
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 48px;
+    padding: 0 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* ─── ARTICLE BODY ─── */
+  .article-body { padding-top: 40px; }
+
+  .hero-image {
+    width: 100%;
+    aspect-ratio: 16/7;
+    background: linear-gradient(135deg, #1a0505 0%, #2d0808 30%, #1a0a1a 70%, #0a0a1a 100%);
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-image .big-num {
+    font-family: var(--font-display);
+    font-size: 280px;
+    color: rgba(232,19,42,.08);
+    line-height: 1;
+    user-select: none;
+    letter-spacing: -.02em;
+  }
+  .hero-image .image-label {
+    position: absolute;
+    bottom: 12px; right: 16px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: rgba(255,255,255,.3);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .image-caption {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: .04em;
+    margin-bottom: 40px;
+    padding-left: 12px;
+    border-left: 2px solid #333;
+  }
+
+  /* body text */
+  .article-body p {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #ccc;
+    margin-bottom: 28px;
+  }
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: 34px;
+    letter-spacing: .04em;
+    color: var(--white);
+    margin: 48px 0 16px;
+    padding-top: 48px;
+    border-top: 1px solid #222;
+  }
+  .article-body h3 {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--white);
+    margin: 32px 0 12px;
+  }
+
+  /* pull quote */
+  .pull-quote {
+    margin: 40px 0;
+    padding: 32px 40px;
+    background: var(--gray);
+    border-left: 4px solid var(--red);
+    position: relative;
+  }
+  .pull-quote::before {
+    content: '"';
+    font-family: var(--font-display);
+    font-size: 80px;
+    color: var(--red);
+    opacity: .3;
+    position: absolute;
+    top: -10px; left: 20px;
+    line-height: 1;
+  }
+  .pull-quote p {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .pull-quote cite {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  /* stat box */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin: 40px 0;
+  }
+  .stat-box {
+    background: var(--gray);
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-num span { color: var(--red); }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  /* in-content ad */
+  .ad-inline { margin: 40px 0; }
+  .ad-inline .ad-slot { height: 90px; }
+
+  /* lap time table */
+  .lap-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 14px;
+  }
+  .lap-table thead tr {
+    background: var(--red);
+  }
+  .lap-table th {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    color: #fff;
+    font-weight: 600;
+  }
+  .lap-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #1e1e1e;
+    color: #ccc;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .lap-table tr:hover td { background: #111; }
+  .lap-table .fastest { color: var(--gold); font-weight: 600; }
+  .lap-table .pos-1 { color: var(--gold); }
+
+  /* tag list */
+  .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 48px 0 32px;
+    padding-top: 32px;
+    border-top: 1px solid #222;
+  }
+  .tag-item {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid #333;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: border-color .2s, color .2s;
+  }
+  .tag-item:hover { border-color: var(--red); color: var(--white); }
+
+  /* related articles */
+  .related-section { margin-top: 48px; }
+  .related-section .section-label {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 10px;
+  }
+  .related-section .section-label h2 { font-family: var(--font-display); font-size: 20px; letter-spacing: .06em; }
+  .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .related-card { cursor: pointer; }
+  .related-thumb {
+    width: 100%; aspect-ratio: 16/9;
+    background: var(--gray);
+    margin-bottom: 10px;
+    position: relative; overflow: hidden;
+  }
+  .related-thumb .r-bg { width: 100%; height: 100%; transition: transform .5s; }
+  .related-card:hover .r-bg { transform: scale(1.06); }
+  .related-card h3 { font-family: var(--font-serif); font-size: 15px; color: var(--white); line-height: 1.4; margin-bottom: 6px; }
+  .related-card .news-meta { font-family: var(--font-mono); font-size: 10px; color: #555; letter-spacing: .06em; }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar { padding-top: 40px; }
+  .sidebar-block { margin-bottom: 28px; }
+  .sidebar-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: .06em;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+  }
+
+  /* standings */
+  .standings-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1e1e1e; font-size: 13px; }
+  .standings-row:last-child { border-bottom: none; }
+  .pos { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); width: 18px; text-align: center; }
+  .pos.gold { color: var(--gold); }
+  .rider-num { font-family: var(--font-mono); font-size: 11px; color: var(--red); width: 28px; }
+  .rider-name { flex: 1; color: var(--white); font-weight: 500; }
+  .rider-pts { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
+
+  /* recent articles */
+  .recent-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1e1e1e; cursor: pointer; }
+  .recent-item:last-child { border-bottom: none; }
+  .recent-thumb { width: 64px; height: 48px; background: var(--gray); flex-shrink: 0; overflow: hidden; }
+  .recent-thumb div { width: 100%; height: 100%; transition: transform .4s; }
+  .recent-item:hover .recent-thumb div { transform: scale(1.1); }
+  .recent-item h4 { font-family: var(--font-serif); font-size: 13px; color: var(--white); line-height: 1.4; margin-bottom: 4px; }
+  .recent-item span { font-family: var(--font-mono); font-size: 10px; color: #555; letter-spacing: .04em; }
+
+  /* progress bar for reading */
+  .reading-bar { position: fixed; top: 28px; left: 0; height: 3px; background: var(--red); z-index: 200; transition: width .1s linear; width: 0%; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #050505;
+    padding: 40px 40px 24px;
+    border-top: 1px solid #1a1a1a;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+  .footer-brand .logo-f { font-family: var(--font-display); font-size: 26px; color: var(--white); display: block; margin-bottom: 8px; }
+  .footer-brand p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+  .footer-col h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #222; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1a1a1a; padding-top: 18px; }
+  .footer-bottom p { font-family: var(--font-mono); font-size: 10px; color: #444; }
+
+  @media (max-width: 900px) {
+    .article-layout { grid-template-columns: 1fr; }
+    nav { padding: 10px 20px; }
+    .nav-links { display: none; }
+    .article-hero { padding: 24px 20px 0; }
+    .article-layout { padding: 0 20px 40px; }
+    .ad-top { padding: 0 20px; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .related-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- READING PROGRESS -->
+<div class="reading-bar" id="readBar"></div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <span class="ticker-inner">
+    &nbsp;&nbsp;🏁 Mugello Qualifying: Márquez P1 | Bagnaia P2 | Espargaro P3 ✦ Sprint Race พรุ่งนี้ 15:00 น. ✦ อ่านวิเคราะห์เชิงลึกได้ที่ LIFE OF BIKE ✦ ลงโฆษณากับเรา ผู้อ่านกว่า 50,000 คน/เดือน ✦ &nbsp;&nbsp;🏁 Mugello Qualifying: Márquez P1 | Bagnaia P2 | Espargaro P3 ✦ Sprint Race พรุ่งนี้ 15:00 น. ✦ อ่านวิเคราะห์เชิงลึกได้ที่ LIFE OF BIKE ✦ ลงโฆษณากับเรา ผู้อ่านกว่า 50,000 คน/เดือน ✦
+  </span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="motogp-website.html" class="logo">LIFE OF <span>BIKE</span></a>
+  <ul class="nav-links">
+    <li><a href="#">ข่าวสาร</a></li>
+    <li><a href="#">ผลการแข่งขัน</a></li>
+    <li><a href="#">ตาราง</a></li>
+    <li><a href="#">สคริปต์</a></li>
+    <li><a href="#">วิเคราะห์</a></li>
+    <li><a href="#" class="nav-cta">ลงโฆษณา</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- TOP AD -->
+  <div class="ad-top">
+    <div class="ad-slot" style="height:90px;">728 × 90 — Leaderboard</div>
+  </div>
+
+  <!-- ARTICLE HEADER -->
+  <div class="article-hero">
+    <div class="breadcrumb">
+      <a href="#">หน้าหลัก</a> › <a href="#">MotoGP</a> › <span>Italian GP 2026</span>
+    </div>
+    <div class="article-category">Race Report — Round 8 · Mugello</div>
+    <h1 class="article-title">Márquez บิดครบทุกรอบ คว้า Pole ที่อิตาลี GP</h1>
+    <p class="article-deck">Marc Márquez ทำลายสถิติสนาม Mugello ในรอบ Qualifying ด้วยความเร็วที่ไม่มีใครตอบได้ ก่อนจะบอกว่า "จักรยานยนต์มันรู้สึกสมบูรณ์แบบมากๆ คืนนี้"</p>
+    <div class="article-meta-bar">
+      <div class="author-block">
+        <div class="author-avatar">P</div>
+        <div>
+          <div class="author-name">พีระ ทวีสุข</div>
+          <div class="author-role">MotoGP Correspondent · LIFE OF BIKE</div>
+        </div>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><strong>31 พ.ค. 2026</strong>เวลาเผยแพร่</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><strong>อัปเดต 18:45 น.</strong>ล่าสุด</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><strong>8 นาที</strong>เวลาอ่าน</div>
+      <div class="share-bar">
+        <button class="share-btn">Facebook</button>
+        <button class="share-btn">X</button>
+        <button class="share-btn">Copy Link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE + SIDEBAR -->
+  <div class="article-layout">
+    <article class="article-body">
+
+      <!-- HERO IMAGE -->
+      <div class="hero-image">
+        <div class="big-num">93</div>
+        <div class="image-label">© Crash Media Group / MotoGP 2026</div>
+      </div>
+      <div class="image-caption">Marc Márquez (#93) ขณะรอบ Out-lap ก่อน Q2 ที่ Autodromo Internazionale del Mugello — 31 พ.ค. 2026</div>
+
+      <p>ในวันที่ Autodromo Internazionale del Mugello ร้อนระอุจาก Tifosi นับหมื่นที่แห่กันมาดู Marc Márquez ก็มอบสิ่งที่พวกเขาต้องการ — แม้จะไม่ใช่สีแดงของ Ducati Works ก็ตาม เขาพุ่งออกจาก Pitlane ในรอบ Q2 อย่างมุ่งมั่น บิดจนทุก Sector เป็นสีม่วง และจบด้วย Pole Position แรกของฤดูกาล ด้วยเวลา <strong style="color:var(--gold);">1:44.823</strong> — เร็วกว่าสถิติเดิมที่เขาตั้งไว้เองเมื่อปี 2023 ถึง 0.231 วินาที</p>
+
+      <p>Pecco Bagnaia ทำเวลาได้ดีในรอบแรก แต่รอบบุกของเขาในช่วงท้ายถูกรบกวนโดย Brad Binder ที่วิ่งช้าอยู่ในโค้ง San Donato ทำให้ต้องยอมรับตำแหน่งที่สองบน Grid ห่างออกไป 0.089 วินาที ส่วน Aleix Espargaro คว้า P3 ไปด้วยเวลาที่ดีที่สุดในชีวิต ณ สนามแห่งนี้</p>
+
+      <!-- STAT GRID -->
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="stat-num"><span>1:44</span>.823</div>
+          <div class="stat-label">Pole Time ของ Márquez</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">−0<span>.</span>231</div>
+          <div class="stat-label">เร็วกว่าสถิติสนามเดิม</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">6<span>th</span></div>
+          <div class="stat-label">Pole ที่ Mugello ในอาชีพ</div>
+        </div>
+      </div>
+
+      <h2>สิ่งที่เปลี่ยนไปใน Sector 1</h2>
+
+      <p>หัวใจของการแสดงครั้งนี้อยู่ที่โค้งแรก — Sector 1 ที่ Mugello เป็นส่วนที่ต้องการทั้งความกล้าและความแม่นยำในการ Braking เข้าโค้ง San Donato ที่ความเร็วกว่า 330 กม./ชม. Márquez เบรกช้ากว่าทุกคน 4 เมตร และยังรักษาทิศทางได้อย่างสมบูรณ์แบบ ทำให้ได้เวลา Sector 1 ที่ 38.241 วินาที ซึ่งเร็วกว่า Bagnaia ถึง 0.156 วินาที</p>
+
+      <p>สิ่งนี้สะท้อนว่า Ducati Desmosedici GP26 ที่ Gresini Racing ใช้งานอยู่นั้นมีพัฒนาการด้าน Front-end Feeling อย่างชัดเจน Márquez บอกหลัง Qualifying ว่าเขาเริ่มเข้าใจจักรยานยนต์คันนี้ในระดับ "Intuitive" แล้ว — ความรู้สึกที่เขาไม่ได้สัมผัสมาตั้งแต่ยุค RC213V ที่รุ่งเรือง</p>
+
+      <!-- PULL QUOTE -->
+      <div class="pull-quote">
+        <p>ผมรู้สึกว่าจักรยานยนต์มันรู้ว่าผมต้องการอะไร มันตอบสนองก่อนที่ผมจะคิด นั่นคือความรู้สึกที่ผมรอมาหลายปีมาก</p>
+        <cite>— Marc Márquez, หลัง Q2 · Mugello 2026</cite>
+      </div>
+
+      <!-- IN-CONTENT AD -->
+      <div class="ad-inline">
+        <div class="ad-slot" style="height:90px;">728 × 90 — In-Content Banner</div>
+      </div>
+
+      <h2>ผลการ Qualifying — Q2 Mugello GP 2026</h2>
+
+      <p>ดูผลการ Qualifying อย่างเป็นทางการ พร้อมสถิติเวลาต่อ Sector ของผู้เข้ารอบ Q2 ทั้ง 12 คน</p>
+
+      <table class="lap-table">
+        <thead>
+          <tr>
+            <th>Pos.</th>
+            <th>นักแข่ง</th>
+            <th>ทีม</th>
+            <th>S1</th>
+            <th>S2</th>
+            <th>S3</th>
+            <th>เวลาดีที่สุด</th>
+            <th>ห่าง</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="pos-1">P1</td>
+            <td><strong style="color:var(--white)">M. Márquez</strong></td>
+            <td>Gresini Ducati</td>
+            <td class="fastest">38.241</td>
+            <td class="fastest">31.019</td>
+            <td class="fastest">35.563</td>
+            <td class="fastest">1:44.823</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>P2</td>
+            <td>F. Bagnaia</td>
+            <td>Ducati Lenovo</td>
+            <td>38.397</td>
+            <td>31.044</td>
+            <td>35.471</td>
+            <td>1:44.912</td>
+            <td>+0.089</td>
+          </tr>
+          <tr>
+            <td>P3</td>
+            <td>A. Espargaro</td>
+            <td>Aprilia Racing</td>
+            <td>38.512</td>
+            <td>31.201</td>
+            <td>35.588</td>
+            <td>1:45.301</td>
+            <td>+0.478</td>
+          </tr>
+          <tr>
+            <td>P4</td>
+            <td>J. Martin</td>
+            <td>Pramac Ducati</td>
+            <td>38.619</td>
+            <td>31.288</td>
+            <td>35.624</td>
+            <td>1:45.531</td>
+            <td>+0.708</td>
+          </tr>
+          <tr>
+            <td>P5</td>
+            <td>F. Quartararo</td>
+            <td>Monster Yamaha</td>
+            <td>38.721</td>
+            <td>31.390</td>
+            <td>35.710</td>
+            <td>1:45.821</td>
+            <td>+0.998</td>
+          </tr>
+          <tr>
+            <td>P6</td>
+            <td>B. Binder</td>
+            <td>Red Bull KTM</td>
+            <td>38.805</td>
+            <td>31.412</td>
+            <td>35.881</td>
+            <td>1:46.098</td>
+            <td>+1.275</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Bagnaia: "ยังไม่หมดหวัง"</h2>
+
+      <h3>Champion ปกป้องสถานะด้วยความเงียบ</h3>
+
+      <p>Pecco Bagnaia เดินออกจาก Pitbox ด้วยหน้าตาที่เรียบเฉย เขารู้ว่าวันนี้แพ้ แต่ยังไม่ได้แพ้ Season ด้วยคะแนนที่ตามหลังอยู่ 16 แต้ม ยังถือว่าเป็นระยะที่ตีกลับได้ โดยเฉพาะถ้าเขาชนะ Sprint Race พรุ่งนี้และ Main Race วันอาทิตย์ได้</p>
+
+      <p>"ผมพอใจกับรอบที่ทำได้ มันเป็นรอบที่ดีมาก แต่ Márquez วันนี้เขาอยู่อีกระดับหนึ่ง ผมยังเชื่อว่าใน Race Pace เราจะสู้กันได้ ยางตอนท้ายแข่งจะเป็นตัวตัดสิน" Bagnaia กล่าวกับสื่อหลัง Qualifying</p>
+
+      <!-- SECOND IN-CONTENT AD -->
+      <div class="ad-inline">
+        <div class="ad-slot" style="height:250px;">300 × 250 — In-Content Rectangle</div>
+      </div>
+
+      <h2>Sprint Race & Race Preview</h2>
+
+      <p>Sprint Race จะจัดขึ้นในวันเสาร์เวลา 15:00 น. ตามเวลาไทย (10:00 น. เวลาอิตาลี) รวม 13 รอบ ก่อนที่ Main Race ในวันอาทิตย์จะมี 23 รอบ ระยะรวม 120.148 กม. จุดที่น่าจับตาคือ Tire Degradation ในช่วงกลาง Race เพราะอุณหภูมิ Asphalt ที่ Mugello คาดว่าจะสูงถึง 54 องศาเซลเซียส ซึ่งจะเป็นตัวทดสอบ Strategy ของแต่ละทีม</p>
+
+      <p>สำหรับแฟนๆ ชาวไทย ติดตาม Sprint Race ได้ทาง AIS PLAY และ LIFE OF BIKE จะมีการรายงานสดบน Facebook Page ตลอดทั้งวัน</p>
+
+      <!-- TAGS -->
+      <div class="article-tags">
+        <a href="#" class="tag-item">MotoGP 2026</a>
+        <a href="#" class="tag-item">Mugello GP</a>
+        <a href="#" class="tag-item">Marc Márquez</a>
+        <a href="#" class="tag-item">Pecco Bagnaia</a>
+        <a href="#" class="tag-item">Qualifying</a>
+        <a href="#" class="tag-item">Gresini Ducati</a>
+        <a href="#" class="tag-item">Italian GP</a>
+        <a href="#" class="tag-item">Race Report</a>
+      </div>
+
+      <!-- RELATED -->
+      <div class="related-section">
+        <div class="section-label">
+          <h2>บทความที่เกี่ยวข้อง</h2>
+        </div>
+        <div class="related-grid">
+          <div class="related-card">
+            <div class="related-thumb">
+              <div class="r-bg" style="background:linear-gradient(135deg,#1a0a0a,#2a1010);width:100%;height:100%;"></div>
+            </div>
+            <h3>วิเคราะห์ Data: ทำไม Ducati GP26 ถึงครองสนาม High-Speed ทุกแห่ง</h3>
+            <span class="news-meta">30 MAY 2026 &nbsp;·&nbsp; 6 MIN READ</span>
+          </div>
+          <div class="related-card">
+            <div class="related-thumb">
+              <div class="r-bg" style="background:linear-gradient(135deg,#0e1a0e,#152a15);width:100%;height:100%;"></div>
+            </div>
+            <h3>Bagnaia Season Preview: แชมป์ที่ถูกไล่ล่า</h3>
+            <span class="news-meta">28 MAY 2026 &nbsp;·&nbsp; 5 MIN READ</span>
+          </div>
+          <div class="related-card">
+            <div class="related-thumb">
+              <div class="r-bg" style="background:linear-gradient(135deg,#0e0e1a,#15152a);width:100%;height:100%;"></div>
+            </div>
+            <h3>สคริปต์: อธิบาย Qualifying Format ให้คนใหม่เข้าใจใน 5 นาที</h3>
+            <span class="news-meta">27 MAY 2026 &nbsp;·&nbsp; SCRIPT</span>
+          </div>
+          <div class="related-card">
+            <div class="related-thumb">
+              <div class="r-bg" style="background:linear-gradient(135deg,#1a1000,#2a1a00);width:100%;height:100%;"></div>
+            </div>
+            <h3>ประวัติ Mugello: สนามที่นักแข่งรักและกลัวในเวลาเดียวกัน</h3>
+            <span class="news-meta">26 MAY 2026 &nbsp;·&nbsp; 7 MIN READ</span>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-block">
+        <div class="ad-slot" style="height:250px;">300 × 250 — Medium Rectangle</div>
+      </div>
+
+      <div class="sidebar-block" style="background:var(--gray);padding:20px;" id="standings-widget">
+        <div class="sidebar-title" style="display:flex;align-items:center;justify-content:space-between;">
+          <span>🏆 Standings 2026</span>
+          <span id="std-status" style="font-family:var(--font-mono);font-size:9px;color:#555;"></span>
+        </div>
+        <div id="std-source" style="font-family:var(--font-mono);font-size:9px;color:#444;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #2a2a2a;"></div>
+        <div id="std-rows"></div>
+        <div id="std-next-update" style="font-family:var(--font-mono);font-size:9px;color:#3a3a3a;margin-top:8px;padding-top:6px;border-top:1px solid #1a1a1a;text-align:center;"></div>
+
+        <script>
+        (function(){
+          const RACE_CALENDAR=[
+            {r:1,name:'Thai GP',raceUTC:'2026-03-01T09:00:00Z'},
+            {r:2,name:'Brazilian GP',raceUTC:'2026-03-22T18:00:00Z'},
+            {r:3,name:'Americas GP',raceUTC:'2026-03-29T19:00:00Z'},
+            {r:4,name:'Spanish GP',raceUTC:'2026-04-26T11:00:00Z'},
+            {r:5,name:'French GP',raceUTC:'2026-05-10T11:00:00Z'},
+            {r:6,name:'Catalan GP',raceUTC:'2026-05-17T11:00:00Z'},
+            {r:7,name:'Italian GP',raceUTC:'2026-05-31T11:00:00Z'},
+            {r:8,name:'Hungarian GP',raceUTC:'2026-06-07T11:00:00Z'},
+            {r:9,name:'Czech GP',raceUTC:'2026-06-21T11:00:00Z'},
+            {r:10,name:'Dutch GP',raceUTC:'2026-06-28T13:00:00Z'},
+            {r:11,name:'German GP',raceUTC:'2026-07-12T11:00:00Z'},
+            {r:12,name:'British GP',raceUTC:'2026-07-26T11:00:00Z'},
+            {r:13,name:'Austrian GP',raceUTC:'2026-08-09T11:00:00Z'},
+            {r:14,name:'Thailand GP',raceUTC:'2026-08-30T09:00:00Z'},
+            {r:15,name:'San Marino GP',raceUTC:'2026-09-06T11:00:00Z'},
+            {r:16,name:'Aragon GP',raceUTC:'2026-09-20T11:00:00Z'},
+            {r:17,name:'Japanese GP',raceUTC:'2026-10-04T05:00:00Z'},
+            {r:18,name:'Australian GP',raceUTC:'2026-10-18T05:00:00Z'},
+            {r:19,name:'Malaysian GP',raceUTC:'2026-11-01T05:00:00Z'},
+            {r:20,name:'Qatari GP',raceUTC:'2026-11-08T15:00:00Z'},
+            {r:21,name:'Portuguese GP',raceUTC:'2026-11-15T13:00:00Z'},
+            {r:22,name:'Valencia GP',raceUTC:'2026-11-22T13:00:00Z'},
+          ];
+          const SEED=[
+            {pos:1,num:'72',name:'M. Bezzecchi',pts:148},
+            {pos:2,num:'89',name:'J. Martín',pts:136},
+            {pos:3,num:'49',name:'F. Di Giannantonio',pts:123},
+            {pos:4,num:'31',name:'P. Acosta',pts:93},
+            {pos:5,num:'25',name:'R. Fernández',pts:80},
+          ];
+          const RACE_DUR=75*60*1000;
+          function getNextRound(){const now=Date.now();return RACE_CALENDAR.find(r=>new Date(r.raceUTC).getTime()>now)||null;}
+          function getNextUpdateTime(){const now=Date.now();for(const r of RACE_CALENDAR){const e=new Date(r.raceUTC).getTime()+RACE_DUR;if(e>now)return new Date(e);}return null;}
+          function render(data,src){
+            document.getElementById('std-rows').innerHTML=data.map(r=>`
+              <div class="standings-row">
+                <span class="pos${r.pos===1?' gold':''}">${r.pos}</span>
+                <span class="rider-num">#${r.num}</span>
+                <span class="rider-name">${r.name}</span>
+                <span class="rider-pts">${r.pts}</span>
+              </div>`).join('');
+            const se=document.getElementById('std-source');
+            if(se)se.textContent=src||'';
+            const nu=getNextUpdateTime();
+            const ne=document.getElementById('std-next-update');
+            if(ne&&nu){
+              const diff=nu-Date.now();
+              if(diff>0){
+                const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000);
+                const nxt=getNextRound();
+                ne.textContent=`อัปเดตหลัง ${nxt?nxt.name:''} (~${d>0?d+'ว ':''+(h>0?h+'ชม ':m+'น')})`;
+              }
+            }
+            const st=document.getElementById('std-status');
+            if(st)st.textContent='30 พ.ค. 2026';
+          }
+          render(SEED,'หลัง Italian GP Sprint · gpblog.com');
+        })();
+        </script>
+      </div>
+
+      <div class="sidebar-block" style="background:var(--gray);padding:20px;margin-top:24px;">
+        <div class="sidebar-title">📰 ข่าวล่าสุด</div>
+        <div class="recent-item">
+          <div class="recent-thumb"><div style="background:linear-gradient(135deg,#1c0e0e,#2a1515);width:100%;height:100%;"></div></div>
+          <div>
+            <h4>Aprilia เปิดตัว Aero Package ใหม่ที่ Mugello</h4>
+            <span>30 MAY · 4 MIN</span>
+          </div>
+        </div>
+        <div class="recent-item">
+          <div class="recent-thumb"><div style="background:linear-gradient(135deg,#0e1a0e,#152a15);width:100%;height:100%;"></div></div>
+          <div>
+            <h4>Quartararo เตรียมเซ็น KTM — แหล่งข่าวยืนยัน</h4>
+            <span>29 MAY · 3 MIN</span>
+          </div>
+        </div>
+        <div class="recent-item">
+          <div class="recent-thumb"><div style="background:linear-gradient(135deg,#1a1000,#2a1a00);width:100%;height:100%;"></div></div>
+          <div>
+            <h4>Jack Miller เปิดใจ KTM ให้อิสระมากขึ้น</h4>
+            <span>28 MAY · 6 MIN</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-block" style="margin-top:24px;">
+        <div class="ad-slot" style="height:600px;">300 × 600 — Half Page Ad</div>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-f">LIFE OF <span style="color:var(--red)">BIKE</span></span>
+      <p>แหล่งข่าว MotoGP ภาษาไทย อัปเดตทุกวัน พร้อมสคริปต์วิเคราะห์เชิงลึก</p>
+    </div>
+    <div class="footer-col">
+      <h4>เนื้อหา</h4>
+      <ul>
+        <li><a href="#">ข่าวสาร</a></li>
+        <li><a href="#">ผลการแข่งขัน</a></li>
+        <li><a href="#">สคริปต์</a></li>
+        <li><a href="#">วิเคราะห์</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>เกี่ยวกับ</h4>
+      <ul>
+        <li><a href="#">ทีมงาน</a></li>
+        <li><a href="#">ลงโฆษณา</a></li>
+        <li><a href="#">ติดต่อเรา</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>ติดตาม</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">X (Twitter)</a></li>
+        <li><a href="#">Line OA</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Life of Bike — ลิขสิทธิ์ทุกประการ</p>
+    <p>สำหรับข้อมูลโฆษณา: lifeofbike.ads@email.com</p>
+  </div>
+</footer>
+
+<script>
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const pct = (scrolled / total) * 100;
+    document.getElementById('readBar').style.width = pct + '%';
+  });
+</script>
+</body>
+</html>
