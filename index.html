@@ -787,6 +787,12 @@
       letter-spacing: .04em;
     }
 
+    /* ─── LIVE PULSE ─── */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .4; transform: scale(1.4); }
+    }
+
     /* ─── BACK TO TOP ─── */
     .back-top {
       position: fixed;
@@ -1074,157 +1080,26 @@
 
     <!-- STANDINGS WIDGET -->
     <div class="standings" id="standings">
-      <div class="standings-title">🏆 ตาราง 2026</div>
+      <div class="standings-title" style="display:flex;align-items:center;justify-content:space-between;">
+        <span>🏆 ตาราง 2026</span>
+        <span id="standings-live-badge" style="display:none;font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:5px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.5s infinite;display:inline-block;"></span>
+          LIVE
+        </span>
+      </div>
+      <div id="standings-updated" style="font-family:var(--font-mono);font-size:9px;color:#444;letter-spacing:.05em;margin-bottom:10px;"></div>
       <div class="standings-tabs">
         <div class="standings-tab active" onclick="switchTab(this,'riders')">นักบิด</div>
         <div class="standings-tab" onclick="switchTab(this,'constructors')">ค่าย</div>
       </div>
-
-      <div id="tab-riders">
-        <div class="standings-row">
-          <div class="pos gold">1</div>
-          <div class="rider-flag">🇪🇸</div>
-          <div class="rider-num">#93</div>
-          <div class="rider-name">Marc Márquez</div>
-          <div class="rider-pts">245</div>
-        </div>
-        <div class="standings-row">
-          <div class="pos">2</div>
-          <div class="rider-flag">🇮🇹</div>
-          <div class="rider-num">#1</div>
-          <div class="rider-name">Pecco Bagnaia</div>
-          <div class="rider-pts">198</div>
-        </div>
-        <div class="standings-row">
-          <div class="pos">3</div>
-          <div class="rider-flag">🇪🇸</div>
-          <div class="rider-num">#12</div>
-          <div class="rider-name">Maverick Viñales</div>
-          <div class="rider-pts">167</div>
-        </div>
-        <div class="standings-row">
-          <div class="pos">4</div>
-          <div class="rider-flag">🇪🇸</div>
-          <div class="rider-num">#25</div>
-          <div class="rider-name">Raul Fernández</div>
-          <div class="rider-pts">142</div>
-        </div>
-        <div class="standings-row">
-          <div class="pos">5</div>
-          <div class="rider-flag">🇫🇷</div>
-          <div class="rider-num">#5</div>
-          <div class="rider-name">Johann Zarco</div>
-          <div class="rider-pts">119</div>
-        </div>
-        <div class="standings-row">
-          <div class="pos">6</div>
-          <div class="rider-flag">🇮🇹</div>
-          <div class="rider-num">#72</div>
-          <div class="rider-name">Marco Bezzecchi</div>
-          <div class="rider-pts">98</div>
-        </div>
-        <div class="standings-row">
-          <div class="pos">7</div>
-          <div class="rider-flag">🇯🇵</div>
-          <div class="rider-num">#33</div>
-          <div class="rider-name">Brad Binder</div>
-          <div class="rider-pts">87</div>
-        </div>
-      </div>
-
-      <div id="tab-constructors" style="display:none;">
-        <div class="standings-row">
-          <div class="pos gold">1</div>
-          <div class="rider-flag">🇮🇹</div>
-          <div class="rider-num"></div>
-          <div class="rider-name">Ducati</div>
-          <div class="rider-pts">443</div>
-        </div>
-        <div class="standings-row">
-          <div class="pos">2</div>
-          <div class="rider-flag">🇮🇹</div>
-          <div class="rider-num"></div>
-          <div class="rider-name">Aprilia</div>
-          <div class="rider-pts">309</div>
-        </div>
-        <div class="standings-row">
-          <div class="pos">3</div>
-          <div class="rider-flag">🇯🇵</div>
-          <div class="rider-num"></div>
-          <div class="rider-name">Honda</div>
-          <div class="rider-pts">198</div>
-        </div>
-        <div class="standings-row">
-          <div class="pos">4</div>
-          <div class="rider-flag">🇦🇹</div>
-          <div class="rider-num"></div>
-          <div class="rider-name">KTM</div>
-          <div class="rider-pts">145</div>
-        </div>
-        <div class="standings-row">
-          <div class="pos">5</div>
-          <div class="rider-flag">🇯🇵</div>
-          <div class="rider-num"></div>
-          <div class="rider-name">Yamaha</div>
-          <div class="rider-pts">112</div>
-        </div>
-      </div>
+      <div id="tab-riders"><div style="padding:20px;text-align:center;font-family:var(--font-mono);font-size:11px;color:#444;">กำลังโหลด...</div></div>
+      <div id="tab-constructors" style="display:none;"><div style="padding:20px;text-align:center;font-family:var(--font-mono);font-size:11px;color:#444;">กำลังโหลด...</div></div>
     </div>
 
     <!-- RACE SCHEDULE -->
     <div class="race-schedule">
       <div class="standings-title">📅 ปฏิทินแข่งขัน</div>
-      <div class="schedule-item">
-        <div class="race-date-box">
-          <div class="dd">06</div>
-          <div class="mm">JUL</div>
-        </div>
-        <div style="flex:1;">
-          <div class="race-info-name">German Grand Prix</div>
-          <div class="race-info-loc">Sachsenring, เยอรมนี</div>
-        </div>
-        <span class="race-status next">ถัดไป</span>
-      </div>
-      <div class="schedule-item">
-        <div class="race-date-box">
-          <div class="dd">03</div>
-          <div class="mm">AUG</div>
-        </div>
-        <div style="flex:1;">
-          <div class="race-info-name">British Grand Prix</div>
-          <div class="race-info-loc">Silverstone, อังกฤษ</div>
-        </div>
-      </div>
-      <div class="schedule-item">
-        <div class="race-date-box">
-          <div class="dd">24</div>
-          <div class="mm">AUG</div>
-        </div>
-        <div style="flex:1;">
-          <div class="race-info-name">Austrian Grand Prix</div>
-          <div class="race-info-loc">Red Bull Ring, ออสเตรีย</div>
-        </div>
-      </div>
-      <div class="schedule-item">
-        <div class="race-date-box">
-          <div class="dd">14</div>
-          <div class="mm">SEP</div>
-        </div>
-        <div style="flex:1;">
-          <div class="race-info-name">San Marino Grand Prix</div>
-          <div class="race-info-loc">Misano, อิตาลี</div>
-        </div>
-      </div>
-      <div class="schedule-item">
-        <div class="race-date-box">
-          <div class="dd">28</div>
-          <div class="mm">SEP</div>
-        </div>
-        <div style="flex:1;">
-          <div class="race-info-name">Aragón Grand Prix</div>
-          <div class="race-info-loc">Alcañiz, สเปน</div>
-        </div>
-      </div>
+      <div id="schedule-list"><div style="padding:16px;text-align:center;font-family:var(--font-mono);font-size:11px;color:#444;">กำลังโหลด...</div></div>
     </div>
 
     <!-- SIDEBAR AD 2 -->
@@ -1387,12 +1262,115 @@
   }
 
   // Standings tabs
+  let _currentTab = 'riders';
   function switchTab(el, tab) {
+    _currentTab = tab;
     document.querySelectorAll('.standings-tab').forEach(t => t.classList.remove('active'));
     el.classList.add('active');
     document.getElementById('tab-riders').style.display = tab === 'riders' ? '' : 'none';
     document.getElementById('tab-constructors').style.display = tab === 'constructors' ? '' : 'none';
   }
+
+  // ── Live Standings & Schedule from data/*.json ─────────────────────────────
+
+  const MONTHS_TH = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  const MONTHS_EN = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+
+  function renderRiders(riders) {
+    return riders.map(r => `
+      <div class="standings-row">
+        <div class="pos ${r.pos===1?'gold':''}">${r.pos}</div>
+        <div class="rider-flag">${r.flag||''}</div>
+        <div class="rider-num">#${r.num}</div>
+        <div class="rider-name">${r.name}</div>
+        <div class="rider-pts">${r.pts}</div>
+      </div>`).join('');
+  }
+
+  function renderConstructors(constructors) {
+    return constructors.map(c => `
+      <div class="standings-row">
+        <div class="pos ${c.pos===1?'gold':''}">${c.pos}</div>
+        <div class="rider-flag">${c.flag||''}</div>
+        <div class="rider-num"></div>
+        <div class="rider-name">${c.name}</div>
+        <div class="rider-pts">${c.pts}</div>
+      </div>`).join('');
+  }
+
+  function renderSchedule(events) {
+    if (!events.length) return '<div style="padding:12px;font-family:var(--font-mono);font-size:11px;color:#444;">ไม่มีข้อมูล</div>';
+    const isFirst = true;
+    return events.map((ev, i) => {
+      const d = ev.date ? new Date(ev.date + 'T00:00:00Z') : null;
+      const dd = d ? String(d.getUTCDate()).padStart(2,'0') : '--';
+      const mm = d ? MONTHS_EN[d.getUTCMonth()] : '---';
+      const isNext = i === 0;
+      return `
+        <div class="schedule-item">
+          <div class="race-date-box">
+            <div class="dd">${dd}</div>
+            <div class="mm">${mm}</div>
+          </div>
+          <div style="flex:1;">
+            <div class="race-info-name">${ev.name}</div>
+            <div class="race-info-loc">${ev.flag||''} ${ev.circuit}${ev.country ? ', '+ev.country : ''}</div>
+          </div>
+          ${isNext ? '<span class="race-status next">ถัดไป</span>' : ''}
+        </div>`;
+    }).join('');
+  }
+
+  function timeAgo(isoStr) {
+    if (!isoStr) return '';
+    const diff = Math.floor((Date.now() - new Date(isoStr)) / 60000);
+    if (diff < 1) return 'เพิ่งอัปเดต';
+    if (diff < 60) return `อัปเดต ${diff} นาทีที่แล้ว`;
+    const h = Math.floor(diff / 60);
+    if (h < 24) return `อัปเดต ${h} ชม.ที่แล้ว`;
+    return `อัปเดต ${Math.floor(h/24)} วันที่แล้ว`;
+  }
+
+  async function loadStandings() {
+    try {
+      const res = await fetch(`data/standings.json?t=${Date.now()}`);
+      if (!res.ok) throw new Error('not found');
+      const data = await res.json();
+
+      document.getElementById('tab-riders').innerHTML = renderRiders(data.riders || []);
+      document.getElementById('tab-constructors').innerHTML = renderConstructors(data.constructors || []);
+
+      const updEl = document.getElementById('standings-updated');
+      if (updEl && data.updatedAt) {
+        updEl.textContent = timeAgo(data.updatedAt);
+        // Show LIVE badge if updated within 20 minutes
+        const minsAgo = (Date.now() - new Date(data.updatedAt)) / 60000;
+        if (minsAgo < 20) {
+          document.getElementById('standings-live-badge').style.display = 'flex';
+        }
+      }
+    } catch {
+      // fallback already in HTML; silently ignore
+    }
+  }
+
+  async function loadSchedule() {
+    try {
+      const res = await fetch(`data/schedule.json?t=${Date.now()}`);
+      if (!res.ok) throw new Error('not found');
+      const data = await res.json();
+      const el = document.getElementById('schedule-list');
+      if (el) el.innerHTML = renderSchedule(data.events || []);
+    } catch {
+      // use fallback
+    }
+  }
+
+  loadStandings();
+  loadSchedule();
+
+  // Auto-refresh every 5 minutes (useful when user leaves tab open during race)
+  setInterval(() => { loadStandings(); loadSchedule(); }, 5 * 60 * 1000);
 
   // Back to top
   const backTop = document.getElementById('backTop');

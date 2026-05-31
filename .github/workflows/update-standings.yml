@@ -1,0 +1,36 @@
+name: Update MotoGP Standings
+
+on:
+  schedule:
+    # Every 15 minutes during race weekends (Fri–Sun UTC), every hour otherwise
+    - cron: "*/15 6-18 * * 5-0"   # Fri–Sun 06:00–18:00 UTC  (race days)
+    - cron: "0 * * * 1-4"          # Mon–Thu every hour
+  workflow_dispatch:                # Manual trigger button on GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch standings & schedule
+        run: python scripts/fetch_standings.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name  "standings-bot"
+          git config user.email "bot@lifeofbike.github.io"
+          git add data/standings.json data/schedule.json
+          git diff --cached --quiet || git commit -m "chore: update standings $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push

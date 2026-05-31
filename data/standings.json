@@ -1,0 +1,24 @@
+{
+  "updatedAt": "2026-05-31T00:00:00Z",
+  "source": "seed",
+  "season": 2026,
+  "riders": [
+    {"pos":1,"num":"93","name":"Marc Márquez","team":"Gresini Ducati","pts":245,"flag":"🇪🇸"},
+    {"pos":2,"num":"1","name":"Pecco Bagnaia","team":"Ducati Lenovo","pts":198,"flag":"🇮🇹"},
+    {"pos":3,"num":"12","name":"Maverick Viñales","team":"Aprilia Racing","pts":167,"flag":"🇪🇸"},
+    {"pos":4,"num":"25","name":"Raul Fernández","team":"Trackhouse Aprilia","pts":142,"flag":"🇪🇸"},
+    {"pos":5,"num":"5","name":"Johann Zarco","team":"LCR Honda","pts":119,"flag":"🇫🇷"},
+    {"pos":6,"num":"72","name":"Marco Bezzecchi","team":"Trackhouse Aprilia","pts":98,"flag":"🇮🇹"},
+    {"pos":7,"num":"33","name":"Brad Binder","team":"Red Bull KTM","pts":87,"flag":"🇿🇦"},
+    {"pos":8,"num":"73","name":"Alex Márquez","team":"Gresini Ducati","pts":76,"flag":"🇪🇸"},
+    {"pos":9,"num":"41","name":"Aleix Espargaro","team":"Aprilia Racing","pts":62,"flag":"🇪🇸"},
+    {"pos":10,"num":"10","name":"Luca Marini","team":"Repsol Honda","pts":55,"flag":"🇮🇹"}
+  ],
+  "constructors": [
+    {"pos":1,"name":"Ducati","pts":443,"flag":"🇮🇹"},
+    {"pos":2,"name":"Aprilia","pts":309,"flag":"🇮🇹"},
+    {"pos":3,"name":"Honda","pts":198,"flag":"🇯🇵"},
+    {"pos":4,"name":"KTM","pts":145,"flag":"🇦🇹"},
+    {"pos":5,"name":"Yamaha","pts":112,"flag":"🇯🇵"}
+  ]
+}
