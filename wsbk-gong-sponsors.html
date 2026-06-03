@@ -78,8 +78,16 @@
 
   /* HERO IMAGE */
   .hero-image { position: relative; margin: 0 40px; max-width: 1120px; }
-  .hero-image img { width: 100%; height: 480px; object-fit: cover; display: block; }
+  .hero-image img { width: 100%; max-height: 680px; object-fit: cover; object-position: center top; display: block; }
   .image-caption { font-family: var(--font-mono); font-size: 10px; color: #444; letter-spacing: .05em; padding: 10px 0 0; margin: 0 40px; }
+
+  /* PHOTO GALLERY */
+  .photo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 40px 0; }
+  .photo-gallery-item { position: relative; overflow: hidden; aspect-ratio: 1; }
+  .photo-gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
+  .photo-gallery-item:hover img { transform: scale(1.04); }
+  .photo-gallery-item.full { grid-column: 1 / -1; aspect-ratio: 16/9; }
+  .photo-credit { position: absolute; bottom: 8px; right: 10px; font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,.5); letter-spacing: .05em; background: rgba(0,0,0,.4); padding: 2px 6px; }
 
   /* ARTICLE LAYOUT */
   .article-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; padding: 40px 40px; max-width: 1400px; margin: 0 auto; }
@@ -239,12 +247,12 @@
 
   <!-- HERO IMAGE -->
   <div class="hero-image" style="margin-top:32px;">
-    <img src="https://picsum.photos/seed/wsbk-gong/1120/480" alt="ก้อง สมเกียรติ จันทรา WorldSBK Motul" style="filter:brightness(.75);">
-    <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 100%);padding:20px 28px 14px;">
-      <div style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase;">ภาพ Representative · ก้อง สมเกียรติ จันทรา #35 · Honda CBR1000RR-R · WorldSBK Motul</div>
+    <img src="images/gong-photo1.jpg" alt="ก้อง สมเกียรติ จันทรา กับ Honda CBR1000RR-R WorldSBK Motul">
+    <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 100%);padding:20px 28px 14px;">
+      <div style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase;">📷 ภาพ: <a href="https://www.instagram.com/somkiatchantra/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55);text-decoration:none;">@somkiatchantra</a> / Instagram</div>
     </div>
   </div>
-  <div class="image-caption">ก้อง สมเกียรติ จันทรา นักแข่งไทยคนแรกที่ก้าวสู่คลาสใหญ่สุดของ WorldSBK Motul / ภาพ: Representative</div>
+  <div class="image-caption">ก้อง สมเกียรติ จันทรา #35 กับ Honda CBR1000RR-R Fireblade · Team HRC · WorldSBK Motul &nbsp;|&nbsp; 📷 <a href="https://www.instagram.com/somkiatchantra/" target="_blank" rel="noopener" style="color:#555;text-decoration:none;">@somkiatchantra</a></div>
 
   <!-- ARTICLE BODY + SIDEBAR -->
   <div class="article-layout">
@@ -416,6 +424,24 @@
       <p>และที่น่าภูมิใจคือมีแบรนด์ไทยอย่าง Yum Yum และ Sittipol ร่วมอยู่ในนั้นด้วย ซึ่งเป็นสัญญาณที่ดีมากว่าแวดวงมอเตอร์สปอร์ตไทยกำลังเติบโตขึ้นในเวทีโลกอย่างจริงจัง</p>
 
       <p>ถ้าอยากให้ผมทำบทความแบบนี้สำหรับนักแข่งหรือรายการอื่น comment บอกได้เลยครับ</p>
+
+      <!-- PHOTO GALLERY -->
+      <div style="margin:48px 0 12px;">
+        <div style="font-family:var(--font-display);font-size:22px;letter-spacing:.06em;color:var(--white);border-bottom:1px solid #222;padding-bottom:10px;margin-bottom:20px;">ภาพบรรยากาศ</div>
+        <div class="photo-gallery">
+          <div class="photo-gallery-item">
+            <img src="images/gong-photo2.jpg" alt="ก้อง สมเกียรติ ในสนามแข่ง ทีมช่วยเตรียมรถ">
+            <span class="photo-credit">📷 @somkiatchantra</span>
+          </div>
+          <div class="photo-gallery-item">
+            <img src="images/gong-photo3.jpg" alt="ก้อง สมเกียรติ บน Grid Start WorldSBK">
+            <span class="photo-credit">📷 @somkiatchantra</span>
+          </div>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:10px;color:#444;letter-spacing:.05em;margin-top:8px;">
+          📷 ทุกภาพ: <a href="https://www.instagram.com/somkiatchantra/" target="_blank" rel="noopener" style="color:#555;text-decoration:none;">@somkiatchantra</a> / Instagram — ใช้โดยได้รับอนุญาต
+        </div>
+      </div>
 
       <!-- TAGS -->
       <div class="article-tags">
