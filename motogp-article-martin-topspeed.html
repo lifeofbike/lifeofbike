@@ -455,7 +455,10 @@
     .related-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
   }
-</style>
+    /* ─── AD CAROUSEL ─── */
+    .ad-carousel { position:relative; width:100%; aspect-ratio:2164/292; overflow:hidden; display:block; background:#0a0a0a; }
+    .ad-carousel img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .8s ease; cursor:pointer; display:block; }
+    .ad-carousel img.ad-active { opacity:1; }</style>
 </head>
 <body>
 
@@ -486,7 +489,10 @@
 
   <!-- TOP AD -->
   <div class="ad-top">
-    <div class="ad-slot" style="height:auto;aspect-ratio:2164/292;display:block;padding:0;border:none;overflow:hidden;"><a href="https://www.motul.com/th/th" target="_blank" rel="noopener sponsored" style="display:block;width:100%;height:100%;line-height:0;"><img src="images/ad-motul-leaderboard.jpg" alt="Motul 300V — Ride Beyond" style="width:100%;height:100%;object-fit:cover;display:block;"></a></div>
+    <div class="ad-carousel" data-links='["https://www.motul.com/th/th","https://www.alpinestars.com/"]'>
+  <img src="images/ad-motul-leaderboard.jpg" alt="Motul 300V — Ride Beyond">
+  <img src="images/ad-alpinestars-leaderboard.jpg" alt="Alpinestars Sportswear">
+</div>
   </div>
 
   <!-- ARTICLE HEADER -->
@@ -569,7 +575,10 @@
 
       <!-- IN-CONTENT AD -->
       <div class="ad-inline">
-        <div class="ad-slot" style="height:auto;aspect-ratio:2164/292;display:block;padding:0;border:none;overflow:hidden;"><a href="https://www.motul.com/th/th" target="_blank" rel="noopener sponsored" style="display:block;width:100%;height:100%;line-height:0;"><img src="images/ad-motul-leaderboard.jpg" alt="Motul 300V — Ride Beyond" style="width:100%;height:100%;object-fit:cover;display:block;"></a></div>
+        <div class="ad-carousel" data-links='["https://www.motul.com/th/th","https://www.alpinestars.com/"]'>
+  <img src="images/ad-motul-leaderboard.jpg" alt="Motul 300V — Ride Beyond">
+  <img src="images/ad-alpinestars-leaderboard.jpg" alt="Alpinestars Sportswear">
+</div>
       </div>
 
       <h2>วิศวกร Aprilia: "เป็นเป้าหมายที่เราตั้งไว้"</h2>
@@ -821,5 +830,20 @@
     document.getElementById('readBar').style.width = pct + '%';
   });
 </script>
-</body>
+<script>
+document.querySelectorAll('.ad-carousel').forEach(function(c){
+  var imgs=c.querySelectorAll('img'),links=JSON.parse(c.dataset.links||'[]'),cur=0;
+  if(imgs[0])imgs[0].classList.add('ad-active');
+  imgs.forEach(function(img,i){
+    img.onclick=function(){if(links[i])window.open(links[i],'_blank','noopener');};
+  });
+  if(imgs.length>1){
+    setInterval(function(){
+      imgs[cur].classList.remove('ad-active');
+      cur=(cur+1)%imgs.length;
+      imgs[cur].classList.add('ad-active');
+    },5000);
+  }
+});
+</script></body>
 </html>

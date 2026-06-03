@@ -446,7 +446,10 @@
     .related-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
   }
-</style>
+    /* ─── AD CAROUSEL ─── */
+    .ad-carousel { position:relative; width:100%; aspect-ratio:2164/292; overflow:hidden; display:block; background:#0a0a0a; }
+    .ad-carousel img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .8s ease; cursor:pointer; display:block; }
+    .ad-carousel img.ad-active { opacity:1; }</style>
 </head>
 <body>
 
@@ -720,4 +723,19 @@
 </script>
 
 
-</body></html>
+<script>
+document.querySelectorAll('.ad-carousel').forEach(function(c){
+  var imgs=c.querySelectorAll('img'),links=JSON.parse(c.dataset.links||'[]'),cur=0;
+  if(imgs[0])imgs[0].classList.add('ad-active');
+  imgs.forEach(function(img,i){
+    img.onclick=function(){if(links[i])window.open(links[i],'_blank','noopener');};
+  });
+  if(imgs.length>1){
+    setInterval(function(){
+      imgs[cur].classList.remove('ad-active');
+      cur=(cur+1)%imgs.length;
+      imgs[cur].classList.add('ad-active');
+    },5000);
+  }
+});
+</script></body></html>
