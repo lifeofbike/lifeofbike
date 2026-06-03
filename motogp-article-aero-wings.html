@@ -665,78 +665,7 @@
         <div class="ad-slot" style="height:250px;"><span style="font-family:monospace;font-size:11px;color:#3a3a3a;letter-spacing:.08em;">AD SPACE</span></div>
       </div>
 
-      <div class="sidebar-block" style="background:var(--gray);padding:20px;" id="standings-widget">
-        <div class="sidebar-title" style="display:flex;align-items:center;justify-content:space-between;">
-          <span>🏆 Standings 2026</span>
-          <span id="std-status" style="font-family:var(--font-mono);font-size:9px;color:#555;"></span>
-        </div>
-        <div id="std-source" style="font-family:var(--font-mono);font-size:9px;color:#444;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #2a2a2a;"></div>
-        <div id="std-rows"></div>
-        <div id="std-next-update" style="font-family:var(--font-mono);font-size:9px;color:#3a3a3a;margin-top:8px;padding-top:6px;border-top:1px solid #1a1a1a;text-align:center;"></div>
-
-        <script>
-        (function(){
-          const RACE_CALENDAR=[
-            {r:1,name:'Thai GP',raceUTC:'2026-03-01T09:00:00Z'},
-            {r:2,name:'Brazilian GP',raceUTC:'2026-03-22T18:00:00Z'},
-            {r:3,name:'Americas GP',raceUTC:'2026-03-29T19:00:00Z'},
-            {r:4,name:'Spanish GP',raceUTC:'2026-04-26T11:00:00Z'},
-            {r:5,name:'French GP',raceUTC:'2026-05-10T11:00:00Z'},
-            {r:6,name:'Catalan GP',raceUTC:'2026-05-17T11:00:00Z'},
-            {r:7,name:'Italian GP',raceUTC:'2026-05-31T11:00:00Z'},
-            {r:8,name:'Hungarian GP',raceUTC:'2026-06-07T11:00:00Z'},
-            {r:9,name:'Czech GP',raceUTC:'2026-06-21T11:00:00Z'},
-            {r:10,name:'Dutch GP',raceUTC:'2026-06-28T13:00:00Z'},
-            {r:11,name:'German GP',raceUTC:'2026-07-12T11:00:00Z'},
-            {r:12,name:'British GP',raceUTC:'2026-07-26T11:00:00Z'},
-            {r:13,name:'Austrian GP',raceUTC:'2026-08-09T11:00:00Z'},
-            {r:14,name:'Thailand GP',raceUTC:'2026-08-30T09:00:00Z'},
-            {r:15,name:'San Marino GP',raceUTC:'2026-09-06T11:00:00Z'},
-            {r:16,name:'Aragon GP',raceUTC:'2026-09-20T11:00:00Z'},
-            {r:17,name:'Japanese GP',raceUTC:'2026-10-04T05:00:00Z'},
-            {r:18,name:'Australian GP',raceUTC:'2026-10-18T05:00:00Z'},
-            {r:19,name:'Malaysian GP',raceUTC:'2026-11-01T05:00:00Z'},
-            {r:20,name:'Qatari GP',raceUTC:'2026-11-08T15:00:00Z'},
-            {r:21,name:'Portuguese GP',raceUTC:'2026-11-15T13:00:00Z'},
-            {r:22,name:'Valencia GP',raceUTC:'2026-11-22T13:00:00Z'},
-          ];
-          const SEED=[
-            {pos:1,num:'72',name:'M. Bezzecchi',pts:148},
-            {pos:2,num:'89',name:'J. Martín',pts:136},
-            {pos:3,num:'49',name:'F. Di Giannantonio',pts:123},
-            {pos:4,num:'31',name:'P. Acosta',pts:93},
-            {pos:5,num:'25',name:'R. Fernández',pts:80},
-          ];
-          const RACE_DUR=75*60*1000;
-          function getNextRound(){const now=Date.now();return RACE_CALENDAR.find(r=>new Date(r.raceUTC).getTime()>now)||null;}
-          function getNextUpdateTime(){const now=Date.now();for(const r of RACE_CALENDAR){const e=new Date(r.raceUTC).getTime()+RACE_DUR;if(e>now)return new Date(e);}return null;}
-          function render(data,src){
-            document.getElementById('std-rows').innerHTML=data.map(r=>`
-              <div class="standings-row">
-                <span class="pos${r.pos===1?' gold':''}">${r.pos}</span>
-                <span class="rider-num">#${r.num}</span>
-                <span class="rider-name">${r.name}</span>
-                <span class="rider-pts">${r.pts}</span>
-              </div>`).join('');
-            const se=document.getElementById('std-source');
-            if(se)se.textContent=src||'';
-            const nu=getNextUpdateTime();
-            const ne=document.getElementById('std-next-update');
-            if(ne&&nu){
-              const diff=nu-Date.now();
-              if(diff>0){
-                const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000);
-                const nxt=getNextRound();
-                ne.textContent=`อัปเดตหลัง ${nxt?nxt.name:''} (~${d>0?d+'ว ':''+(h>0?h+'ชม ':m+'น')})`;
-              }
-            }
-            const st=document.getElementById('std-status');
-            if(st)st.textContent='30 พ.ค. 2026';
-          }
-          render(SEED,'หลัง Italian GP Sprint · gpblog.com');
-        })();
-        </script>
-      </div>
+      
 
       <div class="sidebar-block" style="background:var(--gray);padding:20px;margin-top:24px;">
         <div class="sidebar-title">📰 ข่าวล่าสุด</div>
