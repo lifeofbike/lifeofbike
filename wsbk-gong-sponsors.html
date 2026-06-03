@@ -99,49 +99,66 @@
   article h3 { font-family: var(--font-serif); font-size: 20px; color: var(--white); margin: 28px 0 12px; font-style: italic; }
   article strong { color: var(--white); font-weight: 600; }
 
-  /* BRAND CARD */
-  .brand-card {
-    background: var(--gray);
-    border-left: 3px solid var(--red);
-    padding: 24px 28px;
-    margin: 32px 0;
-    position: relative;
+  /* BRAND ENTRY — clean, readable listicle format */
+  .brand-entry {
+    margin: 40px 0;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #1e1e1e;
   }
-  .brand-num {
-    font-family: var(--font-display);
-    font-size: 64px;
-    color: #222;
-    line-height: 1;
-    position: absolute;
-    top: 12px; right: 20px;
+  .brand-entry:last-of-type { border-bottom: none; }
+  .brand-entry-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 6px;
   }
-  .brand-tag {
+  .brand-entry-num {
     font-family: var(--font-mono);
-    font-size: 9px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
+    font-size: 11px;
     color: var(--red);
-    margin-bottom: 8px;
+    letter-spacing: .12em;
+    flex-shrink: 0;
+    min-width: 36px;
   }
-  .brand-name {
-    font-family: var(--font-display);
+  .brand-entry-name {
+    font-family: var(--font-serif);
     font-size: 28px;
-    letter-spacing: .04em;
     color: var(--white);
-    margin-bottom: 4px;
+    line-height: 1.1;
   }
-  .brand-origin {
+  .brand-entry-meta {
     font-family: var(--font-mono);
     font-size: 10px;
     color: #555;
-    letter-spacing: .06em;
-    margin-bottom: 14px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    margin: 6px 0 14px 50px;
   }
-  .brand-desc {
-    font-size: 15px;
-    color: #c0b8b0;
-    line-height: 1.7;
+  .brand-entry-body {
+    font-size: 16px;
+    color: #ccc4bc;
+    line-height: 1.9;
+    margin-left: 50px;
   }
+  .brand-entry-body strong { color: var(--white); }
+
+  /* IG ICON LINK */
+  .ig-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #c13584;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .04em;
+    transition: opacity .2s;
+    vertical-align: middle;
+  }
+  .ig-link:hover { opacity: .75; }
+  .ig-link svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
+  .ig-link-lg { font-size: 13px; gap: 7px; }
+  .ig-link-lg svg { width: 20px; height: 20px; }
 
   /* PULL QUOTE */
   .pull-quote { border-left: 3px solid var(--gold); padding: 20px 28px; margin: 36px 0; background: rgba(201,168,76,.05); }
@@ -248,11 +265,20 @@
   <!-- HERO IMAGE -->
   <div class="hero-image" style="margin-top:32px;">
     <img src="images/gong-photo1.jpg" alt="ก้อง สมเกียรติ จันทรา กับ Honda CBR1000RR-R WorldSBK Motul">
-    <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 100%);padding:20px 28px 14px;">
-      <div style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase;">📷 ภาพ: <a href="https://www.instagram.com/somkiatchantra/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55);text-decoration:none;">@somkiatchantra</a> / Instagram</div>
+    <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 100%);padding:16px 24px 12px;">
+      <a class="ig-link" href="https://www.instagram.com/somkiatchantra/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55);">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @somkiatchantra
+      </a>
     </div>
   </div>
-  <div class="image-caption">ก้อง สมเกียรติ จันทรา #35 กับ Honda CBR1000RR-R Fireblade · Team HRC · WorldSBK Motul &nbsp;|&nbsp; 📷 <a href="https://www.instagram.com/somkiatchantra/" target="_blank" rel="noopener" style="color:#555;text-decoration:none;">@somkiatchantra</a></div>
+  <div class="image-caption">
+    ก้อง สมเกียรติ จันทรา #35 · Honda CBR1000RR-R · Team HRC · WorldSBK Motul &nbsp;|&nbsp;
+    <a class="ig-link" href="https://www.instagram.com/somkiatchantra/" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @somkiatchantra
+    </a>
+  </div>
 
   <!-- ARTICLE BODY + SIDEBAR -->
   <div class="article-layout">
@@ -262,159 +288,158 @@
 
       <p>มาไล่กันทีละแบรนด์เลย</p>
 
-      <!-- 1 -->
-      <div class="brand-card">
-        <div class="brand-num">01</div>
-        <div class="brand-tag">พลังงาน · Engineering</div>
-        <div class="brand-name">EEST อีสต์ เอ็นเนอร์ยี่</div>
-        <div class="brand-origin">🌍 ผู้ให้บริการระดับโลก</div>
-        <p class="brand-desc">ผู้ให้บริการชั้นนำระดับโลกด้านโซลูชันวิศวกรรมสำหรับอุตสาหกรรมสำรวจและผลิตปิโตรเลียม ทำทุกอย่างตั้งแต่การออกแบบระบบ ไปจนถึงการติดตั้งและบำรุงรักษาในสภาพแวดล้อมที่ท้าทายที่สุดในโลก</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">01 —</span>
+          <span class="brand-entry-name">EEST อีสต์ เอ็นเนอร์ยี่</span>
+        </div>
+        <div class="brand-entry-meta">🌍 ระดับโลก &nbsp;·&nbsp; วิศวกรรมปิโตรเลียม</div>
+        <p class="brand-entry-body">ผู้ให้บริการชั้นนำระดับโลกด้านโซลูชันวิศวกรรมสำหรับอุตสาหกรรมสำรวจและผลิตปิโตรเลียม ทำทุกอย่างตั้งแต่การออกแบบระบบ ไปจนถึงการติดตั้งและบำรุงรักษาในสภาพแวดล้อมที่ท้าทายที่สุดในโลก</p>
       </div>
 
-      <!-- 2 -->
-      <div class="brand-card">
-        <div class="brand-num">02</div>
-        <div class="brand-tag">หมวกกันน็อก · Safety</div>
-        <div class="brand-name">Arai อาราย</div>
-        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
-        <p class="brand-desc">หมวกกันน็อกนิรภัยระดับพรีเมียมจากญี่ปุ่น ก่อตั้งในปี 1950 โดย Hirotake Arai ปัจจุบันเป็นหนึ่งในแบรนด์หมวกที่นักแข่งระดับโลกไว้วางใจมากที่สุด ด้วยการผลิตแบบ Handmade ทีละใบและตรวจสอบคุณภาพอย่างเข้มงวดทุกขั้นตอน</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">02 —</span>
+          <span class="brand-entry-name">Arai อาราย</span>
+        </div>
+        <div class="brand-entry-meta">🇯🇵 ญี่ปุ่น &nbsp;·&nbsp; หมวกกันน็อกพรีเมียม</div>
+        <p class="brand-entry-body">หมวกกันน็อกนิรภัยระดับพรีเมียมจากญี่ปุ่น ก่อตั้งในปี 1950 โดย Hirotake Arai เป็นหนึ่งในแบรนด์หมวกที่นักแข่งระดับโลกไว้วางใจมากที่สุด ผลิตแบบ Handmade ทีละใบ ตรวจสอบคุณภาพทุกขั้นตอน</p>
       </div>
 
-      <!-- 3 -->
-      <div class="brand-card">
-        <div class="brand-num">03</div>
-        <div class="brand-tag">ผู้ผลิตรถ · Manufacturer</div>
-        <div class="brand-name">Honda / HRC</div>
-        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
-        <p class="brand-desc">ค่ายผู้ผลิตยานยนต์และมอเตอร์ไซค์ระดับโลก โดย <strong>HRC (Honda Racing Corporation)</strong> คือหน่วยงานแข่งรถที่รับผิดชอบพัฒนาตัวรถแข่งโปรเจกต์นี้โดยตรง ก้องขี่ Honda CBR1000RR-R Fireblade ซึ่งเป็นซูเปอร์ไบค์รุ่นท็อปของ Honda ที่ใช้แข่งใน WSBK</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">03 —</span>
+          <span class="brand-entry-name">Honda / HRC</span>
+        </div>
+        <div class="brand-entry-meta">🇯🇵 ญี่ปุ่น &nbsp;·&nbsp; ผู้ผลิตและทีมแข่ง</div>
+        <p class="brand-entry-body">ค่ายผู้ผลิตยานยนต์และมอเตอร์ไซค์ระดับโลก โดย <strong>HRC (Honda Racing Corporation)</strong> คือหน่วยงานที่รับผิดชอบพัฒนาตัวรถแข่งโปรเจกต์นี้โดยตรง ก้องขี่ Honda CBR1000RR-R Fireblade ซูเปอร์ไบค์รุ่นท็อปที่ใช้ในสนาม WSBK</p>
       </div>
 
       <div class="ad-inline">
         <div class="ad-slot" style="height:90px;">728 × 90 — In-Content Banner</div>
       </div>
 
-      <!-- 4 -->
-      <div class="brand-card">
-        <div class="brand-num">04</div>
-        <div class="brand-tag">ยางแข่ง · Official Tyre</div>
-        <div class="brand-name">Pirelli พิเรลลี่</div>
-        <div class="brand-origin">🇮🇹 อิตาลี</div>
-        <p class="brand-desc">ยักษ์ใหญ่ผู้ผลิตยางรถยนต์และจักรยานยนต์สัญชาติอิตาลี และที่สำคัญคือ Pirelli เป็น <strong>ซัพพลายเออร์และแบรนด์ยางอย่างเป็นทางการรายเดียวของ WSBK Motul</strong> แปลว่าทุกคันในสนาม ทุกสนาม ใช้ยาง Pirelli หมดเลยโดยไม่มีตัวเลือกอื่น</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">04 —</span>
+          <span class="brand-entry-name">Pirelli พิเรลลี่</span>
+        </div>
+        <div class="brand-entry-meta">🇮🇹 อิตาลี &nbsp;·&nbsp; ยางอย่างเป็นทางการ WSBK</div>
+        <p class="brand-entry-body">ยักษ์ใหญ่ผู้ผลิตยางสัญชาติอิตาลี Pirelli เป็น <strong>ซัพพลายเออร์ยางรายเดียวของ WSBK Motul</strong> ทุกคันทุกสนามต้องใช้ยาง Pirelli เพียงแบรนด์เดียว ไม่มีตัวเลือกอื่น ทำให้ทุกทีมอยู่บนมาตรฐานเดียวกัน</p>
       </div>
 
-      <!-- 5 -->
-      <div class="brand-card">
-        <div class="brand-num">05</div>
-        <div class="brand-tag">Title Sponsor · น้ำมันเครื่อง</div>
-        <div class="brand-name">Motul โมตุล</div>
-        <div class="brand-origin">🇫🇷 ฝรั่งเศส</div>
-        <p class="brand-desc">แบรนด์น้ำมันเครื่องและสารหล่อลื่นประสิทธิภาพสูงจากฝรั่งเศส ก่อตั้งมาตั้งแต่ปี 1853 นอกจากเป็นสปอนเซอร์ในชุดแข่งแล้ว Motul ยังเป็น <strong>ผู้สนับสนุนหลักอย่างเป็นทางการ (Title Sponsor)</strong> ของการแข่งขันรายการนี้ จนได้ชื่อนำหน้าว่า <em>Motul FIM Superbike World Championship</em></p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">05 —</span>
+          <span class="brand-entry-name">Motul โมตุล</span>
+        </div>
+        <div class="brand-entry-meta">🇫🇷 ฝรั่งเศส &nbsp;·&nbsp; Title Sponsor + น้ำมันเครื่อง</div>
+        <p class="brand-entry-body">น้ำมันเครื่องและสารหล่อลื่นประสิทธิภาพสูง ก่อตั้งปี 1853 ไม่ใช่แค่สปอนเซอร์บนชุด แต่ Motul คือ <strong>Title Sponsor</strong> ของรายการนี้ จนได้ชื่อเต็มว่า <em>Motul FIM Superbike World Championship</em></p>
       </div>
 
       <div class="pull-quote">
-        <p>"ทุก Logo บนชุดของก้องไม่ได้อยู่แบบสุ่ม — แต่ละแบรนด์คือส่วนหนึ่งของทีม คือเงินที่หล่อเลี้ยงให้นักแข่งสู้ได้ในระดับโลก"</p>
+        <p>"ทุก Logo บนชุดของก้องไม่ได้อยู่แบบสุ่ม แต่ละแบรนด์คือส่วนหนึ่งของทีม คือเงินที่หล่อเลี้ยงให้นักแข่งสู้ได้ในระดับโลก"</p>
         <cite>— Life of Bike</cite>
       </div>
 
-      <!-- 6 -->
-      <div class="brand-card">
-        <div class="brand-num">06</div>
-        <div class="brand-tag">ท่อไอเสีย · Exhaust</div>
-        <div class="brand-name">Akrapovič อาคราโพวิช</div>
-        <div class="brand-origin">🇸🇮 สโลวีเนีย</div>
-        <p class="brand-desc">ผู้ผลิตระบบท่อไอเสียสมรรถนะสูงระดับท็อปจากสโลวีเนีย ใช้วัสดุพิเศษเช่น Titanium, Carbon Fiber และ Inconel ที่ทนทานสูงและน้ำหนักเบา ท่อ Akrapovič ช่วยเพิ่มกำลังและลดน้ำหนักได้อย่างมีนัยสำคัญในระดับแข่ง</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">06 —</span>
+          <span class="brand-entry-name">Akrapovič อาคราโพวิช</span>
+        </div>
+        <div class="brand-entry-meta">🇸🇮 สโลวีเนีย &nbsp;·&nbsp; ท่อไอเสียแข่งขัน</div>
+        <p class="brand-entry-body">ผู้ผลิตท่อไอเสียสมรรถนะสูงระดับท็อปจากสโลวีเนีย ใช้วัสดุ Titanium, Carbon Fiber และ Inconel ท่อ Akrapovič ช่วยเพิ่มกำลังและลดน้ำหนักได้อย่างมีนัยสำคัญ เป็นอุปกรณ์มาตรฐานของทีมแข่งระดับโลกทั่วโลก</p>
       </div>
 
-      <!-- 7 -->
-      <div class="brand-card">
-        <div class="brand-num">07</div>
-        <div class="brand-tag">ชุดแข่ง · Safety Gear</div>
-        <div class="brand-name">KUSHITANI คูชิทานิ</div>
-        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
-        <p class="brand-desc">อุปกรณ์เซฟตี้และชุดแข่งมอเตอร์ไซค์จากญี่ปุ่น ก่อตั้งในปี 1949 เชี่ยวชาญด้านการผลิตชุดหนัง Leather Suit ที่ใช้ในการแข่งขัน ตัดเย็บด้วยมือและวัสดุคุณภาพสูง พร้อม Airbag System ในตัว</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">07 —</span>
+          <span class="brand-entry-name">KUSHITANI คูชิทานิ</span>
+        </div>
+        <div class="brand-entry-meta">🇯🇵 ญี่ปุ่น &nbsp;·&nbsp; ชุดแข่งและอุปกรณ์เซฟตี้</div>
+        <p class="brand-entry-body">แบรนด์ชุดแข่งมอเตอร์ไซค์จากญี่ปุ่น ก่อตั้งปี 1949 เชี่ยวชาญการผลิต Leather Suit ตัดเย็บด้วยมือ ใช้วัสดุคุณภาพสูง พร้อม Airbag System ในตัว เป็นชุดที่ก้องสวมใส่ตลอดฤดูกาล</p>
       </div>
 
-      <!-- 8 -->
-      <div class="brand-card">
-        <div class="brand-num">08</div>
-        <div class="brand-tag">เบรก · Braking</div>
-        <div class="brand-name">NISSIN นิสชิน</div>
-        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
-        <p class="brand-desc">แบรนด์ผู้ผลิตระบบเบรกและปั๊มเบรกประสิทธิภาพสูงระดับโลกสัญชาติญี่ปุ่น เป็น OEM ให้กับ Honda มาอย่างยาวนาน ทั้งในรถยนต์และมอเตอร์ไซค์ รวมถึงรถแข่ง ความแม่นยำในการออกแบบระบบ Hydraulic Brake ของ NISSIN เป็นที่ยอมรับในระดับนานาชาติ</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">08 —</span>
+          <span class="brand-entry-name">NISSIN นิสชิน</span>
+        </div>
+        <div class="brand-entry-meta">🇯🇵 ญี่ปุ่น &nbsp;·&nbsp; ระบบเบรก</div>
+        <p class="brand-entry-body">ผู้ผลิตระบบเบรกและปั๊มเบรกประสิทธิภาพสูงสัญชาติญี่ปุ่น เป็น OEM ให้กับ Honda มาอย่างยาวนาน ระบบ Hydraulic Brake ของ NISSIN เป็นที่ยอมรับในระดับนานาชาติและใช้ในรถแข่งระดับโลก</p>
       </div>
 
       <div class="ad-inline">
         <div class="ad-slot" style="height:250px;">300 × 250 — In-Content Rectangle</div>
       </div>
 
-      <!-- ONE HEART -->
       <h2>One HEART · Satu HATI</h2>
 
-      <p>แขนขวาของก้องมีคำว่า <strong>One HEART</strong> และแขนซ้ายมีคำว่า <strong>Satu HATI (ซา-ตู-ฮา-ติ)</strong> — สองคำนี้ไม่ใช่คนละความหมาย แต่เป็นคำเดียวกันในสองภาษา</p>
+      <p>แขนขวาของก้องมีคำว่า <strong>One HEART</strong> แขนซ้ายมีคำว่า <strong>Satu HATI (ซา-ตู-ฮา-ติ)</strong> — สองคำนี้ไม่ใช่คนละความหมาย แต่เป็นคำเดียวกันในสองภาษา</p>
 
-      <p>Satu HATI เป็นภาษาอินโดนีเซียที่แปลตรงๆ ว่า "One HEART" หรือ "รวมเป็นหนึ่งใจ" นี่คือ <strong>สโลแกนและโลโก้ของ Honda ประเทศอินโดนีเซีย</strong> ซึ่งใช้สื่อถึงความมุ่งมั่นและการสนับสนุนวงการมอเตอร์สปอร์ตในภูมิภาคอาเซียนให้ก้าวไกลระดับโลก — และก้องก็คือหนึ่งในสัญลักษณ์ของความตั้งใจนั้น</p>
+      <p>Satu HATI เป็นภาษาอินโดนีเซีย แปลว่า "One HEART" หรือ "รวมเป็นหนึ่งใจ" นี่คือ <strong>สโลแกนของ Honda ประเทศอินโดนีเซีย</strong> ที่สื่อถึงความมุ่งมั่นสนับสนุนวงการมอเตอร์สปอร์ตอาเซียนให้ก้าวไกลระดับโลก — ก้องคือสัญลักษณ์ของความตั้งใจนั้น</p>
 
-      <!-- 9 -->
-      <div class="brand-card">
-        <div class="brand-num">09</div>
-        <div class="brand-tag">อาหาร · Thailand</div>
-        <div class="brand-name">Yum Yum ยำยำ</div>
-        <div class="brand-origin">🇹🇭 ไทย</div>
-        <p class="brand-desc">แบรนด์บะหมี่กึ่งสำเร็จรูปชื่อดังที่คนไทยคุ้นเคยกันดี ภายใต้ Thai President Foods การที่ Yum Yum ขึ้น Logo บนชุดแข่งในระดับ WorldSBK ถือเป็นการ Branding ระดับโลกที่น่าสนใจ และยังเป็นสัญญาณว่ามีแบรนด์ไทยพร้อมสนับสนุนนักแข่งไทยในเวทีนานาชาติอย่างจริงจัง</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">09 —</span>
+          <span class="brand-entry-name">Yum Yum ยำยำ</span>
+        </div>
+        <div class="brand-entry-meta">🇹🇭 ไทย &nbsp;·&nbsp; แบรนด์อาหาร</div>
+        <p class="brand-entry-body">บะหมี่กึ่งสำเร็จรูปชื่อดังภายใต้ Thai President Foods ที่คนไทยรู้จักกันดี การที่ Yum Yum ขึ้น Logo ใน WorldSBK ถือเป็นการ Branding ระดับโลกที่น่าสนใจมาก และเป็นสัญญาณว่าแบรนด์ไทยพร้อมสนับสนุนนักแข่งไทยในเวทีนานาชาติจริงจัง</p>
       </div>
 
-      <!-- 10 -->
-      <div class="brand-card">
-        <div class="brand-num">10</div>
-        <div class="brand-tag">อะไหล่ยานยนต์ · Thailand</div>
-        <div class="brand-name">Sittipol สิทธิผล</div>
-        <div class="brand-origin">🇹🇭 ไทย</div>
-        <p class="brand-desc">กลุ่มสิทธิผล ยักษ์ใหญ่ผู้ผลิตและจัดจำหน่ายชิ้นส่วนอะไหล่ยานยนต์ของไทย ครอบคลุมทั้งรถยนต์และมอเตอร์ไซค์ เป็นอีกหนึ่งแบรนด์ไทยที่ร่วมสนับสนุนก้องในเวทีโลก</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">10 —</span>
+          <span class="brand-entry-name">Sittipol สิทธิผล</span>
+        </div>
+        <div class="brand-entry-meta">🇹🇭 ไทย &nbsp;·&nbsp; อะไหล่ยานยนต์</div>
+        <p class="brand-entry-body">กลุ่มสิทธิผล ยักษ์ใหญ่ผู้ผลิตและจัดจำหน่ายชิ้นส่วนอะไหล่ยานยนต์ของไทย ครอบคลุมทั้งรถยนต์และมอเตอร์ไซค์ เป็นอีกหนึ่งแบรนด์ไทยที่ร่วมหนุนก้องบนเวทีโลก</p>
       </div>
 
-      <!-- 11 -->
-      <div class="brand-card">
-        <div class="brand-num">11</div>
-        <div class="brand-tag">หัวเทียน · Ignition</div>
-        <div class="brand-name">NGK Spark Plugs</div>
-        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
-        <p class="brand-desc">แบรนด์หัวเทียนชั้นนำจากญี่ปุ่น เป็น OEM ให้กับผู้ผลิตรถยนต์และมอเตอร์ไซค์เกือบทุกค่ายในโลก ในการแข่งขันระดับสูงอย่าง WorldSBK หัวเทียนคือส่วนสำคัญที่ส่งผลโดยตรงต่อประสิทธิภาพการเผาไหม้และกำลังของเครื่องยนต์</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">11 —</span>
+          <span class="brand-entry-name">NGK Spark Plugs</span>
+        </div>
+        <div class="brand-entry-meta">🇯🇵 ญี่ปุ่น &nbsp;·&nbsp; หัวเทียน</div>
+        <p class="brand-entry-body">แบรนด์หัวเทียนชั้นนำจากญี่ปุ่น OEM ให้กับผู้ผลิตรถยนต์และมอเตอร์ไซค์เกือบทุกค่ายทั่วโลก ในระดับ WorldSBK หัวเทียนส่งผลโดยตรงต่อประสิทธิภาพการเผาไหม้และกำลังเครื่องยนต์ทุกรอบ</p>
       </div>
 
-      <!-- 12 -->
-      <div class="brand-card">
-        <div class="brand-num">12</div>
-        <div class="brand-tag">ชุดแข่ง · Apparel</div>
-        <div class="brand-name">IXON อิซอน</div>
-        <div class="brand-origin">🇫🇷 ฝรั่งเศส</div>
-        <p class="brand-desc">แบรนด์เครื่องแต่งกายมอเตอร์ไซค์ชื่อดังจากฝรั่งเศส เชี่ยวชาญด้านการผลิตชุดขี่ ถุงมือ และอุปกรณ์ความปลอดภัยที่ผ่านมาตรฐาน CE สูงสุด ใช้กันแพร่หลายทั้งในระดับนักแข่งมืออาชีพและผู้ขับขี่ทั่วไปที่ใส่ใจความปลอดภัย</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">12 —</span>
+          <span class="brand-entry-name">IXON อิซอน</span>
+        </div>
+        <div class="brand-entry-meta">🇫🇷 ฝรั่งเศส &nbsp;·&nbsp; เครื่องแต่งกายมอเตอร์ไซค์</div>
+        <p class="brand-entry-body">แบรนด์เครื่องแต่งกายมอเตอร์ไซค์จากฝรั่งเศส เชี่ยวชาญด้านชุดขี่ ถุงมือ และอุปกรณ์ความปลอดภัย ผ่านมาตรฐาน CE ระดับสูงสุด ใช้กันทั้งในระดับนักแข่งมืออาชีพและผู้ขับขี่ทั่วไป</p>
       </div>
 
-      <!-- 13 -->
-      <div class="brand-card">
-        <div class="brand-num">13</div>
-        <div class="brand-tag">อิเล็กทรอนิกส์ · Electronics</div>
-        <div class="brand-name">Shindengen ชินเดนเกน</div>
-        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
-        <p class="brand-desc">บริษัทอิเล็กทรอนิกส์ยักษ์ใหญ่จากญี่ปุ่น ทำธุรกิจผลิตอุปกรณ์เซมิคอนดักเตอร์, เรกูเลเตอร์, และกล่องควบคุมกระแสไฟ ในโลกมอเตอร์สปอร์ต Shindengen รับผิดชอบระบบจัดการไฟฟ้าที่ต้องทนทานสูงในสภาวะแข่งขัน</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">13 —</span>
+          <span class="brand-entry-name">Shindengen ชินเดนเกน</span>
+        </div>
+        <div class="brand-entry-meta">🇯🇵 ญี่ปุ่น &nbsp;·&nbsp; อิเล็กทรอนิกส์</div>
+        <p class="brand-entry-body">บริษัทอิเล็กทรอนิกส์ยักษ์ใหญ่จากญี่ปุ่น ผลิตอุปกรณ์เซมิคอนดักเตอร์ เรกูเลเตอร์ และกล่องควบคุมกระแสไฟฟ้า ในสนามแข่ง Shindengen รับผิดชอบระบบจัดการไฟฟ้าที่ต้องทนทานในสภาวะแข่งขันสูงสุด</p>
       </div>
 
-      <!-- 14 -->
-      <div class="brand-card">
-        <div class="brand-num">14</div>
-        <div class="brand-tag">คลัตช์ · Drivetrain</div>
-        <div class="brand-name">STM เอส-ที-เอ็ม</div>
-        <div class="brand-origin">🇮🇹 อิตาลี</div>
-        <p class="brand-desc">แบรนด์สัญชาติอิตาลี ผู้เชี่ยวชาญด้านการผลิตและพัฒนา <strong>ระบบ Slipper Clutch</strong> และชิ้นส่วนกลไกความละเอียดสูงสำหรับรถแข่งระดับโลก Slipper Clutch ช่วยป้องกันล้อหลังล็อกตอนลดเกียร์กะทันหัน ซึ่งในระดับ WorldSBK ที่ต้องเบรกหนักมากๆ นี่คืออุปกรณ์ที่ขาดไม่ได้</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">14 —</span>
+          <span class="brand-entry-name">STM เอส-ที-เอ็ม</span>
+        </div>
+        <div class="brand-entry-meta">🇮🇹 อิตาลี &nbsp;·&nbsp; Slipper Clutch</div>
+        <p class="brand-entry-body">แบรนด์อิตาลีผู้เชี่ยวชาญด้าน <strong>Slipper Clutch</strong> และชิ้นส่วนกลไกความละเอียดสูงสำหรับรถแข่ง Slipper Clutch ป้องกันล้อหลังล็อกตอนลดเกียร์กะทันหัน — ในสนาม WorldSBK ที่ต้องเบรกหนักมาก นี่คืออุปกรณ์ที่ขาดไม่ได้</p>
       </div>
 
-      <!-- 15 -->
-      <div class="brand-card">
-        <div class="brand-num">15</div>
-        <div class="brand-tag">ชิลด์บังลม · Aerodynamics</div>
-        <div class="brand-name">WRS ดับบลิว-อาร์-เอส</div>
-        <div class="brand-origin">🇮🇹 อิตาลี</div>
-        <p class="brand-desc">แบรนด์ผู้ผลิตชิลด์บังลม (Windscreen) และอุปกรณ์แต่งรถจักรยานยนต์ประสิทธิภาพสูงจากอิตาลี ใช้วัสดุ Polycarbonate และ Acrylic คุณภาพสูง ที่ออกแบบมาเพื่อลด Wind Drag และเพิ่มประสิทธิภาพ Aerodynamics บนทางตรงความเร็วสูง</p>
+      <div class="brand-entry">
+        <div class="brand-entry-header">
+          <span class="brand-entry-num">15 —</span>
+          <span class="brand-entry-name">WRS ดับบลิว-อาร์-เอส</span>
+        </div>
+        <div class="brand-entry-meta">🇮🇹 อิตาลี &nbsp;·&nbsp; ชิลด์บังลม</div>
+        <p class="brand-entry-body">ผู้ผลิตชิลด์บังลม (Windscreen) และอุปกรณ์แต่งรถจักรยานยนต์จากอิตาลี ใช้วัสดุ Polycarbonate และ Acrylic คุณภาพสูง ออกแบบมาเพื่อลด Wind Drag และเพิ่มประสิทธิภาพ Aero บนทางตรงความเร็วสูง</p>
       </div>
 
       <h2>สรุป</h2>
@@ -431,15 +456,26 @@
         <div class="photo-gallery">
           <div class="photo-gallery-item">
             <img src="images/gong-photo2.jpg" alt="ก้อง สมเกียรติ ในสนามแข่ง ทีมช่วยเตรียมรถ">
-            <span class="photo-credit">📷 @somkiatchantra</span>
+            <a class="ig-link photo-credit" href="https://www.instagram.com/somkiatchantra/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              @somkiatchantra
+            </a>
           </div>
           <div class="photo-gallery-item">
             <img src="images/gong-photo3.jpg" alt="ก้อง สมเกียรติ บน Grid Start WorldSBK">
-            <span class="photo-credit">📷 @somkiatchantra</span>
+            <a class="ig-link photo-credit" href="https://www.instagram.com/somkiatchantra/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              @somkiatchantra
+            </a>
           </div>
         </div>
-        <div style="font-family:var(--font-mono);font-size:10px;color:#444;letter-spacing:.05em;margin-top:8px;">
-          📷 ทุกภาพ: <a href="https://www.instagram.com/somkiatchantra/" target="_blank" rel="noopener" style="color:#555;text-decoration:none;">@somkiatchantra</a> / Instagram — ใช้โดยได้รับอนุญาต
+        <div style="font-family:var(--font-mono);font-size:10px;color:#444;letter-spacing:.05em;margin-top:10px;">
+          ทุกภาพ:
+          <a class="ig-link" href="https://www.instagram.com/somkiatchantra/" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @somkiatchantra
+          </a>
+          &nbsp;— ใช้โดยได้รับอนุญาต
         </div>
       </div>
 
