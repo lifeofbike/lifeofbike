@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="เปิดทุกโลโก้บนชุดแข่งของก้อง สมเกียรติ จันทรา นักแข่งไทยคนแรกใน WSBK Motul คลาสใหญ่ แต่ละแบรนด์คือใคร ทำธุรกิจอะไร">
+<meta property="og:title" content="Logo บนตัวก้อง WSBK Motul — แต่ละแบรนด์คือใคร? | Life of Bike">
+<meta property="og:description" content="เปิดทุกโลโก้บนชุดแข่งของก้อง สมเกียรติ จันทรา นักแข่งไทยคนแรกใน WSBK Motul">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Life of Bike">
+<meta name="twitter:card" content="summary_large_image">
+<title>Logo บนตัวก้อง WSBK Motul — แต่ละแบรนด์คือใคร? | Life of Bike</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E8132A;
+    --black: #0A0A0A;
+    --white: #F5F0E8;
+    --gray: #1C1C1C;
+    --gold: #C9A84C;
+    --text-muted: #888;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-serif: 'DM Serif Display', serif;
+    --font-body: 'IBM Plex Sans Thai', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* TICKER */
+  .ticker-wrap { background: var(--red); overflow: hidden; white-space: nowrap; padding: 6px 0; position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+  .ticker-inner { display: inline-block; animation: ticker 40s linear infinite; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #fff; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* NAV */
+  nav { position: fixed; top: 28px; left: 0; right: 0; z-index: 99; display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; background: rgba(10,10,10,.94); backdrop-filter: blur(12px); border-bottom: 1px solid #222; }
+  .logo { font-family: var(--font-display); font-size: 30px; letter-spacing: .04em; color: var(--white); text-decoration: none; }
+  .logo span { color: var(--red); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta { background: var(--red); color: #fff !important; padding: 8px 18px; }
+
+  /* PAGE */
+  .page { padding-top: 96px; }
+  .ad-slot { border: 1px dashed #2a2a2a; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px; color: #3a3a3a; letter-spacing: .08em; text-transform: uppercase; background: #0f0f0f; position: relative; }
+  .ad-slot::before { content: 'AD'; position: absolute; top: 6px; left: 8px; font-size: 9px; color: #2a2a2a; }
+  .ad-top { padding: 0 40px; margin-bottom: 0; }
+  .ad-top .ad-slot { height: 90px; }
+
+  /* ARTICLE HERO */
+  .article-hero { padding: 40px 40px 0; max-width: 1200px; margin: 0 auto; }
+  .breadcrumb { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #555; margin-bottom: 20px; }
+  .breadcrumb a { color: #555; text-decoration: none; } .breadcrumb a:hover { color: var(--white); }
+  .article-category { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--red); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+  .article-title { font-family: var(--font-display); font-size: clamp(40px, 6vw, 72px); line-height: 1; letter-spacing: .02em; color: var(--white); margin-bottom: 20px; }
+  .article-deck { font-size: 18px; color: var(--text-muted); line-height: 1.6; max-width: 720px; margin-bottom: 28px; font-weight: 300; }
+  .article-meta-bar { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding: 16px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; margin-bottom: 0; }
+  .author-block { display: flex; align-items: center; gap: 10px; }
+  .author-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 16px; color: #fff; flex-shrink: 0; }
+  .author-name { font-size: 13px; font-weight: 500; color: var(--white); }
+  .author-role { font-family: var(--font-mono); font-size: 9px; color: #555; letter-spacing: .06em; text-transform: uppercase; margin-top: 2px; }
+  .meta-divider { width: 1px; height: 28px; background: #333; }
+  .meta-item { font-family: var(--font-mono); font-size: 10px; color: #555; letter-spacing: .06em; text-transform: uppercase; }
+  .meta-item strong { display: block; color: var(--white); font-size: 12px; margin-bottom: 2px; letter-spacing: 0; text-transform: none; }
+  .share-bar { margin-left: auto; display: flex; gap: 8px; }
+  .share-btn { background: #1a1a1a; border: 1px solid #2a2a2a; color: var(--text-muted); font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 6px 14px; cursor: pointer; transition: all .2s; }
+  .share-btn:hover { border-color: var(--red); color: var(--white); }
+
+  /* HERO IMAGE */
+  .hero-image { position: relative; margin: 0 40px; max-width: 1120px; }
+  .hero-image img { width: 100%; height: 480px; object-fit: cover; display: block; }
+  .image-caption { font-family: var(--font-mono); font-size: 10px; color: #444; letter-spacing: .05em; padding: 10px 0 0; margin: 0 40px; }
+
+  /* ARTICLE LAYOUT */
+  .article-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; padding: 40px 40px; max-width: 1400px; margin: 0 auto; }
+  article { min-width: 0; }
+
+  /* BODY COPY */
+  article p { font-size: 16px; color: #d0c8bc; line-height: 1.85; margin-bottom: 24px; }
+  article h2 { font-family: var(--font-display); font-size: 32px; letter-spacing: .04em; color: var(--white); margin: 48px 0 16px; padding-top: 8px; border-top: 2px solid var(--red); display: inline-block; }
+  article h3 { font-family: var(--font-serif); font-size: 20px; color: var(--white); margin: 28px 0 12px; font-style: italic; }
+  article strong { color: var(--white); font-weight: 600; }
+
+  /* BRAND CARD */
+  .brand-card {
+    background: var(--gray);
+    border-left: 3px solid var(--red);
+    padding: 24px 28px;
+    margin: 32px 0;
+    position: relative;
+  }
+  .brand-num {
+    font-family: var(--font-display);
+    font-size: 64px;
+    color: #222;
+    line-height: 1;
+    position: absolute;
+    top: 12px; right: 20px;
+  }
+  .brand-tag {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: .04em;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .brand-origin {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: #555;
+    letter-spacing: .06em;
+    margin-bottom: 14px;
+  }
+  .brand-desc {
+    font-size: 15px;
+    color: #c0b8b0;
+    line-height: 1.7;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote { border-left: 3px solid var(--gold); padding: 20px 28px; margin: 36px 0; background: rgba(201,168,76,.05); }
+  .pull-quote p { font-family: var(--font-serif); font-size: 20px; color: var(--white); line-height: 1.5; margin-bottom: 10px; font-style: italic; }
+  .pull-quote cite { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: .08em; text-transform: uppercase; }
+
+  /* AD INLINE */
+  .ad-inline { margin: 36px 0; }
+
+  /* TAGS */
+  .article-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 40px 0 0; }
+  .tag-item { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 5px 12px; border: 1px solid #2a2a2a; color: #555; text-decoration: none; transition: all .2s; }
+  .tag-item:hover { border-color: var(--red); color: var(--white); }
+
+  /* SIDEBAR */
+  .sidebar { padding-top: 40px; }
+  .sidebar-block { margin-bottom: 28px; }
+  .sidebar-title { font-family: var(--font-display); font-size: 18px; letter-spacing: .06em; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 14px; }
+
+  /* FOOTER */
+  footer { background: #050505; padding: 40px 40px 24px; border-top: 1px solid #1a1a1a; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+  .footer-brand .logo-f { font-family: var(--font-display); font-size: 28px; display: block; margin-bottom: 10px; color: var(--white); }
+  .footer-brand p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+  .footer-col h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--white); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #222; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1a1a1a; padding-top: 20px; flex-wrap: wrap; gap: 8px; }
+  .footer-bottom p { font-family: var(--font-mono); font-size: 10px; color: #444; }
+
+  @media (max-width: 1024px) {
+    .article-layout { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 10px 20px; }
+    .nav-links { display: none; }
+    .article-hero, .hero-image, .image-caption { margin-left: 0; margin-right: 0; padding-left: 16px; padding-right: 16px; }
+    .article-layout { padding: 24px 16px; }
+    .article-title { font-size: 36px; }
+    footer { padding: 30px 20px 20px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    .share-bar { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <span class="ticker-inner">
+    &nbsp;&nbsp;🏁 WSBK 2025: ก้อง สมเกียรติ จันทรา — นักแข่งไทยคนแรกใน WorldSBK คลาสใหญ่ ✦ ติดตามข่าวมอเตอร์สปอร์ตไทยและโลกที่ LIFE OF BIKE ✦ ลงโฆษณากับเรา — ผู้อ่านกว่า 50,000 คน/เดือน ✦ &nbsp;&nbsp;🏁 WSBK 2025: ก้อง สมเกียรติ จันทรา — นักแข่งไทยคนแรกใน WorldSBK คลาสใหญ่ ✦ ติดตามข่าวมอเตอร์สปอร์ตไทยและโลกที่ LIFE OF BIKE ✦ ลงโฆษณากับเรา — ผู้อ่านกว่า 50,000 คน/เดือน ✦
+  </span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">LIFE OF <span>BIKE</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#news">ข่าวสาร</a></li>
+    <li><a href="index.html#results">ผลการแข่งขัน</a></li>
+    <li><a href="index.html#standings">ตาราง</a></li>
+    <li><a href="index.html#analysis">สคริปต์วิเคราะห์</a></li>
+    <li><a href="index.html#advertise" class="nav-cta">ลงโฆษณา</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- TOP AD -->
+  <div class="ad-top">
+    <div class="ad-slot" style="height:90px;">728 × 90 — Leaderboard</div>
+  </div>
+
+  <!-- ARTICLE HEADER -->
+  <div class="article-hero">
+    <div class="breadcrumb">
+      <a href="index.html">หน้าหลัก</a> › <a href="#">WSBK</a> › <span>ก้อง สมเกียรติ จันทรา</span>
+    </div>
+    <div class="article-category">🇹🇭 &nbsp; สปอนเซอร์ — WorldSBK Motul 2025</div>
+    <h1 class="article-title">Logo บนตัวก้อง<br>WSBK Motul<br>แต่ละแบรนด์คือใคร?</h1>
+    <p class="article-deck">เพื่อนๆ เคยสงสัยไหมว่า Logo ที่อยู่บนชุดของ ก้อง สมเกียรติ จันทรา นักแข่งไทยคนแรกในรายการ WorldSBK Motul คลาสใหญ่สุด มีแบรนด์อะไรบ้าง และแต่ละแบรนด์ทำธุรกิจอะไร — ผมรวมมาให้หมดแล้วในบทความนี้</p>
+    <div class="article-meta-bar">
+      <div class="author-block">
+        <div class="author-avatar">P</div>
+        <div>
+          <div class="author-name">พีระ ทวีสุข</div>
+          <div class="author-role">Motorsport Writer · LIFE OF BIKE</div>
+        </div>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><strong>Life of Bike</strong>เผยแพร่โดย</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><strong>10 นาที</strong>เวลาอ่าน</div>
+      <div class="share-bar">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://lifeofbike.github.io/lifeofbike/wsbk-gong-sponsors.html" target="_blank" rel="noopener" class="share-btn" style="text-decoration:none;">Facebook</a>
+        <button class="share-btn" onclick="navigator.clipboard.writeText(location.href).then(()=>alert('คัดลอก link แล้ว'))">Copy Link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO IMAGE -->
+  <div class="hero-image" style="margin-top:32px;">
+    <img src="https://picsum.photos/seed/wsbk-gong/1120/480" alt="ก้อง สมเกียรติ จันทรา WorldSBK Motul" style="filter:brightness(.75);">
+    <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 100%);padding:20px 28px 14px;">
+      <div style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase;">ภาพ Representative · ก้อง สมเกียรติ จันทรา #35 · Honda CBR1000RR-R · WorldSBK Motul</div>
+    </div>
+  </div>
+  <div class="image-caption">ก้อง สมเกียรติ จันทรา นักแข่งไทยคนแรกที่ก้าวสู่คลาสใหญ่สุดของ WorldSBK Motul / ภาพ: Representative</div>
+
+  <!-- ARTICLE BODY + SIDEBAR -->
+  <div class="article-layout">
+    <article>
+
+      <p>ถ้าพูดถึงชื่อ <strong>ก้อง สมเกียรติ จันทรา</strong> ในวงการมอเตอร์สปอร์ตไทย คนส่วนใหญ่รู้จักเขาในฐานะนักแข่งไทยคนแรกที่ก้าวขึ้นสู่รายการ <strong>WorldSBK Motul</strong> ในคลาสสูงสุด — แต่สิ่งที่หลายคนอาจไม่ได้สังเกตคือ Logo ต่างๆ บนชุดแข่งของเขา ซึ่งไม่ใช่แค่แปะเพื่อให้ดูดี แต่ทุกแบรนด์มีเรื่องราวและความเชี่ยวชาญเฉพาะตัวทั้งนั้น</p>
+
+      <p>มาไล่กันทีละแบรนด์เลย</p>
+
+      <!-- 1 -->
+      <div class="brand-card">
+        <div class="brand-num">01</div>
+        <div class="brand-tag">พลังงาน · Engineering</div>
+        <div class="brand-name">EEST อีสต์ เอ็นเนอร์ยี่</div>
+        <div class="brand-origin">🌍 ผู้ให้บริการระดับโลก</div>
+        <p class="brand-desc">ผู้ให้บริการชั้นนำระดับโลกด้านโซลูชันวิศวกรรมสำหรับอุตสาหกรรมสำรวจและผลิตปิโตรเลียม ทำทุกอย่างตั้งแต่การออกแบบระบบ ไปจนถึงการติดตั้งและบำรุงรักษาในสภาพแวดล้อมที่ท้าทายที่สุดในโลก</p>
+      </div>
+
+      <!-- 2 -->
+      <div class="brand-card">
+        <div class="brand-num">02</div>
+        <div class="brand-tag">หมวกกันน็อก · Safety</div>
+        <div class="brand-name">Arai อาราย</div>
+        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
+        <p class="brand-desc">หมวกกันน็อกนิรภัยระดับพรีเมียมจากญี่ปุ่น ก่อตั้งในปี 1950 โดย Hirotake Arai ปัจจุบันเป็นหนึ่งในแบรนด์หมวกที่นักแข่งระดับโลกไว้วางใจมากที่สุด ด้วยการผลิตแบบ Handmade ทีละใบและตรวจสอบคุณภาพอย่างเข้มงวดทุกขั้นตอน</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="brand-card">
+        <div class="brand-num">03</div>
+        <div class="brand-tag">ผู้ผลิตรถ · Manufacturer</div>
+        <div class="brand-name">Honda / HRC</div>
+        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
+        <p class="brand-desc">ค่ายผู้ผลิตยานยนต์และมอเตอร์ไซค์ระดับโลก โดย <strong>HRC (Honda Racing Corporation)</strong> คือหน่วยงานแข่งรถที่รับผิดชอบพัฒนาตัวรถแข่งโปรเจกต์นี้โดยตรง ก้องขี่ Honda CBR1000RR-R Fireblade ซึ่งเป็นซูเปอร์ไบค์รุ่นท็อปของ Honda ที่ใช้แข่งใน WSBK</p>
+      </div>
+
+      <div class="ad-inline">
+        <div class="ad-slot" style="height:90px;">728 × 90 — In-Content Banner</div>
+      </div>
+
+      <!-- 4 -->
+      <div class="brand-card">
+        <div class="brand-num">04</div>
+        <div class="brand-tag">ยางแข่ง · Official Tyre</div>
+        <div class="brand-name">Pirelli พิเรลลี่</div>
+        <div class="brand-origin">🇮🇹 อิตาลี</div>
+        <p class="brand-desc">ยักษ์ใหญ่ผู้ผลิตยางรถยนต์และจักรยานยนต์สัญชาติอิตาลี และที่สำคัญคือ Pirelli เป็น <strong>ซัพพลายเออร์และแบรนด์ยางอย่างเป็นทางการรายเดียวของ WSBK Motul</strong> แปลว่าทุกคันในสนาม ทุกสนาม ใช้ยาง Pirelli หมดเลยโดยไม่มีตัวเลือกอื่น</p>
+      </div>
+
+      <!-- 5 -->
+      <div class="brand-card">
+        <div class="brand-num">05</div>
+        <div class="brand-tag">Title Sponsor · น้ำมันเครื่อง</div>
+        <div class="brand-name">Motul โมตุล</div>
+        <div class="brand-origin">🇫🇷 ฝรั่งเศส</div>
+        <p class="brand-desc">แบรนด์น้ำมันเครื่องและสารหล่อลื่นประสิทธิภาพสูงจากฝรั่งเศส ก่อตั้งมาตั้งแต่ปี 1853 นอกจากเป็นสปอนเซอร์ในชุดแข่งแล้ว Motul ยังเป็น <strong>ผู้สนับสนุนหลักอย่างเป็นทางการ (Title Sponsor)</strong> ของการแข่งขันรายการนี้ จนได้ชื่อนำหน้าว่า <em>Motul FIM Superbike World Championship</em></p>
+      </div>
+
+      <div class="pull-quote">
+        <p>"ทุก Logo บนชุดของก้องไม่ได้อยู่แบบสุ่ม — แต่ละแบรนด์คือส่วนหนึ่งของทีม คือเงินที่หล่อเลี้ยงให้นักแข่งสู้ได้ในระดับโลก"</p>
+        <cite>— Life of Bike</cite>
+      </div>
+
+      <!-- 6 -->
+      <div class="brand-card">
+        <div class="brand-num">06</div>
+        <div class="brand-tag">ท่อไอเสีย · Exhaust</div>
+        <div class="brand-name">Akrapovič อาคราโพวิช</div>
+        <div class="brand-origin">🇸🇮 สโลวีเนีย</div>
+        <p class="brand-desc">ผู้ผลิตระบบท่อไอเสียสมรรถนะสูงระดับท็อปจากสโลวีเนีย ใช้วัสดุพิเศษเช่น Titanium, Carbon Fiber และ Inconel ที่ทนทานสูงและน้ำหนักเบา ท่อ Akrapovič ช่วยเพิ่มกำลังและลดน้ำหนักได้อย่างมีนัยสำคัญในระดับแข่ง</p>
+      </div>
+
+      <!-- 7 -->
+      <div class="brand-card">
+        <div class="brand-num">07</div>
+        <div class="brand-tag">ชุดแข่ง · Safety Gear</div>
+        <div class="brand-name">KUSHITANI คูชิทานิ</div>
+        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
+        <p class="brand-desc">อุปกรณ์เซฟตี้และชุดแข่งมอเตอร์ไซค์จากญี่ปุ่น ก่อตั้งในปี 1949 เชี่ยวชาญด้านการผลิตชุดหนัง Leather Suit ที่ใช้ในการแข่งขัน ตัดเย็บด้วยมือและวัสดุคุณภาพสูง พร้อม Airbag System ในตัว</p>
+      </div>
+
+      <!-- 8 -->
+      <div class="brand-card">
+        <div class="brand-num">08</div>
+        <div class="brand-tag">เบรก · Braking</div>
+        <div class="brand-name">NISSIN นิสชิน</div>
+        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
+        <p class="brand-desc">แบรนด์ผู้ผลิตระบบเบรกและปั๊มเบรกประสิทธิภาพสูงระดับโลกสัญชาติญี่ปุ่น เป็น OEM ให้กับ Honda มาอย่างยาวนาน ทั้งในรถยนต์และมอเตอร์ไซค์ รวมถึงรถแข่ง ความแม่นยำในการออกแบบระบบ Hydraulic Brake ของ NISSIN เป็นที่ยอมรับในระดับนานาชาติ</p>
+      </div>
+
+      <div class="ad-inline">
+        <div class="ad-slot" style="height:250px;">300 × 250 — In-Content Rectangle</div>
+      </div>
+
+      <!-- ONE HEART -->
+      <h2>One HEART · Satu HATI</h2>
+
+      <p>แขนขวาของก้องมีคำว่า <strong>One HEART</strong> และแขนซ้ายมีคำว่า <strong>Satu HATI (ซา-ตู-ฮา-ติ)</strong> — สองคำนี้ไม่ใช่คนละความหมาย แต่เป็นคำเดียวกันในสองภาษา</p>
+
+      <p>Satu HATI เป็นภาษาอินโดนีเซียที่แปลตรงๆ ว่า "One HEART" หรือ "รวมเป็นหนึ่งใจ" นี่คือ <strong>สโลแกนและโลโก้ของ Honda ประเทศอินโดนีเซีย</strong> ซึ่งใช้สื่อถึงความมุ่งมั่นและการสนับสนุนวงการมอเตอร์สปอร์ตในภูมิภาคอาเซียนให้ก้าวไกลระดับโลก — และก้องก็คือหนึ่งในสัญลักษณ์ของความตั้งใจนั้น</p>
+
+      <!-- 9 -->
+      <div class="brand-card">
+        <div class="brand-num">09</div>
+        <div class="brand-tag">อาหาร · Thailand</div>
+        <div class="brand-name">Yum Yum ยำยำ</div>
+        <div class="brand-origin">🇹🇭 ไทย</div>
+        <p class="brand-desc">แบรนด์บะหมี่กึ่งสำเร็จรูปชื่อดังที่คนไทยคุ้นเคยกันดี ภายใต้ Thai President Foods การที่ Yum Yum ขึ้น Logo บนชุดแข่งในระดับ WorldSBK ถือเป็นการ Branding ระดับโลกที่น่าสนใจ และยังเป็นสัญญาณว่ามีแบรนด์ไทยพร้อมสนับสนุนนักแข่งไทยในเวทีนานาชาติอย่างจริงจัง</p>
+      </div>
+
+      <!-- 10 -->
+      <div class="brand-card">
+        <div class="brand-num">10</div>
+        <div class="brand-tag">อะไหล่ยานยนต์ · Thailand</div>
+        <div class="brand-name">Sittipol สิทธิผล</div>
+        <div class="brand-origin">🇹🇭 ไทย</div>
+        <p class="brand-desc">กลุ่มสิทธิผล ยักษ์ใหญ่ผู้ผลิตและจัดจำหน่ายชิ้นส่วนอะไหล่ยานยนต์ของไทย ครอบคลุมทั้งรถยนต์และมอเตอร์ไซค์ เป็นอีกหนึ่งแบรนด์ไทยที่ร่วมสนับสนุนก้องในเวทีโลก</p>
+      </div>
+
+      <!-- 11 -->
+      <div class="brand-card">
+        <div class="brand-num">11</div>
+        <div class="brand-tag">หัวเทียน · Ignition</div>
+        <div class="brand-name">NGK Spark Plugs</div>
+        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
+        <p class="brand-desc">แบรนด์หัวเทียนชั้นนำจากญี่ปุ่น เป็น OEM ให้กับผู้ผลิตรถยนต์และมอเตอร์ไซค์เกือบทุกค่ายในโลก ในการแข่งขันระดับสูงอย่าง WorldSBK หัวเทียนคือส่วนสำคัญที่ส่งผลโดยตรงต่อประสิทธิภาพการเผาไหม้และกำลังของเครื่องยนต์</p>
+      </div>
+
+      <!-- 12 -->
+      <div class="brand-card">
+        <div class="brand-num">12</div>
+        <div class="brand-tag">ชุดแข่ง · Apparel</div>
+        <div class="brand-name">IXON อิซอน</div>
+        <div class="brand-origin">🇫🇷 ฝรั่งเศส</div>
+        <p class="brand-desc">แบรนด์เครื่องแต่งกายมอเตอร์ไซค์ชื่อดังจากฝรั่งเศส เชี่ยวชาญด้านการผลิตชุดขี่ ถุงมือ และอุปกรณ์ความปลอดภัยที่ผ่านมาตรฐาน CE สูงสุด ใช้กันแพร่หลายทั้งในระดับนักแข่งมืออาชีพและผู้ขับขี่ทั่วไปที่ใส่ใจความปลอดภัย</p>
+      </div>
+
+      <!-- 13 -->
+      <div class="brand-card">
+        <div class="brand-num">13</div>
+        <div class="brand-tag">อิเล็กทรอนิกส์ · Electronics</div>
+        <div class="brand-name">Shindengen ชินเดนเกน</div>
+        <div class="brand-origin">🇯🇵 ญี่ปุ่น</div>
+        <p class="brand-desc">บริษัทอิเล็กทรอนิกส์ยักษ์ใหญ่จากญี่ปุ่น ทำธุรกิจผลิตอุปกรณ์เซมิคอนดักเตอร์, เรกูเลเตอร์, และกล่องควบคุมกระแสไฟ ในโลกมอเตอร์สปอร์ต Shindengen รับผิดชอบระบบจัดการไฟฟ้าที่ต้องทนทานสูงในสภาวะแข่งขัน</p>
+      </div>
+
+      <!-- 14 -->
+      <div class="brand-card">
+        <div class="brand-num">14</div>
+        <div class="brand-tag">คลัตช์ · Drivetrain</div>
+        <div class="brand-name">STM เอส-ที-เอ็ม</div>
+        <div class="brand-origin">🇮🇹 อิตาลี</div>
+        <p class="brand-desc">แบรนด์สัญชาติอิตาลี ผู้เชี่ยวชาญด้านการผลิตและพัฒนา <strong>ระบบ Slipper Clutch</strong> และชิ้นส่วนกลไกความละเอียดสูงสำหรับรถแข่งระดับโลก Slipper Clutch ช่วยป้องกันล้อหลังล็อกตอนลดเกียร์กะทันหัน ซึ่งในระดับ WorldSBK ที่ต้องเบรกหนักมากๆ นี่คืออุปกรณ์ที่ขาดไม่ได้</p>
+      </div>
+
+      <!-- 15 -->
+      <div class="brand-card">
+        <div class="brand-num">15</div>
+        <div class="brand-tag">ชิลด์บังลม · Aerodynamics</div>
+        <div class="brand-name">WRS ดับบลิว-อาร์-เอส</div>
+        <div class="brand-origin">🇮🇹 อิตาลี</div>
+        <p class="brand-desc">แบรนด์ผู้ผลิตชิลด์บังลม (Windscreen) และอุปกรณ์แต่งรถจักรยานยนต์ประสิทธิภาพสูงจากอิตาลี ใช้วัสดุ Polycarbonate และ Acrylic คุณภาพสูง ที่ออกแบบมาเพื่อลด Wind Drag และเพิ่มประสิทธิภาพ Aerodynamics บนทางตรงความเร็วสูง</p>
+      </div>
+
+      <h2>สรุป</h2>
+
+      <p>จาก 15 Logo บนชุดของก้อง ไม่มีอะไรที่แปะแบบสุ่ม ทุกแบรนด์คือส่วนหนึ่งของระบบนิเวศที่ทำให้นักแข่งคนหนึ่งสามารถแข่งได้ในระดับโลก — ตั้งแต่หัวเทียนที่จุดประกาย ไปจนถึงน้ำมันเครื่องที่หล่อลื่นทุกรอบของเครื่องยนต์</p>
+
+      <p>และที่น่าภูมิใจคือมีแบรนด์ไทยอย่าง Yum Yum และ Sittipol ร่วมอยู่ในนั้นด้วย ซึ่งเป็นสัญญาณที่ดีมากว่าแวดวงมอเตอร์สปอร์ตไทยกำลังเติบโตขึ้นในเวทีโลกอย่างจริงจัง</p>
+
+      <p>ถ้าอยากให้ผมทำบทความแบบนี้สำหรับนักแข่งหรือรายการอื่น comment บอกได้เลยครับ</p>
+
+      <!-- TAGS -->
+      <div class="article-tags">
+        <a href="#" class="tag-item">WSBK</a>
+        <a href="#" class="tag-item">ก้อง สมเกียรติ</a>
+        <a href="#" class="tag-item">Somkiat Chantra</a>
+        <a href="#" class="tag-item">Honda HRC</a>
+        <a href="#" class="tag-item">WorldSBK Motul</a>
+        <a href="#" class="tag-item">สปอนเซอร์</a>
+        <a href="#" class="tag-item">นักแข่งไทย</a>
+        <a href="#" class="tag-item">Pirelli</a>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-block">
+        <div class="ad-slot" style="height:250px;">300 × 250 — Rectangle Ad</div>
+      </div>
+
+      <div class="sidebar-block" style="background:var(--gray);padding:20px;">
+        <div class="sidebar-title">📰 บทความอื่นๆ</div>
+
+        <a href="motogp-article-martin-topspeed.html" style="text-decoration:none;display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #222;align-items:flex-start;">
+          <img src="https://picsum.photos/seed/martin368/64/48" alt="Martin" style="width:64px;height:48px;object-fit:cover;flex-shrink:0;">
+          <div>
+            <h4 style="font-family:var(--font-serif);font-size:13px;color:var(--white);line-height:1.4;margin-bottom:4px;">มาร์ตินตอกสถิติโลก 368.6 กม./ชม. ที่ Mugello</h4>
+            <span style="font-family:var(--font-mono);font-size:9px;color:#555;">MotoGP · 8 MIN</span>
+          </div>
+        </a>
+
+        <a href="motogp-article-aero-wings.html" style="text-decoration:none;display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #222;align-items:flex-start;">
+          <img src="https://picsum.photos/seed/aerowing2/64/48" alt="Aero Wings" style="width:64px;height:48px;object-fit:cover;flex-shrink:0;">
+          <div>
+            <h4 style="font-family:var(--font-serif);font-size:13px;color:var(--white);line-height:1.4;margin-bottom:4px;">ปีกของ MotoGP คืออะไร และทำไมถึงสำคัญมาก</h4>
+            <span style="font-family:var(--font-mono);font-size:9px;color:#555;">เทคนิค · 7 MIN</span>
+          </div>
+        </a>
+
+        <a href="#" style="text-decoration:none;display:flex;gap:10px;padding:10px 0;align-items:flex-start;">
+          <img src="https://picsum.photos/seed/mugello26/64/48" alt="Mugello" style="width:64px;height:48px;object-fit:cover;flex-shrink:0;">
+          <div>
+            <h4 style="font-family:var(--font-serif);font-size:13px;color:var(--white);line-height:1.4;margin-bottom:4px;">Mugello Circuit: สนามในฝันของทุกนักแข่ง</h4>
+            <span style="font-family:var(--font-mono);font-size:9px;color:#555;">สนาม · 6 MIN</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-block" style="margin-top:8px;">
+        <div class="ad-slot" style="height:400px;">300 × 400 — Rectangle Ad</div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-f">LIFE OF <span style="color:var(--red)">BIKE</span></span>
+      <p>แหล่งข่าวมอเตอร์สปอร์ตภาษาไทย ครอบคลุมทั้ง MotoGP, WSBK และข่าวนักแข่งไทยในเวทีโลก อัปเดตทุกวัน</p>
+    </div>
+    <div class="footer-col">
+      <h4>เนื้อหา</h4>
+      <ul>
+        <li><a href="index.html#news">ข่าวสาร</a></li>
+        <li><a href="index.html#results">ผลการแข่งขัน</a></li>
+        <li><a href="index.html#standings">ตาราง</a></li>
+        <li><a href="index.html#analysis">สคริปต์วิเคราะห์</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>บทความ</h4>
+      <ul>
+        <li><a href="motogp-article-martin-topspeed.html">Martin 368.6 กม./ชม.</a></li>
+        <li><a href="motogp-article-aero-wings.html">ปีก MotoGP</a></li>
+        <li><a href="wsbk-gong-sponsors.html">Logo บนตัวก้อง</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>ติดต่อ</h4>
+      <ul>
+        <li><a href="mailto:lifeofbikebkk@gmail.com">lifeofbikebkk@gmail.com</a></li>
+        <li><a href="index.html#advertise">ลงโฆษณา</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Life of Bike — ลิขสิทธิ์ทุกประการ</p>
+    <p>lifeofbikebkk@gmail.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
