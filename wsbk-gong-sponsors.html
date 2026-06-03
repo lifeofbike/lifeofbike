@@ -64,12 +64,12 @@
   .article-category { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--red); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
   .article-title { font-family: var(--font-display); font-size: clamp(40px, 6vw, 72px); line-height: 1; letter-spacing: .02em; color: var(--white); margin-bottom: 20px; }
   .article-deck { font-size: 18px; color: var(--text-muted); line-height: 1.6; max-width: 720px; margin-bottom: 28px; font-weight: 300; }
-  .article-meta-bar { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding: 16px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; margin-bottom: 0; }
+  .article-meta-bar { display:flex; align-items:center; gap:16px; padding:10px 0; border-top:1px solid #222; border-bottom:1px solid #222; margin-bottom:0; flex-wrap:wrap; }
   .author-block { display: flex; align-items: center; gap: 10px; }
   .author-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 16px; color: #fff; flex-shrink: 0; }
   .author-name { font-size: 13px; font-weight: 500; color: var(--white); }
   .author-role { font-family: var(--font-mono); font-size: 9px; color: #555; letter-spacing: .06em; text-transform: uppercase; margin-top: 2px; }
-  .meta-divider { width: 1px; height: 28px; background: #333; }
+  .meta-divider { width:1px; height:20px; background:#333; }
   .meta-item { font-family: var(--font-mono); font-size: 10px; color: #555; letter-spacing: .06em; text-transform: uppercase; }
   .meta-item strong { display: block; color: var(--white); font-size: 12px; margin-bottom: 2px; letter-spacing: 0; text-transform: none; }
   .share-bar { margin-left: auto; display: flex; gap: 8px; }
@@ -245,11 +245,8 @@
     <p class="article-deck">เพื่อนๆ เคยสงสัยไหมว่า Logo ที่อยู่บนชุดของ ก้อง สมเกียรติ จันทรา นักแข่งไทยคนแรกในรายการ WorldSBK Motul คลาสใหญ่สุด มีแบรนด์อะไรบ้าง และแต่ละแบรนด์ทำธุรกิจอะไร — ผมรวมมาให้หมดแล้วในบทความนี้</p>
     <div class="article-meta-bar">
       <div class="author-block">
-        <div class="author-avatar">P</div>
-        <div>
-          <div class="author-name">พีระ ทวีสุข</div>
-          <div class="author-role">Motorsport Writer · LIFE OF BIKE</div>
-        </div>
+        <img src="images/Logo Red.png" alt="Life of Bike" style="width:28px;height:28px;border-radius:50%;object-fit:cover;flex-shrink:0;">
+        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);">LIFE OF BIKE</span>
       </div>
       <div class="meta-divider"></div>
       <div class="meta-item"><strong>Life of Bike</strong>เผยแพร่โดย</div>
