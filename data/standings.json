@@ -1,24 +1,199 @@
-﻿{
-  "updatedAt": "2026-05-31T15:45:00Z",
-  "source": "seed",
+{
+  "updatedAt": "2026-06-03T16:05:55Z",
+  "source": "scraped",
   "season": 2026,
   "riders": [
-    {"pos":1,"num":"72","name":"Marco Bezzecchi","team":"Aprilia Racing","pts":173,"flag":"🇮🇹"},
-    {"pos":2,"num":"89","name":"Jorge Martin","team":"Aprilia Racing","pts":156,"flag":"🇪🇸"},
-    {"pos":3,"num":"49","name":"Fabio Di Giannantonio","team":"Team VR46","pts":134,"flag":"🇮🇹"},
-    {"pos":4,"num":"31","name":"Pedro Acosta","team":"Red Bull KTM","pts":103,"flag":"🇪🇸"},
-    {"pos":5,"num":"79","name":"Ai Ogura","team":"Trackhouse Racing","pts":92,"flag":"🇯🇵"},
-    {"pos":6,"num":"25","name":"Raúl Fernández","team":"Trackhouse Racing","pts":87,"flag":"🇪🇸"},
-    {"pos":7,"num":"1","name":"Francesco Bagnaia","team":"Ducati Lenovo","pts":82,"flag":"🇮🇹"},
-    {"pos":8,"num":"93","name":"Marc Márquez","team":"Ducati Lenovo","pts":71,"flag":"🇪🇸"},
-    {"pos":9,"num":"73","name":"Álex Márquez","team":"Gresini Racing","pts":67,"flag":"🇪🇸"},
-    {"pos":10,"num":"54","name":"Fermín Aldeguer","team":"Gresini Racing","pts":59,"flag":"🇪🇸"}
+    {
+      "pos": 1,
+      "num": "25",
+      "name": "M. Bezzecchi\n                                                            \n                                                                                        Aprilia Racing Team",
+      "team": "",
+      "pts": 173,
+      "flag": "🇮🇹"
+    },
+    {
+      "pos": 2,
+      "num": "18",
+      "name": "J. Martin\n                                                            \n                                                                                        Aprilia Racing Team",
+      "team": "",
+      "pts": 156,
+      "flag": "🇪🇸"
+    },
+    {
+      "pos": 3,
+      "num": "12",
+      "name": "F. Di Giannantonio\n                                                            \n                                                                                        Team VR46",
+      "team": "",
+      "pts": 134,
+      "flag": "🇮🇹"
+    },
+    {
+      "pos": 4,
+      "num": "10",
+      "name": "P. Acosta\n                                                            \n                                                                                        Red Bull KTM Factory Racing",
+      "team": "",
+      "pts": 103,
+      "flag": "🇪🇸"
+    },
+    {
+      "pos": 5,
+      "num": "17",
+      "name": "A. Ogura\n                                                            \n                                                                                        Trackhouse Racing Team",
+      "team": "",
+      "pts": 92,
+      "flag": "🇯🇵"
+    },
+    {
+      "pos": 6,
+      "num": "23",
+      "name": "R. Fernández\n                                                            \n                                                                                        Trackhouse Racing Team",
+      "team": "",
+      "pts": 87,
+      "flag": ""
+    },
+    {
+      "pos": 7,
+      "num": "8",
+      "name": "F. Bagnaia\n                                                            \n                                                                                        Ducati Team",
+      "team": "",
+      "pts": 82,
+      "flag": "🇮🇹"
+    },
+    {
+      "pos": 8,
+      "num": "9",
+      "name": "M. Marquez\n                                                            \n                                                                                        Ducati Team",
+      "team": "",
+      "pts": 71,
+      "flag": "🇪🇸"
+    },
+    {
+      "pos": 9,
+      "num": "13",
+      "name": "A. Marquez\n                                                            \n                                                                                        Gresini Racing",
+      "team": "",
+      "pts": 67,
+      "flag": "🇪🇸"
+    },
+    {
+      "pos": 10,
+      "num": "8",
+      "name": "F. Aldeguer\n                                                            \n                                                                                        Gresini Racing",
+      "team": "",
+      "pts": 59,
+      "flag": "🇪🇸"
+    },
+    {
+      "pos": 11,
+      "num": "6",
+      "name": "L. Marini\n                                                            \n                                                                                        Honda HRC",
+      "team": "",
+      "pts": 46,
+      "flag": ""
+    },
+    {
+      "pos": 12,
+      "num": "13",
+      "name": "B. Binder\n                                                            \n                                                                                        Red Bull KTM Factory Racing",
+      "team": "",
+      "pts": 42,
+      "flag": "🇿🇦"
+    },
+    {
+      "pos": 13,
+      "num": "4",
+      "name": "E. Bastianini\n                                                            \n                                                                                        Tech 3",
+      "team": "",
+      "pts": 39,
+      "flag": "🇮🇹"
+    },
+    {
+      "pos": 14,
+      "num": "8",
+      "name": "F. Morbidelli\n                                                            \n                                                                                        Team VR46",
+      "team": "",
+      "pts": 38,
+      "flag": "🇮🇹"
+    },
+    {
+      "pos": 15,
+      "num": "2",
+      "name": "F. Quartararo\n                                                            \n                                                                                        Yamaha Factory Racing",
+      "team": "",
+      "pts": 37,
+      "flag": "🇫🇷"
+    },
+    {
+      "pos": 16,
+      "num": "5",
+      "name": "J. Zarco\n                                                            \n                                                                                        Team LCR",
+      "team": "",
+      "pts": 34,
+      "flag": "🇫🇷"
+    },
+    {
+      "pos": 17,
+      "num": "23",
+      "name": "D. Moreira\n                                                            \n                                                                                        Team LCR",
+      "team": "",
+      "pts": 3,
+      "flag": ""
+    },
+    {
+      "pos": 18,
+      "num": "15",
+      "name": "J. Mir\n                                                            \n                                                                                        Honda HRC",
+      "team": "",
+      "pts": 3,
+      "flag": "🇪🇸"
+    },
+    {
+      "pos": 19,
+      "num": "9",
+      "name": "A. Rins\n                                                            \n                                                                                        Yamaha Factory Racing",
+      "team": "",
+      "pts": 1,
+      "flag": "🇪🇸"
+    },
+    {
+      "pos": 20,
+      "num": "5",
+      "name": "M. Viñales\n                                                            \n                                                                                        Tech 3",
+      "team": "",
+      "pts": 5,
+      "flag": ""
+    }
   ],
   "constructors": [
-    {"pos":1,"name":"Aprilia","pts":329,"flag":"🇮🇹"},
-    {"pos":2,"name":"Ducati","pts":268,"flag":"🇮🇹"},
-    {"pos":3,"name":"KTM","pts":148,"flag":"🇦🇹"},
-    {"pos":4,"name":"Honda","pts":87,"flag":"🇯🇵"},
-    {"pos":5,"name":"Yamaha","pts":64,"flag":"🇯🇵"}
+    {
+      "pos": 1,
+      "name": "Aprilia",
+      "pts": 329,
+      "flag": "🇮🇹"
+    },
+    {
+      "pos": 2,
+      "name": "Ducati",
+      "pts": 268,
+      "flag": "🇮🇹"
+    },
+    {
+      "pos": 3,
+      "name": "KTM",
+      "pts": 148,
+      "flag": "🇦🇹"
+    },
+    {
+      "pos": 4,
+      "name": "Honda",
+      "pts": 87,
+      "flag": "🇯🇵"
+    },
+    {
+      "pos": 5,
+      "name": "Yamaha",
+      "pts": 64,
+      "flag": "🇯🇵"
+    }
   ]
 }
