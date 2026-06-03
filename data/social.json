@@ -1,0 +1,29 @@
+{
+  "updatedAt": "2026-06-04T00:00:00Z",
+  "channels": {
+    "youtube": {
+      "url": "https://www.youtube.com/@Lifeofbike_",
+      "handle": "@Lifeofbike_",
+      "subscribers": 115000,
+      "display": "115K"
+    },
+    "instagram": {
+      "url": "https://www.instagram.com/lifeofbike_",
+      "handle": "@lifeofbike_",
+      "followers": 47700,
+      "display": "47.7K"
+    },
+    "facebook": {
+      "url": "https://www.facebook.com/lifeofbikepage/",
+      "handle": "lifeofbikepage",
+      "followers": 130000,
+      "display": "130K"
+    },
+    "tiktok": {
+      "url": "https://www.tiktok.com/@lifeofbike_",
+      "handle": "@lifeofbike_",
+      "followers": 125200,
+      "display": "125K"
+    }
+  }
+}
