@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-06T11:12:00Z",
+  "updatedAt": "2026-06-06T15:55:08Z",
   "source": "scraped",
   "season": 2026,
   "riders": [
@@ -8,7 +8,7 @@
       "num": "25",
       "name": "M. Bezzecchi\n                                                            \n                                                                                        Aprilia Racing Team",
       "team": "",
-      "pts": 173,
+      "pts": 180,
       "flag": "🇮🇹"
     },
     {
@@ -16,7 +16,7 @@
       "num": "18",
       "name": "J. Martin\n                                                            \n                                                                                        Aprilia Racing Team",
       "team": "",
-      "pts": 156,
+      "pts": 160,
       "flag": "🇪🇸"
     },
     {
@@ -32,11 +32,19 @@
       "num": "10",
       "name": "P. Acosta\n                                                            \n                                                                                        Red Bull KTM Factory Racing",
       "team": "",
-      "pts": 103,
+      "pts": 112,
       "flag": "🇪🇸"
     },
     {
       "pos": 5,
+      "num": "23",
+      "name": "R. Fernández\n                                                            \n                                                                                        Trackhouse Racing Team",
+      "team": "",
+      "pts": 93,
+      "flag": ""
+    },
+    {
+      "pos": 6,
       "num": "17",
       "name": "A. Ogura\n                                                            \n                                                                                        Trackhouse Racing Team",
       "team": "",
@@ -44,19 +52,11 @@
       "flag": "🇯🇵"
     },
     {
-      "pos": 6,
-      "num": "23",
-      "name": "R. Fernández\n                                                            \n                                                                                        Trackhouse Racing Team",
-      "team": "",
-      "pts": 87,
-      "flag": ""
-    },
-    {
       "pos": 7,
       "num": "8",
       "name": "F. Bagnaia\n                                                            \n                                                                                        Ducati Team",
       "team": "",
-      "pts": 82,
+      "pts": 83,
       "flag": "🇮🇹"
     },
     {
@@ -64,7 +64,7 @@
       "num": "9",
       "name": "M. Marquez\n                                                            \n                                                                                        Ducati Team",
       "team": "",
-      "pts": 71,
+      "pts": 83,
       "flag": "🇪🇸"
     },
     {
@@ -80,7 +80,7 @@
       "num": "8",
       "name": "F. Aldeguer\n                                                            \n                                                                                        Gresini Racing",
       "team": "",
-      "pts": 59,
+      "pts": 64,
       "flag": "🇪🇸"
     },
     {
@@ -104,7 +104,7 @@
       "num": "4",
       "name": "E. Bastianini\n                                                            \n                                                                                        Tech 3",
       "team": "",
-      "pts": 39,
+      "pts": 41,
       "flag": "🇮🇹"
     },
     {
@@ -133,10 +133,10 @@
     },
     {
       "pos": 17,
-      "num": "23",
+      "num": "3",
       "name": "D. Moreira\n                                                            \n                                                                                        Team LCR",
       "team": "",
-      "pts": 3,
+      "pts": 26,
       "flag": ""
     },
     {
