@@ -1340,7 +1340,7 @@
     return events.map((ev, i) => {
       const d = ev.date ? new Date(ev.date + 'T00:00:00Z') : null;
       const dd = d ? String(d.getUTCDate()).padStart(2,'0') : '--';
-      const mm = d ? MONTHS_EN[d.getUTCMonth()] : '---';
+      const mm = d ? MONTHS_TH[d.getUTCMonth()] : '---';
       const isNext = i === 0;
       return `
         <div class="schedule-item">
