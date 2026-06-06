@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-06T08:17:47Z",
+  "updatedAt": "2026-06-06T11:12:00Z",
   "source": "scraped",
   "season": 2026,
   "events": [
@@ -9,7 +9,6 @@
       "country": "Germany",
       "flag": "🇩🇪",
       "date": "2026-07-05",
-      "raceTimeTH": "18:00",
       "status": "upcoming"
     },
     {
@@ -18,7 +17,6 @@
       "country": "United Kingdom",
       "flag": "🇬🇧",
       "date": "2026-08-02",
-      "raceTimeTH": "21:00",
       "status": "upcoming"
     },
     {
@@ -27,7 +25,6 @@
       "country": "Austria",
       "flag": "🇦🇹",
       "date": "2026-08-23",
-      "raceTimeTH": "21:00",
       "status": "upcoming"
     },
     {
@@ -36,7 +33,6 @@
       "country": "Italy",
       "flag": "🇮🇹",
       "date": "2026-09-13",
-      "raceTimeTH": "21:00",
       "status": "upcoming"
     },
     {
@@ -45,7 +41,6 @@
       "country": "Spain",
       "flag": "🇪🇸",
       "date": "2026-09-27",
-      "raceTimeTH": "21:00",
       "status": "upcoming"
     },
     {
@@ -54,7 +49,6 @@
       "country": "Japan",
       "flag": "🇯🇵",
       "date": "2026-10-04",
-      "raceTimeTH": "14:00",
       "status": "upcoming"
     }
   ]
