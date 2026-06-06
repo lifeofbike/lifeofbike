@@ -1342,6 +1342,7 @@
       const dd = d ? String(d.getUTCDate()).padStart(2,'0') : '--';
       const mm = d ? MONTHS_TH[d.getUTCMonth()] : '---';
       const isNext = i === 0;
+      const timeStr = ev.raceTimeTH ? `<div style="font-family:var(--font-mono);font-size:10px;color:#e8c84a;margin-top:3px;">&#128336; ${ev.raceTimeTH} น.</div>` : '';
       return `
         <div class="schedule-item">
           <div class="race-date-box">
