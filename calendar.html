@@ -50,7 +50,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.92
 
 .card-header{padding:16px 16px 12px;display:flex;align-items:flex-start;gap:12px}
 .round-num{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:.1em;white-space:nowrap;padding-top:4px}
-.card-flag{font-size:28px;line-height:1}
+.card-flag{width:36px;height:24px;object-fit:cover;border-radius:2px;flex-shrink:0;margin-top:2px}
 .card-title{flex:1}
 .card-country{font-family:var(--font-display);font-size:20px;letter-spacing:.04em;line-height:1;color:var(--white)}
 .card-gp{font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.08em;margin-top:2px}
@@ -134,21 +134,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.92
 const MONTHS_TH = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
 
 const RACES = [
-  { round:1, name:"Thailand Grand Prix", country:"ไทย", circuit:"Chang International Circuit", city:"บุรีรัมย์", flag:"🇹🇭", date:"2026-03-01", raceTimeTH:"14:00", status:"done", winner:"Marc Márquez" },
-  { round:2, name:"Portugal Grand Prix", country:"โปรตุเกส", circuit:"Autodromo Internacional do Algarve", city:"Portimão", flag:"🇵🇹", date:"2026-03-22", raceTimeTH:"22:00", status:"done", winner:"Jorge Martín" },
-  { round:3, name:"Americas Grand Prix", country:"สหรัฐอเมริกา", circuit:"Circuit of the Americas", city:"ออสติน", flag:"🇺🇸", date:"2026-04-12", raceTimeTH:"22:00", status:"done", winner:"Pedro Acosta" },
-  { round:4, name:"Spanish Grand Prix", country:"สเปน", circuit:"Circuito de Jerez", city:"เฆเรซ", flag:"🇪🇸", date:"2026-04-26", raceTimeTH:"21:00", status:"done", winner:"Marc Márquez" },
-  { round:5, name:"French Grand Prix", country:"ฝรั่งเศส", circuit:"Circuit Bugatti", city:"เลอม็อง", flag:"🇫🇷", date:"2026-05-11", raceTimeTH:"21:00", status:"done", winner:"Jorge Martín" },
-  { round:6, name:"Italian Grand Prix", country:"อิตาลี", circuit:"Autodromo del Mugello", city:"มูเจลโล", flag:"🇮🇹", date:"2026-06-01", raceTimeTH:"21:00", status:"done", winner:"Jorge Martín" },
-  { round:7, name:"German Grand Prix", country:"เยอรมนี", circuit:"Sachsenring", city:"ซัคเซนริง", flag:"🇩🇪", date:"2026-07-05", raceTimeTH:"18:00", status:"upcoming" },
-  { round:8, name:"British Grand Prix", country:"อังกฤษ", circuit:"Silverstone Circuit", city:"ซิลเวอร์สโตน", flag:"🇬🇧", date:"2026-08-02", raceTimeTH:"21:00", status:"upcoming" },
-  { round:9, name:"Austrian Grand Prix", country:"ออสเตรีย", circuit:"Red Bull Ring", city:"สปีลแบร์ก", flag:"🇦🇹", date:"2026-08-23", raceTimeTH:"21:00", status:"upcoming" },
-  { round:10, name:"San Marino Grand Prix", country:"ซานมารีโน", circuit:"Misano World Circuit", city:"มีซาโน", flag:"🇮🇹", date:"2026-09-13", raceTimeTH:"21:00", status:"upcoming" },
-  { round:11, name:"Aragon Grand Prix", country:"สเปน", circuit:"MotorLand Aragon", city:"อารากอน", flag:"🇪🇸", date:"2026-09-27", raceTimeTH:"21:00", status:"upcoming" },
-  { round:12, name:"Japan Grand Prix", country:"ญี่ปุ่น", circuit:"Twin Ring Motegi", city:"โมเตกิ", flag:"🇯🇵", date:"2026-10-04", raceTimeTH:"14:00", status:"upcoming" },
-  { round:13, name:"Australian Grand Prix", country:"ออสเตรเลีย", circuit:"Phillip Island Circuit", city:"ฟิลลิปไอส์แลนด์", flag:"🇦🇺", date:"2026-10-18", raceTimeTH:"12:00", status:"upcoming" },
-  { round:14, name:"Malaysian Grand Prix", country:"มาเลเซีย", circuit:"Sepang International Circuit", city:"เซปัง", flag:"🇲🇾", date:"2026-11-01", raceTimeTH:"20:00", status:"upcoming" },
-  { round:15, name:"Valencia Grand Prix", country:"สเปน", circuit:"Circuit Ricardo Tormo", city:"บาเลนเซีย", flag:"🇪🇸", date:"2026-11-15", raceTimeTH:"21:00", status:"upcoming" }
+  { round:1,  name:"Thailand Grand Prix",    country:"ไทย",           cc:"th", circuit:"Chang International Circuit",         city:"บุรีรัมย์",         date:"2026-03-01", raceTimeTH:"15:00",        status:"done",     winner:"Marc Márquez" },
+  { round:2,  name:"Portugal Grand Prix",    country:"โปรตุเกส",      cc:"pt", circuit:"Autodromo Internacional do Algarve",  city:"Portimão",          date:"2026-03-22", raceTimeTH:"21:00",        status:"done",     winner:"Jorge Martín" },
+  { round:3,  name:"Americas Grand Prix",    country:"สหรัฐอเมริกา", cc:"us", circuit:"Circuit of the Americas",             city:"ออสติน",            date:"2026-04-12", raceTimeTH:"02:00*",       status:"done",     winner:"Pedro Acosta" },
+  { round:4,  name:"Spanish Grand Prix",     country:"สเปน",          cc:"es", circuit:"Circuito de Jerez",                  city:"เฆเรซ",             date:"2026-04-26", raceTimeTH:"19:00",        status:"done",     winner:"Marc Márquez" },
+  { round:5,  name:"French Grand Prix",      country:"ฝรั่งเศส",     cc:"fr", circuit:"Circuit Bugatti",                    city:"เลอม็อง",           date:"2026-05-11", raceTimeTH:"19:00",        status:"done",     winner:"Jorge Martín" },
+  { round:6,  name:"Italian Grand Prix",     country:"อิตาลี",        cc:"it", circuit:"Autodromo del Mugello",              city:"มูเจลโล",           date:"2026-06-01", raceTimeTH:"19:00",        status:"done",     winner:"Jorge Martín" },
+  { round:7,  name:"German Grand Prix",      country:"เยอรมนี",       cc:"de", circuit:"Sachsenring",                        city:"ซัคเซนริง",         date:"2026-07-05", raceTimeTH:"19:00",        status:"upcoming" },
+  { round:8,  name:"British Grand Prix",     country:"อังกฤษ",        cc:"gb", circuit:"Silverstone Circuit",                city:"ซิลเวอร์สโตน",     date:"2026-08-02", raceTimeTH:"20:00",        status:"upcoming" },
+  { round:9,  name:"Austrian Grand Prix",    country:"ออสเตรีย",      cc:"at", circuit:"Red Bull Ring",                      city:"สปีลแบร์ก",         date:"2026-08-23", raceTimeTH:"19:00",        status:"upcoming" },
+  { round:10, name:"San Marino Grand Prix",  country:"ซานมารีโน",    cc:"sm", circuit:"Misano World Circuit",               city:"มีซาโน",            date:"2026-09-13", raceTimeTH:"19:00",        status:"upcoming" },
+  { round:11, name:"Aragon Grand Prix",      country:"สเปน",          cc:"es", circuit:"MotorLand Aragon",                   city:"อารากอน",           date:"2026-09-27", raceTimeTH:"19:00",        status:"upcoming" },
+  { round:12, name:"Japan Grand Prix",       country:"ญี่ปุ่น",      cc:"jp", circuit:"Twin Ring Motegi",                   city:"โมเตกิ",            date:"2026-10-04", raceTimeTH:"12:00",        status:"upcoming" },
+  { round:13, name:"Australian Grand Prix",  country:"ออสเตรเลีย",   cc:"au", circuit:"Phillip Island Circuit",             city:"ฟิลลิปไอส์แลนด์",  date:"2026-10-18", raceTimeTH:"12:00",        status:"upcoming" },
+  { round:14, name:"Malaysian Grand Prix",   country:"มาเลเซีย",     cc:"my", circuit:"Sepang International Circuit",       city:"เซปัง",             date:"2026-11-01", raceTimeTH:"14:00",        status:"upcoming" },
+  { round:15, name:"Valencia Grand Prix",    country:"สเปน",          cc:"es", circuit:"Circuit Ricardo Tormo",              city:"บาเลนเซีย",         date:"2026-11-15", raceTimeTH:"20:00",        status:"upcoming" }
 ];
 
 function getDaysUntil(dateStr) {
@@ -182,7 +182,7 @@ function renderCard(ev, isNext) {
     <div class="card-stripe"></div>
     <div class="card-header">
       <span class="round-num">R${String(ev.round).padStart(2,'0')}</span>
-      <span class="card-flag">${ev.flag}</span>
+      <img class="card-flag" src="https://flagcdn.com/w40/${ev.cc}.png" alt="${ev.country}" onerror="this.style.display='none'">
       <div class="card-title">
         <div class="card-country">${ev.country}</div>
         <div class="card-gp">${ev.name.toUpperCase()}</div>
@@ -229,7 +229,7 @@ function init() {
       <div class="next-banner"><div class="next-inner">
         <div>
           <div class="next-label">&#9654; การแข่งขันถัดไป — รอบที่ ${nextRace.round}</div>
-          <div class="next-name">${nextRace.flag} ${nextRace.country}</div>
+          <div class="next-name" style="display:flex;align-items:center;gap:10px;"><img src="https://flagcdn.com/w40/${nextRace.cc}.png" style="height:22px;border-radius:2px;"> ${nextRace.country}</div>
           <div class="next-detail">${nextRace.circuit} &nbsp;·&nbsp; ${dd} ${mm} &nbsp;·&nbsp; &#128336; ${nextRace.raceTimeTH||'TBC'} น.</div>
         </div>
         <div class="next-countdown">
