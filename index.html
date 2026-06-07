@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -529,7 +529,13 @@
     .standings-row:last-child { border-bottom: none; }
     .pos { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); width: 18px; text-align: center; }
     .pos.gold { color: var(--gold); font-weight: 600; }
-    .rider-flag { font-size: 16px; }
+    .rider-flag { width:20px; height:13px; object-fit:cover; border-radius:1px; flex-shrink:0; }
+    .mfr-badge { font-family:var(--font-mono); font-size:8px; letter-spacing:.06em; padding:2px 5px; border-radius:2px; font-weight:600; }
+    .mfr-ducati  { background:#cc0000; color:#fff; }
+    .mfr-aprilia { background:#00843d; color:#fff; }
+    .mfr-ktm     { background:#e67300; color:#fff; }
+    .mfr-honda   { background:#b00000; color:#fff; }
+    .mfr-yamaha  { background:#003087; color:#fff; }
     .rider-num { font-family: var(--font-mono); font-size: 11px; color: var(--red); width: 26px; }
     .rider-name { flex: 1; color: var(--white); font-weight: 500; }
     .rider-pts { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
@@ -1316,9 +1322,12 @@
     return riders.map(r => `
       <div class="standings-row">
         <div class="pos ${r.pos===1?'gold':''}">${r.pos}</div>
-        <div class="rider-flag">${r.flag||''}</div>
+        <img class="rider-flag" src="https://flagcdn.com/w40/${r.flag}.png" alt="" onerror="this.style.display='none'">
         <div class="rider-num">#${r.num}</div>
-        <div class="rider-name">${r.name}</div>
+        <div class="rider-name" style="display:flex;align-items:center;justify-content:space-between;gap:4px;">
+          <span>${r.name}</span>
+          ${r.mfr ? `<span class="mfr-badge mfr-${r.mfr}">${r.mfr.toUpperCase()}</span>` : ''}
+        </div>
         <div class="rider-pts">${r.pts}</div>
       </div>`).join('');
   }
@@ -1327,9 +1336,12 @@
     return constructors.map(c => `
       <div class="standings-row">
         <div class="pos ${c.pos===1?'gold':''}">${c.pos}</div>
-        <div class="rider-flag">${c.flag||''}</div>
+        <div class="rider-flag"></div>
         <div class="rider-num"></div>
-        <div class="rider-name">${c.name}</div>
+        <div class="rider-name" style="display:flex;align-items:center;gap:6px;">
+          ${c.mfr ? `<span class="mfr-badge mfr-${c.mfr}">${c.mfr.toUpperCase()}</span>` : ''}
+          <span>${c.name}</span>
+        </div>
         <div class="rider-pts">${c.pts}</div>
       </div>`).join('');
   }
@@ -1479,3 +1491,4 @@
 })();
 </script></body>
 </html>
+
