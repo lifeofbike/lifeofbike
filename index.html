@@ -867,10 +867,58 @@
 
 <!-- BREAKING NEWS TICKER -->
 <div class="ticker-wrap">
-  <span class="ticker-inner">
-    &nbsp;&nbsp;🏁 MOTOGP 2026: Márquez ขึ้นนำตาราง Standings ✦ Bagnaia ยิงแรงที่ Mugello ✦ หมวก Pecco รุ่นลิมิเต็ดขายหมดใน 6 ชม. ✦ Espargaro ยืนยันต่อสัญญา Aprilia ✦ Morbidelli ทำเวลาได้ดีเยี่ยมที่ Assen ✦ ติดตามข่าวด่วน MotoGP ทุกสนาม ✦ สคริปต์วิเคราะห์ MotoGP โดยทีมงาน LIFE OF BIKE ✦ โฆษณากับเรา — ผู้อ่านกว่า 50,000 คน/เดือน ✦ &nbsp;&nbsp;🏁 MOTOGP 2026: Márquez ขึ้นนำตาราง Standings ✦ Bagnaia ยิงแรงที่ Mugello ✦ หมวก Pecco รุ่นลิมิเต็ดขายหมดใน 6 ชม. ✦ Espargaro ยืนยันต่อสัญญา Aprilia ✦ Morbidelli ทำเวลาได้ดีเยี่ยมที่ Assen ✦ ติดตามข่าวด่วน MotoGP ทุกสนาม ✦ สคริปต์วิเคราะห์ MotoGP โดยทีมงาน LIFE OF BIKE ✦ โฆษณากับเรา — ผู้อ่านกว่า 50,000 คน/เดือน ✦
+  <span class="ticker-inner" id="tickerText">
+    &nbsp;&nbsp;🏁 กำลังโหลดข่าว MotoGP...
   </span>
 </div>
+
+<script>
+(async function loadTicker() {
+  const FALLBACK_URL = 'data/ticker.json';
+  const RSS_URL = 'https://news.google.com/rss/search?q=MotoGP&hl=th&gl=TH&ceid=TH:th';
+  const PROXY = 'https://api.rss2json.com/v1/api.json?count=12&rss_url=';
+
+  function setTicker(items) {
+    const sep = ' &nbsp;✦&nbsp; ';
+    const text = '&nbsp;&nbsp;🏁&nbsp; ' + items.join(sep) + sep;
+    const el = document.getElementById('tickerText');
+    el.innerHTML = text + text; // duplicate for seamless loop
+    // Adjust animation speed based on content length
+    const len = el.textContent.length;
+    const duration = Math.max(30, Math.round(len * 0.18));
+    el.style.animationDuration = duration + 's';
+  }
+
+  // 1. Try RSS via rss2json
+  try {
+    const res = await fetch(PROXY + encodeURIComponent(RSS_URL), { signal: AbortSignal.timeout(4000) });
+    const data = await res.json();
+    if (data.status === 'ok' && data.items && data.items.length > 0) {
+      const headlines = data.items.map(i => i.title.replace(/\s*-\s*[\w\s]+$/, '').trim());
+      setTicker(headlines);
+      return;
+    }
+  } catch(e) {}
+
+  // 2. Fallback: ticker.json
+  try {
+    const res = await fetch(FALLBACK_URL + '?t=' + Date.now());
+    const data = await res.json();
+    if (data.items && data.items.length > 0) {
+      setTicker(data.items);
+      return;
+    }
+  } catch(e) {}
+
+  // 3. Static fallback
+  setTicker([
+    '🏆 Márquez คว้าชัย Hungarian GP เฉือน Acosta',
+    '🏁 German GP ที่ Sachsenring รอบถัดไป 5 ก.ค.',
+    '📊 Bezzecchi นำตารางคะแนน 180 แต้ม',
+    '⚡ MotoGP เพิ่มระยะห่างกริดสตาร์ทตั้งแต่ German GP'
+  ]);
+})();
+</script>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
