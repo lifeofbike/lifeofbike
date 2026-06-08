@@ -191,7 +191,7 @@
       grid-template-columns: 1fr 380px;
       gap: 2px;
       padding: 20px 40px 0;
-      min-height: 80vh;
+      height: 420px;
       align-items: stretch;
     }
     .hero-main {
@@ -203,13 +203,13 @@
     .hero-main-img {
       width: 100%;
       height: 100%;
-      min-height: 520px;
+      min-height: unset;
       object-fit: cover;
       display: block;
-      filter: brightness(.55);
+      filter: brightness(.85);
       transition: transform .6s ease, filter .4s;
     }
-    .hero-main:hover .hero-main-img { transform: scale(1.03); filter: brightness(.45); }
+    .hero-main:hover .hero-main-img { transform: scale(1.03); filter: brightness(.75); }
     .hero-main-content {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -261,7 +261,7 @@
       inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      filter: brightness(.45);
+      filter: brightness(.75);
       transition: transform .5s, filter .3s;
     }
     .hero-side-card:hover img { transform: scale(1.05); filter: brightness(.3); }
