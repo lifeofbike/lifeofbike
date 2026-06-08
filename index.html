@@ -1394,30 +1394,33 @@
   const MONTHS_EN = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 
   function renderRiders(riders) {
-    const cleanName = n => n.replace(/\s+(Aprilia|Ducati|KTM|Honda|Yamaha|Racing|Team|Factory|Trackhouse|Gresini|Pramac|Tech|VR46|HRC|LCR|Red Bull|Monster|Lenovo|Pertamina|Castrol|BK8).*/i,'').trim();
     const rows = riders.map((r,i) => {
       const hidden = i >= 10 ? ' style="display:none"' : '';
       return `<div class="standings-row standings-extra-row"${hidden}>
         <div class="pos ${r.pos===1?'gold':''}">${r.pos}</div>
         <img class="rider-flag" src="https://flagcdn.com/w40/${r.flag}.png" alt="" onerror="this.style.display='none'">
         <div class="rider-num">#${r.num}</div>
-        <div class="rider-name" style="display:flex;align-items:center;justify-content:space-between;gap:4px;">
-          <span>${cleanName(r.name)}</span>
-          ${r.mfr ? `<span class="mfr-badge mfr-${r.mfr}">${r.mfr.toUpperCase()}</span>` : ''}
+        <div class="rider-name" style="display:flex;align-items:center;justify-content:space-between;gap:4px;min-width:0;">
+          <div style="min-width:0;overflow:hidden;">
+            <div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${r.name}</div>
+            <div style="font-size:9px;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px;">${r.team||''}</div>
+          </div>
+          ${r.mfr ? `<span class="mfr-badge mfr-${r.mfr}" style="flex-shrink:0;">${r.mfr.toUpperCase()}</span>` : ''}
         </div>
         <div class="rider-pts">${r.pts}</div>
       </div>`;
     }).join('');
-    const btn = `<button onclick="toggleRiders(this)" style="width:100%;margin-top:8px;padding:7px;background:#1a1a1a;border:1px solid #2a2a2a;color:#888;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;cursor:pointer;border-radius:3px;" data-open="0">▼ ดูทั้งหมด ${riders.length} คน</button>`;
+    const btn = `<button onclick="toggleRiders(this)" style="width:100%;margin-top:8px;padding:7px;background:#1a1a1a;border:1px solid #2a2a2a;color:#666;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;cursor:pointer;border-radius:3px;transition:color .2s;" data-open="0">▼ ดูทั้งหมด ${riders.length} คน</button>`;
     return rows + btn;
   }
   function toggleRiders(btn) {
     const open = btn.dataset.open === '1';
-    btn.closest('#tab-riders').querySelectorAll('.standings-extra-row').forEach((el,i) => {
+    const container = btn.closest('#tab-riders');
+    container.querySelectorAll('.standings-extra-row').forEach((el,i) => {
       if (i >= 10) el.style.display = open ? 'none' : '';
     });
     btn.dataset.open = open ? '0' : '1';
-    btn.textContent = open ? ('▼ ดูทั้งหมด ' + btn.closest('#tab-riders').querySelectorAll('.standings-extra-row').length + ' คน') : '▲ ย่อลง';
+    btn.textContent = open ? ('▼ ดูทั้งหมด ' + riders_count + ' คน') : '▲ ย่อลง';
   }
 
   function renderConstructors(constructors) {
