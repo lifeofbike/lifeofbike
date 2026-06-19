@@ -1452,14 +1452,12 @@
   function renderRiders(riders) {
     const rows = riders.map((r,i) => {
       const hidden = i >= 10 ? ' style="display:none"' : '';
+      const nameParts = r.name ? r.name.split(' ') : [''];
+      const lastName = nameParts[nameParts.length - 1];
       return `<div class="standings-row standings-extra-row"${hidden}>
         <div class="pos ${r.pos===1?'gold':''}">${r.pos}</div>
-        <img class="rider-flag" src="https://flagcdn.com/w40/${r.flag}.png" alt="" onerror="this.style.display='none'">
-        <div class="rider-num">#${r.num}</div>
-        <div class="rider-name" style="display:flex;align-items:center;justify-content:space-between;gap:4px;">
-          <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${r.name}</span>
-          ${r.mfr ? `<span class="mfr-badge mfr-${r.mfr}" style="flex-shrink:0;">${r.mfr.toUpperCase()}</span>` : ''}
-        </div>
+        <div class="rider-name" style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${lastName}</div>
+        ${r.mfr ? `<span class="mfr-badge mfr-${r.mfr}">${r.mfr.toUpperCase()}</span>` : ''}
         <div class="rider-pts">${r.pts}</div>
       </div>`;
     }).join('');
