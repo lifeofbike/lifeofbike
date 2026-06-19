@@ -8,6 +8,7 @@
 <meta property="og:type" content="article">
 <title>ยุค MotoGP 800cc (2007–2011): บทบันทึกที่โลกไม่ลืม — Life of Bike</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -19,19 +20,46 @@
   --font-serif:'DM Serif Display',serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--black);color:var(--white);font-family:var(--font-body);line-height:1.7}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);line-height:1.7;overflow-x:hidden}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94);backdrop-filter:blur(12px);border-bottom:1px solid #222;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:var(--font-display);font-size:22px;letter-spacing:.06em;color:var(--white);text-decoration:none}
+/* ─── TICKER ─── */
+.ticker-wrap{background:var(--red);overflow:hidden;white-space:nowrap;padding:6px 0;position:fixed;top:0;left:0;right:0;z-index:100}
+.ticker-inner{display:inline-block;animation:ticker 40s linear infinite;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:28px;left:0;right:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:14px 40px;background:rgba(10,10,10,.95);backdrop-filter:blur(12px);border-bottom:1px solid #222}
+.logo{font-family:var(--font-display);font-size:32px;letter-spacing:.04em;color:var(--white);text-decoration:none}
 .logo span{color:var(--red)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--red)!important;color:#fff!important;padding:8px 18px!important;transition:background .2s!important}
+.nav-cta:hover{background:#c00d22!important}
 .nav-back{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);text-decoration:none;letter-spacing:.08em;transition:color .2s}
 .nav-back:hover{color:var(--white)}
 
-.article-wrap{max-width:780px;margin:0 auto;padding:80px 24px 80px}
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,.98);z-index:98;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--font-display);font-size:36px;letter-spacing:.06em;color:var(--white);text-decoration:none;transition:color .2s}
+.mobile-menu a:hover{color:var(--red)}
+.mobile-menu .mobile-cta{background:var(--red);padding:12px 32px;font-size:24px}
 
-.article-hero{position:relative;margin-bottom:8px;border-radius:3px;overflow:hidden}
-.article-hero img{width:100%;height:440px;object-fit:cover;display:block}
-.img-credit{font-family:var(--font-mono);font-size:9px;color:#555;padding:5px 0 20px;text-align:right}
+/* ─── ARTICLE ─── */
+.article-wrap{max-width:780px;margin:0 auto;padding:96px 24px 80px}
+
+.article-hero{position:relative;margin-bottom:0;border-radius:3px;overflow:hidden}
+.article-hero img{width:100%;height:460px;object-fit:cover;display:block;object-position:center 30%}
+.img-credit{font-family:var(--font-mono);font-size:9px;color:#555;padding:5px 0 20px;text-align:right;line-height:1.5}
+.img-credit a{color:#444;text-decoration:none}
+.img-credit a:hover{color:var(--red)}
 
 .article-tag{font-family:var(--font-mono);font-size:10px;color:var(--red);letter-spacing:.16em;margin-bottom:10px}
 .article-title{font-family:var(--font-serif);font-size:clamp(28px,5vw,44px);line-height:1.2;color:var(--white);margin-bottom:16px}
@@ -45,10 +73,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
 
 /* BIKE CARD */
 .bike-card{background:#111;border:1px solid #222;border-radius:6px;overflow:hidden;margin:28px 0 36px}
-.bike-card-img{position:relative;width:100%;height:300px;overflow:hidden}
+.bike-card-img{width:100%;height:300px;overflow:hidden;position:relative}
 .bike-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
 .bike-card:hover .bike-card-img img{transform:scale(1.04)}
-.bike-card-img-credit{font-family:var(--font-mono);font-size:9px;color:#555;padding:4px 10px;text-align:right;background:#0d0d0d}
+.bike-img-credit{font-family:var(--font-mono);font-size:9px;color:#555;padding:4px 10px;text-align:right;background:#0d0d0d;line-height:1.5}
+.bike-img-credit a{color:#444;text-decoration:none}
+.bike-img-credit a:hover{color:var(--red)}
 .bike-card-body{padding:20px 22px 24px}
 .bike-brand-badge{display:inline-block;font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.12em;padding:4px 10px;border-radius:2px;margin-bottom:12px}
 .badge-ducati{background:#cc0000;color:#fff}
@@ -69,7 +99,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
 .tl-item{display:flex;gap:20px;margin-bottom:24px;position:relative}
 .tl-year{font-family:var(--font-display);font-size:20px;color:var(--red);line-height:1;width:40px;flex-shrink:0;background:var(--black);padding:2px 0;z-index:1}
 .tl-dot{position:absolute;left:14px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--red);border:2px solid var(--black);z-index:2;flex-shrink:0}
-.tl-content{padding-top:0}
 .tl-content strong{display:block;font-family:var(--font-serif);font-size:16px;color:var(--white);margin-bottom:5px}
 .tl-content p{font-size:14px;color:var(--text-muted);margin-bottom:0;line-height:1.65}
 
@@ -93,6 +122,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
 .insight-head{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:.12em;margin-bottom:10px;text-transform:uppercase}
 .insight p{font-size:14px;color:#bbb;line-height:1.75;margin-bottom:0}
 
+/* SOURCES */
 .sources{border-top:1px solid #222;margin-top:48px;padding-top:24px}
 .sources h4{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);letter-spacing:.1em;margin-bottom:12px}
 .sources ul{list-style:none;display:flex;flex-direction:column;gap:6px}
@@ -103,7 +133,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
 .cta-bar p{font-size:15px;color:#ccc;margin-bottom:0}
 .cta-bar strong{color:var(--gold)}
 
-@media(max-width:640px){
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+
+@media(max-width:768px){
+  nav{padding:10px 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
   .article-hero img{height:260px}
   .bike-specs{grid-template-columns:1fr}
   .stat-row{grid-template-columns:1fr 1fr}
@@ -112,34 +147,89 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
 </head>
 <body>
 
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <span class="ticker-inner" id="tickerText">
+    &nbsp;&nbsp;🏁 กำลังโหลดข่าว MotoGP...
+  </span>
+</div>
+<script>
+(async function loadTicker(){
+  const FALLBACK_URL='data/ticker.json';
+  const RSS_URL='https://news.google.com/rss/search?q=MotoGP&hl=th&gl=TH&ceid=TH:th';
+  const PROXY='https://api.rss2json.com/v1/api.json?count=12&rss_url=';
+  function setTicker(items){
+    const sep=' &nbsp;✦&nbsp; ';
+    const text='&nbsp;&nbsp;🏁&nbsp; '+items.join(sep)+sep;
+    const el=document.getElementById('tickerText');
+    el.innerHTML=text+text;
+    const len=el.textContent.length;
+    el.style.animationDuration=Math.max(30,Math.round(len*.18))+'s';
+  }
+  try{
+    const res=await fetch(PROXY+encodeURIComponent(RSS_URL),{signal:AbortSignal.timeout(4000)});
+    const data=await res.json();
+    if(data.status==='ok'&&data.items&&data.items.length>0){
+      setTicker(data.items.map(i=>i.title.replace(/\s*-\s*[\w\s]+$/,'').trim()));return;
+    }
+  }catch(e){}
+  try{
+    const res=await fetch(FALLBACK_URL+'?t='+Date.now());
+    const data=await res.json();
+    if(data.items&&data.items.length>0){setTicker(data.items);return;}
+  }catch(e){}
+  setTicker(['🏆 ยุค 800cc (2007-2011) — Stoner, Rossi, Lorenzo','🏁 Ducati GP7 คว้าแชมป์ปี 2007','📖 Tech & History — Life of Bike']);
+})();
+</script>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#news" onclick="closeMobileMenu()">ข่าวสาร</a>
+  <a href="index.html#results" onclick="closeMobileMenu()">ผลการแข่งขัน</a>
+  <a href="index.html#standings" onclick="closeMobileMenu()">ตาราง</a>
+  <a href="index.html#advertise" onclick="closeMobileMenu()" class="mobile-cta">ลงโฆษณา</a>
+</div>
+
+<!-- NAV -->
 <nav>
-  <a class="logo" href="index.html">LIFE <span>OF</span> BIKE</a>
-  <a class="nav-back" href="index.html">← กลับหน้าหลัก</a>
+  <a href="index.html" class="logo">LIFE OF <span>BIKE</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#news">ข่าวสาร</a></li>
+    <li><a href="index.html#results">ผลการแข่งขัน</a></li>
+    <li><a href="index.html#standings">ตาราง</a></li>
+    <li><a href="index.html#advertise" class="nav-cta">ลงโฆษณา</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="เมนู">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <div class="article-wrap">
 
   <!-- HERO -->
   <div class="article-hero">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Casey_Stoner_at_2007_Assen.jpg/1280px-Casey_Stoner_at_2007_Assen.jpg"
-         alt="Casey Stoner Ducati Desmosedici GP7 ยุค MotoGP 800cc 2007"
-         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Valentino_Rossi_2009_Laguna_Seca.jpg/1280px-Valentino_Rossi_2009_Laguna_Seca.jpg'">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Stoner_GP_Brno_2007.jpg/1280px-Stoner_GP_Brno_2007.jpg"
+      alt="Casey Stoner Ducati Desmosedici GP7 Czech Republic GP Brno 2007"
+      onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Casey_Stoner_2007_Oct_Malaysia.jpg/1280px-Casey_Stoner_2007_Oct_Malaysia.jpg'">
   </div>
-  <div class="img-credit">© Casey Stoner / Ducati GP7 ที่ Assen 2007 — Wikimedia Commons / CC BY-SA 2.0</div>
+  <div class="img-credit">
+    © Casey Stoner / Ducati Desmosedici GP7 — Czech Republic GP, Brno 2007 &nbsp;|&nbsp;
+    <a href="https://commons.wikimedia.org/wiki/File:Stoner_GP_Brno_2007.jpg" target="_blank" rel="noopener">Wikimedia Commons</a> / CC BY-SA 2.0
+  </div>
 
-  <div class="article-tag">🏁 TECH &amp; HISTORY — MotoGP 800cc ERA</div>
+  <div class="article-tag">📖 TECH &amp; HISTORY — MotoGP 800cc ERA (2007–2011)</div>
   <h1 class="article-title">ยุค MotoGP 800cc (2007–2011): บทบันทึกที่โลกไม่ลืม</h1>
   <div class="article-meta">
     <span>โดยทีมงาน Life of Bike</span>
     <span>19 มิ.ย. 2569</span>
-    <span>15 นาที</span>
+    <span>15 นาทีอ่าน</span>
   </div>
 
   <div class="article-body">
 
-    <p>มียุคสมัยในประวัติศาสตร์ MotoGP ที่ถูกพูดถึงบ่อยครั้งว่า "ผิดพลาด" — แต่กลับให้กำเนิดนักบิดระดับตำนานหลายคนในคราวเดียวกัน นั่นคือยุค <strong>800cc (2007–2011)</strong> ห้าฤดูกาลที่กฎของ Dorna เปลี่ยน แต่ความเร็วกลับไม่ได้ลดลงตามที่คาด และบทเรียนราคาแพงนี้ยังคงถูกอ้างถึงทุกครั้งที่ MotoGP จะเปลี่ยนกฎกติกา</p>
+    <p>มียุคสมัยในประวัติศาสตร์ MotoGP ที่ถูกพูดถึงบ่อยครั้งว่า "ผิดพลาด" — แต่กลับให้กำเนิดนักบิดระดับตำนานหลายคนในคราวเดียวกัน นั่นคือยุค <strong>800cc (2007–2011)</strong> ห้าฤดูกาลที่กฎของ Dorna เปลี่ยน แต่ความเร็วกลับไม่ได้ลดลงตามที่คาด และบทเรียนราคาแพงนี้ยังคงถูกอ้างถึงทุกครั้งที่ MotoGP จะเปลี่ยนกฎกติกาใหม่</p>
 
-    <!-- STAT ROW -->
     <div class="stat-row">
       <div class="stat-box">
         <div class="stat-num">5<em>ปี</em></div>
@@ -163,7 +253,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
 
     <div class="insight">
       <div class="insight-head">💡 ผลลัพธ์ที่ไม่มีใครคาดคิด</div>
-      <p>รถ 800cc กลับทำ lap time ดีกว่ารถ 990cc ตั้งแต่ฤดูกาลแรก เครื่องยนต์ขนาดเล็กลงทำให้รถเบาและกะทัดรัด ความเร็วในโค้งพุ่งสูงขึ้น แม้ top speed บนทางตรงจะลดลงเล็กน้อย Valentino Rossi ถึงกับกล่าวว่า "The 800 is worse, simply worse — it was MotoGP's biggest mistake for 15 years."</p>
+      <p>รถ 800cc กลับทำ lap time ดีกว่ารถ 990cc ตั้งแต่ฤดูกาลแรก เครื่องยนต์ขนาดเล็กลงทำให้รถเบาและกะทัดรัด ความเร็วในโค้งพุ่งสูงขึ้น แม้ top speed บนทางตรงจะลดลงเล็กน้อย Valentino Rossi ถึงกับกล่าวว่า <em>"The 800 is worse, simply worse — it was MotoGP's biggest mistake for 15 years."</em></p>
     </div>
 
     <h2>รถแต่ละค่ายในยุค 800cc</h2>
@@ -171,11 +261,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
     <!-- DUCATI -->
     <div class="bike-card">
       <div class="bike-card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Casey_Stoner_Ducati_2007_Australian_GP.jpg/1280px-Casey_Stoner_Ducati_2007_Australian_GP.jpg"
-             alt="Ducati Desmosedici GP7 Casey Stoner 2007"
-             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Casey_Stoner_at_2007_Assen.jpg/1280px-Casey_Stoner_at_2007_Assen.jpg'">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Casey_Stoner_2007_Oct_Malaysia.jpg/1280px-Casey_Stoner_2007_Oct_Malaysia.jpg"
+          alt="Casey Stoner Ducati Desmosedici GP7 Malaysian GP 2007"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Ducati_Desmosedici_GP8.jpg/1280px-Ducati_Desmosedici_GP8.jpg'">
       </div>
-      <div class="bike-card-img-credit">© Casey Stoner / Ducati Desmosedici GP7 — Wikimedia Commons / CC BY-SA 2.0</div>
+      <div class="bike-img-credit">
+        © Casey Stoner / Ducati Desmosedici GP7 — Malaysian GP, Sepang 2007 &nbsp;|&nbsp;
+        <a href="https://commons.wikimedia.org/wiki/File:Casey_Stoner_2007_Oct_Malaysia.jpg" target="_blank" rel="noopener">Wikimedia Commons</a> / CC BY-SA 2.0
+      </div>
       <div class="bike-card-body">
         <span class="bike-brand-badge badge-ducati">DUCATI</span>
         <div class="bike-model-name">Desmosedici GP7 → GP11</div>
@@ -191,12 +285,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
 
     <!-- HONDA -->
     <div class="bike-card">
-      <div class="bike-card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Dani_Pedrosa_2008_Mugello.jpg/1280px-Dani_Pedrosa_2008_Mugello.jpg"
-             alt="Honda RC212V Dani Pedrosa 2008 Mugello"
-             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Casey_stoner_2011_Malaysian_GP.jpg/1280px-Casey_stoner_2011_Malaysian_GP.jpg'">
+      <div class="bike-card-img" style="height:260px;">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/HONDA_RC212V_2007.jpg/1280px-HONDA_RC212V_2007.jpg"
+          alt="Honda RC212V 2007 MotoGP"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Casey_Stoner_-_2011_MotoGP_World_Champion.jpg/1280px-Casey_Stoner_-_2011_MotoGP_World_Champion.jpg'">
       </div>
-      <div class="bike-card-img-credit">© Dani Pedrosa / Honda RC212V ที่ Mugello 2008 — Wikimedia Commons / CC BY-SA 2.0</div>
+      <div class="bike-img-credit">
+        © Honda RC212V — 2007 Season &nbsp;|&nbsp;
+        <a href="https://commons.wikimedia.org/wiki/File:HONDA_RC212V_2007.jpg" target="_blank" rel="noopener">Wikimedia Commons</a> / CC BY-SA 3.0
+      </div>
       <div class="bike-card-body">
         <span class="bike-brand-badge badge-honda">HONDA</span>
         <div class="bike-model-name">RC212V</div>
@@ -206,18 +304,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
           <div class="spec-item"><div class="spec-label">Top Speed</div><div class="spec-val">317.6 km/h</div></div>
           <div class="spec-item"><div class="spec-label">Valve System</div><div class="spec-val">Pneumatic Springs</div></div>
         </div>
-        <p style="margin-top:16px;font-size:14px;color:#bbb;line-height:1.75;">Honda เลือก V4 มุมแคบพร้อม Pneumatic valve springs รับมือรอบเครื่อง 18,000+ rpm นวัตกรรมที่โดดเด่นที่สุดคือ <strong>Seamless Gearbox</strong> ในปี 2011 — เปลี่ยนเกียร์โดยไม่กระตุกขณะเอียงโค้ง Stoner คว้าแชมป์ทันทีปีแรกที่ย้ายมา Honda</p>
+        <p style="margin-top:16px;font-size:14px;color:#bbb;line-height:1.75;">Honda เลือก V4 มุมแคบพร้อม Pneumatic valve springs รับมือรอบเครื่อง 18,000+ rpm นวัตกรรมที่โดดเด่นที่สุดคือ <strong>Seamless Gearbox</strong> ในปี 2011 — เปลี่ยนเกียร์โดยไม่กระตุกขณะเอียงโค้ง Stoner ย้ายมา Honda ปีเดียวก็คว้าแชมป์ทันที</p>
       </div>
     </div>
 
     <!-- YAMAHA -->
     <div class="bike-card">
       <div class="bike-card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Valentino_Rossi_2005_Laguna_Seca.jpg/1280px-Valentino_Rossi_2005_Laguna_Seca.jpg"
-             alt="Valentino Rossi Yamaha YZR-M1"
-             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Jorge_Lorenzo_2010_Portugal_GP.jpg/1280px-Jorge_Lorenzo_2010_Portugal_GP.jpg'">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Yamaha_YZR-M1_2008_VR.jpg/1280px-Yamaha_YZR-M1_2008_VR.jpg"
+          alt="Yamaha YZR-M1 2008 Valentino Rossi"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/YAMAHA_YZR-M1_2010_right-front_Yamaha_Communication_Plaza.jpg/1280px-YAMAHA_YZR-M1_2010_right-front_Yamaha_Communication_Plaza.jpg'">
       </div>
-      <div class="bike-card-img-credit">© Valentino Rossi / Yamaha YZR-M1 — Wikimedia Commons / CC BY-SA 2.0</div>
+      <div class="bike-img-credit">
+        © Yamaha YZR-M1 2008 — Valentino Rossi's factory machine &nbsp;|&nbsp;
+        <a href="https://commons.wikimedia.org/wiki/File:Yamaha_YZR-M1_2008_VR.jpg" target="_blank" rel="noopener">Wikimedia Commons</a> / CC BY-SA 2.0
+      </div>
       <div class="bike-card-body">
         <span class="bike-brand-badge badge-yamaha">YAMAHA</span>
         <div class="bike-model-name">YZR-M1</div>
@@ -227,24 +329,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
           <div class="spec-item"><div class="spec-label">RPM</div><div class="spec-val">17,500+ rpm</div></div>
           <div class="spec-item"><div class="spec-label">Top Speed</div><div class="spec-val">~310 km/h</div></div>
         </div>
-        <p style="margin-top:16px;font-size:14px;color:#bbb;line-height:1.75;">อาวุธลับของ Yamaha คือ <strong>Cross-plane Crankshaft</strong> — ลูกสูบเรียง 90 องศาทำให้ firing interval ไม่สม่ำเสมอ (เลียนแบบ V4) ส่งผลให้ Traction feedback ดีที่สุดในกริด Rossi ชนะแชมป์ 2 ปีซ้อน (2008-2009) และ Lorenzo คว้าครั้งแรกในปี 2010</p>
+        <p style="margin-top:16px;font-size:14px;color:#bbb;line-height:1.75;">อาวุธลับของ Yamaha คือ <strong>Cross-plane Crankshaft</strong> — ลูกสูบเรียง 90 องศาให้ Traction feedback ดีที่สุดในกริด Rossi ชนะแชมป์ 2 ปีซ้อน (2008–2009) และ Lorenzo คว้าครั้งแรกในปี 2010 โดยขึ้นโพเดียม 12 ครั้งติดต่อกันช่วงต้นฤดูกาล</p>
       </div>
     </div>
 
     <!-- SUZUKI & KAWASAKI -->
     <div class="bike-card">
-      <div class="bike-card-img" style="height:220px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Chris_Vermeulen_2008_Portuguese_GP.jpg/1280px-Chris_Vermeulen_2008_Portuguese_GP.jpg"
-             alt="Suzuki GSV-R800 Chris Vermeulen 2008"
-             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/John_Hopkins_2008_German_GP.jpg/800px-John_Hopkins_2008_German_GP.jpg'">
+      <div class="bike-card-img" style="height:240px;">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Casey_Stoner_Sepang_2007.jpg/1280px-Casey_Stoner_Sepang_2007.jpg"
+          alt="MotoGP Sepang 2007 grid"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/MotoGP_-_Sachsenring_2010_%284812652246%29.jpg/1280px-MotoGP_-_Sachsenring_2010_%284812652246%29.jpg'">
       </div>
-      <div class="bike-card-img-credit">© Chris Vermeulen / Suzuki GSV-R800 — Wikimedia Commons / CC BY-SA 2.0</div>
+      <div class="bike-img-credit">
+        © MotoGP Sepang 2007 — ยุคที่ยังมี 6 ค่ายผู้ผลิตในกริด &nbsp;|&nbsp;
+        <a href="https://commons.wikimedia.org/wiki/File:Casey_Stoner_Sepang_2007.jpg" target="_blank" rel="noopener">Wikimedia Commons</a> / CC BY-SA 2.0
+      </div>
       <div class="bike-card-body">
         <span class="bike-brand-badge badge-suzuki">SUZUKI</span>
         <span class="bike-brand-badge badge-kawasaki" style="margin-left:6px;">KAWASAKI</span>
         <div class="bike-model-name" style="font-size:22px;">GSV-R800 &amp; ZX-RR 800</div>
-        <p style="margin-top:14px;font-size:14px;color:#bbb;line-height:1.75;"><strong>Suzuki GSV-R800:</strong> มีตัวเลขบนกระดาษที่น่าตื่นเต้น แต่ไม่เคยแปลงเป็นชัยชนะบนสนามได้อย่างสม่ำเสมอ Suzuki ประกาศถอนตัวปลายปี 2011 หลังแผ่นดินไหวและสึนามิญี่ปุ่น</p>
-        <p style="font-size:14px;color:#bbb;line-height:1.75;"><strong>Kawasaki ZX-RR 800:</strong> กลายเป็นผู้ผลิตรายแรกที่เป็นเหยื่อของยุค 800cc ถอนตัวหลังจากปี 2008 เพราะค่าพัฒนาสูงเกินรับไหว ผลงานดีที่สุดคืออันดับ 5 ของ John Hopkins</p>
+        <p style="margin-top:14px;font-size:14px;color:#bbb;line-height:1.75;"><strong>Suzuki GSV-R800:</strong> V4 ที่อ้างว่ามีแรงม้าสูงถึง 225+ HP แต่ไม่เคยแปลงเป็นชัยชนะสม่ำเสมอ Suzuki ถอนตัวปลายปี 2011 หลังแผ่นดินไหวและสึนามิญี่ปุ่นกระทบการเงินอย่างหนัก</p>
+        <p style="font-size:14px;color:#bbb;line-height:1.75;"><strong>Kawasaki ZX-RR 800:</strong> เป็นผู้ผลิตรายแรกที่เป็นเหยื่อของยุค 800cc ถอนตัวหลังปี 2008 เพราะค่าพัฒนาพุ่งสูงเกินรับไหว ผลงานดีที่สุดคืออันดับ 5 ของ John Hopkins</p>
       </div>
     </div>
 
@@ -293,10 +399,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
       </tbody>
     </table>
 
+    <!-- Jorge Lorenzo 2010 -->
+    <div style="margin:28px 0 4px;border-radius:4px;overflow:hidden;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Jorge_lorenzo-motogp_2010.JPG/1280px-Jorge_lorenzo-motogp_2010.JPG"
+           alt="Jorge Lorenzo Yamaha YZR-M1 MotoGP 2010 แชมป์โลก"
+           style="width:100%;height:340px;object-fit:cover;object-position:center 20%;display:block;"
+           onerror="this.style.display='none'">
+    </div>
+    <div class="img-credit">
+      © Jorge Lorenzo / Yamaha YZR-M1 — MotoGP 2010 แชมป์โลกครั้งแรก &nbsp;|&nbsp;
+      <a href="https://commons.wikimedia.org/wiki/File:Jorge_lorenzo-motogp_2010.JPG" target="_blank" rel="noopener">Wikimedia Commons</a> / CC BY-SA 3.0
+    </div>
+
     <h2>เหตุการณ์สำคัญและ Controversy</h2>
 
     <div class="timeline">
-
       <div class="tl-item">
         <div class="tl-year">2007</div>
         <div class="tl-dot"></div>
@@ -305,16 +422,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
           <p>Stoner วัย 21 ปี ชนะ 10 สนาม ห่างคู่แข่ง 125 คะแนน Rossi วิพากษ์ว่า "แค่โชคดีที่มีรถเร็ว" ก่อจุดเริ่มต้นความบาดหมางที่ดำเนินมายาวนาน Stoner ตอบว่า "เขากำลังลดคุณค่าความสำเร็จของผม"</p>
         </div>
       </div>
-
       <div class="tl-item">
         <div class="tl-year">2008</div>
         <div class="tl-dot"></div>
         <div class="tl-content">
           <strong>Stoner ล้มป่วยปริศนา — Lactose Intolerance ที่ไม่มีใครเชื่อ</strong>
-          <p>กลางฤดูกาล Stoner ประกาศหยุดพักเพราะอาการเหนื่อยล้าที่ต่อมาพบว่าเป็น Lactose Intolerance ร่างกายขาดสารอาหาร ส่งผลต่อสมรรถภาพอย่างหนัก หลายคนในวงการไม่เชื่อ — กลายเป็น controversy ใหญ่</p>
+          <p>กลางฤดูกาล Stoner ประกาศหยุดพักเพราะอาการที่ต่อมาพบว่าเป็น Lactose Intolerance ทำให้ร่างกายขาดสารอาหาร กระทบสมรรถภาพขับขี่อย่างหนัก — กลายเป็น controversy เพราะหลายคนไม่เชื่อ</p>
         </div>
       </div>
-
       <div class="tl-item">
         <div class="tl-year">2009</div>
         <div class="tl-dot"></div>
@@ -323,45 +438,51 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
           <p>Ducati ทดลองกรอบ Carbon fibre ใน GP9 แต่ Stoner บ่นว่าหน้ารถหล่น ทีมวิศวกรรมไม่เข้าใจปัญหา สุดท้ายต้องยกเลิกโปรเจกต์กลางฤดูกาล — หนึ่งในความผิดพลาดทางวิศวกรรมที่ใหญ่ที่สุดในประวัติ MotoGP</p>
         </div>
       </div>
-
       <div class="tl-item">
         <div class="tl-year">2010</div>
         <div class="tl-dot"></div>
         <div class="tl-content">
           <strong>Rossi ขาหัก — กลับมาแข่งใน 41 วัน</strong>
-          <p>ที่ Italian GP Mugello Rossi ล้มใน Free Practice กระดูกขาหัก แต่กลับมาแข่งเพียง 41 วันหลังจากนั้น แม้จะน่าอัศจรรย์ แต่ก็ไม่ทันแล้วสำหรับการไล่ล่าแชมป์ Lorenzo คว้าแชมป์โลกครั้งแรก</p>
+          <p>ที่ Italian GP Mugello Rossi ล้มใน Free Practice กระดูกขาหัก แต่กลับมาแข่งเพียง 41 วันหลังจากนั้น แม้น่าอัศจรรย์ แต่ก็ไม่ทันแล้วสำหรับการไล่ล่าแชมป์ Lorenzo คว้าแชมป์โลกครั้งแรก</p>
         </div>
       </div>
-
       <div class="tl-item">
         <div class="tl-year">2011</div>
         <div class="tl-dot"></div>
         <div class="tl-content">
           <strong>Stoner ประกาศเกษียณขณะนำตาราง</strong>
-          <p>ขณะครองแชมป์อยู่ Stoner ประกาศเกษียณสิ้นฤดูกาล อายุเพียง 26 ปี เหตุผลคือความเบื่อหน่ายกับการเมืองในกีฬา และต้องการใช้เวลากับครอบครัว — ช็อคทั้ง paddock</p>
+          <p>ขณะครองแชมป์อยู่ Stoner ประกาศเกษียณสิ้นฤดูกาล อายุเพียง 26 ปี เหตุผลคือความเบื่อหน่ายกับการเมืองในกีฬาและต้องการเวลากับครอบครัว — ช็อคทั้ง paddock</p>
         </div>
       </div>
+    </div>
 
+    <!-- Stoner Honda 2011 champion -->
+    <div style="margin:28px 0 4px;border-radius:4px;overflow:hidden;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Casey_Stoner_-_2011_MotoGP_World_Champion.jpg/1280px-Casey_Stoner_-_2011_MotoGP_World_Champion.jpg"
+           alt="Casey Stoner Honda RC212V 2011 MotoGP World Champion"
+           style="width:100%;height:360px;object-fit:cover;object-position:center 25%;display:block;"
+           onerror="this.style.display='none'">
+    </div>
+    <div class="img-credit">
+      © Casey Stoner / Honda RC212V — 2011 MotoGP World Champion &nbsp;|&nbsp;
+      <a href="https://commons.wikimedia.org/wiki/File:Casey_Stoner_-_2011_MotoGP_World_Champion.jpg" target="_blank" rel="noopener">Wikimedia Commons</a> / CC BY-SA 2.0
     </div>
 
     <h2>ทำไมถึงกลับไป 1000cc ในปี 2012?</h2>
 
     <p>เมื่อสิ้นปี 2011 กริด MotoGP เหลือเพียง 12 คัน หลัง Kawasaki ถอนตัวปลาย 2008 และ Suzuki ปลาย 2011 สามสาเหตุหลักที่ทำให้ยุค 800cc ต้องจบลง:</p>
 
-    <p><strong>1. ค่าพัฒนาพุ่งสูงจนผู้ผลิตทนไม่ไหว</strong> — รถ 800cc Prototype ต้องการการพัฒนาเครื่องยนต์ในระดับ Formula 1 ค่าใช้จ่ายพุ่งสูงกว่ายุค 990cc เสียอีก</p>
-
-    <p><strong>2. การแข่งไม่น่าดู</strong> — Peaky power delivery ทำให้ผู้นำขาดออกจากกลุ่มได้ง่าย การต่อสู้ล้อต่อล้อ (on-track battles) น้อยกว่ายุค 990cc และ 500cc 2 จังหวะมาก</p>
-
-    <p><strong>3. วิกฤตเศรษฐกิจ 2008 + แผ่นดินไหวญี่ปุ่น 2011</strong> — บังคับให้ผู้ผลิตญี่ปุ่นลดงบประมาณ MotoGP อย่างเร่งด่วน</p>
+    <p><strong>1. ค่าพัฒนาพุ่งสูงจนผู้ผลิตทนไม่ไหว</strong> — รถ 800cc Prototype ต้องการการพัฒนาเครื่องยนต์ระดับ Formula 1 ค่าใช้จ่ายพุ่งสูงกว่ายุค 990cc เสียอีก</p>
+    <p><strong>2. การแข่งไม่น่าดู</strong> — Peaky power delivery ทำให้ผู้นำขาดออกจากกลุ่มง่าย การต่อสู้ล้อต่อล้อน้อยลงมาก เมื่อเทียบกับยุค 990cc และ 500cc 2 จังหวะ</p>
+    <p><strong>3. วิกฤตเศรษฐกิจ 2008 + แผ่นดินไหวญี่ปุ่น 2011</strong> — บังคับให้ผู้ผลิตญี่ปุ่นลดงบประมาณ MotoGP อย่างเร่งด่วน กฎ CRT (Claiming Rule Teams) จึงถูกเพิ่มเข้ามาในปี 2012 ควบคู่กับการกลับไป 1000cc</p>
 
     <div class="insight">
       <div class="insight-head">🏆 มรดกของยุค 800cc</div>
-      <p>ยุค 800cc คือบทเรียนราคาแพงที่สุดของมอเตอร์สปอร์ต — การแก้ปัญหาความปลอดภัยด้วยการลดขนาดเครื่องยนต์เพียงอย่างเดียวให้ผลตรงกันข้าม รถยิ่งเร็ว ค่าใช้จ่ายยิ่งสูง กริดยิ่งว่าง การแข่งขันยิ่งน่าเบื่อ แต่ก็ให้กำเนิด Stoner, Rossi และ Lorenzo ในช่วงพีคของชีวิต — ตำนานสามคนที่เขียนบทบันทึกที่โลกไม่มีวันลืม</p>
+      <p>ยุค 800cc คือบทเรียนราคาแพงที่สุดของมอเตอร์สปอร์ต — การแก้ปัญหาความปลอดภัยด้วยการลดขนาดเครื่องยนต์เพียงอย่างเดียวให้ผลตรงกันข้าม รถยิ่งเร็ว ค่าใช้จ่ายยิ่งสูง กริดยิ่งว่าง การแข่งขันยิ่งน่าเบื่อ แต่ก็ให้กำเนิด Stoner, Rossi และ Lorenzo ในช่วงพีคของชีวิต — ตำนานสามคนที่เขียนบทบันทึกซึ่งโลก MotoGP ไม่มีวันลืม</p>
     </div>
 
-  </div><!-- /article-body -->
+  </div>
 
-  <!-- SOURCES -->
   <div class="sources">
     <h4>แหล่งอ้างอิง / SOURCES</h4>
     <ul>
@@ -374,7 +495,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
       <li><a href="https://en.wikipedia.org/wiki/Suzuki_GSV-R" target="_blank" rel="noopener">Suzuki GSV-R — Wikipedia</a></li>
       <li><a href="https://en.wikipedia.org/wiki/2007_Grand_Prix_motorcycle_racing_season" target="_blank" rel="noopener">2007 MotoGP Season — Wikipedia</a></li>
       <li><a href="https://en.wikipedia.org/wiki/Daijiro_Kato" target="_blank" rel="noopener">Daijiro Kato — Wikipedia</a></li>
-      <li><a href="https://www.boxrepsol.com/en/motogp-en/evolution-of-the-repsol-honda-engine-the-rc212v-and-the-rc213v/" target="_blank" rel="noopener">Evolution of the Repsol Honda engine: RC212V and RC213V — Box Repsol</a></li>
       <li><a href="https://motomatters.com/news/2009/11/07/motogp_back_to_1000cc_from_2012.html" target="_blank" rel="noopener">MotoGP Back To 1000cc From 2012 — MotoMatters.com</a></li>
     </ul>
   </div>
@@ -383,7 +503,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94
     <p>อ่านบทความ MotoGP เชิงลึกทุกสัปดาห์ที่ <strong>Life of Bike</strong> — ข่าว วิเคราะห์ และประวัติศาสตร์ MotoGP ภาษาไทย</p>
   </div>
 
-</div><!-- /article-wrap -->
+</div>
 
+<script>
+function toggleMobileMenu(){
+  const menu=document.getElementById('mobileMenu');
+  const btn=document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+  document.body.style.overflow=menu.classList.contains('open')?'hidden':'';
+}
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}
+</script>
 </body>
 </html>
