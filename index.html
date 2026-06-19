@@ -312,6 +312,33 @@
       text-transform: uppercase;
     }
 
+    /* ─── CATEGORY TABS ─── */
+    .cat-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #222;
+    }
+    .cat-tab {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 10px 22px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color .2s, border-color .2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .cat-tab:hover { color: var(--white); }
+    .cat-tab.active { color: var(--white); border-bottom-color: var(--red); }
+    .news-card.hidden { display: none; }
+
     /* ─── NEWS GRID ─── */
     .news-grid {
       display: grid;
@@ -1003,14 +1030,19 @@
 
     <!-- NEWS GRID -->
     <div class="section-label">
-      <h2>ข่าวล่าสุด</h2>
+      <h2>ข่าวสาร</h2>
       <div class="line"></div>
       <span class="tag">อัปเดตวันนี้</span>
     </div>
-    <div class="news-grid">
+    <div class="cat-tabs">
+      <button class="cat-tab active" onclick="filterNews(this,'all')">ข่าวล่าสุด</button>
+      <button class="cat-tab" onclick="filterNews(this,'motogp')">MotoGP</button>
+      <button class="cat-tab" onclick="filterNews(this,'bigbike')">Bigbike</button>
+    </div>
+    <div class="news-grid" id="newsGrid">
 
       <!-- ── 800cc Era ── -->
-      <a class="news-card" href="news-motogp-800cc-era.html">
+      <a class="news-card" data-cat="motogp" href="news-motogp-800cc-era.html">
         <div class="news-thumb">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Casey_Stoner_at_2007_Assen.jpg/1280px-Casey_Stoner_at_2007_Assen.jpg"
                alt="ยุค MotoGP 800cc Casey Stoner Ducati 2007"
@@ -1023,7 +1055,7 @@
       </a>
 
       <!-- ── Tech & Knowledge ── -->
-      <a class="news-card" href="news-motogp-bikes-2026.html">
+      <a class="news-card" data-cat="motogp" href="news-motogp-bikes-2026.html">
         <div class="news-thumb">
           <img src="https://cdn-7.motorsport.com/images/mgl/YvKQLMZ6/s1100/ducati-gp26.webp"
                alt="รถแข่ง MotoGP ทั้ง 5 แบรนด์ ชื่อรหัสและความหมาย"
@@ -1035,7 +1067,7 @@
       </a>
 
       <!-- ── ข่าววันนี้ 7 มิ.ย. 2026 ── -->
-      <a class="news-card" href="news-hungary-2026.html">
+      <a class="news-card" data-cat="motogp" href="news-hungary-2026.html">
         <div class="news-thumb">
           <img src="https://cdn-1.motorsport.com/images/amp/YvKQXoZ6/s1000/marc-marquez-ducati-team-2.webp"
                alt="Marc Márquez ชัยชนะที่ 100 Hungarian GP 2026"
@@ -1047,7 +1079,7 @@
         <div class="news-meta">7 มิ.ย. 2026 &nbsp;•&nbsp; 6 นาที &nbsp;|&nbsp; <span style="color:#888;font-size:9px;">© Gold &amp; Goose / motorsport.com</span></div>
       </a>
 
-      <a class="news-card" href="news-hungary-2026.html#crash">
+      <a class="news-card" data-cat="motogp" href="news-hungary-2026.html#crash">
         <div class="news-thumb">
           <img src="https://cdn-4.motorsport.com/images/amp/2y7Ab7v6/s1000/jorge-martin-aprilia-racing-te.webp"
                alt="Jorge Martin ชน Bezzecchi Turn 1 Hungarian GP"
@@ -1059,7 +1091,7 @@
         <div class="news-meta">7 มิ.ย. 2026 &nbsp;•&nbsp; 4 นาที &nbsp;|&nbsp; <span style="color:#888;font-size:9px;">© Gold &amp; Goose / LAT / motorsport.com</span></div>
       </a>
 
-      <a class="news-card" href="news-hungary-2026.html#grid">
+      <a class="news-card" data-cat="motogp" href="news-hungary-2026.html#grid">
         <div class="news-thumb">
           <img src="https://cdn-4.motorsport.com/images/amp/0arKwrG2/s1000/race-start.webp"
                alt="MotoGP Race Start Grid Spacing ใหม่"
@@ -1072,7 +1104,7 @@
       </a>
 
       <!-- ── ข่าวเดิม ── -->
-      <a class="news-card" href="motogp-article-martin-topspeed.html">
+      <a class="news-card" data-cat="motogp" href="motogp-article-martin-topspeed.html">
         <div class="news-thumb">
           <img src="images/martin-hero.jpg" alt="Jorge Martín Aprilia Racing MotoGP 2026" style="object-position:center top;">
           <span class="cat-badge">Exclusive</span>
@@ -1082,7 +1114,7 @@
         <div class="news-meta">โดยทีมงาน Life of Bike &nbsp;•&nbsp; 8 นาที</div>
       </a>
 
-      <a class="news-card" href="motogp-article-aero-wings.html">
+      <a class="news-card" data-cat="motogp" href="motogp-article-aero-wings.html">
         <div class="news-thumb">
           <img src="https://picsum.photos/seed/aerowing2/600/340" alt="Aero Wings MotoGP">
           <span class="cat-badge">เทคนิค</span>
@@ -1092,7 +1124,7 @@
         <div class="news-meta">โดยทีมงาน Life of Bike &nbsp;•&nbsp; 7 นาที</div>
       </a>
 
-      <a class="news-card" href="motogp-history-origin.html">
+      <a class="news-card" data-cat="motogp" href="motogp-history-origin.html">
         <div class="news-thumb">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Valentino_Rossi_2005_Laguna_Seca.jpg/600px-Valentino_Rossi_2005_Laguna_Seca.jpg" alt="จุดกำเนิด MotoGP">
           <span class="cat-badge">ประวัติศาสตร์</span>
@@ -1102,7 +1134,7 @@
         <div class="news-meta">โดยทีมงาน Life of Bike &nbsp;•&nbsp; 12 นาที</div>
       </a>
 
-      <a class="news-card" href="wsbk-gong-sponsors.html">
+      <a class="news-card" data-cat="bigbike" href="wsbk-gong-sponsors.html">
         <div class="news-thumb">
           <img src="images/gong-photo1.jpg" alt="ก้อง สมเกียรติ จันทรา WSBK" style="object-position:center top;">
           <span class="cat-badge">🇹🇭 WSBK</span>
@@ -1112,7 +1144,7 @@
         <div class="news-meta">โดยทีมงาน Life of Bike &nbsp;•&nbsp; 10 นาที</div>
       </a>
 
-      <a class="news-card" href="#">
+      <a class="news-card" data-cat="motogp" href="#">
         <div class="news-thumb">
           <img src="https://picsum.photos/seed/ducatitech/600/340" alt="Bike Tech">
           <span class="cat-badge">เทคนิค</span>
@@ -1122,7 +1154,7 @@
         <div class="news-meta">10 ชม. ที่แล้ว &nbsp;•&nbsp; 6 นาที</div>
       </a>
 
-      <a class="news-card" href="#">
+      <a class="news-card" data-cat="motogp" href="#">
         <div class="news-thumb">
           <img src="https://picsum.photos/seed/ridertransfer/600/340" alt="Rider Transfer">
           <span class="cat-badge">ข่าวลือ</span>
@@ -1378,6 +1410,16 @@
 <a href="#" class="back-top" id="backTop" title="กลับด้านบน">↑</a>
 
 <script>
+  // Category filter
+  function filterNews(btn, cat) {
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#newsGrid .news-card').forEach(card => {
+      const match = cat === 'all' || card.dataset.cat === cat;
+      card.classList.toggle('hidden', !match);
+    });
+  }
+
   // Mobile menu
   function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
