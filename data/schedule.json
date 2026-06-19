@@ -1,13 +1,55 @@
 {
-  "updatedAt": "2026-05-31T00:00:00Z",
-  "source": "seed",
+  "updatedAt": "2026-06-19T12:37:08Z",
+  "source": "scraped",
   "season": 2026,
   "events": [
-    {"name":"German Grand Prix","circuit":"Sachsenring","country":"Germany","flag":"🇩🇪","date":"2026-07-06","status":"upcoming"},
-    {"name":"British Grand Prix","circuit":"Silverstone","country":"United Kingdom","flag":"🇬🇧","date":"2026-08-03","status":"upcoming"},
-    {"name":"Austrian Grand Prix","circuit":"Red Bull Ring","country":"Austria","flag":"🇦🇹","date":"2026-08-24","status":"upcoming"},
-    {"name":"San Marino Grand Prix","circuit":"Misano World Circuit","country":"Italy","flag":"🇮🇹","date":"2026-09-14","status":"upcoming"},
-    {"name":"Aragón Grand Prix","circuit":"MotorLand Aragón","country":"Spain","flag":"🇪🇸","date":"2026-09-28","status":"upcoming"},
-    {"name":"Japan Grand Prix","circuit":"Twin Ring Motegi","country":"Japan","flag":"🇯🇵","date":"2026-10-05","status":"upcoming"}
+    {
+      "name": "German Grand Prix",
+      "circuit": "Sachsenring",
+      "country": "Germany",
+      "flag": "🇩🇪",
+      "date": "2026-07-05",
+      "status": "upcoming"
+    },
+    {
+      "name": "British Grand Prix",
+      "circuit": "Silverstone",
+      "country": "United Kingdom",
+      "flag": "🇬🇧",
+      "date": "2026-08-02",
+      "status": "upcoming"
+    },
+    {
+      "name": "Austrian Grand Prix",
+      "circuit": "Red Bull Ring",
+      "country": "Austria",
+      "flag": "🇦🇹",
+      "date": "2026-08-23",
+      "status": "upcoming"
+    },
+    {
+      "name": "San Marino Grand Prix",
+      "circuit": "Misano",
+      "country": "Italy",
+      "flag": "🇮🇹",
+      "date": "2026-09-13",
+      "status": "upcoming"
+    },
+    {
+      "name": "Aragon Grand Prix",
+      "circuit": "MotorLand Aragon",
+      "country": "Spain",
+      "flag": "🇪🇸",
+      "date": "2026-09-27",
+      "status": "upcoming"
+    },
+    {
+      "name": "Japan Grand Prix",
+      "circuit": "Motegi",
+      "country": "Japan",
+      "flag": "🇯🇵",
+      "date": "2026-10-04",
+      "status": "upcoming"
+    }
   ]
 }
