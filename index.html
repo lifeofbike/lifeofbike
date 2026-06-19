@@ -524,56 +524,112 @@
     .video-info .news-meta { margin-top: 4px; }
 
     /* ─── STANDINGS WIDGET ─── */
-    .standings { background: var(--gray); padding: 20px; margin-bottom: 24px; }
+    .standings { background:#0d0d0d; border:1px solid #1e1e1e; padding:16px; margin-bottom:24px; }
     .standings-title {
       font-family: var(--font-display);
       font-size: 18px;
       letter-spacing: .06em;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #222;
       padding-bottom: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
-    .standings-tabs {
-      display: flex;
-      gap: 0;
-      margin-bottom: 14px;
-    }
+    .standings-tabs { display:flex; gap:0; margin-bottom:12px; }
     .standings-tab {
-      flex: 1;
-      padding: 6px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      text-align: center;
-      cursor: pointer;
-      color: var(--text-muted);
-      border-bottom: 2px solid #333;
-      transition: all .2s;
+      flex:1; padding:7px 4px;
+      font-family:var(--font-mono); font-size:9px; letter-spacing:.1em; text-transform:uppercase;
+      text-align:center; cursor:pointer; color:#555;
+      border-bottom:2px solid #222; transition:all .2s;
     }
-    .standings-tab.active { color: var(--white); border-bottom-color: var(--red); }
-    .standings-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 0;
-      border-bottom: 1px solid #1e1e1e;
-      font-size: 12px;
+    .standings-tab.active { color:var(--white); border-bottom-color:var(--red); }
+
+    /* Broadcast-style row */
+    .bc-row {
+      display:flex; align-items:center; gap:0;
+      border-left:3px solid transparent;
+      padding:5px 6px 5px 8px;
+      cursor:pointer; transition:background .15s;
+      margin-bottom:1px;
     }
-    .standings-row:last-child { border-bottom: none; }
-    .pos { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); width: 16px; text-align: center; flex-shrink:0; }
-    .pos.gold { color: var(--gold); font-weight: 600; }
-    .rider-flag { width:18px; height:12px; object-fit:cover; border-radius:1px; flex-shrink:0; }
-    .mfr-badge { font-family:var(--font-mono); font-size:7px; letter-spacing:.04em; padding:2px 4px; border-radius:2px; font-weight:600; flex-shrink:0; }
-    .mfr-ducati  { background:#cc0000; color:#fff; }
-    .mfr-aprilia { background:#6b21a8; color:#fff; }
-    .mfr-ktm     { background:#e67300; color:#fff; }
-    .mfr-honda   { background:#b00000; color:#fff; }
-    .mfr-yamaha  { background:#003087; color:#fff; }
-    .rider-num { font-family: var(--font-mono); font-size: 10px; color: var(--red); width: 22px; flex-shrink:0; }
-    .rider-name { flex: 1; color: var(--white); font-weight: 500; white-space: nowrap; overflow: hidden; min-width:0; }
-    .rider-name span:first-child { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-    .rider-pts { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); flex-shrink:0; }
+    .bc-row:hover { background:rgba(255,255,255,.04); }
+    .bc-pos {
+      font-family:var(--font-mono); font-size:11px;
+      color:#555; width:18px; flex-shrink:0; text-align:center;
+    }
+    .bc-pos.p1 { color:var(--gold); }
+    .bc-pos.p2 { color:#bbb; }
+    .bc-pos.p3 { color:#cd7f32; }
+    .bc-flag { font-size:11px; margin:0 5px 0 4px; flex-shrink:0; }
+    .bc-abbrev {
+      font-family:var(--font-mono); font-size:12px; font-weight:600;
+      letter-spacing:.06em; color:var(--white); flex:1;
+      text-transform:uppercase;
+    }
+    .bc-num {
+      font-family:var(--font-mono); font-size:9px;
+      color:#444; width:20px; text-align:right; flex-shrink:0;
+    }
+    .bc-pts {
+      font-family:var(--font-mono); font-size:12px; font-weight:600;
+      color:#ccc; width:32px; text-align:right; flex-shrink:0;
+    }
+
+    /* Constructors row */
+    .con-row {
+      display:flex; align-items:center; gap:8px;
+      padding:6px 8px; margin-bottom:2px;
+      border-left:3px solid transparent;
+    }
+    .con-name { font-family:var(--font-mono); font-size:11px; color:var(--white); flex:1; letter-spacing:.06em; }
+    .con-pts  { font-family:var(--font-mono); font-size:11px; color:#ccc; }
+
+    /* ─── RIDER MODAL ─── */
+    .rider-modal-overlay {
+      display:none; position:fixed; inset:0; z-index:200;
+      background:rgba(0,0,0,.75); backdrop-filter:blur(4px);
+      align-items:flex-end; justify-content:center;
+    }
+    .rider-modal-overlay.open { display:flex; }
+    .rider-modal {
+      background:#111; border-top:3px solid var(--red);
+      width:100%; max-width:400px;
+      padding:0 0 32px; position:relative;
+      animation:slideUp .25s ease;
+    }
+    @keyframes slideUp { from{transform:translateY(40px);opacity:0} to{transform:translateY(0);opacity:1} }
+    .rider-modal-close {
+      position:absolute; top:10px; right:14px;
+      background:none; border:none; color:#666; font-size:20px; cursor:pointer;
+    }
+    .rider-modal-close:hover { color:#fff; }
+    .rider-modal-photo {
+      width:100%; height:200px; object-fit:cover; object-position:top center;
+      display:block; filter:brightness(.9);
+    }
+    .rider-modal-numblock {
+      width:100%; height:200px;
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-display); font-size:96px; letter-spacing:.02em; color:rgba(255,255,255,.12);
+    }
+    .rider-modal-body { padding:20px 20px 0; }
+    .rider-modal-pos {
+      font-family:var(--font-mono); font-size:10px; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--red); margin-bottom:6px;
+    }
+    .rider-modal-name {
+      font-family:var(--font-display); font-size:36px; letter-spacing:.04em;
+      line-height:1; color:var(--white); margin-bottom:4px;
+    }
+    .rider-modal-team {
+      font-family:var(--font-mono); font-size:10px; letter-spacing:.08em;
+      color:#666; text-transform:uppercase; margin-bottom:20px;
+    }
+    .rider-modal-stats {
+      display:flex; gap:0; border-top:1px solid #1e1e1e; padding-top:16px;
+    }
+    .rider-stat { flex:1; text-align:center; border-right:1px solid #1e1e1e; }
+    .rider-stat:last-child { border-right:none; }
+    .rider-stat-val { font-family:var(--font-display); font-size:32px; color:var(--white); line-height:1; }
+    .rider-stat-lbl { font-family:var(--font-mono); font-size:9px; color:#555; letter-spacing:.1em; margin-top:4px; }
 
     /* ─── SIDEBAR AD ─── */
     .sidebar-ad { margin-bottom: 24px; }
@@ -1286,18 +1342,41 @@
     <div class="standings" id="standings">
       <div class="standings-title" style="display:flex;align-items:center;justify-content:space-between;">
         <span>🏆 ตาราง 2026</span>
-        <span id="standings-live-badge" style="display:none;font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);align-items:center;gap:5px;">
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.5s infinite;display:inline-block;"></span>
-          LIVE
-        </span>
+        <span id="standings-updated" style="font-family:var(--font-mono);font-size:9px;color:#444;letter-spacing:.05em;"></span>
       </div>
-      <div id="standings-updated" style="font-family:var(--font-mono);font-size:9px;color:#444;letter-spacing:.05em;margin-bottom:10px;"></div>
       <div class="standings-tabs">
         <div class="standings-tab active" onclick="switchTab(this,'riders')">นักบิด</div>
         <div class="standings-tab" onclick="switchTab(this,'constructors')">ค่าย</div>
       </div>
       <div id="tab-riders"><div style="padding:20px;text-align:center;font-family:var(--font-mono);font-size:11px;color:#444;">กำลังโหลด...</div></div>
-      <div id="tab-constructors" style="display:none;"><div style="padding:20px;text-align:center;font-family:var(--font-mono);font-size:11px;color:#444;">กำลังโหลด...</div></div>
+      <div id="tab-constructors" style="display:none;"></div>
+    </div>
+
+    <!-- RIDER MODAL -->
+    <div class="rider-modal-overlay" id="riderModal" onclick="closeRiderModal(event)">
+      <div class="rider-modal" id="riderModalInner">
+        <button class="rider-modal-close" onclick="document.getElementById('riderModal').classList.remove('open')">✕</button>
+        <div id="riderModalPhoto"></div>
+        <div class="rider-modal-body">
+          <div class="rider-modal-pos" id="riderModalPos"></div>
+          <div class="rider-modal-name" id="riderModalName"></div>
+          <div class="rider-modal-team" id="riderModalTeam"></div>
+          <div class="rider-modal-stats">
+            <div class="rider-stat">
+              <div class="rider-stat-val" id="riderModalPts"></div>
+              <div class="rider-stat-lbl">คะแนน</div>
+            </div>
+            <div class="rider-stat">
+              <div class="rider-stat-val" id="riderModalNum"></div>
+              <div class="rider-stat-lbl">เบอร์รถ</div>
+            </div>
+            <div class="rider-stat">
+              <div class="rider-stat-val" id="riderModalFlag"></div>
+              <div class="rider-stat-lbl">สัญชาติ</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- RACE SCHEDULE -->
@@ -1450,43 +1529,57 @@
   const MONTHS_TH = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
   const MONTHS_EN = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 
+  // ── Broadcast-style standings ──────────────────────────────────────────────
+  let _ridersData = [];
+
   function renderRiders(riders) {
-    const rows = riders.map((r,i) => {
-      const hidden = i >= 10 ? ' style="display:none"' : '';
-      const nameParts = r.name ? r.name.split(' ') : [''];
-      const lastName = nameParts[nameParts.length - 1];
-      return `<div class="standings-row standings-extra-row"${hidden}>
-        <div class="pos ${r.pos===1?'gold':''}">${r.pos}</div>
-        <div class="rider-name" style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${lastName}</div>
-        ${r.mfr ? `<span class="mfr-badge mfr-${r.mfr}">${r.mfr.toUpperCase()}</span>` : ''}
-        <div class="rider-pts">${r.pts}</div>
+    _ridersData = riders;
+    return riders.map((r, i) => {
+      const posClass = r.pos === 1 ? 'p1' : r.pos === 2 ? 'p2' : r.pos === 3 ? 'p3' : '';
+      return `<div class="bc-row" style="border-left-color:${r.color||'#333'}" onclick="openRiderModal(${i})">
+        <div class="bc-pos ${posClass}">${r.pos}</div>
+        <div class="bc-flag">${r.flag||''}</div>
+        <div class="bc-abbrev">${r.abbrev||r.lastName||''}</div>
+        <div class="bc-num">${r.num||''}</div>
+        <div class="bc-pts">${r.pts}</div>
       </div>`;
     }).join('');
-    const total = riders.length;
-    const btn = `<button onclick="toggleRiders(this)" style="width:100%;margin-top:8px;padding:7px;background:#1a1a1a;border:1px solid #2a2a2a;color:#666;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;cursor:pointer;border-radius:3px;" data-open="0" data-total="${total}">&#9660; ดูทั้งหมด ${total} คน</button>`;
-    return rows + btn;
-  }
-  function toggleRiders(btn) {
-    const open = btn.dataset.open === '1';
-    btn.closest('#tab-riders').querySelectorAll('.standings-extra-row').forEach((el,i) => {
-      if (i >= 10) el.style.display = open ? 'none' : '';
-    });
-    btn.dataset.open = open ? '0' : '1';
-    btn.innerHTML = open ? ('&#9660; ดูทั้งหมด ' + btn.dataset.total + ' คน') : '&#9650; ย่อลง';
   }
 
   function renderConstructors(constructors) {
     return constructors.map(c => `
-      <div class="standings-row">
-        <div class="pos ${c.pos===1?'gold':''}">${c.pos}</div>
-        <div class="rider-flag"></div>
-        <div class="rider-num"></div>
-        <div class="rider-name" style="display:flex;align-items:center;gap:6px;">
-          ${c.mfr ? `<span class="mfr-badge mfr-${c.mfr}">${c.mfr.toUpperCase()}</span>` : ''}
-          <span>${c.name}</span>
-        </div>
-        <div class="rider-pts">${c.pts}</div>
+      <div class="con-row" style="border-left-color:${c.color||'#333'}">
+        <div class="bc-pos ${c.pos===1?'p1':c.pos===2?'p2':c.pos===3?'p3':''}">${c.pos}</div>
+        <div class="con-name">${c.name}</div>
+        <div class="con-pts">${c.pts}</div>
       </div>`).join('');
+  }
+
+  function openRiderModal(idx) {
+    const r = _ridersData[idx];
+    if (!r) return;
+    const photoEl = document.getElementById('riderModalPhoto');
+    if (r.photo) {
+      photoEl.innerHTML = `<img class="rider-modal-photo" src="${r.photo}" alt="${r.firstName} ${r.lastName}" onerror="this.parentElement.innerHTML='<div class=rider-modal-numblock style=background:${r.color||\'#111\'}>${r.num}</div>'">`;
+    } else {
+      photoEl.innerHTML = `<div class="rider-modal-numblock" style="background:${r.color||'#111'}">${r.num}</div>`;
+    }
+    document.getElementById('riderModalPos').textContent = `อันดับที่ ${r.pos} — ${r.team}`;
+    document.getElementById('riderModalName').textContent = `${r.firstName} ${r.lastName}`;
+    document.getElementById('riderModalTeam').style.borderBottom = `2px solid ${r.color||'#333'}`;
+    document.getElementById('riderModalTeam').textContent = r.team;
+    document.getElementById('riderModalPts').textContent = r.pts;
+    document.getElementById('riderModalNum').textContent = `#${r.num}`;
+    document.getElementById('riderModalFlag').textContent = r.flag||'—';
+    document.getElementById('riderModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeRiderModal(e) {
+    if (e.target === document.getElementById('riderModal')) {
+      document.getElementById('riderModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
   }
 
   function renderSchedule(events) {
