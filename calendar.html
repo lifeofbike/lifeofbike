@@ -72,9 +72,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.92
 .time-val{font-family:var(--font-display);font-size:24px;color:#e8c84a;line-height:1}
 .time-unit{font-family:var(--font-mono);font-size:9px;color:var(--text-muted)}
 
-.card-result{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(255,255,255,.03);border-radius:2px;border:1px solid #222}
+.card-result{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(255,255,255,.03);border-radius:2px;border:1px solid #222;margin-bottom:10px}
 .result-label{font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.08em}
 .result-winner{font-size:12px;font-weight:500;color:var(--white)}
+
+/* Circuit info button */
+.btn-circuit{display:flex;align-items:center;gap:6px;width:100%;padding:7px 10px;background:transparent;border:1px solid #2a2a2a;border-radius:2px;color:var(--text-muted);font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;cursor:pointer;transition:all .2s}
+.btn-circuit:hover{border-color:var(--red);color:var(--white);background:rgba(232,19,42,.06)}
+.btn-circuit svg{flex-shrink:0;opacity:.6}
 
 .next-banner{max-width:1100px;margin:0 auto;padding:20px 24px 4px}
 .next-inner{background:linear-gradient(135deg,rgba(232,19,42,.12),rgba(232,19,42,.04));border:1px solid rgba(232,19,42,.3);border-radius:4px;padding:16px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
@@ -89,10 +94,49 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.92
 .legend-item{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10px;color:var(--text-muted)}
 .legend-dot{width:8px;height:8px;border-radius:1px}
 
+/* ── Circuit Modal ── */
+.cm-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.8);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px}
+.cm-overlay.open{display:flex}
+.cm-box{background:#111;border:1px solid #222;border-radius:6px;width:100%;max-width:760px;max-height:90vh;overflow-y:auto;position:relative;animation:cmSlide .25s ease}
+@keyframes cmSlide{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
+.cm-close{position:sticky;top:0;z-index:10;display:flex;justify-content:flex-end;padding:12px 16px 0;background:#111}
+.cm-close button{background:transparent;border:1px solid #333;border-radius:2px;color:var(--text-muted);font-size:14px;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cm-close button:hover{border-color:#555;color:var(--white)}
+
+.cm-header{padding:0 24px 20px;border-bottom:1px solid #1e1e1e}
+.cm-round{font-family:var(--font-mono);font-size:10px;color:var(--red);letter-spacing:.14em;margin-bottom:6px}
+.cm-title{font-family:var(--font-display);font-size:clamp(28px,5vw,48px);letter-spacing:.04em;line-height:1;margin-bottom:4px}
+.cm-subtitle{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);letter-spacing:.06em}
+
+.cm-body{padding:24px}
+.cm-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:560px){.cm-layout{grid-template-columns:1fr}}
+
+/* Circuit map */
+.cm-map-wrap{background:#0d0d0d;border:1px solid #1e1e1e;border-radius:4px;display:flex;align-items:center;justify-content:center;padding:16px;min-height:180px}
+.cm-map-wrap img,.cm-map-wrap svg{max-width:100%;max-height:200px;filter:invert(1) brightness(.8)}
+.cm-map-placeholder{text-align:center;color:#333;font-family:var(--font-mono);font-size:10px}
+
+/* Stats grid */
+.cm-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.cm-stat{background:#0d0d0d;border:1px solid #1e1e1e;border-radius:3px;padding:10px 12px}
+.cm-stat-val{font-family:var(--font-display);font-size:20px;color:var(--white);line-height:1;margin-bottom:3px}
+.cm-stat-lbl{font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.1em}
+
+/* Sections */
+.cm-section{margin-bottom:20px}
+.cm-section-title{font-family:var(--font-mono);font-size:10px;color:var(--red);letter-spacing:.14em;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #1e1e1e}
+.cm-section p{font-size:13px;line-height:1.7;color:#ccc}
+.cm-travel-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.cm-travel-list li{display:flex;gap:10px;font-size:13px;color:#ccc;line-height:1.5}
+.cm-travel-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+
 @media(max-width:600px){
   .calendar-grid{grid-template-columns:1fr;padding:16px 16px 60px}
   .hero{padding:32px 16px 24px}
   .filter-bar,.next-banner,.legend{padding-left:16px;padding-right:16px}
+  .cm-body{padding:16px}
+  .cm-header{padding:0 16px 16px}
 }
 </style>
 </head>
@@ -130,8 +174,221 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.92
 
 <div class="calendar-grid" id="calendarGrid"></div>
 
+<!-- Circuit Modal -->
+<div class="cm-overlay" id="circuitModal" onclick="handleOverlayClick(event)">
+  <div class="cm-box" id="circuitModalBox">
+    <div class="cm-close"><button onclick="closeCircuitModal()">✕</button></div>
+    <div class="cm-header">
+      <div class="cm-round" id="cmRound"></div>
+      <div class="cm-title" id="cmTitle"></div>
+      <div class="cm-subtitle" id="cmSubtitle"></div>
+    </div>
+    <div class="cm-body">
+      <div class="cm-layout">
+        <div>
+          <div class="cm-map-wrap" id="cmMap"></div>
+        </div>
+        <div>
+          <div class="cm-stats" id="cmStats"></div>
+        </div>
+      </div>
+      <div class="cm-section">
+        <div class="cm-section-title">ประวัติสนาม</div>
+        <p id="cmHistory"></p>
+      </div>
+      <div class="cm-section">
+        <div class="cm-section-title">วิธีเดินทางไปชม</div>
+        <ul class="cm-travel-list" id="cmTravel"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 const MONTHS_TH = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+
+const CIRCUITS = {
+  "Chang International Circuit": {
+    city_en: "Buriram, Thailand", founded: 2014,
+    length: "4.554 กม.", corners: 12, lap_record: "1:30.575 (Bagnaia, 2023)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Chang_International_Circuit_track_map.svg/400px-Chang_International_Circuit_track_map.svg.png",
+    history: "Chang International Circuit ตั้งอยู่ที่จังหวัดบุรีรัมย์ ภาคตะวันออกเฉียงเหนือของไทย สร้างขึ้นในปี 2014 ด้วยเงินลงทุนกว่า 2,000 ล้านบาท โดยสโมสรฟุตบอลบุรีรัมย์ยูไนเต็ด เปิดตัวครั้งแรกกับ MotoGP ในปี 2018 ถือเป็นสนามที่ทันสมัยที่สุดแห่งหนึ่งในเอเชีย ออกแบบโดย Hermann Tilke ผู้ออกแบบสนาม Formula 1 ระดับโลก ด้วยโค้งที่หลากหลายและโซนแซงที่ดี ทำให้ได้รับคำชมจากนักแข่งทั่วโลก",
+    travel: [
+      { icon: "✈️", text: "บินตรงจากสนามบินสุวรรณภูมิหรือดอนเมืองไปสนามบินบุรีรัมย์ ใช้เวลาประมาณ 1 ชั่วโมง" },
+      { icon: "🚆", text: "นั่งรถไฟจากสถานีกรุงเทพ (หัวลำโพง) ถึงบุรีรัมย์ ใช้เวลา 5–6 ชั่วโมง สนามอยู่ห่างจากสถานีรถไฟประมาณ 1 กม." },
+      { icon: "🚌", text: "รถทัวร์จากหมอชิตหรืออนุสาวรีย์ ใช้เวลาประมาณ 5–6 ชั่วโมง" },
+      { icon: "🏨", text: "โรงแรมรอบสนามมีจำนวนมาก แนะนำจองล่วงหน้า 3–6 เดือนในช่วง Race Weekend" }
+    ]
+  },
+  "Autodromo Internacional do Algarve": {
+    city_en: "Portimão, Portugal", founded: 2008,
+    length: "4.653 กม.", corners: 15, lap_record: "1:39.419 (Bagnaia, 2021)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Autodromo_Internacional_do_Algarve_track_map.svg/400px-Autodromo_Internacional_do_Algarve_track_map.svg.png",
+    history: "Autodromo Internacional do Algarve หรือที่รู้จักกันในชื่อ Portimão Circuit เปิดตัวปี 2008 ตั้งอยู่ในภูมิภาค Algarve ทางตอนใต้ของโปรตุเกส สร้างขึ้นบนเนินเขาริมทะเล ทำให้มีภูมิประเทศสวยงามและโค้งที่ท้าทายที่สุดแห่งหนึ่งในโลก มีทั้งโค้งขึ้นเขาและลงเขาที่ต้องใช้ความกล้า MotoGP มาแข่งครั้งแรกปี 2020 ในช่วง COVID-19 และยังคงรักษาสนามนี้ไว้เนื่องจากได้รับความนิยมอย่างมาก",
+    travel: [
+      { icon: "✈️", text: "บินไปสนามบิน Faro ซึ่งอยู่ห่างจากสนาม 65 กม. ใช้เวลาขับรถ 45–50 นาที" },
+      { icon: "🚌", text: "รถบัสจาก Faro หรือ Portimão เมือง มีบริการ shuttle ในช่วง Race Weekend" },
+      { icon: "🚗", text: "เช่ารถขับเองสะดวกที่สุด จากสนามบิน Faro ตรงมาตาม A22 ทางด่วน Algarve" },
+      { icon: "🏨", text: "พักในเมือง Portimão หรือ Lagoa ใกล้เคียง แนะนำจองล่วงหน้า 6 เดือน" }
+    ]
+  },
+  "Circuit of the Americas": {
+    city_en: "Austin, Texas, USA", founded: 2012,
+    length: "5.513 กม.", corners: 20, lap_record: "2:02.190 (Bagnaia, 2022)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Circuit_of_the_Americas_track_map.svg/400px-Circuit_of_the_Americas_track_map.svg.png",
+    history: "Circuit of the Americas (COTA) สร้างขึ้นในปี 2012 ที่เมือง Austin รัฐ Texas สหรัฐอเมริกา ออกแบบโดย Hermann Tilke เพื่อรองรับ Formula 1 และ MotoGP โดยเฉพาะ ความยาว 5.513 กม. ทำให้เป็นสนามที่ยาวที่สุดในปฏิทิน MotoGP Turn 1 ที่โค้งขึ้นเขาชันเป็นสัญลักษณ์ของสนาม ชม Turn 20 จะเห็นวิวของ Austin skyline อย่างสวยงาม Marc Márquez ครองสนามนี้แบบไร้คู่แข่งมานานหลายปี",
+    travel: [
+      { icon: "✈️", text: "บินไปสนามบิน Austin-Bergstrom International (AUS) อยู่ห่างจากสนาม 11 กม." },
+      { icon: "🚌", text: "มี Shuttle bus จากดาวน์ทาวน์ Austin และสนามบินในช่วง Race Weekend" },
+      { icon: "🚗", text: "เช่ารถหรือ Uber/Lyft สะดวก แต่ระวังการจราจรติดขัดในวันแข่ง" },
+      { icon: "🏨", text: "พักในดาวน์ทาวน์ Austin มีที่พักหลากหลาย แนะนำจองล่วงหน้า 3–6 เดือน" }
+    ]
+  },
+  "Circuito de Jerez": {
+    city_en: "Jerez de la Frontera, Spain", founded: 1986,
+    length: "4.423 กม.", corners: 13, lap_record: "1:36.877 (Bagnaia, 2022)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Circuit_de_Jerez_track_map.svg/400px-Circuit_de_Jerez_track_map.svg.png",
+    history: "Circuito de Jerez ก่อตั้งปี 1986 ที่เมือง Jerez de la Frontera แคว้น Andalucía ทางใต้ของสเปน เป็นสนามที่มีประวัติยาวนานและเต็มไปด้วยตำนาน เป็นสถานที่เกิดอุบัติเหตุสำคัญอย่างการชนกันของ Senna กับ Prost ในปี 1988 (F1) และการล้มของ Wayne Rainey ปี 1993 ซึ่งพิการถาวร สนามนี้ยังเป็นที่รักของนักแข่งสเปน เพราะแฟน MotoGP ในสเปนมีความเข้มข้นและเหนียวแน่นที่สุดในโลก",
+    travel: [
+      { icon: "✈️", text: "บินไปสนามบิน Jerez (XRY) อยู่ห่างจากสนาม 5 กม. หรือ Sevilla (SVQ) ห่าง 90 กม." },
+      { icon: "🚌", text: "มีรถ Shuttle จากเมือง Jerez และสนามบินในช่วง Race Weekend" },
+      { icon: "🚗", text: "เช่ารถจาก Jerez หรือ Sevilla ขับตาม A-381 ประมาณ 10 นาที" },
+      { icon: "🏨", text: "พักในเมือง Jerez ซึ่งมีที่พักจำนวนมาก บรรยากาศเมืองมีเอกลักษณ์แบบ Andalucía" }
+    ]
+  },
+  "Circuit Bugatti": {
+    city_en: "Le Mans, France", founded: 1965,
+    length: "4.185 กม.", corners: 14, lap_record: "1:31.931 (Bagnaia, 2023)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Bugatti_track_map.svg/400px-Bugatti_track_map.svg.png",
+    history: "Circuit Bugatti หรือ Le Mans Bugatti เป็นส่วนหนึ่งของสนาม Circuit de la Sarthe ที่มีชื่อเสียงจากการแข่ง Le Mans 24 Hours ก่อตั้งปี 1965 ตั้งชื่อตาม Ettore Bugatti ผู้ก่อตั้งแบรนด์รถหรู MotoGP ที่นี่มีชื่อเสียงเรื่องสภาพอากาศที่เปลี่ยนแปลงบ่อย ฝนมักตกในช่วงแข่งทำให้การแข่งขันเต็มไปด้วยดราม่า Valentino Rossi ชนะที่นี่ถึง 8 ครั้ง ซึ่งเป็นสถิติสูงสุดใน French GP",
+    travel: [
+      { icon: "✈️", text: "บินไป Paris Charles de Gaulle แล้วนั่งรถไฟ TGV ไป Le Mans ใช้เวลา 55 นาที" },
+      { icon: "🚆", text: "รถไฟ TGV จาก Paris Montparnasse ถึง Le Mans ในเวลาไม่ถึง 1 ชั่วโมง สนามอยู่ห่างจากสถานี 5 กม." },
+      { icon: "🚌", text: "มี Tram และรถบัสจากตัวเมือง Le Mans ไปสนามในช่วง Race Weekend" },
+      { icon: "🏨", text: "พักในเมือง Le Mans มีที่พักครบครัน แนะนำจองล่วงหน้าเพราะเป็น Race Weekend ยอดนิยม" }
+    ]
+  },
+  "Autodromo del Mugello": {
+    city_en: "Mugello, Tuscany, Italy", founded: 1974,
+    length: "5.245 กม.", corners: 15, lap_record: "1:46.657 (Quartararo, 2021)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Mugello_track_map.svg/400px-Mugello_track_map.svg.png",
+    history: "Autodromo del Mugello ตั้งอยู่กลางหุบเขา Mugello แคว้น Tuscany ประเทศอิตาลี สร้างขึ้นปี 1974 โดย Ferrari เป็นเจ้าของสนาม เป็นสนามที่ถือว่าสวยงามที่สุดในปฏิทิน MotoGP ล้อมรอบด้วยเนินเขาสีเขียว โค้ง Scarperia, Arrabbiata และ San Donato เป็นโค้งที่มีชื่อเสียงที่สุด สถิติความเร็วสูงสุดของ MotoGP ที่ 368.6 km/h ถูกทำลายที่นี่ แฟน Ducati แห่กันมาเต็มสนามทุกปีในชื่อ 'Ducatisti'",
+    travel: [
+      { icon: "✈️", text: "บินไป Florence (FLR) หรือ Bologna (BLQ) แล้วเช่ารถขับมา สนามอยู่ห่างจาก Florence 40 กม." },
+      { icon: "🚆", text: "รถไฟมา Florence แล้วนั่งรถบัสหรือรถรับจ้างต่อ ไม่มีรถไฟตรงถึงสนาม" },
+      { icon: "🚗", text: "เช่ารถขับเองสะดวกที่สุด จาก Florence ตาม SS65 ขับผ่านวิวทิวทัศน์ Tuscany สวยงามมาก" },
+      { icon: "🏕️", text: "มี Camping zone รอบสนามซึ่งได้รับความนิยมมาก บรรยากาศการ์นิวัลตลอดสัปดาห์" }
+    ]
+  },
+  "Sachsenring": {
+    city_en: "Hohenstein-Ernstthal, Germany", founded: 1996,
+    length: "3.671 กม.", corners: 13, lap_record: "1:20.269 (Márquez, 2019)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Sachsenring_track_map.svg/400px-Sachsenring_track_map.svg.png",
+    history: "Sachsenring ตั้งอยู่ที่เมือง Hohenstein-Ernstthal รัฐ Saxony ประเทศเยอรมนี รูปแบบสนามปัจจุบันเปิดใช้งานปี 1996 แม้ชื่อสนามมีมาตั้งแต่ยุค DDR (เยอรมนีตะวันออก) สนามนี้สั้นที่สุดในปฏิทิน MotoGP แต่เต็มไปด้วยโค้งซ้ายที่ชันและต่อเนื่อง Marc Márquez ครองสนามนี้ถึง 11 ครั้งติดต่อกัน (2010–2021) ซึ่งเป็นสถิติที่น่าทึ่งที่สุดในประวัติศาสตร์ MotoGP",
+    travel: [
+      { icon: "✈️", text: "บินไป Leipzig/Halle (LEJ) ห่างจากสนาม 65 กม. หรือ Dresden (DRS) ห่าง 80 กม." },
+      { icon: "🚆", text: "รถไฟจาก Leipzig หรือ Chemnitz มาลงที่ Hohenstein-Ernstthal แล้วเดินเท้าหรือรถรับจ้าง" },
+      { icon: "🚗", text: "เช่ารถจาก Leipzig หรือ Chemnitz ขับตาม A4/A72 ประมาณ 1 ชั่วโมง" },
+      { icon: "🏨", text: "พักในเมือง Chemnitz (15 กม.) หรือ Zwickau (20 กม.) แนะนำจองล่วงหน้าเพราะที่พักใกล้สนามน้อย" }
+    ]
+  },
+  "Silverstone Circuit": {
+    city_en: "Silverstone, Northamptonshire, UK", founded: 1948,
+    length: "5.900 กม.", corners: 18, lap_record: "1:58.449 (Bagnaia, 2023)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Silverstone_Circuit_2020.svg/400px-Silverstone_Circuit_2020.svg.png",
+    history: "Silverstone Circuit เป็นสนามแข่งที่เก่าแก่ที่สุดในโลกของ MotoGP สร้างบนรันเวย์ RAF เดิมปี 1948 เป็นสนาม F1 อังกฤษมาตั้งแต่ต้น MotoGP มาแข่งที่นี่ด้วยเส้นทางยาว 5.9 กม. ซึ่งยาวเป็นอันดับ 2 ในปฏิทิน โค้ง Copse, Maggots-Becketts-Chapel ขึ้นชื่อว่าเป็นโค้งที่ยากและท้าทายที่สุดในวงการมอเตอร์สปอร์ต สภาพอากาศอังกฤษทำให้การแข่งขันตื่นเต้นเสมอ",
+    travel: [
+      { icon: "✈️", text: "บินไป London Heathrow (LHR) หรือ Birmingham (BHX) แล้วเช่ารถหรือนั่ง Shuttle" },
+      { icon: "🚆", text: "รถไฟจาก London Euston ไป Milton Keynes หรือ Northampton แล้วต่อ Shuttle ไปสนาม" },
+      { icon: "🚗", text: "เช่ารถจาก London ขับตาม M40 ใช้เวลาประมาณ 1.5 ชั่วโมง สนามอยู่นอก A43" },
+      { icon: "🏕️", text: "Camping ในสนามได้ทุกประเภท ได้รับความนิยมมากในหมู่แฟน British GP" }
+    ]
+  },
+  "Red Bull Ring": {
+    city_en: "Spielberg, Styria, Austria", founded: 1969,
+    length: "4.318 กม.", corners: 10, lap_record: "1:23.827 (Bagnaia, 2022)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/RedBullRing.svg/400px-RedBullRing.svg.png",
+    history: "Red Bull Ring ตั้งอยู่กลางเทือกเขา Styrian Alps ที่ Spielberg ประเทศออสเตรีย เดิมชื่อ Österreichring สร้างปี 1969 ฟื้นฟูและเปิดใหม่ปี 1997 ในชื่อ A1 Ring ก่อน Red Bull เข้ามาซื้อและพัฒนาอีกครั้ง เปิดใหม่ปี 2011 สนามสั้นแต่เต็มไปด้วยโค้ง hairpin สูงชันและ straight ยาวทำให้มีการแซงได้บ่อย วิวทิวทัศน์แบบ Alpine สีเขียวสวยงาม",
+    travel: [
+      { icon: "✈️", text: "บินไป Graz (GRZ) ห่างจากสนาม 55 กม. หรือ Vienna (VIE) ห่าง 250 กม." },
+      { icon: "🚆", text: "รถไฟจาก Graz ไป Knittelfeld แล้วต่อรถบัส Shuttle ไปสนาม ใช้เวลา 1.5 ชั่วโมง" },
+      { icon: "🚗", text: "เช่ารถจาก Graz ขับตาม A9 Autobahn ผ่านทิวทัศน์ Alps สวยงาม ใช้เวลา 45 นาที" },
+      { icon: "🏕️", text: "Camping zone ในและรอบสนามมีจำนวนมาก บรรยากาศเทศกาลดี อากาศเย็นสบาย" }
+    ]
+  },
+  "Misano World Circuit": {
+    city_en: "Misano Adriatico, San Marino", founded: 1969,
+    length: "4.226 กม.", corners: 16, lap_record: "1:31.724 (Bagnaia, 2022)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/MisanoWorldCircuit.svg/400px-MisanoWorldCircuit.svg.png",
+    history: "Misano World Circuit Marco Simoncelli ตั้งอยู่ที่ Misano Adriatico ใกล้ชายฝั่ง Adriatic รัฐ San Marino สร้างปี 1969 เปลี่ยนชื่อเพื่อเป็นเกียรติแก่ Marco Simoncelli นักแข่งชาวอิตาลีผู้เสียชีวิตอย่างน่าเศร้าในปี 2011 สนามนี้เป็นที่รักของ Valentino Rossi เพราะอยู่ไม่ไกลจากบ้านเกิดเขาที่ Tavullia แฟนๆ ชาวอิตาลีแห่มาเชียร์เต็มสนามทุกปี",
+    travel: [
+      { icon: "✈️", text: "บินไป Bologna (BLQ) หรือ Rimini (RMI) ซึ่งอยู่ห่างจากสนามเพียง 10 กม." },
+      { icon: "🚆", text: "รถไฟไป Rimini แล้วนั่งรถบัสหรือแท็กซี่ไปสนาม ห่างกัน 13 กม." },
+      { icon: "🚗", text: "เช่ารถจาก Bologna ขับตาม A14 มาออก Rimini Sud ใช้เวลา 1 ชั่วโมง" },
+      { icon: "🏖️", text: "บริเวณ Rimini เป็นรีสอร์ทชายหาด มีที่พักหลากหลาย สามารถพักผ่อนริมทะเลได้หลังดูการแข่ง" }
+    ]
+  },
+  "MotorLand Aragon": {
+    city_en: "Alcañiz, Aragon, Spain", founded: 2009,
+    length: "5.345 กม.", corners: 17, lap_record: "1:46.635 (Zarco, 2021)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/MotorLandAragon_circuit.svg/400px-MotorLandAragon_circuit.svg.png",
+    history: "MotorLand Aragon สร้างขึ้นปี 2009 ที่ Alcañiz แคว้น Aragon ประเทศสเปน ออกแบบโดย Hermann Tilke เป็นสนามที่ทันสมัยและท้าทาย ด้วยโค้งที่หลากหลายตั้งแต่ hairpin จนถึงโค้งเร็วความเร็วสูง หนึ่งในสนามที่นักแข่งชื่นชอบมากที่สุด Marc Márquez ทำสถิติ Pole Position ที่นี่หลายครั้ง และ Jorge Martín ทำลายสถิติความเร็วสูงสุดใน Aragon ในปี 2023",
+    travel: [
+      { icon: "✈️", text: "บินไป Zaragoza (ZAZ) ห่างจากสนาม 90 กม. หรือ Valencia (VLC) ห่าง 200 กม." },
+      { icon: "🚗", text: "เช่ารถจาก Zaragoza ขับตาม A-23 มาออก Alcañiz ใช้เวลา 1 ชั่วโมง" },
+      { icon: "🚌", text: "รถบัสจาก Zaragoza หรือ Alcañiz มี Shuttle เฉพาะช่วง Race Weekend" },
+      { icon: "🏨", text: "พักในเมือง Alcañiz ซึ่งมีที่พักหลายแห่ง หรือในเมือง Zaragoza ที่มีตัวเลือกมากกว่า" }
+    ]
+  },
+  "Twin Ring Motegi": {
+    city_en: "Motegi, Tochigi, Japan", founded: 1997,
+    length: "4.801 กม.", corners: 14, lap_record: "1:45.650 (Stoner, 2009)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Twin_Ring_Motegi_track_map.svg/400px-Twin_Ring_Motegi_track_map.svg.png",
+    history: "Twin Ring Motegi หรือที่รู้จักกันว่า Mobility Resort Motegi ในปัจจุบัน สร้างปี 1997 โดย Honda เพื่อส่งเสริมมอเตอร์สปอร์ตในญี่ปุ่น ตั้งอยู่ที่เมือง Motegi จังหวัด Tochigi ห่างจากโตเกียวประมาณ 120 กม. ชื่อ 'Twin Ring' มาจากการที่มีสนามทั้ง Road Course และ Oval Circuit อยู่ในพื้นที่เดียวกัน Japanese GP ที่นี่เป็นสนามที่นักแข่งญี่ปุ่นอยากทำผลงานให้แฟนๆ บ้านเกิดชมมากที่สุด",
+    travel: [
+      { icon: "✈️", text: "บินไปสนามบิน Narita (NRT) หรือ Haneda (HND) แล้วต่อรถไฟหรือรถบัส" },
+      { icon: "🚆", text: "รถไฟจาก Tokyo Ueno ไป Utsunomiya แล้วต่อ JR Mito Line ไป Moka แล้วต่อรถบัสไปสนาม" },
+      { icon: "🚌", text: "มีรถบัสตรงจาก Shinjuku และสถานีสำคัญในโตเกียวช่วง Race Weekend ใช้เวลา 2.5 ชั่วโมง" },
+      { icon: "🏨", text: "พักในโตเกียวแล้วเดินทางไปกลับ หรือพักในเมือง Utsunomiya ที่ใกล้กว่า" }
+    ]
+  },
+  "Phillip Island Circuit": {
+    city_en: "Phillip Island, Victoria, Australia", founded: 1956,
+    length: "4.448 กม.", corners: 12, lap_record: "1:28.108 (Bagnaia, 2023)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Phillip_Island_Grand_Prix_Circuit_track_map.svg/400px-Phillip_Island_Grand_Prix_Circuit_track_map.svg.png",
+    history: "Phillip Island Circuit ตั้งอยู่บนเกาะ Phillip Island รัฐ Victoria ออสเตรเลีย ก่อตั้งปี 1956 เป็นสนามที่โอบล้อมด้วยทะเลและธรรมชาติ ทำให้ภาพการแข่งขันสวยงามเป็นเอกลักษณ์ โค้ง Southern Loop ที่เร็วและ Turn 1 ที่ไปสู่ Gardner Straight ทำให้สนามนี้เต็มไปด้วยการแซงที่น่าตื่นเต้น ลมแรงจากมหาสมุทร Southern Ocean ทำให้การแข่งขันท้าทายเสมอ",
+    travel: [
+      { icon: "✈️", text: "บินไปสนามบิน Melbourne Tullamarine (MEL) แล้วขับรถมาเกาะ Phillip Island ใช้เวลา 1.5 ชั่วโมง" },
+      { icon: "🚌", text: "รถบัสจาก Melbourne มี V/Line Service ไปยัง San Remo แล้วต่อ Shuttle ข้ามสะพาน" },
+      { icon: "🚗", text: "เช่ารถจาก Melbourne ขับตาม M1/South Gippsland Highway สวยงามมาก ต้องผ่านสะพาน Phillip Island Bridge" },
+      { icon: "🏕️", text: "Camping ในสนามได้ บนเกาะมีที่พักและรีสอร์ทริมทะเล แนะนำจองล่วงหน้า 6 เดือน" }
+    ]
+  },
+  "Sepang International Circuit": {
+    city_en: "Sepang, Selangor, Malaysia", founded: 1999,
+    length: "5.543 กม.", corners: 15, lap_record: "1:59.053 (Quartararo, 2019)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Sepang_International_Circuit_track_map.svg/400px-Sepang_International_Circuit_track_map.svg.png",
+    history: "Sepang International Circuit สร้างขึ้นปี 1999 ออกแบบโดย Hermann Tilke ตั้งอยู่ที่ Sepang รัฐ Selangor ประเทศมาเลเซีย อยู่ใกล้สนามบินนานาชาติกัวลาลัมเปีย (KLIA) เป็นสนามที่ยาวเป็นอันดับต้นๆ ในปฏิทิน ออกแบบพิเศษเพื่อรองรับ Formula 1 และ MotoGP สลับกัน อากาศร้อนชื้นและฝนที่ตกฉับพลันทำให้การแข่งขัน Malaysian GP เต็มไปด้วยความไม่แน่นอน",
+    travel: [
+      { icon: "✈️", text: "บินตรงจากกรุงเทพฯ ไปกัวลาลัมเปียใช้เวลา 2 ชั่วโมง สนามอยู่ห่างจาก KLIA เพียง 15 นาทีขับรถ" },
+      { icon: "🚆", text: "นั่ง KLIA Ekspres จากกัวลาลัมเปียซิตี้แอร์เทอร์มินัล (KL Sentral) ไป KLIA แล้วต่อแท็กซี่ไปสนาม" },
+      { icon: "🚗", text: "เช่ารถจาก KLIA ขับตาม MEX Highway ถึงสนามภายใน 10–15 นาที" },
+      { icon: "🏨", text: "พักในกัวลาลัมเปีย (40 กม.) หรือโรงแรมใกล้ KLIA ที่ Sepang เพื่อความสะดวก" }
+    ]
+  },
+  "Circuit Ricardo Tormo": {
+    city_en: "Valencia, Spain", founded: 1999,
+    length: "4.005 กม.", corners: 14, lap_record: "1:30.450 (Bagnaia, 2022)",
+    map: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Circuit_Ricardo_Tormo_track_map.svg/400px-Circuit_Ricardo_Tormo_track_map.svg.png",
+    history: "Circuit Ricardo Tormo ก่อตั้งปี 1999 ที่ Cheste ชานเมืองบาเลนเซีย ประเทศสเปน ตั้งชื่อตาม Ricardo Tormo นักแข่ง 350cc ชาวสเปนที่เสียชีวิตจากโรคมะเร็งในปี 1998 สนามนี้เป็นสนามสุดท้ายของปฏิทิน MotoGP มักเป็นที่ประกาศแชมป์โลก บรรยากาศการแข่งขันครั้งสุดท้ายของฤดูกาลเต็มไปด้วยอารมณ์และความตื่นเต้น Valentino Rossi เลือกสนามนี้เป็นสนามสุดท้ายของอาชีพในปี 2021",
+    travel: [
+      { icon: "✈️", text: "บินไปสนามบิน Valencia (VLC) ซึ่งอยู่ห่างจากสนามเพียง 20 กม." },
+      { icon: "🚆", text: "รถไฟ Metro จากตัวเมือง Valencia ไป Tirante แล้วต่อ Shuttle บัส ใช้เวลา 45 นาที" },
+      { icon: "🚗", text: "เช่ารถจากสนามบินขับตาม A-3 ใช้เวลา 25–30 นาที" },
+      { icon: "🌊", text: "บาเลนเซียมีชายหาด Malvarrosa และ El Saler ใกล้ๆ แนะนำพักในตัวเมืองเพื่อสัมผัสวัฒนธรรมสเปน" }
+    ]
+  }
+};
 
 const RACES = [
   { round:1,  name:"Thailand Grand Prix",    country:"ไทย",           cc:"th", circuit:"Chang International Circuit",         city:"บุรีรัมย์",         date:"2026-03-01", raceTimeTH:"15:00",        status:"done",     winner:"Marc Márquez" },
@@ -157,7 +414,51 @@ function getDaysUntil(dateStr) {
   return Math.ceil((race - now) / 86400000);
 }
 
-function renderCard(ev, isNext) {
+function openCircuitModal(idx) {
+  const ev = RACES[idx];
+  const ci = CIRCUITS[ev.circuit];
+  if (!ci) return;
+
+  document.getElementById('cmRound').textContent = `รอบที่ ${ev.round} · ${ev.name.toUpperCase()}`;
+  document.getElementById('cmTitle').textContent = ev.circuit;
+  document.getElementById('cmSubtitle').textContent = ci.city_en;
+
+  // Map
+  const mapEl = document.getElementById('cmMap');
+  if (ci.map) {
+    mapEl.innerHTML = `<img src="${ci.map}" alt="${ev.circuit} map" onerror="this.parentElement.innerHTML='<div class=cm-map-placeholder>🗺️<br>ไม่มีภาพ Layout</div>'">`;
+  } else {
+    mapEl.innerHTML = '<div class="cm-map-placeholder">🗺️<br>ไม่มีภาพ Layout</div>';
+  }
+
+  // Stats
+  document.getElementById('cmStats').innerHTML = `
+    <div class="cm-stat"><div class="cm-stat-val">${ci.founded}</div><div class="cm-stat-lbl">ก่อตั้ง</div></div>
+    <div class="cm-stat"><div class="cm-stat-val">${ci.length}</div><div class="cm-stat-lbl">ความยาวสนาม</div></div>
+    <div class="cm-stat"><div class="cm-stat-val">${ci.corners}</div><div class="cm-stat-lbl">จำนวนโค้ง</div></div>
+    <div class="cm-stat" style="grid-column:span 2"><div class="cm-stat-val" style="font-size:13px;font-family:var(--font-mono)">${ci.lap_record}</div><div class="cm-stat-lbl">LAP RECORD</div></div>
+  `;
+
+  document.getElementById('cmHistory').textContent = ci.history;
+
+  document.getElementById('cmTravel').innerHTML = ci.travel.map(t =>
+    `<li><span class="cm-travel-icon">${t.icon}</span><span>${t.text}</span></li>`
+  ).join('');
+
+  document.getElementById('circuitModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCircuitModal() {
+  document.getElementById('circuitModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('circuitModal')) closeCircuitModal();
+}
+
+function renderCard(ev, isNext, idx) {
   const d = new Date(ev.date + 'T00:00:00Z');
   const dd = String(d.getUTCDate()).padStart(2,'0');
   const mm = MONTHS_TH[d.getUTCMonth()];
@@ -199,6 +500,10 @@ function renderCard(ev, isNext) {
         ${timeBlock}
       </div>
       ${resultBlock}
+      <button class="btn-circuit" onclick="openCircuitModal(${idx})">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 5v4M6 3.5v.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        ข้อมูลสนามและวิธีเดินทาง
+      </button>
     </div>
   </div>`;
 }
@@ -240,7 +545,7 @@ function init() {
   }
 
   const grid = document.getElementById('calendarGrid');
-  grid.innerHTML = RACES.map(ev => renderCard(ev, nextRace && ev.round === nextRace.round)).join('');
+  grid.innerHTML = RACES.map((ev, i) => renderCard(ev, nextRace && ev.round === nextRace.round, i)).join('');
 }
 
 init();
