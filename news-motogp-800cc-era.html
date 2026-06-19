@@ -56,7 +56,7 @@ nav{position:fixed;top:28px;left:0;right:0;z-index:99;display:flex;align-items:c
 .article-wrap{max-width:780px;margin:0 auto;padding:96px 24px 80px}
 
 .article-hero{position:relative;margin-bottom:0;border-radius:3px;overflow:hidden}
-.article-hero img{width:100%;height:460px;object-fit:cover;display:block;object-position:center 30%}
+.article-hero img{width:100%;height:auto;display:block}
 .img-credit{font-family:var(--font-mono);font-size:9px;color:#555;padding:5px 0 20px;text-align:right;line-height:1.5}
 .img-credit a{color:#444;text-decoration:none}
 .img-credit a:hover{color:var(--red)}
@@ -73,9 +73,9 @@ nav{position:fixed;top:28px;left:0;right:0;z-index:99;display:flex;align-items:c
 
 /* BIKE CARD */
 .bike-card{background:#111;border:1px solid #222;border-radius:6px;overflow:hidden;margin:28px 0 36px}
-.bike-card-img{width:100%;height:300px;overflow:hidden;position:relative}
-.bike-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-.bike-card:hover .bike-card-img img{transform:scale(1.04)}
+.bike-card-img{width:100%;overflow:hidden;position:relative}
+.bike-card-img img{width:100%;height:auto;display:block;transition:transform .5s ease}
+.bike-card:hover .bike-card-img img{transform:scale(1.02)}
 .bike-img-credit{font-family:var(--font-mono);font-size:9px;color:#555;padding:4px 10px;text-align:right;background:#0d0d0d;line-height:1.5}
 .bike-img-credit a{color:#444;text-decoration:none}
 .bike-img-credit a:hover{color:var(--red)}
@@ -403,7 +403,7 @@ nav{position:fixed;top:28px;left:0;right:0;z-index:99;display:flex;align-items:c
     <div style="margin:28px 0 4px;border-radius:4px;overflow:hidden;">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Jorge_lorenzo-motogp_2010.JPG/1280px-Jorge_lorenzo-motogp_2010.JPG"
            alt="Jorge Lorenzo Yamaha YZR-M1 MotoGP 2010 แชมป์โลก"
-           style="width:100%;height:340px;object-fit:cover;object-position:center 20%;display:block;"
+           style="width:100%;height:auto;display:block;"
            onerror="this.style.display='none'">
     </div>
     <div class="img-credit">
@@ -460,7 +460,7 @@ nav{position:fixed;top:28px;left:0;right:0;z-index:99;display:flex;align-items:c
     <div style="margin:28px 0 4px;border-radius:4px;overflow:hidden;">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Casey_Stoner_-_2011_MotoGP_World_Champion.jpg/1280px-Casey_Stoner_-_2011_MotoGP_World_Champion.jpg"
            alt="Casey Stoner Honda RC212V 2011 MotoGP World Champion"
-           style="width:100%;height:360px;object-fit:cover;object-position:center 25%;display:block;"
+           style="width:100%;height:auto;display:block;"
            onerror="this.style.display='none'">
     </div>
     <div class="img-credit">
