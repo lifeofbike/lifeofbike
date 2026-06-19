@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ลงโฆษณา — Life of Bike</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E8132A;--black:#0A0A0A;--white:#F5F0E8;--gray:#141414;
+  --gold:#C9A84C;--text-muted:#777;
+  --font-display:'Bebas Neue',sans-serif;
+  --font-body:'IBM Plex Sans Thai',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+  --font-serif:'DM Serif Display',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);overflow-x:hidden}
+
+/* ── TICKER ── */
+.ticker-wrap{background:var(--red);overflow:hidden;white-space:nowrap;padding:6px 0;position:fixed;top:0;left:0;right:0;z-index:100}
+.ticker-inner{display:inline-block;animation:ticker 40s linear infinite;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── NAV ── */
+nav{position:fixed;top:28px;left:0;right:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:14px 40px;background:rgba(10,10,10,.95);backdrop-filter:blur(12px);border-bottom:1px solid #222}
+.logo{font-family:var(--font-display);font-size:32px;letter-spacing:.04em;color:var(--white);text-decoration:none}
+.logo span{color:var(--red)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#888;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--red)!important;color:#fff!important;padding:8px 18px!important}
+.nav-cta:hover{background:#c00d22!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,.98);z-index:98;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--font-display);font-size:36px;color:var(--white);text-decoration:none}
+.mobile-menu a:hover{color:var(--red)}
+.mobile-menu .mobile-cta{background:var(--red);padding:12px 32px}
+
+/* ── PAGE ── */
+.page{max-width:1100px;margin:0 auto;padding:110px 40px 80px}
+
+/* ── HERO ── */
+.adv-hero{text-align:center;padding:48px 0 56px;border-bottom:1px solid #1a1a1a;margin-bottom:64px}
+.adv-tag{font-family:var(--font-mono);font-size:11px;color:var(--red);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+.adv-title{font-family:var(--font-display);font-size:clamp(48px,7vw,88px);letter-spacing:.02em;line-height:1;margin-bottom:20px}
+.adv-sub{font-size:15px;color:var(--text-muted);max-width:520px;margin:0 auto 40px;line-height:1.7}
+
+/* STATS */
+.stats-row{display:flex;justify-content:center;gap:56px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-family:var(--font-display);font-size:52px;color:var(--white);letter-spacing:.02em;line-height:1}
+.stat-num em{color:var(--red);font-style:normal}
+.stat-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:6px}
+
+/* ── AD PACKAGES ── */
+.section-title{font-family:var(--font-display);font-size:32px;letter-spacing:.04em;margin-bottom:8px}
+.section-sub{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);letter-spacing:.08em;margin-bottom:40px}
+
+.packages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:#1a1a1a;margin-bottom:80px}
+.pkg{background:var(--black);padding:28px 24px 32px;transition:background .2s}
+.pkg:hover{background:#0e0e0e}
+.pkg-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.pkg-preview{background:#111;border:1px solid #222;margin-bottom:18px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pkg-preview-inner{font-family:var(--font-mono);font-size:9px;color:#333;letter-spacing:.06em;text-transform:uppercase;text-align:center}
+.pkg-preview-inner strong{display:block;font-size:13px;color:#444;margin-bottom:4px}
+/* Leaderboard 728x90 → aspect ratio 728/90 */
+.preview-leaderboard{width:100%;aspect-ratio:728/90}
+/* Rectangle 300x250 → aspect ratio 300/250 */
+.preview-rectangle{width:100%;aspect-ratio:300/250;max-width:220px}
+/* Half Page 300x600 */
+.preview-halfpage{width:100%;aspect-ratio:300/600;max-width:160px}
+/* Sponsored Post — custom */
+.preview-article{width:100%;height:120px}
+
+.pkg-name{font-family:var(--font-display);font-size:28px;letter-spacing:.04em;color:var(--white);margin-bottom:6px}
+.pkg-price{font-family:var(--font-mono);font-size:12px;color:var(--gold);margin-bottom:8px;letter-spacing:.04em}
+.pkg-desc{font-size:13px;color:var(--text-muted);line-height:1.6}
+
+/* ── AUDIENCE ── */
+.audience{background:#0e0e0e;border:1px solid #1a1a1a;padding:40px;margin-bottom:80px}
+.audience h2{font-family:var(--font-display);font-size:28px;letter-spacing:.04em;margin-bottom:24px}
+.audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
+.aud-item{border-left:2px solid var(--red);padding-left:16px}
+.aud-num{font-family:var(--font-display);font-size:36px;color:var(--white);line-height:1}
+.aud-num em{color:var(--red);font-style:normal}
+.aud-lbl{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:.08em;margin-top:4px;line-height:1.5}
+
+/* ── CONTACT ── */
+.contact-section{text-align:center;padding:48px 0 0}
+.contact-section h2{font-family:var(--font-display);font-size:40px;letter-spacing:.04em;margin-bottom:8px}
+.contact-section p{font-size:14px;color:var(--text-muted);margin-bottom:40px}
+.contact-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+
+.btn-email{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--red);color:#fff;
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  padding:16px 28px;text-decoration:none;transition:background .2s;
+}
+.btn-email:hover{background:#c00d22}
+
+.btn-line{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#06C755;color:#fff;
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  padding:16px 28px;text-decoration:none;transition:background .2s;
+}
+.btn-line:hover{background:#05a848}
+.btn-line svg{flex-shrink:0}
+
+.contact-note{margin-top:24px;font-family:var(--font-mono);font-size:10px;color:#444;letter-spacing:.06em}
+
+/* ── FOOTER ── */
+footer{background:#050505;padding:28px 40px;border-top:1px solid #1a1a1a;margin-top:64px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-family:var(--font-mono);font-size:10px;color:#444;letter-spacing:.04em}
+
+@media(max-width:768px){
+  nav{padding:10px 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .page{padding:96px 20px 60px}
+  .stats-row{gap:28px}
+  .contact-btns{flex-direction:column;align-items:center}
+  footer{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <span class="ticker-inner" id="tickerText">&nbsp;&nbsp;🏁 Life of Bike — แพลตฟอร์มข่าว MotoGP ภาษาไทย &nbsp;✦&nbsp; ติดต่อลงโฆษณา: lifeofbikebkk@gmail.com &nbsp;✦&nbsp; LINE@ Lifeofbike</span>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#news" onclick="closeMM()">ข่าวสาร</a>
+  <a href="index.html#results" onclick="closeMM()">ผลการแข่งขัน</a>
+  <a href="index.html#standings" onclick="closeMM()">ตาราง</a>
+  <a href="advertise.html" onclick="closeMM()" class="mobile-cta">ลงโฆษณา</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">LIFE OF <span>BIKE</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#news">ข่าวสาร</a></li>
+    <li><a href="index.html#results">ผลการแข่งขัน</a></li>
+    <li><a href="index.html#standings">ตาราง</a></li>
+    <li><a href="advertise.html" class="nav-cta">ลงโฆษณา</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMM()" aria-label="เมนู">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="adv-hero">
+    <div class="adv-tag">ลงโฆษณากับเรา</div>
+    <h1 class="adv-title">เข้าถึงแฟน MotoGP<br>ตัวจริง</h1>
+    <p class="adv-sub">ร่วมเป็นพาร์ทเนอร์กับ Life of Bike แพลตฟอร์มข่าว MotoGP ภาษาไทยที่เติบโตเร็วที่สุด</p>
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">50<em>K+</em></div>
+        <div class="stat-label">ผู้อ่าน / เดือน</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3<em>.2</em></div>
+        <div class="stat-label">นาที เฉลี่ยต่อหน้า</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">78<em>%</em></div>
+        <div class="stat-label">ผู้ชมชาย อายุ 18-35</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4<em>+</em></div>
+        <div class="stat-label">สนามถ่ายทอดสด</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGES -->
+  <div class="section-title">แพ็กเกจโฆษณา</div>
+  <div class="section-sub">เลือกขนาดที่เหมาะกับแบรนด์ของคุณ — ราคาเริ่มต้นต่อเดือน</div>
+
+  <div class="packages-grid">
+
+    <!-- Leaderboard -->
+    <div class="pkg">
+      <div class="pkg-label">Leaderboard</div>
+      <div class="pkg-preview">
+        <div class="preview-leaderboard pkg-preview-inner">
+          <strong>728 × 90</strong>
+          แบนเนอร์บนสุดของเว็บ
+        </div>
+      </div>
+      <div class="pkg-name">728 × 90</div>
+      <div class="pkg-price">เริ่มต้น ฿3,500 / เดือน</div>
+      <div class="pkg-desc">แบนเนอร์ด้านบนสุด มองเห็นได้ทุก session ก่อนผู้อ่านเลื่อนหน้า</div>
+    </div>
+
+    <!-- Rectangle -->
+    <div class="pkg">
+      <div class="pkg-label">Rectangle</div>
+      <div class="pkg-preview" style="justify-content:center;padding:12px 0;">
+        <div class="preview-rectangle pkg-preview-inner">
+          <strong>300 × 250</strong>
+          Sidebar
+        </div>
+      </div>
+      <div class="pkg-name">300 × 250</div>
+      <div class="pkg-price">เริ่มต้น ฿2,200 / เดือน</div>
+      <div class="pkg-desc">Sidebar ติดตาผู้อ่านตลอดทั้งหน้า อัตราการมองเห็นสูงสุด</div>
+    </div>
+
+    <!-- Sponsored Post -->
+    <div class="pkg">
+      <div class="pkg-label">Sponsored Post</div>
+      <div class="pkg-preview">
+        <div class="preview-article pkg-preview-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;">
+          <strong>บทความ</strong>
+          Native Content
+        </div>
+      </div>
+      <div class="pkg-name">บทความ</div>
+      <div class="pkg-price">เริ่มต้น ฿5,000 / ชิ้น</div>
+      <div class="pkg-desc">บทความ Native เขียนร่วมกับทีมงาน Life of Bike เผยแพร่บนเว็บและ Social</div>
+    </div>
+
+    <!-- Custom -->
+    <div class="pkg">
+      <div class="pkg-label">Package พิเศษ</div>
+      <div class="pkg-preview">
+        <div class="preview-article pkg-preview-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;">
+          <strong>Custom</strong>
+          Web + Social
+        </div>
+      </div>
+      <div class="pkg-name">Custom</div>
+      <div class="pkg-price">ติดต่อสอบถาม</div>
+      <div class="pkg-desc">แพ็กเกจครบวงจร ทั้งเว็บไซต์ + YouTube + Facebook + Instagram + TikTok</div>
+    </div>
+
+  </div>
+
+  <!-- AUDIENCE -->
+  <div class="audience">
+    <h2>ข้อมูลผู้ชม</h2>
+    <div class="audience-grid">
+      <div class="aud-item">
+        <div class="aud-num">78<em>%</em></div>
+        <div class="aud-lbl">ผู้ชมเพศชาย<br>อายุ 18–35 ปี</div>
+      </div>
+      <div class="aud-item">
+        <div class="aud-num">50<em>K+</em></div>
+        <div class="aud-lbl">Unique Visitors<br>ต่อเดือน</div>
+      </div>
+      <div class="aud-item">
+        <div class="aud-num">115<em>K</em></div>
+        <div class="aud-lbl">YouTube<br>Subscribers</div>
+      </div>
+      <div class="aud-item">
+        <div class="aud-num">130<em>K</em></div>
+        <div class="aud-lbl">Facebook<br>Followers</div>
+      </div>
+      <div class="aud-item">
+        <div class="aud-num">3<em>.2</em></div>
+        <div class="aud-lbl">นาทีเฉลี่ย<br>ต่อหน้า</div>
+      </div>
+      <div class="aud-item">
+        <div class="aud-num">4<em>+</em></div>
+        <div class="aud-lbl">สนาม<br>ถ่ายทอดสด</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-section">
+    <h2>ติดต่อทีมงาน</h2>
+    <p>เราพร้อมตอบภายใน 24 ชั่วโมง เลือกช่องทางที่สะดวกได้เลย</p>
+    <div class="contact-btns">
+      <a class="btn-email" href="mailto:lifeofbikebkk@gmail.com?subject=สอบถามโฆษณา Life of Bike">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        lifeofbikebkk@gmail.com
+      </a>
+      <a class="btn-line" href="https://lin.ee/zuaTBn0" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINE@ Lifeofbike
+      </a>
+    </div>
+    <div class="contact-note">ตอบกลับภายใน 24 ชั่วโมงในวันทำการ</div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Life of Bike — ข่าว MotoGP ภาษาไทย | ไม่ใช่เว็บทางการของ MotoGP</p>
+    <p>lifeofbikebkk@gmail.com</p>
+  </div>
+</footer>
+
+<script>
+function toggleMM(){
+  const m=document.getElementById('mobileMenu'),b=document.getElementById('hamburger');
+  m.classList.toggle('open');b.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+function closeMM(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}
+</script>
+</body>
+</html>
