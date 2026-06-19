@@ -185,6 +185,9 @@
     }
     .ad-leaderboard .ad-slot { height: auto; width: 100%; aspect-ratio: 2164/292; }
 
+    /* ─── HERO SECTION ─── */
+    .hero-section { padding: 16px 48px 0; }
+
     /* ─── HERO ─── */
     .hero {
       display: grid;
@@ -860,39 +863,92 @@
     }
     .fade-up { animation: fadeUp .6s ease both; }
 
+    /* ─── AD CAROUSEL SLIDE ─── */
+    .ad-carousel { position:relative; width:100%; aspect-ratio:2164/292; overflow:hidden; display:block; background:#0a0a0a; }
+    .ad-track { display:flex; height:100%; transition:transform .65s cubic-bezier(.4,0,.2,1); will-change:transform; }
+    .ad-track img { flex:0 0 100%; width:100%; height:100%; object-fit:cover; cursor:pointer; display:block; }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
-      .hero { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; height: auto; }
+      .hero-main { min-height: 50vw; }
       .hero-side { flex-direction: row; }
-      .hero-side-card { min-height: 200px; }
+      .hero-side-card { min-height: 180px; }
       .main-wrap { grid-template-columns: 1fr; }
       .news-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .stats-row { gap: 24px; }
     }
+
     @media (max-width: 640px) {
-      nav { padding: 10px 20px; }
+      /* Nav */
+      nav { padding: 10px 16px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .hero { padding: 10px 16px 0; }
-      .hero-title { font-size: 36px; }
-      .hero-side { flex-direction: column; }
-      .news-grid { grid-template-columns: 1fr; }
+
+      /* Ad top */
+      .ad-leaderboard { padding: 90px 0 0; }
+      .ad-carousel { aspect-ratio: 4/1; }
+
+      /* Hero */
+      section[id="news"] { padding: 0 !important; }
+      .hero {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 8px 12px 0 !important;
+        height: auto;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .hero-main { min-height: 56vw; border-radius: 0; }
+      .hero-main-img { border-radius: 0; }
+      .hero-title { font-size: 26px; line-height: 1.15; margin-bottom: 8px; }
+      .hero-category { font-size: 9px; margin-bottom: 8px; }
+      .hero-main-content { padding: 20px 16px; }
+      .hero-meta { font-size: 10px; }
+      .hero-side { flex-direction: column; gap: 2px; }
+      .hero-side-card { min-height: 38vw; padding: 14px 16px; }
+      .hero-side-card h3 { font-size: 13px; line-height: 1.35; margin-top: 4px; }
+
+      /* Main content */
+      .main-wrap { padding: 20px 12px; gap: 24px; }
+
+      /* News grid */
+      .news-grid { grid-template-columns: 1fr; gap: 0; }
+      .news-card { padding-bottom: 16px; margin-bottom: 0; }
+      .news-card h3 { font-size: 15px; }
+      .news-card p { font-size: 13px; }
+      .cat-tab { padding: 10px 14px; font-size: 10px; }
+
+      /* Scripts */
       .script-grid { grid-template-columns: 1fr; }
+      .script-card { padding: 18px; }
+      .script-card h3 { font-size: 15px; }
+
+      /* Video */
       .video-grid { grid-template-columns: 1fr; }
-      .main-wrap { padding: 24px 16px; }
-      .ad-mid { padding: 0 16px; }
-      .advertise-section { padding: 40px 20px; }
-      .advertise-section h2 { font-size: 32px; }
-      .stats-row { flex-wrap: wrap; gap: 20px; }
-      footer { padding: 30px 20px 20px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
-      .ad-leaderboard { padding: 96px 20px 0; }
+
+      /* Sidebar ad */
+      .sidebar-ad { display: none; }
+
+      /* Ad mid */
+      .ad-carousel { aspect-ratio: 4/1; }
+
+      /* Footer */
+      footer { padding: 24px 16px 16px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+      .footer-col { display: none; }
+      .footer-brand p { font-size: 13px; }
+
+      /* Back to top */
+      .back-top { bottom: 16px; right: 16px; width: 38px; height: 38px; font-size: 15px; }
     }
-      /* ─── AD CAROUSEL SLIDE ─── */
-    .ad-carousel { position:relative; width:100%; aspect-ratio:2164/292; overflow:hidden; display:block; background:#0a0a0a; }
-    .ad-track { display:flex; height:100%; transition:transform .65s cubic-bezier(.4,0,.2,1); will-change:transform; }
-    .ad-track img { flex:0 0 100%; width:100%; height:100%; object-fit:cover; cursor:pointer; display:block; }</style>
+
+    /* Extra small phones */
+    @media (max-width: 390px) {
+      .hero-title { font-size: 22px; }
+      .hero-main { min-height: 60vw; }
+    }</style>
 </head>
 <body>
 
@@ -985,13 +1041,13 @@
 </div>
 
 <!-- HERO -->
-<section style="padding: 16px 48px 0;" id="news">
+<section class="hero-section" id="news">
   <div class="hero">
     <a class="hero-main" href="news-hungary-2026.html" style="text-decoration:none;">
-      <img src="https://cdn-1.motorsport.com/images/amp/YvKQXoZ6/s1000/marc-marquez-ducati-team-2.webp"
-           alt="Marc Márquez ชัยชนะครั้งที่ 100 Hungarian GP 2026"
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Marc_M%C3%A1rquez_during_the_2025_Aragon_motorcycle_Grand_Prix.jpg"
+           alt="Marc Márquez Ducati Desmosedici GP25 Aragon 2025"
            class="hero-main-img"
-           onerror="this.src='https://picsum.photos/seed/marquez100/1200/700'">
+           onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/d/dc/MotoGP_2025_Malaysian_Grand_Prix_-_Ducati_Lenovo_-_Francesco_Bagnaia.jpg'">
       <div class="hero-main-content">
         <div class="hero-category">🏆 HUNGARIAN GP — 7 มิ.ย. 2026</div>
         <h1 class="hero-title">Márquez คว้าชัยชนะครั้งที่ 100 ในอาชีพ ที่ Hungarian GP</h1>
@@ -1001,9 +1057,9 @@
     </a>
     <div class="hero-side">
       <a class="hero-side-card" href="news-hungary-2026.html#crash" style="text-decoration:none;">
-        <img src="https://cdn-4.motorsport.com/images/amp/2y7Ab7v6/s1000/jorge-martin-aprilia-racing-te.webp"
-             alt="อุบัติเหตุ Turn 1 Hungarian GP Martin ชน Bezzecchi"
-             onerror="this.src='https://picsum.photos/seed/martincrash/800/500'">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/MotoGP_2025_Malaysian_Grand_Prix_-_Aprilia_Racing_-_Marco_Bezzecchi.jpg"
+             alt="Marco Bezzecchi Aprilia RS-GP 2025 Malaysian Grand Prix"
+             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/d/d1/2024_Yamaha_YZR-M1_of_Fabio_Quartararo_%284%29.jpg'">
         <div class="hero-side-card-content">
           <div class="hero-category">⚡ PENALTY</div>
           <h3>Martin ถูกลงโทษ Double Long Lap หลังชน Bezzecchi ล้มลูกโซ่ Turn 1</h3>
@@ -1011,9 +1067,9 @@
         <div style="position:absolute;bottom:4px;right:6px;font-size:8px;color:rgba(255,255,255,.35);font-family:var(--font-mono);">© Gold &amp; Goose / LAT via motorsport.com</div>
       </a>
       <a class="hero-side-card" href="news-hungary-2026.html#grid" style="text-decoration:none;">
-        <img src="https://cdn-4.motorsport.com/images/amp/0arKwrG2/s1000/race-start.webp"
-             alt="MotoGP Grid Spacing เพิ่มระยะห่างกริดสตาร์ท"
-             onerror="this.src='https://picsum.photos/seed/gridstart/800/500'">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Francesco_Bagnaia_and_Marc_M%C3%A1rquez_during_the_2025_Aragon_motorcycle_Grand_Prix.jpg"
+             alt="Francesco Bagnaia Marc Márquez Ducati GP25 Aragon 2025"
+             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/d/dc/MotoGP_2025_Malaysian_Grand_Prix_-_Ducati_Lenovo_-_Francesco_Bagnaia.jpg'">
         <div class="hero-side-card-content">
           <div class="hero-category">📐 กฎใหม่</div>
           <h3>MotoGP เพิ่มระยะห่าง Grid 3 เมตร เริ่ม German GP ที่ Sachsenring</h3>
