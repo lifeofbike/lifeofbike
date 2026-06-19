@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hungarian GP 2026: Márquez 100 ชัย + Martin Penalty + กฎ Grid ใหม่ — Life of Bike</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:#E8132A; --black:#0A0A0A; --white:#F5F0E8; --gray:#1C1C1C;
+  --mid:#2E2E2E; --gold:#C9A84C; --text-muted:#888;
+  --font-display:'Bebas Neue',sans-serif;
+  --font-body:'IBM Plex Sans Thai',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+  --font-serif:'DM Serif Display',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);line-height:1.7}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94);backdrop-filter:blur(12px);border-bottom:1px solid #222;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--font-display);font-size:22px;letter-spacing:.06em;color:var(--white);text-decoration:none}
+.logo span{color:var(--red)}
+.nav-back{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);text-decoration:none;letter-spacing:.08em;transition:color .2s}
+.nav-back:hover{color:var(--white)}
+
+/* ARTICLE LAYOUT */
+.article-wrap{max-width:780px;margin:0 auto;padding:80px 24px 80px}
+
+/* HERO IMAGE */
+.article-hero{position:relative;margin-bottom:8px;border-radius:3px;overflow:hidden}
+.article-hero img{width:100%;height:420px;object-fit:cover;display:block}
+.img-credit{font-family:var(--font-mono);font-size:9px;color:#555;padding:5px 0 20px;text-align:right}
+
+/* META */
+.article-tag{font-family:var(--font-mono);font-size:10px;color:var(--red);letter-spacing:.16em;margin-bottom:10px}
+.article-title{font-family:var(--font-serif);font-size:clamp(28px,5vw,42px);line-height:1.2;color:var(--white);margin-bottom:16px}
+.article-meta{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222;display:flex;gap:16px;flex-wrap:wrap}
+.article-meta span{display:flex;align-items:center;gap:5px}
+
+/* BODY */
+.article-body p{font-size:16px;color:#d8d3cb;margin-bottom:18px;line-height:1.8}
+.article-body h2{font-family:var(--font-display);font-size:26px;letter-spacing:.04em;color:var(--white);margin:36px 0 14px;padding-top:8px;border-top:2px solid var(--red)}
+.article-body h3{font-family:var(--font-display);font-size:20px;letter-spacing:.04em;color:var(--gold);margin:24px 0 10px}
+.article-body strong{color:var(--white)}
+
+/* RESULT TABLE */
+.result-table{width:100%;border-collapse:collapse;margin:20px 0 28px;font-family:var(--font-mono);font-size:12px}
+.result-table th{background:var(--red);color:#fff;padding:8px 12px;text-align:left;letter-spacing:.08em;font-size:10px}
+.result-table td{padding:8px 12px;border-bottom:1px solid #222;color:#d8d3cb}
+.result-table tr:nth-child(even) td{background:rgba(255,255,255,.03)}
+.result-table .pos-1{color:var(--gold);font-weight:600}
+.result-table .pos-2{color:#c0c0c0}
+.result-table .pos-3{color:#cd7f32}
+.dnf{color:#555}
+
+/* KEY BOX */
+.key-box{background:rgba(232,19,42,.08);border:1px solid rgba(232,19,42,.25);border-radius:3px;padding:16px 20px;margin:24px 0;font-size:14px;color:#d8d3cb}
+.key-box strong{color:var(--white)}
+
+/* INLINE IMAGE */
+.article-img{margin:28px 0 6px;border-radius:3px;overflow:hidden}
+.article-img img{width:100%;max-height:380px;object-fit:cover;display:block}
+
+/* SECTION ANCHOR JUMP */
+.section-anchor{display:block;height:80px;margin-top:-80px;visibility:hidden}
+
+/* SOURCES */
+.sources{margin-top:48px;padding-top:20px;border-top:1px solid #222}
+.sources h4{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:.12em;margin-bottom:10px}
+.sources ul{list-style:none;font-size:11px;color:var(--text-muted);font-family:var(--font-mono)}
+.sources ul li{padding:3px 0}
+.sources ul li a{color:#555;text-decoration:none}
+.sources ul li a:hover{color:var(--white)}
+
+@media(max-width:600px){
+  .article-wrap{padding:72px 16px 60px}
+  .article-hero img{height:260px}
+  .result-table{font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">LIFE OF <span>BIKE</span></a>
+  <a class="nav-back" href="index.html">&#8592; กลับหน้าหลัก</a>
+</nav>
+
+<div class="article-wrap">
+
+  <div class="article-tag">RACE REPORT &nbsp;·&nbsp; HUNGARIAN GP 2026 &nbsp;·&nbsp; 7 มิถุนายน 2026</div>
+  <h1 class="article-title">สรุปข่าว MotoGP วันนี้: Márquez คว้าชัยที่ 100, Martin โดนโทษ, และกฎ Grid ใหม่</h1>
+  <div class="article-meta">
+    <span>📅 7 มิถุนายน 2026</span>
+    <span>✍️ ทีมงาน Life of Bike</span>
+    <span>⏱ อ่าน 8 นาที</span>
+    <span>📍 Balaton Park Circuit, ฮังการี</span>
+  </div>
+
+  <!-- HERO IMAGE -->
+  <div class="article-hero">
+    <img src="https://cdn-1.motorsport.com/images/amp/YvKQXoZ6/s1000/marc-marquez-ducati-team-2.webp"
+         alt="Marc Márquez ชัยชนะครั้งที่ 100 Hungarian GP 2026"
+         onerror="this.src='https://picsum.photos/seed/marquez100hero/1200/700'">
+  </div>
+  <div class="img-credit">📷 Gold &amp; Goose Photography / Getty Images via motorsport.com</div>
+
+  <div class="article-body">
+
+    <p>วันอาทิตย์ที่ 7 มิถุนายน 2026 ที่ <strong>Balaton Park Circuit ประเทศฮังการี</strong> กลายเป็นวันประวัติศาสตร์ของ MotoGP เมื่อ <strong>Marc Márquez</strong> สร้างไมล์สโตนที่ยิ่งใหญ่ที่สุดในอาชีพ พร้อมกับดราม่าครั้งใหญ่ที่ Turn 1 ซึ่งเปลี่ยนโฉมหน้าการชิงแชมป์โลกไปอย่างสิ้นเชิง</p>
+
+    <!-- STORY 1 -->
+    <span class="section-anchor" id="race"></span>
+    <h2>🏆 ชัยชนะครั้งที่ 100 ในอาชีพ Marc Márquez</h2>
+
+    <p>Marc Márquez บนรถ <strong>Ducati Lenovo Team</strong> ออกสตาร์ทจากโพลโพซิชัน และนำตลอดการแข่ง Hungarian GP ก่อนที่ Pedro Acosta จะกดดันอย่างหนักในช่วงกลางการแข่ง Márquez ตอบโต้ด้วยการแซงกลับในรอบที่ 15 และสร้างช่องว่างจนนำทิ้งได้อย่างสบาย คว้าชัยได้ในที่สุด</p>
+
+    <div class="key-box">
+      🎯 <strong>ไมล์สโตน:</strong> นี่คือชัยชนะครั้งที่ <strong>100 ในอาชีพ</strong> และครั้งที่ 74 ในคลาส MotoGP ของ Márquez ทำให้เขากลายเป็น <strong>นักบิดคนที่ 3 ในประวัติศาสตร์</strong> ที่ทำได้ ต่อจาก Giacomo Agostini (122 ชัย) และ Valentino Rossi (115 ชัย)
+    </div>
+
+    <p>ที่น่าทึ่งยิ่งกว่า คือ Márquez เพิ่งผ่าน <strong>การผ่าตัดไหล่ขวาและเท้าขวา</strong> ก่อนซีซั่นนี้ กลับมาแข่งครั้งแรกที่ Mugello (รอบ 6) และตามด้วยชัยชนะครั้งที่ 100 ที่ฮังการีในรอบที่ 8 — มันแทบไม่น่าเชื่อว่าร่างกายมนุษย์จะฟื้นตัวได้เร็วขนาดนี้ แต่ Márquez พิสูจน์ให้เห็นอีกครั้งว่าเขาคืออะไร</p>
+    <p><em>โบนัส:</em> ชัยชนะครั้งนี้ยังถือเป็น <strong>ชัยชนะครั้งที่ 100 ของ Ducati</strong> ในฐานะผู้ผลิตในคลาส MotoGP ด้วย — เป็น double milestone ที่หาได้ยากมากในประวัติศาสตร์การแข่งขัน</p>
+
+    <h3>ผลการแข่งขัน Sprint Race (เสาร์ 6 มิ.ย.)</h3>
+    <table class="result-table">
+      <tr><th>P</th><th>นักแข่ง</th><th>ทีม</th><th>ห่าง</th></tr>
+      <tr><td class="pos-1">1</td><td>Marc Márquez</td><td>Ducati Lenovo Team</td><td>—</td></tr>
+      <tr><td class="pos-2">2</td><td>Pedro Acosta</td><td>Red Bull KTM Factory</td><td>+1.2s</td></tr>
+      <tr><td class="pos-3">3</td><td>Marco Bezzecchi</td><td>Aprilia Racing</td><td>+3.8s</td></tr>
+      <tr><td>4</td><td>Raúl Fernández</td><td>Trackhouse MotoGP</td><td>+5.1s</td></tr>
+      <tr><td>5</td><td>Fermin Aldeguer</td><td>Gresini Racing MotoGP</td><td>+7.4s</td></tr>
+    </table>
+
+    <h3>ผลการแข่งขัน Main Race (อาทิตย์ 7 มิ.ย.)</h3>
+    <table class="result-table">
+      <tr><th>P</th><th>นักแข่ง</th><th>ทีม</th><th>ห่าง</th></tr>
+      <tr><td class="pos-1">1</td><td>Marc Márquez</td><td>Ducati Lenovo Team</td><td>—</td></tr>
+      <tr><td class="pos-2">2</td><td>Pedro Acosta</td><td>Red Bull KTM Factory</td><td>+4.7s</td></tr>
+      <tr><td class="pos-3">3</td><td>Francesco Bagnaia</td><td>Ducati Lenovo Team</td><td>+9.2s</td></tr>
+      <tr><td>4</td><td>Ai Ogura</td><td>Trackhouse MotoGP</td><td>+14.1s</td></tr>
+      <tr><td>5</td><td>Luca Marini</td><td>Honda HRC Castrol</td><td>+20.3s</td></tr>
+      <tr><td>6</td><td>Diogo Moreira</td><td>LCR Honda</td><td>+24.8s</td></tr>
+      <tr><td>12</td><td>F. Di Giannantonio</td><td>VR46 Racing Team</td><td>(remount)</td></tr>
+      <tr><td class="dnf">DNF</td><td>Jorge Martín</td><td>Aprilia Racing</td><td class="dnf">ล้ม Turn 1</td></tr>
+      <tr><td class="dnf">DNF</td><td>Marco Bezzecchi</td><td>Aprilia Racing</td><td class="dnf">ถูกชน Turn 1</td></tr>
+      <tr><td class="dnf">DNF</td><td>Raúl Fernández</td><td>Trackhouse MotoGP</td><td class="dnf">ถูกชน Turn 1</td></tr>
+      <tr><td class="dnf">DNF</td><td>Fermin Aldeguer</td><td>Gresini Racing</td><td class="dnf">ถูกชน Turn 1</td></tr>
+    </table>
+
+    <!-- STORY 2 -->
+    <span class="section-anchor" id="crash"></span>
+    <h2>⚡ อุบัติเหตุ Turn 1 และบทลงโทษ Martín</h2>
+
+    <div class="article-img">
+      <img src="https://cdn-4.motorsport.com/images/amp/2y7Ab7v6/s1000/jorge-martin-aprilia-racing-te.webp"
+           alt="Jorge Martin ชน Bezzecchi Turn 1 Hungarian GP 2026"
+           onerror="this.src='https://picsum.photos/seed/martincrash2/1200/700'">
+    </div>
+    <div class="img-credit">📷 Gold &amp; Goose Photography / LAT Images via motorsport.com</div>
+
+    <p>เหตุการณ์ที่จะถูกพูดถึงไปอีกนาน — ในรอบแรก <strong>Jorge Martín</strong> เบรกเลต Turn 1 แล้วพุ่งชน <strong>Marco Bezzecchi</strong> เพื่อนร่วมทีม Aprilia ทำให้ล้มกระแทก <strong>Raúl Fernández</strong> และ <strong>Fermin Aldeguer</strong> เป็นลูกโซ่ ส่วน <strong>Fabio Di Giannantonio</strong> ได้รับผลกระทบจากเหตุการณ์แต่สามารถขึ้นรถต่อได้ และไปจบการแข่งขันในอันดับที่ 12 นักบิดที่ต้องออกจากการแข่งทันทีมี 4 คน ได้แก่ Martín, Bezzecchi, Fernández และ Aldeguer</p>
+
+    <p>ผลกระทบต่อการชิงแชมป์ครั้งนี้มหาศาล — Martín และ Bezzecchi สองผู้นำตาราง ได้ <strong>0 คะแนน</strong> จาก Main Race ขณะที่ Márquez กวาดไปเต็ม 25 คะแนน</p>
+
+    <div class="key-box">
+      ⚖️ <strong>บทลงโทษ:</strong> MotoGP Stewards ตัดสินลงโทษ Martín ด้วย <strong>Double Long Lap Penalty</strong> ให้ชดใช้ในการแข่งขันรอบถัดไปที่ <strong>Czech Republic GP (Brno, 21 มิ.ย.)</strong> ข้อหา "กระทำการที่ก่อให้เกิดอันตรายแก่นักแข่งหลายคน"
+    </div>
+
+    <p>Martín เองออกมายืนยันว่ารอดพ้นการบาดเจ็บ แต่ยอมรับว่าเป็นความผิดของเขา ส่วน Bezzecchi ยังคงนำตาราง แต่ช่องว่างกับตำแหน่งที่ 4 (Acosta) แคบลงอย่างมีนัยสำคัญหลัง Race นี้</p>
+
+    <!-- STORY 3 -->
+    <span class="section-anchor" id="grid"></span>
+    <h2>📐 MotoGP เพิ่มระยะห่าง Grid — กฎความปลอดภัยใหม่</h2>
+
+    <div class="article-img">
+      <img src="https://cdn-4.motorsport.com/images/amp/0arKwrG2/s1000/race-start.webp"
+           alt="MotoGP Race Start Grid Spacing ใหม่"
+           onerror="this.src='https://picsum.photos/seed/gridstart2/1200/700'">
+    </div>
+    <div class="img-credit">📷 Gold &amp; Goose Photography / Getty Images via motorsport.com</div>
+
+    <p>MotoGP ประกาศมาตรการความปลอดภัยแบบ <strong>2 ระยะ</strong> หลังอุบัติเหตุที่ Catalunya ที่ Johann Zarco ได้รับบาดเจ็บที่เข่าอย่างรุนแรง</p>
+
+    <div class="key-box">
+      📐 <strong>ระยะที่ 1 — เริ่ม German GP (Sachsenring, 10–12 ก.ค.):</strong> เพิ่มระยะห่างระหว่างแต่ละแถวของ Starting Grid ขึ้น <strong>3 เมตร</strong> เพื่อลดความแออัดช่วงสตาร์ท<br><br>
+      🚫 <strong>ระยะที่ 2 — เริ่ม British GP (กลาง ส.ค.):</strong> ห้ามใช้ <strong>Ride-Height Device</strong> ณ จุดสตาร์ท เพื่อลดความเสี่ยงจากการเร่งเครื่องอย่างรุนแรงในช่วงแรก
+    </div>
+
+    <p>มาตรการนี้น่าจับตาเป็นพิเศษที่ Sachsenring ซึ่งเป็นสนาม <strong>ทวนเข็มนาฬิกา (counterclockwise)</strong> ที่สั้นที่สุดในปฏิทิน เหมาะสำหรับการแข่งขันที่ใกล้ชิดและตื่นเต้น — ซึ่งอาจหมายความว่า Grid Spacing ใหม่จะยิ่งเห็นผลชัดเจนขึ้น</p>
+
+    <h2>🏆 ตารางคะแนน (ประมาณการ หลัง Hungarian GP)</h2>
+    <table class="result-table">
+      <tr><th>P</th><th>นักแข่ง</th><th>ทีม</th><th>คะแนน</th></tr>
+      <tr><td class="pos-1">1</td><td>M. Bezzecchi</td><td>Aprilia Racing</td><td>~176</td></tr>
+      <tr><td class="pos-2">2</td><td>J. Martín</td><td>Aprilia Racing</td><td>~157</td></tr>
+      <tr><td class="pos-3">3</td><td>F. Di Giannantonio</td><td>VR46 Racing Team</td><td>~143</td></tr>
+      <tr><td>4</td><td>P. Acosta</td><td>Red Bull KTM Factory</td><td>~152</td></tr>
+      <tr><td>5</td><td>M. Márquez</td><td>Ducati Lenovo Team</td><td>~133</td></tr>
+      <tr><td>6</td><td>F. Bagnaia</td><td>Ducati Lenovo Team</td><td>~114</td></tr>
+    </table>
+
+    <p style="color:var(--text-muted);font-size:13px;font-family:var(--font-mono);">* คะแนนเป็นการประมาณการ รอยืนยันตัวเลขทางการจาก motogp.com</p>
+
+    <h2>🇩🇪 มองไปข้างหน้า: Czech Republic GP และ German GP</h2>
+    <p>การแข่งขันรอบถัดไปคือ <strong>Czech Republic GP ที่ Brno วันที่ 21 มิถุนายน</strong> ซึ่งจะเป็นครั้งแรกที่ Martín ต้องชดใช้ Double Long Lap Penalty ก่อนที่ทุกสายตาจะจับจ้องไปที่ <strong>German GP ที่ Sachsenring วันที่ 10–12 กรกฎาคม</strong> — สนามที่ Márquez มีสถิติชนะสูงสุดถึง 9 ครั้งในคลาส MotoGP</p>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h4>แหล่งที่มา / SOURCES</h4>
+    <ul>
+      <li><a href="https://www.motorsport.com/motogp/news/motogp-hungarian-gp-marc-marquez-outduels-pedro-acosta-to-win/10827913/" target="_blank">Motorsport.com — Márquez outduels Acosta to win Hungarian GP</a></li>
+      <li><a href="https://www.motorsport.com/motogp/news/jorge-martin-escapes-injury-but-hit-with-penalty-for-hungarian-gp-crash/10827952/" target="_blank">Motorsport.com — Martin penalty for Hungarian GP crash</a></li>
+      <li><a href="https://www.motorsport.com/motogp/news/motogp-to-increase-grid-spacing-from-german-gp-onwards/10827779/" target="_blank">Motorsport.com — MotoGP to increase grid spacing from German GP</a></li>
+      <li><a href="https://www.crash.net/motogp/results/1097210/1/2026-hungarian-motogp-balaton-park-race-results" target="_blank">Crash.net — Hungarian GP Race Results</a></li>
+      <li><a href="https://www.motogp.com/en/news/2026/06/07/100-not-out-marquez-clinches-milestone-win-with-balaton-masterclass/1071761" target="_blank">MotoGP.com — 100 not out: Márquez milestone win</a></li>
+    </ul>
+    <p style="margin-top:12px;font-family:var(--font-mono);font-size:9px;color:#444;">ภาพถ่ายทั้งหมด © Gold &amp; Goose Photography / LAT Images / Getty Images via motorsport.com — ใช้เพื่อวัตถุประสงค์ด้านสื่อสารมวลชนพร้อมการให้เครดิต</p>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿﻿<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -191,8 +191,12 @@
       grid-template-columns: 1fr 380px;
       gap: 2px;
       padding: 20px 40px 0;
-      min-height: 80vh;
+      height: 72vh;
       align-items: stretch;
+      max-width: 1400px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
     }
     .hero-main {
       position: relative;
@@ -203,13 +207,13 @@
     .hero-main-img {
       width: 100%;
       height: 100%;
-      min-height: 520px;
+      min-height: unset;
       object-fit: cover;
       display: block;
-      filter: brightness(.55);
+      filter: brightness(.85);
       transition: transform .6s ease, filter .4s;
     }
-    .hero-main:hover .hero-main-img { transform: scale(1.03); filter: brightness(.45); }
+    .hero-main:hover .hero-main-img { transform: scale(1.03); filter: brightness(.75); }
     .hero-main-content {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -261,7 +265,7 @@
       inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      filter: brightness(.45);
+      filter: brightness(.75);
       transition: transform .5s, filter .3s;
     }
     .hero-side-card:hover img { transform: scale(1.05); filter: brightness(.3); }
@@ -521,18 +525,25 @@
     .standings-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 8px 0;
+      gap: 6px;
+      padding: 7px 0;
       border-bottom: 1px solid #1e1e1e;
-      font-size: 13px;
+      font-size: 12px;
     }
     .standings-row:last-child { border-bottom: none; }
-    .pos { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); width: 18px; text-align: center; }
+    .pos { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); width: 16px; text-align: center; flex-shrink:0; }
     .pos.gold { color: var(--gold); font-weight: 600; }
-    .rider-flag { font-size: 16px; }
-    .rider-num { font-family: var(--font-mono); font-size: 11px; color: var(--red); width: 26px; }
-    .rider-name { flex: 1; color: var(--white); font-weight: 500; }
-    .rider-pts { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
+    .rider-flag { width:18px; height:12px; object-fit:cover; border-radius:1px; flex-shrink:0; }
+    .mfr-badge { font-family:var(--font-mono); font-size:7px; letter-spacing:.04em; padding:2px 4px; border-radius:2px; font-weight:600; flex-shrink:0; }
+    .mfr-ducati  { background:#cc0000; color:#fff; }
+    .mfr-aprilia { background:#6b21a8; color:#fff; }
+    .mfr-ktm     { background:#e67300; color:#fff; }
+    .mfr-honda   { background:#b00000; color:#fff; }
+    .mfr-yamaha  { background:#003087; color:#fff; }
+    .rider-num { font-family: var(--font-mono); font-size: 10px; color: var(--red); width: 22px; flex-shrink:0; }
+    .rider-name { flex: 1; color: var(--white); font-weight: 500; white-space: nowrap; overflow: hidden; min-width:0; }
+    .rider-name span:first-child { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .rider-pts { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); flex-shrink:0; }
 
     /* ─── SIDEBAR AD ─── */
     .sidebar-ad { margin-bottom: 24px; }
@@ -860,17 +871,64 @@
 
 <!-- BREAKING NEWS TICKER -->
 <div class="ticker-wrap">
-  <span class="ticker-inner">
-    &nbsp;&nbsp;🏁 MOTOGP 2026: Márquez ขึ้นนำตาราง Standings ✦ Bagnaia ยิงแรงที่ Mugello ✦ หมวก Pecco รุ่นลิมิเต็ดขายหมดใน 6 ชม. ✦ Espargaro ยืนยันต่อสัญญา Aprilia ✦ Morbidelli ทำเวลาได้ดีเยี่ยมที่ Assen ✦ ติดตามข่าวด่วน MotoGP ทุกสนาม ✦ สคริปต์วิเคราะห์ MotoGP โดยทีมงาน LIFE OF BIKE ✦ โฆษณากับเรา — ผู้อ่านกว่า 50,000 คน/เดือน ✦ &nbsp;&nbsp;🏁 MOTOGP 2026: Márquez ขึ้นนำตาราง Standings ✦ Bagnaia ยิงแรงที่ Mugello ✦ หมวก Pecco รุ่นลิมิเต็ดขายหมดใน 6 ชม. ✦ Espargaro ยืนยันต่อสัญญา Aprilia ✦ Morbidelli ทำเวลาได้ดีเยี่ยมที่ Assen ✦ ติดตามข่าวด่วน MotoGP ทุกสนาม ✦ สคริปต์วิเคราะห์ MotoGP โดยทีมงาน LIFE OF BIKE ✦ โฆษณากับเรา — ผู้อ่านกว่า 50,000 คน/เดือน ✦
+  <span class="ticker-inner" id="tickerText">
+    &nbsp;&nbsp;🏁 กำลังโหลดข่าว MotoGP...
   </span>
 </div>
+
+<script>
+(async function loadTicker() {
+  const FALLBACK_URL = 'data/ticker.json';
+  const RSS_URL = 'https://news.google.com/rss/search?q=MotoGP&hl=th&gl=TH&ceid=TH:th';
+  const PROXY = 'https://api.rss2json.com/v1/api.json?count=12&rss_url=';
+
+  function setTicker(items) {
+    const sep = ' &nbsp;✦&nbsp; ';
+    const text = '&nbsp;&nbsp;🏁&nbsp; ' + items.join(sep) + sep;
+    const el = document.getElementById('tickerText');
+    el.innerHTML = text + text; // duplicate for seamless loop
+    // Adjust animation speed based on content length
+    const len = el.textContent.length;
+    const duration = Math.max(30, Math.round(len * 0.18));
+    el.style.animationDuration = duration + 's';
+  }
+
+  // 1. Try RSS via rss2json
+  try {
+    const res = await fetch(PROXY + encodeURIComponent(RSS_URL), { signal: AbortSignal.timeout(4000) });
+    const data = await res.json();
+    if (data.status === 'ok' && data.items && data.items.length > 0) {
+      const headlines = data.items.map(i => i.title.replace(/\s*-\s*[\w\s]+$/, '').trim());
+      setTicker(headlines);
+      return;
+    }
+  } catch(e) {}
+
+  // 2. Fallback: ticker.json
+  try {
+    const res = await fetch(FALLBACK_URL + '?t=' + Date.now());
+    const data = await res.json();
+    if (data.items && data.items.length > 0) {
+      setTicker(data.items);
+      return;
+    }
+  } catch(e) {}
+
+  // 3. Static fallback
+  setTicker([
+    '🏆 Márquez คว้าชัย Hungarian GP เฉือน Acosta',
+    '🏁 German GP ที่ Sachsenring รอบถัดไป 5 ก.ค.',
+    '📊 Bezzecchi นำตารางคะแนน 180 แต้ม',
+    '⚡ MotoGP เพิ่มระยะห่างกริดสตาร์ทตั้งแต่ German GP'
+  ]);
+})();
+</script>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#news" onclick="closeMobileMenu()">ข่าวสาร</a>
   <a href="#results" onclick="closeMobileMenu()">ผลการแข่งขัน</a>
   <a href="#standings" onclick="closeMobileMenu()">ตาราง</a>
-  <a href="#analysis" onclick="closeMobileMenu()">สคริปต์วิเคราะห์</a>
   <a href="#advertise" onclick="closeMobileMenu()" class="mobile-cta">ลงโฆษณา</a>
 </div>
 
@@ -881,7 +939,6 @@
     <li><a href="#news">ข่าวสาร</a></li>
     <li><a href="#results">ผลการแข่งขัน</a></li>
     <li><a href="#standings">ตาราง</a></li>
-    <li><a href="#analysis">สคริปต์วิเคราะห์</a></li>
     <li><a href="#advertise" class="nav-cta">ลงโฆษณา</a></li>
   </ul>
   <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="เมนู">
@@ -901,31 +958,41 @@
 </div>
 
 <!-- HERO -->
-<section style="padding: 16px 40px 0;" id="news">
+<section style="padding: 16px 48px 0;" id="news">
   <div class="hero">
-    <a class="hero-main" href="motogp-article-martin-topspeed.html" style="text-decoration:none;">
-      <img src="images/martin-hero.jpg" alt="Jorge Martín Aprilia Racing MotoGP 2026" class="hero-main-img" style="object-position:center top;">
+    <a class="hero-main" href="news-hungary-2026.html" style="text-decoration:none;">
+      <img src="https://cdn-1.motorsport.com/images/amp/YvKQXoZ6/s1000/marc-marquez-ducati-team-2.webp"
+           alt="Marc Márquez ชัยชนะครั้งที่ 100 Hungarian GP 2026"
+           class="hero-main-img"
+           onerror="this.src='https://picsum.photos/seed/marquez100/1200/700'">
       <div class="hero-main-content">
-        <div class="hero-category">🔴 EXCLUSIVE</div>
-        <h1 class="hero-title">มาร์ตินตอกสถิติโลก 368.6 กม./ชม. ที่ Mugello</h1>
-        <div class="hero-meta">โดยทีมงาน Life of Bike &nbsp;•&nbsp; 8 นาที</div>
+        <div class="hero-category">🏆 HUNGARIAN GP — 7 มิ.ย. 2026</div>
+        <h1 class="hero-title">Márquez คว้าชัยชนะครั้งที่ 100 ในอาชีพ ที่ Hungarian GP</h1>
+        <div class="hero-meta">โดยทีมงาน Life of Bike &nbsp;•&nbsp; 7 มิ.ย. 2026</div>
       </div>
+      <div style="position:absolute;bottom:8px;right:10px;font-size:9px;color:rgba(255,255,255,.45);font-family:var(--font-mono);">© Gold &amp; Goose / Getty Images via motorsport.com</div>
     </a>
     <div class="hero-side">
-      <a class="hero-side-card" href="motogp-article-aero-wings.html" style="text-decoration:none;">
-        <img src="https://picsum.photos/seed/winglet26/800/500" alt="MotoGP Winglets">
+      <a class="hero-side-card" href="news-hungary-2026.html#crash" style="text-decoration:none;">
+        <img src="https://cdn-4.motorsport.com/images/amp/2y7Ab7v6/s1000/jorge-martin-aprilia-racing-te.webp"
+             alt="อุบัติเหตุ Turn 1 Hungarian GP Martin ชน Bezzecchi"
+             onerror="this.src='https://picsum.photos/seed/martincrash/800/500'">
         <div class="hero-side-card-content">
-          <div class="hero-category">เทคนิค</div>
-          <h3>ปีกของ MotoGP คืออะไร และทำไมถึงสำคัญมาก</h3>
+          <div class="hero-category">⚡ PENALTY</div>
+          <h3>Martin ถูกลงโทษ Double Long Lap หลังชน Bezzecchi ล้มลูกโซ่ Turn 1</h3>
         </div>
+        <div style="position:absolute;bottom:4px;right:6px;font-size:8px;color:rgba(255,255,255,.35);font-family:var(--font-mono);">© Gold &amp; Goose / LAT via motorsport.com</div>
       </a>
-      <div class="hero-side-card">
-        <img src="https://picsum.photos/seed/aprilia26/800/500" alt="Espargaro Aprilia">
+      <a class="hero-side-card" href="news-hungary-2026.html#grid" style="text-decoration:none;">
+        <img src="https://cdn-4.motorsport.com/images/amp/0arKwrG2/s1000/race-start.webp"
+             alt="MotoGP Grid Spacing เพิ่มระยะห่างกริดสตาร์ท"
+             onerror="this.src='https://picsum.photos/seed/gridstart/800/500'">
         <div class="hero-side-card-content">
-          <div class="hero-category">CONTRACT</div>
-          <h3>Espargaro เซ็นต่อสัญญา Aprilia อีก 2 ปี ถึง 2028</h3>
+          <div class="hero-category">📐 กฎใหม่</div>
+          <h3>MotoGP เพิ่มระยะห่าง Grid 3 เมตร เริ่ม German GP ที่ Sachsenring</h3>
         </div>
-      </div>
+        <div style="position:absolute;bottom:4px;right:6px;font-size:8px;color:rgba(255,255,255,.35);font-family:var(--font-mono);">© Gold &amp; Goose / Getty Images via motorsport.com</div>
+      </a>
     </div>
   </div>
 </section>
@@ -941,6 +1008,70 @@
       <span class="tag">อัปเดตวันนี้</span>
     </div>
     <div class="news-grid">
+
+      <!-- ── 800cc Era ── -->
+      <a class="news-card" href="news-motogp-800cc-era.html">
+        <div class="news-thumb">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Casey_Stoner_at_2007_Assen.jpg/1280px-Casey_Stoner_at_2007_Assen.jpg"
+               alt="ยุค MotoGP 800cc Casey Stoner Ducati 2007"
+               onerror="this.src='https://picsum.photos/seed/800cc/600/340'">
+          <span class="cat-badge">📖 ประวัติศาสตร์</span>
+        </div>
+        <h3>ยุค MotoGP 800cc (2007–2011): บทบันทึกที่โลกไม่ลืม — Stoner, Rossi, Lorenzo และรถที่เร็วกว่าที่คิด</h3>
+        <p>ทำไมการลดเครื่องยนต์เพื่อความปลอดภัยถึงให้ผลตรงกันข้าม? เจาะลึก GP7, RC212V, YZR-M1 และ 5 ปีที่เปลี่ยน MotoGP ไปตลอดกาล</p>
+        <div class="news-meta">19 มิ.ย. 2569 &nbsp;•&nbsp; 15 นาที &nbsp;|&nbsp; <span style="color:#888;font-size:9px;">© Wikimedia Commons / CC BY-SA 2.0</span></div>
+      </a>
+
+      <!-- ── Tech & Knowledge ── -->
+      <a class="news-card" href="news-motogp-bikes-2026.html">
+        <div class="news-thumb">
+          <img src="https://cdn-7.motorsport.com/images/mgl/YvKQLMZ6/s1100/ducati-gp26.webp"
+               alt="รถแข่ง MotoGP ทั้ง 5 แบรนด์ ชื่อรหัสและความหมาย"
+               onerror="this.src='https://cdn-9.motorsport.com/images/mgl/Y9lLwQq2/s700/ducati-gp26.webp'">
+          <span class="cat-badge">🔧 Tech & Knowledge</span>
+        </div>
+        <h3>รถแข่ง MotoGP มีรุ่นอะไรบ้าง? ชื่อรหัส Desmosedici, RC16, RS-GP, RC213V, YZR-M1 หมายความว่าอะไร</h3>
+        <div class="news-meta"><span>8 มิ.ย. 2569</span><span>Life of Bike</span></div>
+      </a>
+
+      <!-- ── ข่าววันนี้ 7 มิ.ย. 2026 ── -->
+      <a class="news-card" href="news-hungary-2026.html">
+        <div class="news-thumb">
+          <img src="https://cdn-1.motorsport.com/images/amp/YvKQXoZ6/s1000/marc-marquez-ducati-team-2.webp"
+               alt="Marc Márquez ชัยชนะที่ 100 Hungarian GP 2026"
+               onerror="this.src='https://picsum.photos/seed/marquez100b/600/340'">
+          <span class="cat-badge">🏆 Race Report</span>
+        </div>
+        <h3>Márquez คว้าชัยชนะครั้งที่ 100 ในอาชีพ — กลายเป็นนักบิดคนที่ 3 ในประวัติศาสตร์</h3>
+        <p>เฉือน Acosta ในรอบที่ 15 ก่อนขยับห่างจนครองชัย Hungarian GP อย่างสมบูรณ์ ต่อจาก Agostini และ Rossi</p>
+        <div class="news-meta">7 มิ.ย. 2026 &nbsp;•&nbsp; 6 นาที &nbsp;|&nbsp; <span style="color:#888;font-size:9px;">© Gold &amp; Goose / motorsport.com</span></div>
+      </a>
+
+      <a class="news-card" href="news-hungary-2026.html#crash">
+        <div class="news-thumb">
+          <img src="https://cdn-4.motorsport.com/images/amp/2y7Ab7v6/s1000/jorge-martin-aprilia-racing-te.webp"
+               alt="Jorge Martin ชน Bezzecchi Turn 1 Hungarian GP"
+               onerror="this.src='https://picsum.photos/seed/martinpen/600/340'">
+          <span class="cat-badge">⚡ Penalty</span>
+        </div>
+        <h3>Martin ถูกลงโทษ Double Long Lap หลังพุ่งชน Bezzecchi ล้มลูกโซ่ 4 คัน</h3>
+        <p>Stewards สั่งชดใช้โทษในการแข่งรอบถัดไปที่ Brno — Martin และ Bezzecchi ได้ 0 คะแนนจาก Race</p>
+        <div class="news-meta">7 มิ.ย. 2026 &nbsp;•&nbsp; 4 นาที &nbsp;|&nbsp; <span style="color:#888;font-size:9px;">© Gold &amp; Goose / LAT / motorsport.com</span></div>
+      </a>
+
+      <a class="news-card" href="news-hungary-2026.html#grid">
+        <div class="news-thumb">
+          <img src="https://cdn-4.motorsport.com/images/amp/0arKwrG2/s1000/race-start.webp"
+               alt="MotoGP Race Start Grid Spacing ใหม่"
+               onerror="this.src='https://picsum.photos/seed/gridnew/600/340'">
+          <span class="cat-badge">📐 กฎใหม่</span>
+        </div>
+        <h3>MotoGP เพิ่มระยะห่าง Grid สตาร์ท 3 เมตร เริ่ม German GP ที่ Sachsenring</h3>
+        <p>มาตรการความปลอดภัยใหม่หลังอุบัติเหตุ Catalunya — ระยะ 2 ห้ามใช้ Ride-Height Device เริ่ม British GP</p>
+        <div class="news-meta">6 มิ.ย. 2026 &nbsp;•&nbsp; 3 นาที &nbsp;|&nbsp; <span style="color:#888;font-size:9px;">© Gold &amp; Goose / Getty / motorsport.com</span></div>
+      </a>
+
+      <!-- ── ข่าวเดิม ── -->
       <a class="news-card" href="motogp-article-martin-topspeed.html">
         <div class="news-thumb">
           <img src="images/martin-hero.jpg" alt="Jorge Martín Aprilia Racing MotoGP 2026" style="object-position:center top;">
@@ -1013,45 +1144,6 @@
 </div>
     </div>
 
-    <!-- SCRIPT / ANALYSIS SECTION -->
-    <div class="section-label" id="analysis">
-      <h2>สคริปต์วิเคราะห์</h2>
-      <div class="line"></div>
-      <span class="tag">Expert Insights</span>
-    </div>
-    <div class="script-section">
-      <div class="script-grid">
-        <a class="script-card" href="#">
-          <div class="script-card-num">01</div>
-          <div class="script-card-label">Data Study</div>
-          <h3>Lap Time Consistency: ตัวบ่งชี้แชมป์ที่แม่นยำที่สุด</h3>
-          <p>วิเคราะห์ข้อมูลสถิติ Lap time ย้อนหลัง 5 ฤดูกาล ความสม่ำเสมอคือกุญแจสู่แชมป์โลก</p>
-          <span class="read-link">อ่านบทวิเคราะห์</span>
-        </a>
-        <a class="script-card" href="#">
-          <div class="script-card-num">02</div>
-          <div class="script-card-label">Rider Profile</div>
-          <h3>ศิลปะของ Márquez: ทำไมสไตล์การขับที่ดุดันถึงยังได้ผล</h3>
-          <p>เจาะลึกการตัดสินใจเชิงยุทธ์และเทคนิคที่ทำให้ #93 ครองอันดับ 1 มาตลอด</p>
-          <span class="read-link">อ่าน Profile</span>
-        </a>
-        <a class="script-card" href="#">
-          <div class="script-card-num">03</div>
-          <div class="script-card-label">Tire Strategy</div>
-          <h3>ยางแข่ง Michelin 2026: ทำไม Medium/Hard ถึงเปลี่ยนเกมในสนามร้อน</h3>
-          <p>วิเคราะห์กลยุทธ์การเลือกยางที่ส่งผลต่อผลการแข่งขันในช่วง 6 สนามล่าสุด</p>
-          <span class="read-link">อ่านบทวิเคราะห์</span>
-        </a>
-        <a class="script-card" href="#">
-          <div class="script-card-num">04</div>
-          <div class="script-card-label">Team Report</div>
-          <h3>Ducati vs Honda 2026: ช่องว่างด้านเทคโนโลยีกว้างแค่ไหน?</h3>
-          <p>เปรียบเทียบข้อมูลจาก Telemetry และสถิติการแข่งขันระหว่างสองค่ายยักษ์ใหญ่</p>
-          <span class="read-link">อ่าน Report</span>
-        </a>
-      </div>
-    </div>
-
     <!-- VIDEO SECTION -->
     <div class="section-label" id="results">
       <h2>ไฮไลต์ & วิดีโอ</h2>
@@ -1119,8 +1211,8 @@
 
     <!-- RACE SCHEDULE -->
     <div class="race-schedule">
-      <div class="standings-title">📅 ปฏิทินแข่งขัน</div>
-      <div id="schedule-list"><div style="padding:16px;text-align:center;font-family:var(--font-mono);font-size:11px;color:#444;">กำลังโหลด...</div></div>
+      <div class="standings-title"><a href="calendar.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;justify-content:space-between;">📅 ปฏิทินแข่งขัน<span style="font-size:10px;font-family:var(--font-mono);color:var(--text-muted);">ดูทั้งหมด &rarr;</span></a></div>
+      <div id="schedule-list" style="cursor:pointer;" onclick="location.href='calendar.html'"><div style="padding:16px;text-align:center;font-family:var(--font-mono);font-size:11px;color:#444;">กำลังโหลด...</div></div>
     </div>
 
     <!-- SIDEBAR AD 2 -->
@@ -1251,7 +1343,6 @@
         <li><a href="#news">ข่าวสาร</a></li>
         <li><a href="#results">ผลการแข่งขัน</a></li>
         <li><a href="#standings">ตาราง Championship</a></li>
-        <li><a href="#analysis">สคริปต์วิเคราะห์</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1313,23 +1404,42 @@
   const MONTHS_EN = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 
   function renderRiders(riders) {
-    return riders.map(r => `
-      <div class="standings-row">
+    const rows = riders.map((r,i) => {
+      const hidden = i >= 10 ? ' style="display:none"' : '';
+      return `<div class="standings-row standings-extra-row"${hidden}>
         <div class="pos ${r.pos===1?'gold':''}">${r.pos}</div>
-        <div class="rider-flag">${r.flag||''}</div>
+        <img class="rider-flag" src="https://flagcdn.com/w40/${r.flag}.png" alt="" onerror="this.style.display='none'">
         <div class="rider-num">#${r.num}</div>
-        <div class="rider-name">${r.name}</div>
+        <div class="rider-name" style="display:flex;align-items:center;justify-content:space-between;gap:4px;">
+          <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${r.name}</span>
+          ${r.mfr ? `<span class="mfr-badge mfr-${r.mfr}" style="flex-shrink:0;">${r.mfr.toUpperCase()}</span>` : ''}
+        </div>
         <div class="rider-pts">${r.pts}</div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
+    const total = riders.length;
+    const btn = `<button onclick="toggleRiders(this)" style="width:100%;margin-top:8px;padding:7px;background:#1a1a1a;border:1px solid #2a2a2a;color:#666;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;cursor:pointer;border-radius:3px;" data-open="0" data-total="${total}">&#9660; ดูทั้งหมด ${total} คน</button>`;
+    return rows + btn;
+  }
+  function toggleRiders(btn) {
+    const open = btn.dataset.open === '1';
+    btn.closest('#tab-riders').querySelectorAll('.standings-extra-row').forEach((el,i) => {
+      if (i >= 10) el.style.display = open ? 'none' : '';
+    });
+    btn.dataset.open = open ? '0' : '1';
+    btn.innerHTML = open ? ('&#9660; ดูทั้งหมด ' + btn.dataset.total + ' คน') : '&#9650; ย่อลง';
   }
 
   function renderConstructors(constructors) {
     return constructors.map(c => `
       <div class="standings-row">
         <div class="pos ${c.pos===1?'gold':''}">${c.pos}</div>
-        <div class="rider-flag">${c.flag||''}</div>
+        <div class="rider-flag"></div>
         <div class="rider-num"></div>
-        <div class="rider-name">${c.name}</div>
+        <div class="rider-name" style="display:flex;align-items:center;gap:6px;">
+          ${c.mfr ? `<span class="mfr-badge mfr-${c.mfr}">${c.mfr.toUpperCase()}</span>` : ''}
+          <span>${c.name}</span>
+        </div>
         <div class="rider-pts">${c.pts}</div>
       </div>`).join('');
   }
@@ -1340,8 +1450,9 @@
     return events.map((ev, i) => {
       const d = ev.date ? new Date(ev.date + 'T00:00:00Z') : null;
       const dd = d ? String(d.getUTCDate()).padStart(2,'0') : '--';
-      const mm = d ? MONTHS_EN[d.getUTCMonth()] : '---';
+      const mm = d ? MONTHS_TH[d.getUTCMonth()] : '---';
       const isNext = i === 0;
+      const timeStr = ev.raceTimeTH ? `<div style="font-family:var(--font-mono);font-size:10px;color:#e8c84a;margin-top:3px;">&#128336; ${ev.raceTimeTH} น.</div>` : '';
       return `
         <div class="schedule-item">
           <div class="race-date-box">
@@ -1478,3 +1589,4 @@
 })();
 </script></body>
 </html>
+

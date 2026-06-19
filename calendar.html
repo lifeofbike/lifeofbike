@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ปฏิทินแข่งขัน MotoGP 2026 — Life of Bike</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:#E8132A; --black:#0A0A0A; --white:#F5F0E8; --gray:#1C1C1C;
+  --mid:#2E2E2E; --gold:#C9A84C; --text-muted:#888;
+  --font-display:'Bebas Neue',sans-serif; --font-serif:'DM Serif Display',serif;
+  --font-body:'IBM Plex Sans Thai',sans-serif; --font-mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);min-height:100vh}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid #222;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--font-display);font-size:22px;letter-spacing:.06em;color:var(--white);text-decoration:none}
+.logo span{color:var(--red)}
+.nav-back{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);text-decoration:none;letter-spacing:.08em;display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:var(--white)}
+
+.hero{margin-top:56px;background:linear-gradient(135deg,#0f0f0f 0%,#1a0408 50%,#0f0f0f 100%);border-bottom:1px solid #222;padding:40px 24px 32px}
+.hero-inner{max-width:1100px;margin:0 auto}
+.season-label{font-family:var(--font-mono);font-size:10px;color:var(--red);letter-spacing:.16em;margin-bottom:8px}
+.season-title{font-family:var(--font-display);font-size:clamp(36px,6vw,72px);letter-spacing:.04em;line-height:1;margin-bottom:20px}
+.season-title span{color:var(--red)}
+.progress-wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.progress-bar{flex:1;min-width:200px;height:4px;background:#222;border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:var(--red);border-radius:2px;transition:width .6s ease}
+.progress-text{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);white-space:nowrap}
+.progress-text strong{color:var(--white)}
+
+.filter-bar{max-width:1100px;margin:28px auto 0;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap}
+.filter-btn{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;padding:6px 14px;border-radius:2px;border:1px solid #333;background:transparent;color:var(--text-muted);cursor:pointer;transition:all .2s}
+.filter-btn.active,.filter-btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+
+.calendar-grid{max-width:1100px;margin:0 auto;padding:28px 24px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+
+.race-card{background:var(--gray);border:1px solid #2a2a2a;border-radius:4px;overflow:hidden;position:relative;transition:transform .2s,border-color .2s}
+.race-card:hover{transform:translateY(-2px);border-color:#444}
+.race-card.done{opacity:.6}
+.race-card.done:hover{opacity:.85}
+.race-card.next-race{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+.card-stripe{height:3px;background:var(--mid)}
+.race-card.done .card-stripe{background:#292929}
+.race-card.next-race .card-stripe{background:var(--red)}
+
+.card-header{padding:16px 16px 12px;display:flex;align-items:flex-start;gap:12px}
+.round-num{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:.1em;white-space:nowrap;padding-top:4px}
+.card-flag{width:36px;height:24px;object-fit:cover;border-radius:2px;flex-shrink:0;margin-top:2px}
+.card-title{flex:1}
+.card-country{font-family:var(--font-display);font-size:20px;letter-spacing:.04em;line-height:1;color:var(--white)}
+.card-gp{font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.08em;margin-top:2px}
+
+.status-badge{position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;padding:3px 8px;border-radius:2px}
+.badge-done{background:rgba(255,255,255,.06);color:var(--text-muted)}
+.badge-next{background:var(--red);color:#fff;animation:pulse-badge 2s infinite}
+.badge-upcoming{background:transparent;border:1px solid #333;color:var(--text-muted)}
+@keyframes pulse-badge{0%,100%{opacity:1}50%{opacity:.6}}
+
+.card-body{padding:0 16px 16px}
+.card-circuit{font-size:11px;color:var(--text-muted);margin-bottom:12px;padding-left:4px}
+
+.card-dates{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:rgba(0,0,0,.3);border-radius:2px;margin-bottom:10px}
+.date-th .day-big{font-family:var(--font-display);font-size:26px;color:var(--white);line-height:1}
+.date-th .month-th{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);margin-top:2px}
+.race-time-th{text-align:right}
+.time-label{font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.08em}
+.time-val{font-family:var(--font-display);font-size:24px;color:#e8c84a;line-height:1}
+.time-unit{font-family:var(--font-mono);font-size:9px;color:var(--text-muted)}
+
+.card-result{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(255,255,255,.03);border-radius:2px;border:1px solid #222}
+.result-label{font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.08em}
+.result-winner{font-size:12px;font-weight:500;color:var(--white)}
+
+.next-banner{max-width:1100px;margin:0 auto;padding:20px 24px 4px}
+.next-inner{background:linear-gradient(135deg,rgba(232,19,42,.12),rgba(232,19,42,.04));border:1px solid rgba(232,19,42,.3);border-radius:4px;padding:16px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.next-label{font-family:var(--font-mono);font-size:10px;color:var(--red);letter-spacing:.14em;margin-bottom:4px}
+.next-name{font-family:var(--font-display);font-size:28px;letter-spacing:.04em;line-height:1}
+.next-detail{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);margin-top:4px}
+.next-countdown{margin-left:auto;text-align:right}
+.countdown-num{font-family:var(--font-display);font-size:40px;color:var(--red);line-height:1}
+.countdown-lbl{font-family:var(--font-mono);font-size:9px;color:var(--text-muted);letter-spacing:.1em}
+
+.legend{max-width:1100px;margin:16px auto 0;padding:0 24px;display:flex;gap:20px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10px;color:var(--text-muted)}
+.legend-dot{width:8px;height:8px;border-radius:1px}
+
+@media(max-width:600px){
+  .calendar-grid{grid-template-columns:1fr;padding:16px 16px 60px}
+  .hero{padding:32px 16px 24px}
+  .filter-bar,.next-banner,.legend{padding-left:16px;padding-right:16px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">LIFE OF <span>BIKE</span></a>
+  <a class="nav-back" href="index.html">&#8592; กลับหน้าหลัก</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="season-label">MOTOGP WORLD CHAMPIONSHIP</div>
+    <div class="season-title">ปฏิทิน<span>แข่งขัน</span><br>2026</div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-text"><strong id="doneCount">0</strong> / <strong id="totalCount">0</strong> สนาม &nbsp;|&nbsp; เหลืออีก <strong id="leftCount">0</strong> สนาม</div>
+    </div>
+  </div>
+</div>
+
+<div id="nextBanner"></div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterRaces('all',this)">ทั้งหมด</button>
+  <button class="filter-btn" onclick="filterRaces('done',this)">แข่งแล้ว</button>
+  <button class="filter-btn" onclick="filterRaces('upcoming',this)">ยังไม่แข่ง</button>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>การแข่งขันถัดไป</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#444"></div>แข่งขันแล้ว</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#2a2a2a;border:1px solid #444"></div>ยังไม่แข่ง</div>
+</div>
+
+<div class="calendar-grid" id="calendarGrid"></div>
+
+<script>
+const MONTHS_TH = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+
+const RACES = [
+  { round:1,  name:"Thailand Grand Prix",    country:"ไทย",           cc:"th", circuit:"Chang International Circuit",         city:"บุรีรัมย์",         date:"2026-03-01", raceTimeTH:"15:00",        status:"done",     winner:"Marc Márquez" },
+  { round:2,  name:"Portugal Grand Prix",    country:"โปรตุเกส",      cc:"pt", circuit:"Autodromo Internacional do Algarve",  city:"Portimão",          date:"2026-03-22", raceTimeTH:"21:00",        status:"done",     winner:"Jorge Martín" },
+  { round:3,  name:"Americas Grand Prix",    country:"สหรัฐอเมริกา", cc:"us", circuit:"Circuit of the Americas",             city:"ออสติน",            date:"2026-04-12", raceTimeTH:"02:00*",       status:"done",     winner:"Pedro Acosta" },
+  { round:4,  name:"Spanish Grand Prix",     country:"สเปน",          cc:"es", circuit:"Circuito de Jerez",                  city:"เฆเรซ",             date:"2026-04-26", raceTimeTH:"19:00",        status:"done",     winner:"Marc Márquez" },
+  { round:5,  name:"French Grand Prix",      country:"ฝรั่งเศส",     cc:"fr", circuit:"Circuit Bugatti",                    city:"เลอม็อง",           date:"2026-05-11", raceTimeTH:"19:00",        status:"done",     winner:"Jorge Martín" },
+  { round:6,  name:"Italian Grand Prix",     country:"อิตาลี",        cc:"it", circuit:"Autodromo del Mugello",              city:"มูเจลโล",           date:"2026-06-01", raceTimeTH:"19:00",        status:"done",     winner:"Jorge Martín" },
+  { round:7,  name:"German Grand Prix",      country:"เยอรมนี",       cc:"de", circuit:"Sachsenring",                        city:"ซัคเซนริง",         date:"2026-07-05", raceTimeTH:"19:00",        status:"upcoming" },
+  { round:8,  name:"British Grand Prix",     country:"อังกฤษ",        cc:"gb", circuit:"Silverstone Circuit",                city:"ซิลเวอร์สโตน",     date:"2026-08-02", raceTimeTH:"20:00",        status:"upcoming" },
+  { round:9,  name:"Austrian Grand Prix",    country:"ออสเตรีย",      cc:"at", circuit:"Red Bull Ring",                      city:"สปีลแบร์ก",         date:"2026-08-23", raceTimeTH:"19:00",        status:"upcoming" },
+  { round:10, name:"San Marino Grand Prix",  country:"ซานมารีโน",    cc:"sm", circuit:"Misano World Circuit",               city:"มีซาโน",            date:"2026-09-13", raceTimeTH:"19:00",        status:"upcoming" },
+  { round:11, name:"Aragon Grand Prix",      country:"สเปน",          cc:"es", circuit:"MotorLand Aragon",                   city:"อารากอน",           date:"2026-09-27", raceTimeTH:"19:00",        status:"upcoming" },
+  { round:12, name:"Japan Grand Prix",       country:"ญี่ปุ่น",      cc:"jp", circuit:"Twin Ring Motegi",                   city:"โมเตกิ",            date:"2026-10-04", raceTimeTH:"12:00",        status:"upcoming" },
+  { round:13, name:"Australian Grand Prix",  country:"ออสเตรเลีย",   cc:"au", circuit:"Phillip Island Circuit",             city:"ฟิลลิปไอส์แลนด์",  date:"2026-10-18", raceTimeTH:"12:00",        status:"upcoming" },
+  { round:14, name:"Malaysian Grand Prix",   country:"มาเลเซีย",     cc:"my", circuit:"Sepang International Circuit",       city:"เซปัง",             date:"2026-11-01", raceTimeTH:"14:00",        status:"upcoming" },
+  { round:15, name:"Valencia Grand Prix",    country:"สเปน",          cc:"es", circuit:"Circuit Ricardo Tormo",              city:"บาเลนเซีย",         date:"2026-11-15", raceTimeTH:"20:00",        status:"upcoming" }
+];
+
+function getDaysUntil(dateStr) {
+  const now = new Date();
+  const race = new Date(dateStr + 'T00:00:00+07:00');
+  return Math.ceil((race - now) / 86400000);
+}
+
+function renderCard(ev, isNext) {
+  const d = new Date(ev.date + 'T00:00:00Z');
+  const dd = String(d.getUTCDate()).padStart(2,'0');
+  const mm = MONTHS_TH[d.getUTCMonth()];
+  const yyyy = d.getUTCFullYear() + 543;
+  const isDone = ev.status === 'done';
+
+  const badge = isDone
+    ? '<span class="status-badge badge-done">เสร็จสิ้น</span>'
+    : isNext
+    ? '<span class="status-badge badge-next">ถัดไป</span>'
+    : '<span class="status-badge badge-upcoming">ยังไม่แข่ง</span>';
+
+  const timeBlock = ev.raceTimeTH
+    ? `<div class="race-time-th"><div class="time-label">เวลาไทย</div><div class="time-val">${ev.raceTimeTH}</div><div class="time-unit">น.</div></div>`
+    : '';
+
+  const resultBlock = isDone && ev.winner
+    ? `<div class="card-result"><span class="result-label">ผู้ชนะ</span><span class="result-winner">🏆 ${ev.winner}</span></div>`
+    : '';
+
+  return `<div class="race-card${isDone?' done':''}${isNext?' next-race':''}" data-status="${isDone?'done':'upcoming'}">
+    <div class="card-stripe"></div>
+    <div class="card-header">
+      <span class="round-num">R${String(ev.round).padStart(2,'0')}</span>
+      <img class="card-flag" src="https://flagcdn.com/w40/${ev.cc}.png" alt="${ev.country}" onerror="this.style.display='none'">
+      <div class="card-title">
+        <div class="card-country">${ev.country}</div>
+        <div class="card-gp">${ev.name.toUpperCase()}</div>
+      </div>
+    </div>
+    ${badge}
+    <div class="card-body">
+      <div class="card-circuit">${ev.circuit} — ${ev.city}</div>
+      <div class="card-dates">
+        <div class="date-th">
+          <div class="day-big">${dd}</div>
+          <div class="month-th">${mm} ${yyyy}</div>
+        </div>
+        ${timeBlock}
+      </div>
+      ${resultBlock}
+    </div>
+  </div>`;
+}
+
+function filterRaces(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.race-card').forEach(card => {
+    card.style.display = (type === 'all' || card.dataset.status === type) ? '' : 'none';
+  });
+}
+
+function init() {
+  const done = RACES.filter(r => r.status === 'done').length;
+  const total = RACES.length;
+  document.getElementById('doneCount').textContent = done;
+  document.getElementById('totalCount').textContent = total;
+  document.getElementById('leftCount').textContent = total - done;
+  document.getElementById('progressFill').style.width = Math.round(done/total*100) + '%';
+
+  const nextRace = RACES.find(r => r.status === 'upcoming');
+  if (nextRace) {
+    const days = getDaysUntil(nextRace.date);
+    const d = new Date(nextRace.date + 'T00:00:00Z');
+    const dd = String(d.getUTCDate()).padStart(2,'0');
+    const mm = MONTHS_TH[d.getUTCMonth()];
+    document.getElementById('nextBanner').innerHTML = `
+      <div class="next-banner"><div class="next-inner">
+        <div>
+          <div class="next-label">&#9654; การแข่งขันถัดไป — รอบที่ ${nextRace.round}</div>
+          <div class="next-name" style="display:flex;align-items:center;gap:10px;"><img src="https://flagcdn.com/w40/${nextRace.cc}.png" style="height:22px;border-radius:2px;"> ${nextRace.country}</div>
+          <div class="next-detail">${nextRace.circuit} &nbsp;·&nbsp; ${dd} ${mm} &nbsp;·&nbsp; &#128336; ${nextRace.raceTimeTH||'TBC'} น.</div>
+        </div>
+        <div class="next-countdown">
+          <div class="countdown-num">${days > 0 ? days : 0}</div>
+          <div class="countdown-lbl">วันอีก</div>
+        </div>
+      </div></div>`;
+  }
+
+  const grid = document.getElementById('calendarGrid');
+  grid.innerHTML = RACES.map(ev => renderCard(ev, nextRace && ev.round === nextRace.round)).join('');
+}
+
+init();
+</script>
+</body>
+</html>

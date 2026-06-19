@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>รถแข่ง MotoGP มีรุ่นอะไรบ้าง? ชื่อรหัสและความหมาย — Life of Bike</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:#E8132A; --black:#0A0A0A; --white:#F5F0E8; --gray:#1C1C1C;
+  --mid:#2E2E2E; --gold:#C9A84C; --text-muted:#888;
+  --font-display:'Bebas Neue',sans-serif;
+  --font-body:'IBM Plex Sans Thai',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+  --font-serif:'DM Serif Display',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);line-height:1.7}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94);backdrop-filter:blur(12px);border-bottom:1px solid #222;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--font-display);font-size:22px;letter-spacing:.06em;color:var(--white);text-decoration:none}
+.logo span{color:var(--red)}
+.nav-back{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);text-decoration:none;letter-spacing:.08em;transition:color .2s}
+.nav-back:hover{color:var(--white)}
+
+.article-wrap{max-width:780px;margin:0 auto;padding:80px 24px 80px}
+
+.article-hero{position:relative;margin-bottom:8px;border-radius:3px;overflow:hidden}
+.article-hero img{width:100%;height:420px;object-fit:cover;display:block}
+.img-credit{font-family:var(--font-mono);font-size:9px;color:#555;padding:5px 0 20px;text-align:right}
+
+.article-tag{font-family:var(--font-mono);font-size:10px;color:var(--red);letter-spacing:.16em;margin-bottom:10px}
+.article-title{font-family:var(--font-serif);font-size:clamp(28px,5vw,42px);line-height:1.2;color:var(--white);margin-bottom:16px}
+.article-meta{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222;display:flex;gap:16px;flex-wrap:wrap}
+
+.article-body p{font-size:16px;color:#d8d3cb;margin-bottom:18px;line-height:1.8}
+.article-body h2{font-family:var(--font-display);font-size:26px;letter-spacing:.04em;color:var(--white);margin:42px 0 14px;padding-top:8px;border-top:2px solid var(--red)}
+.article-body h3{font-family:var(--font-display);font-size:20px;letter-spacing:.04em;color:var(--gold);margin:24px 0 10px}
+.article-body strong{color:var(--white)}
+.article-body em{color:var(--gold);font-style:normal;font-weight:600}
+
+/* BIKE CARD */
+.bike-card{background:#111;border:1px solid #222;border-radius:6px;overflow:hidden;margin:28px 0 36px}
+.bike-card-img{position:relative;width:100%;height:280px;overflow:hidden}
+.bike-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.bike-card:hover .bike-card-img img{transform:scale(1.03)}
+.bike-card-img-credit{font-family:var(--font-mono);font-size:9px;color:#555;padding:4px 10px;text-align:right;background:#0d0d0d}
+.bike-card-body{padding:20px 22px 22px}
+.bike-brand-badge{display:inline-block;font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.12em;padding:4px 10px;border-radius:2px;margin-bottom:12px}
+.badge-ducati{background:#cc0000;color:#fff}
+.badge-ktm{background:#e67300;color:#fff}
+.badge-aprilia{background:#6b21a8;color:#fff}
+.badge-honda{background:#b00000;color:#fff}
+.badge-yamaha{background:#003087;color:#fff}
+
+.bike-model-name{font-family:var(--font-display);font-size:28px;letter-spacing:.05em;color:var(--white);margin-bottom:4px}
+.bike-phonetic{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);margin-bottom:14px;letter-spacing:.04em}
+.bike-meaning{background:#1a1a1a;border-left:3px solid var(--gold);padding:14px 16px;border-radius:0 4px 4px 0;margin-top:12px}
+.bike-meaning-row{display:flex;gap:10px;margin-bottom:6px;font-size:14px;line-height:1.6}
+.bike-meaning-row:last-child{margin-bottom:0}
+.meaning-key{font-family:var(--font-mono);font-size:11px;color:var(--gold);font-weight:600;min-width:54px;flex-shrink:0;padding-top:2px}
+.meaning-val{color:#ccc}
+
+/* INTRO BANNER */
+.intro-question{background:linear-gradient(135deg,#1a0a0a,#0f0f1a);border:1px solid #2a2a2a;border-radius:6px;padding:28px;text-align:center;margin-bottom:36px}
+.intro-question .q-text{font-family:var(--font-serif);font-size:clamp(22px,4vw,30px);color:var(--white);margin-bottom:8px}
+.intro-question .q-sub{font-family:var(--font-mono);font-size:12px;color:var(--text-muted)}
+
+/* SUMMARY TABLE */
+.summary-table{width:100%;border-collapse:collapse;margin:24px 0 32px;font-family:var(--font-mono);font-size:12px}
+.summary-table th{background:var(--red);color:#fff;padding:9px 14px;text-align:left;font-size:11px;letter-spacing:.08em}
+.summary-table td{padding:9px 14px;border-bottom:1px solid #1e1e1e;color:#ccc;vertical-align:top}
+.summary-table tr:last-child td{border-bottom:none}
+.summary-table tr:hover td{background:#111}
+
+.sources{border-top:1px solid #222;margin-top:48px;padding-top:24px}
+.sources h4{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);letter-spacing:.1em;margin-bottom:12px}
+.sources ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.sources a{font-family:var(--font-mono);font-size:11px;color:#555;text-decoration:none;transition:color .2s}
+.sources a:hover{color:var(--red)}
+
+.cta-bar{background:#111;border:1px solid #222;border-radius:6px;padding:22px 24px;text-align:center;margin-top:48px}
+.cta-bar p{font-size:15px;color:#ccc;margin-bottom:0}
+.cta-bar strong{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">LIFE <span>OF</span> BIKE</a>
+  <a class="nav-back" href="index.html">← กลับหน้าหลัก</a>
+</nav>
+
+<div class="article-wrap">
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <img src="https://cdn-9.motorsport.com/images/mgl/Y9lLwQq2/s1100/ducati-gp26.webp"
+         onerror="this.src='https://picsum.photos/seed/motogp-grid/1200/500'"
+         alt="Ducati Desmosedici GP26 — รถแข่ง MotoGP 2026">
+  </div>
+  <div class="img-credit">© motorsport.com / MotoGP Official</div>
+
+  <div class="article-tag">TECH &amp; KNOWLEDGE</div>
+  <h1 class="article-title">รถแข่ง MotoGP มีรุ่นอะไรบ้าง?<br>ชื่อรหัสและความหมาย</h1>
+  <div class="article-meta">
+    <span>📅 8 มิถุนายน 2569</span>
+    <span>✍️ Life of Bike</span>
+    <span>🏍️ Tech &amp; Knowledge</span>
+    <span>⏱️ อ่าน 5 นาที</span>
+  </div>
+
+  <div class="article-body">
+
+    <div class="intro-question">
+      <div class="q-text">เพื่อนๆ รู้ไหมครับว่ารถแข่ง MotoGP<br>มีทั้งหมดกี่แบรนด์?</div>
+      <div class="q-sub">ใช้ชื่อรหัสว่าอะไรบ้าง และมีความหมายอะไร?</div>
+    </div>
+
+    <p>ในยุคปัจจุบัน MotoGP มีรถแข่ง <strong>5 แบรนด์หลัก</strong> ที่ลงสนามประชันกัน แต่ละคันมีชื่อรหัสที่ไม่ได้ตั้งขึ้นมาลอยๆ — ทุกตัวอักษรและตัวเลขล้วนมีความหมายและประวัติศาสตร์ซ่อนอยู่ มาไขความลับกันทีละคันครับ</p>
+
+    <!-- ======== DUCATI ======== -->
+    <h2>แบรนด์ที่ 1 — DUCATI (ดูคาติ)</h2>
+
+    <div class="bike-card">
+      <div class="bike-card-img">
+        <img src="https://cdn-7.motorsport.com/images/mgl/YvKQLMZ6/s1100/ducati-gp26.webp"
+             onerror="this.src='https://cdn-9.motorsport.com/images/mgl/Y9lLwQq2/s700/ducati-gp26.webp'"
+             alt="Ducati Desmosedici GP26 2026">
+      </div>
+      <div class="bike-card-img-credit">© motorsport.com — Ducati Desmosedici GP26 launch, Madonna di Campiglio ม.ค. 2026</div>
+      <div class="bike-card-body">
+        <span class="bike-brand-badge badge-ducati">DUCATI</span>
+        <div class="bike-model-name">Desmosedici GP26</div>
+        <div class="bike-phonetic">เดส-โม-เซ-ดิ-ชิ จีพี 26</div>
+        <p style="font-size:14px;color:#bbb;margin:10px 0 14px">รถแข่งที่ครอง MotoGP มาหลายฤดูกาล ปัจจุบันขับโดย Marc Márquez และ Francesco Bagnaia ในทีม Ducati Lenovo</p>
+        <div class="bike-meaning">
+          <div class="bike-meaning-row">
+            <span class="meaning-key">Desmo</span>
+            <span class="meaning-val">ย่อจาก <strong>Desmodromic</strong> — ระบบวาล์วแปรผันอัจฉริยะอันเป็นเอกลักษณ์เฉพาะของ Ducati ที่ไม่มีสปริงวาล์ว ช่วยให้เครื่องยนต์ตอบสนองได้แม่นยำและแรงกว่า</span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">Sedici</span>
+            <span class="meaning-val">ภาษาอิตาลี แปลว่า <strong>16</strong> — หมายถึงเครื่องยนต์ที่มี <strong>16 วาล์ว</strong></span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">GP</span>
+            <span class="meaning-val">ย่อจาก <strong>Grand Prix</strong> — สนามแข่งระดับสูงสุด</span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">26</span>
+            <span class="meaning-val">ปีที่ผลิต <strong>ค.ศ. 2026</strong> — เปลี่ยนตามปีทุกฤดูกาล</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== KTM ======== -->
+    <h2>แบรนด์ที่ 2 — KTM (เคทีเอ็ม)</h2>
+
+    <div class="bike-card">
+      <div class="bike-card-img">
+        <img src="https://cdn-4.motorsport.com/images/mgl/68VWL7G2/s1100/bikes-of-pedro-acosta-red-bull.webp"
+             onerror="this.src='https://cdn-8.motorsport.com/images/amp/2Qe8pPJ2/s1000/red-bull-ktm-factory-racing-li.webp'"
+             alt="KTM RC16 2026 Red Bull KTM Factory Racing">
+      </div>
+      <div class="bike-card-img-credit">© motorsport.com — KTM RC16 2026 launch</div>
+      <div class="bike-card-body">
+        <span class="bike-brand-badge badge-ktm">KTM</span>
+        <div class="bike-model-name">RC16</div>
+        <div class="bike-phonetic">อาร์ซี 16</div>
+        <p style="font-size:14px;color:#bbb;margin:10px 0 14px">รถสีส้มเดือดของออสเตรีย ปัจจุบันขับโดย Pedro Acosta และ Brad Binder ในทีม Red Bull KTM Factory Racing</p>
+        <div class="bike-meaning">
+          <div class="bike-meaning-row">
+            <span class="meaning-key">RC</span>
+            <span class="meaning-val">ย่อจาก <strong>Race Competition</strong> (การแข่งขันความเร็ว) — คำนำหน้ารหัสรถสปอร์ตสายสนามแข่งของ KTM ทั้งหมด รวมถึงรถบ้านอย่าง RC390 ด้วย</span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">16</span>
+            <span class="meaning-val">ย้อนไปถึงปี <strong>ค.ศ. 2016</strong> — ปีแรกที่รถต้นแบบโปรโตไทป์คันนี้ถูกสร้างขึ้นและเปิดตัวสู่สาธารณชน ก่อนส่งลงแข่งจริงในฤดูกาลถัดมา ชื่อนี้จึงไม่เปลี่ยนตามปีเหมือนค่ายอื่น</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== APRILIA ======== -->
+    <h2>แบรนด์ที่ 3 — APRILIA (อาพริเลีย)</h2>
+
+    <div class="bike-card">
+      <div class="bike-card-img">
+        <img src="https://cdn-6.motorsport.com/images/mgl/YWKwrgyY/s1100/aprilia-racing-livery.webp"
+             onerror="this.src='https://cdn-4.motorsport.com/images/mgl/0Ld5mjJ0/s1100/aprilia-racing-livery.webp'"
+             alt="Aprilia RS-GP26 2026">
+      </div>
+      <div class="bike-card-img-credit">© motorsport.com — Aprilia RS-GP26 launch, Milan ม.ค. 2026</div>
+      <div class="bike-card-body">
+        <span class="bike-brand-badge badge-aprilia">APRILIA</span>
+        <div class="bike-model-name">RS-GP26</div>
+        <div class="bike-phonetic">อาร์เอส-จีพี 26</div>
+        <p style="font-size:14px;color:#bbb;margin:10px 0 14px">รถแชมป์ของฤดูกาล 2026 นำโดย Marco Bezzecchi และ Jorge Martín ในทีม Aprilia Racing</p>
+        <div class="bike-meaning">
+          <div class="bike-meaning-row">
+            <span class="meaning-key">RS</span>
+            <span class="meaning-val">ย่อจาก <strong>Racing Sport</strong> — รหัสระดับตำนานของ Aprilia ที่ใช้กับรถสายสนามมาตั้งแต่ยุครถ <strong>2 จังหวะ</strong> อย่าง RS250 และ RS125</span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">GP</span>
+            <span class="meaning-val">ย่อจาก <strong>Grand Prix</strong> — ระบุว่าเป็นรถแข่งระดับลีกสูงสุด</span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">26</span>
+            <span class="meaning-val">ปี <strong>ค.ศ. 2026</strong> — เปลี่ยนตามฤดูกาลเช่นเดียวกับ Ducati</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== HONDA ======== -->
+    <h2>แบรนด์ที่ 4 — HONDA (ฮอนด้า)</h2>
+
+    <div class="bike-card">
+      <div class="bike-card-img">
+        <img src="https://cdn-5.motorsport.com/images/mgl/0R7wMAr2/s1100/2026-honda-hrc-rc213v.webp"
+             onerror="this.src='https://cdn-3.motorsport.com/images/mgl/6zoJgqP0/s700/2026-honda-hrc-rc213v.webp'"
+             alt="Honda RC213V 2026">
+      </div>
+      <div class="bike-card-img-credit">© motorsport.com — Honda RC213V 2026 launch, ก.พ. 2026</div>
+      <div class="bike-card-body">
+        <span class="bike-brand-badge badge-honda">HONDA</span>
+        <div class="bike-model-name">RC213V</div>
+        <div class="bike-phonetic">อาร์ซี-ทู-วัน-ทรี-วี</div>
+        <p style="font-size:14px;color:#bbb;margin:10px 0 14px">ตำนานแห่ง MotoGP กำลังรีบิลด์ โดย Luca Marini และ Joan Mir ในทีม Honda HRC Castrol</p>
+        <div class="bike-meaning">
+          <div class="bike-meaning-row">
+            <span class="meaning-key">RC</span>
+            <span class="meaning-val">ย่อจาก <strong>Racing Cycle</strong> — รหัสภายในที่ Honda ใช้เรียกตระกูลรถแข่ง 4 จังหวะมาตั้งแต่ยุคอดีต</span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">2</span>
+            <span class="meaning-val">หมายถึง <strong>ศตวรรษที่ 21</strong> (2000s)</span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">1</span>
+            <span class="meaning-val">หมายถึง <strong>1,000cc</strong> — ขนาดเครื่องยนต์ที่กำหนดไว้ในระเบียบ MotoGP</span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">3</span>
+            <span class="meaning-val"><strong>เจเนอเรชันที่ 3</strong> ในศตวรรษนี้ — ต่อจาก RC211V (4 สูบ V5) และ RC212V</span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">V</span>
+            <span class="meaning-val">การวางสูบแบบ <strong>V4 (V-Engine)</strong> — เครื่องยนต์ 4 สูบวี ซึ่งเป็นเอกลักษณ์ของ Honda ในยุค MotoGP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== YAMAHA ======== -->
+    <h2>แบรนด์ที่ 5 — YAMAHA (ยามาฮ่า)</h2>
+
+    <div class="bike-card">
+      <div class="bike-card-img">
+        <img src="https://cdn-4.motorsport.com/images/mgl/6O79peJ6/s1100/bike-of-alex-rins-yamaha-facto.webp"
+             onerror="this.src='https://cdn-1.motorsport.com/images/mgl/0R7wJ5O2/s700/bike-of-alex-rins-yamaha-facto.webp'"
+             alt="Yamaha YZR-M1 2026 V4">
+      </div>
+      <div class="bike-card-img-credit">© motorsport.com — Yamaha YZR-M1 2026 V4 launch, Jakarta ม.ค. 2026</div>
+      <div class="bike-card-body">
+        <span class="bike-brand-badge badge-yamaha">YAMAHA</span>
+        <div class="bike-model-name">YZR-M1</div>
+        <div class="bike-phonetic">วายแซดอาร์-เอ็มวัน</div>
+        <p style="font-size:14px;color:#bbb;margin:10px 0 14px">สีน้ำเงินคลาสสิก นำโดย Fabio Quartararo และ Alex Rins ในทีม Monster Energy Yamaha</p>
+        <div class="bike-meaning">
+          <div class="bike-meaning-row">
+            <span class="meaning-key">YZ</span>
+            <span class="meaning-val">รหัสประวัติศาสตร์ของ Yamaha — หมายถึง <strong>รถแข่งต้นแบบ (Prototype)</strong> ของค่าย</span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">R</span>
+            <span class="meaning-val">ย่อจาก <strong>Racing</strong></span>
+          </div>
+          <div class="bike-meaning-row">
+            <span class="meaning-key">M1</span>
+            <span class="meaning-val"><strong>Mission One (ภารกิจที่ 1)</strong> — สร้างขึ้นในปี 2002 เพื่อปฏิบัติภารกิจสำคัญ: <strong>ทวงคืนแชมป์โลก</strong> ในยุคเปลี่ยนผ่านจากเครื่องยนต์ 2 จังหวะมาเป็น 4 จังหวะ (500cc → MotoGP)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUMMARY TABLE -->
+    <h2>สรุปรวม — ทั้ง 5 แบรนด์</h2>
+    <table class="summary-table">
+      <tr>
+        <th>แบรนด์</th>
+        <th>รุ่นปี 2026</th>
+        <th>ความหมายรหัส</th>
+      </tr>
+      <tr>
+        <td><strong style="color:#ff4444">DUCATI</strong></td>
+        <td>Desmosedici GP26</td>
+        <td>ระบบวาล์ว Desmodromic + 16 วาล์ว + Grand Prix</td>
+      </tr>
+      <tr>
+        <td><strong style="color:#e67300">KTM</strong></td>
+        <td>RC16</td>
+        <td>Race Competition + ปีเปิดตัว 2016</td>
+      </tr>
+      <tr>
+        <td><strong style="color:#a855f7">APRILIA</strong></td>
+        <td>RS-GP26</td>
+        <td>Racing Sport + Grand Prix + ปี 2026</td>
+      </tr>
+      <tr>
+        <td><strong style="color:#ff6666">HONDA</strong></td>
+        <td>RC213V</td>
+        <td>Racing Cycle + ศตวรรษ 21 + 1000cc + Gen.3 + V4</td>
+      </tr>
+      <tr>
+        <td><strong style="color:#3b82f6">YAMAHA</strong></td>
+        <td>YZR-M1</td>
+        <td>Yamaha Racing Prototype + Mission One</td>
+      </tr>
+    </table>
+
+    <p>ทั้ง 5 แบรนด์นี้คือหัวใจของ MotoGP มาตลอด — แต่ละคันมีปรัชญาและเทคโนโลยีที่แตกต่างกัน ทำให้การแข่งขันสนุกและน่าติดตามทุกรอบครับ</p>
+
+    <div class="cta-bar">
+      <p>ถ้าเพื่อนๆ ชอบคอนเทนต์แบบนี้ อย่าลืม<strong> กดหัวใจและกดติดตาม</strong> จะได้ไม่พลาดเกร็ดความรู้ดีๆ ที่จะนำมาเสิร์ฟต่อไปนะครับ 🏍️</p>
+    </div>
+
+    <div class="sources">
+      <h4>แหล่งที่มา / SOURCES</h4>
+      <ul>
+        <li><a href="https://www.motogp.com/en/teams" target="_blank">motogp.com — Official Teams &amp; Bikes</a></li>
+        <li><a href="https://www.ducati.com/ww/en/bikes/superbike/desmosedici-gp" target="_blank">ducati.com — Desmosedici GP</a></li>
+        <li><a href="https://www.ktm.com/en-int/racing/motogp.html" target="_blank">ktm.com — RC16 MotoGP</a></li>
+        <li><a href="https://www.aprilia.com/en_EN/racing/motogp/" target="_blank">aprilia.com — RS-GP Racing</a></li>
+        <li><a href="https://www.crash.net/motogp" target="_blank">crash.net — MotoGP Tech &amp; News</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /article-body -->
+</div><!-- /article-wrap -->
+
+</body>
+</html>
