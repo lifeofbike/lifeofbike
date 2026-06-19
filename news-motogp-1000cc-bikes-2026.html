@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ยุค 1000cc MotoGP: ทุกค่ายรถ อัพเดท 2026 — Life of Bike</title>
+<meta name="description" content="เจาะลึกรถ MotoGP 1000cc ทุกค่ายในปี 2026 — Ducati, Aprilia, KTM, Honda, Yamaha พร้อมสเปกเครื่องยนต์และทิศทางการพัฒนา">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #E8132A;
+  --black: #0A0A0A;
+  --white: #F5F0E8;
+  --gray: #141414;
+  --gold: #C9A84C;
+  --text-muted: #777;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'IBM Plex Sans Thai', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-serif: 'DM Serif Display', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: var(--font-body); overflow-x: hidden; }
+
+/* ── TICKER ── */
+.ticker-wrap { background: var(--red); overflow: hidden; white-space: nowrap; padding: 6px 0; position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+.ticker-inner { display: inline-block; animation: ticker 40s linear infinite; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #fff; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── NAV ── */
+nav { position: fixed; top: 28px; left: 0; right: 0; z-index: 99; display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; background: rgba(10,10,10,0); transition: background .4s, backdrop-filter .4s; }
+nav.scrolled { background: rgba(10,10,10,.92); backdrop-filter: blur(14px); border-bottom: 1px solid #1a1a1a; }
+.logo { font-family: var(--font-display); font-size: 32px; letter-spacing: .04em; color: var(--white); text-decoration: none; }
+.logo span { color: var(--red); }
+.nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+.nav-links a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #ccc; text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: var(--white); }
+.nav-cta { background: var(--red) !important; color: #fff !important; padding: 8px 18px !important; }
+.nav-cta:hover { background: #c00d22 !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all .3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10,10,10,.98); z-index: 98; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: var(--font-display); font-size: 36px; color: var(--white); text-decoration: none; }
+.mobile-menu a:hover { color: var(--red); }
+.mobile-menu .mobile-cta { background: var(--red); padding: 12px 32px; }
+
+/* ── HERO ── */
+.hero { position: relative; width: 100%; height: 100vh; min-height: 600px; overflow: hidden; display: flex; align-items: flex-end; }
+.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,.55) 45%, rgba(10,10,10,.1) 100%); }
+.hero-content { position: relative; z-index: 2; padding: 0 40px 56px; max-width: 900px; }
+.hero-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--red); }
+.hero-title { font-family: var(--font-display); font-size: clamp(52px, 8vw, 100px); line-height: .95; letter-spacing: .01em; margin-bottom: 20px; }
+.hero-title em { color: var(--red); font-style: normal; }
+.hero-meta { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+.hero-meta span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #999; }
+.hero-meta span:first-child { color: var(--gold); }
+
+/* ── ARTICLE BODY ── */
+.article-wrap { max-width: 720px; margin: 0 auto; padding: 72px 24px 100px; }
+.article-wrap p { font-size: 17px; line-height: 1.85; color: #ccc; margin-bottom: 24px; }
+.article-wrap p:first-of-type::first-letter { font-family: var(--font-serif); font-size: 72px; line-height: .8; float: left; margin: 8px 12px 0 0; color: var(--white); }
+
+.lead { font-size: 20px !important; line-height: 1.7 !important; color: var(--white) !important; font-weight: 300; margin-bottom: 40px !important; }
+.lead::first-letter { font-size: 72px !important; }
+
+/* Section headers */
+.section-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.section-label::after { content: ''; flex: 1; max-width: 48px; height: 1px; background: var(--red); }
+h2.bike-title { font-family: var(--font-display); font-size: clamp(40px, 6vw, 72px); letter-spacing: .03em; line-height: 1; margin-bottom: 8px; }
+h2.bike-title em { color: var(--red); font-style: normal; }
+.bike-subtitle { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 28px; }
+
+/* Specs table */
+.specs { background: #0e0e0e; border-left: 3px solid var(--red); padding: 20px 24px; margin: 28px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.spec-item { }
+.spec-key { font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.spec-val { font-family: var(--font-mono); font-size: 13px; color: var(--white); letter-spacing: .04em; }
+.spec-val em { color: var(--red); font-style: normal; }
+
+/* Pull quote */
+.pullquote { border-left: 3px solid var(--gold); padding: 20px 28px; margin: 40px 0; }
+.pullquote p { font-family: var(--font-serif); font-size: 22px; font-style: italic; line-height: 1.55; color: var(--white); margin: 0 !important; }
+.pullquote p::first-letter { font-size: inherit !important; float: none !important; margin: 0 !important; }
+.pullquote cite { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin-top: 12px; }
+
+/* Full-bleed image */
+.img-full { width: 100vw; max-width: 1200px; position: relative; left: 50%; transform: translateX(-50%); margin: 48px 0; }
+.img-full img { width: 100%; height: auto; display: block; }
+.img-caption { font-family: var(--font-mono); font-size: 10px; color: #444; letter-spacing: .06em; padding: 10px 16px; text-align: right; }
+.img-caption a { color: #555; text-decoration: none; border-bottom: 1px solid #333; }
+.img-caption a:hover { color: #888; }
+
+/* Divider */
+.divider { width: 100%; height: 1px; background: #1a1a1a; margin: 56px 0; }
+.divider-red { background: linear-gradient(to right, var(--red), transparent); }
+
+/* Riders chip */
+.riders-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 28px; }
+.rider-chip { display: inline-flex; align-items: center; gap: 8px; background: #111; border: 1px solid #222; padding: 8px 14px; }
+.rider-chip .num { font-family: var(--font-display); font-size: 20px; color: var(--red); line-height: 1; }
+.rider-chip .name { font-family: var(--font-mono); font-size: 11px; color: var(--white); letter-spacing: .06em; text-transform: uppercase; }
+
+/* Verdict box */
+.verdict { background: #0e0e0e; border: 1px solid #222; border-top: 3px solid var(--red); padding: 24px; margin: 32px 0; }
+.verdict-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+.verdict p { font-size: 15px !important; color: #bbb !important; margin: 0 !important; line-height: 1.7; }
+.verdict p::first-letter { font-size: inherit !important; float: none !important; margin: 0 !important; }
+
+/* Strength/Weakness */
+.sw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #1a1a1a; margin: 20px 0; }
+.sw-col { background: #0e0e0e; padding: 16px 18px; }
+.sw-col h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
+.sw-col.strength h4 { color: #4CAF50; }
+.sw-col.weakness h4 { color: var(--red); }
+.sw-col ul { list-style: none; }
+.sw-col ul li { font-size: 13px; color: #999; padding: 4px 0; border-bottom: 1px solid #161616; display: flex; gap: 8px; }
+.sw-col ul li::before { content: '—'; color: #333; flex-shrink: 0; }
+.sw-col.strength ul li::before { color: #4CAF50; content: '+'; }
+.sw-col.weakness ul li::before { color: var(--red); content: '—'; }
+
+/* Footer */
+footer { background: #050505; padding: 28px 40px; border-top: 1px solid #1a1a1a; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.footer-bottom p { font-family: var(--font-mono); font-size: 10px; color: #444; letter-spacing: .04em; }
+
+@media (max-width: 768px) {
+  nav { padding: 10px 20px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .hero-content { padding: 0 20px 40px; }
+  .article-wrap { padding: 48px 20px 72px; }
+  .specs { grid-template-columns: 1fr; }
+  .sw-grid { grid-template-columns: 1fr; }
+  .hero-meta { gap: 12px; }
+  footer { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <span class="ticker-inner" id="tickerText">
+    &nbsp;&nbsp;🏁 1000cc MotoGP — ห้าค่ายรถ ห้าปรัชญา เดิมพันด้วยแชมป์โลก &nbsp;✦&nbsp; Ducati GP25 ครองวงการ &nbsp;✦&nbsp; Honda กับการฟื้นฟูครั้งยิ่งใหญ่ &nbsp;✦&nbsp; KTM รอดวิกฤติ กลับมาแล้ว &nbsp;&nbsp;
+    &nbsp;&nbsp;🏁 1000cc MotoGP — ห้าค่ายรถ ห้าปรัชญา เดิมพันด้วยแชมป์โลก &nbsp;✦&nbsp; Ducati GP25 ครองวงการ &nbsp;✦&nbsp; Honda กับการฟื้นฟูครั้งยิ่งใหญ่ &nbsp;✦&nbsp; KTM รอดวิกฤติ กลับมาแล้ว &nbsp;&nbsp;
+  </span>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#news" onclick="closeMM()">ข่าวสาร</a>
+  <a href="index.html#results" onclick="closeMM()">ผลการแข่งขัน</a>
+  <a href="index.html#standings" onclick="closeMM()">ตาราง</a>
+  <a href="advertise.html" onclick="closeMM()" class="mobile-cta">ลงโฆษณา</a>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="index.html" class="logo">LIFE OF <span>BIKE</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#news">ข่าวสาร</a></li>
+    <li><a href="index.html#results">ผลการแข่งขัน</a></li>
+    <li><a href="index.html#standings">ตาราง</a></li>
+    <li><a href="advertise.html" class="nav-cta">ลงโฆษณา</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMM()" aria-label="เมนู">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img
+    class="hero-img"
+    src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Francesco_Bagnaia_and_Marc_M%C3%A1rquez_during_the_2025_Aragon_motorcycle_Grand_Prix.jpg"
+    alt="Francesco Bagnaia และ Marc Márquez Ducati Desmosedici GP25 สนาม Aragon 2025"
+    onerror="this.style.background='#111';this.removeAttribute('onerror')"
+  >
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">เจาะลึกรถแข่ง</div>
+    <h1 class="hero-title">ยุค <em>1000cc</em><br>MotoGP<br>2026</h1>
+    <div class="hero-meta">
+      <span>MotoGP</span>
+      <span>Life of Bike</span>
+      <span>มิถุนายน 2026</span>
+      <span>อ่าน 10 นาที</span>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<article class="article-wrap">
+
+  <p class="lead">2012 คือปีที่ MotoGP เปลี่ยนโลก — ยุค 800cc สิ้นสุด เครื่อง 1,000cc กลับมา และวงการไม่เคยเหมือนเดิมอีกต่อไป ผ่านมากว่า 14 ปี ห้าค่ายรถยังคงยืนหยัดในสนามแข่ง แต่ละค่ายมีปรัชญาต่างกัน มีจุดแข็งต่างกัน และปี 2026 นี้ เส้นแบ่งระหว่างผู้ชนะกับผู้ตามยิ่งชัดเจนกว่าเดิม</p>
+
+  <p>เครื่องยนต์ 1,000cc ในยุคปัจจุบันไม่ใช่แค่ขนาดที่ใหญ่ขึ้น แต่คือการแข่งขันที่ดุเดือดยิ่งกว่า ข้อบังคับ Concession ให้สิทธิพิเศษแก่ค่ายที่ตามหลัง ระบบ Spec Electronics ของ Magneti Marelli ทำให้ความได้เปรียบเรื่อง ECU หายไป สิ่งที่เหลืออยู่คือการพัฒนาตัวรถ — อากาศพลศาสตร์ สัดส่วน และปรัชญาของวิศวกร</p>
+
+  <div class="divider divider-red"></div>
+
+  <!-- ===== DUCATI ===== -->
+  <div class="section-label">ค่ายที่ 1 of 5</div>
+  <h2 class="bike-title">DUCATI<br><em>DESMOSEDICI</em><br>GP25/26</h2>
+  <div class="bike-subtitle">Bologna, Italy · V4 90° · ครองแชมป์ 6 ปีซ้อน</div>
+
+  <div class="riders-row">
+    <div class="rider-chip"><span class="num">1</span><span class="name">Pecco Bagnaia</span></div>
+    <div class="rider-chip"><span class="num">93</span><span class="name">Marc Márquez</span></div>
+    <div class="rider-chip"><span class="num">49</span><span class="name">Fabio Di Giannantonio</span></div>
+    <div class="rider-chip"><span class="num">73</span><span class="name">Álex Márquez</span></div>
+  </div>
+
+  <p>ไม่มีค่ายไหนในประวัติศาสตร์ MotoGP ยุค 1000cc ที่ครองความเป็นเจ้าได้ยาวนานเท่า Ducati ในทศวรรษนี้ Desmosedici GP25 คือผลลัพธ์ของการสะสมประสบการณ์มากว่า 15 ปี ทั้งความล้มเหลวในยุคแรก และการกลับมายิ่งใหญ่ภายใต้การนำของ Gigi Dall'Igna</p>
+
+  <div class="specs">
+    <div class="spec-item">
+      <div class="spec-key">เครื่องยนต์</div>
+      <div class="spec-val">V4 <em>90°</em> Desmodromic</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">ความจุกระบอกสูบ</div>
+      <div class="spec-val">1,000 <em>cc</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">กำลังสูงสุด</div>
+      <div class="spec-val">~290 <em>hp</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">น้ำหนักขั้นต่ำ</div>
+      <div class="spec-val">157 <em>kg</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">ความเร็วสูงสุด</div>
+      <div class="spec-val">&gt;365 <em>km/h</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">Concession Status</div>
+      <div class="spec-val"><em>ไม่มี</em> (ค่ายแข็งแกร่งที่สุด)</div>
+    </div>
+  </div>
+
+  <p>จุดเด่นที่แท้จริงของ Desmosedici ไม่ใช่เครื่องยนต์ แต่คือระบบ Aerodynamic Package ที่ Ducati นำหน้าคู่แข่งมาตลอด ตั้งแต่ Winglet แรกที่ถูกมองว่า "บ้า" ในปี 2015 จนถึง Holeshot Device, Ride Height Device และ Front Ride Height Device ในยุคปัจจุบัน Ducati เป็นคนเขียนกติกาใหม่ทุกครั้ง</p>
+
+  <div class="img-full">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/d/dc/MotoGP_2025_Malaysian_Grand_Prix_-_Ducati_Lenovo_-_Francesco_Bagnaia.jpg"
+      alt="Francesco Bagnaia Ducati Desmosedici GP25 Malaysia Grand Prix 2025"
+      loading="lazy"
+    >
+    <div class="img-caption">
+      Francesco Bagnaia aboard the Ducati Desmosedici GP25 at the 2025 Malaysian Grand Prix ·
+      <a href="https://commons.wikimedia.org/wiki/File:MotoGP_2025_Malaysian_Grand_Prix_-_Ducati_Lenovo_-_Francesco_Bagnaia.jpg" target="_blank" rel="noopener">Liauzh</a> /
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · Wikimedia Commons
+    </div>
+  </div>
+
+  <p>การดึง Marc Márquez มาคู่กับ Francesco Bagnaia ใน Factory Team ปี 2024 คือการเดิมพันครั้งใหญ่ที่สุดในประวัติศาสตร์ MotoGP ยุคใหม่ สองนักบิดที่เก่งที่สุดในโลก บนรถที่ดีที่สุดในกริด — ผลลัพธ์คือสงครามภายในทีมที่สนุกที่สุดที่แฟนได้ชม</p>
+
+  <div class="pullquote">
+    <p>"เมื่อคุณเอา Marc กับ Pecco มาไว้ด้วยกัน คุณไม่ได้สร้างทีม คุณสร้างสงคราม"</p>
+    <cite>— นักวิเคราะห์ MotoGP</cite>
+  </div>
+
+  <div class="sw-grid">
+    <div class="sw-col strength">
+      <h4>จุดแข็ง</h4>
+      <ul>
+        <li>Aero Package ล้ำที่สุดในกริด</li>
+        <li>นักบิดระดับโลกในทุกทีม satellite</li>
+        <li>ประสบการณ์สะสม 15+ ปี</li>
+        <li>Holeshot/RHD ทุกรูปแบบ</li>
+      </ul>
+    </div>
+    <div class="sw-col weakness">
+      <h4>จุดอ่อน</h4>
+      <ul>
+        <li>ขาดสิทธิ Concession ทั้งหมด</li>
+        <li>แรงกดดันสูง — คาดหวังมาก</li>
+        <li>สงครามภายใน Factory คือดาบสองคม</li>
+        <li>คู่แข่งศึกษารถ Ducati ครบถ้วนแล้ว</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">คาดการณ์ 2026</div>
+    <p>Ducati ยังคือตัวเต็ง แต่ความได้เปรียบเริ่มแคบลง ฝ่ายแข่งของ Aprilia และ KTM เรียนรู้ทุกจุดอ่อนแล้ว ปี 2026 อาจเป็นปีแรกที่ Ducati ต้องต่อสู้จริงๆ</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===== APRILIA ===== -->
+  <div class="section-label">ค่ายที่ 2 of 5</div>
+  <h2 class="bike-title">APRILIA<br><em>RS-GP</em><br>2026</h2>
+  <div class="bike-subtitle">Noale, Italy · V4 65° · ค่ายที่พัฒนาเร็วที่สุด</div>
+
+  <div class="riders-row">
+    <div class="rider-chip"><span class="num">12</span><span class="name">Maverick Viñales</span></div>
+    <div class="rider-chip"><span class="num">72</span><span class="name">Marco Bezzecchi</span></div>
+    <div class="rider-chip"><span class="num">5</span><span class="name">Johann Zarco</span></div>
+    <div class="rider-chip"><span class="num">25</span><span class="name">Raúl Fernández</span></div>
+  </div>
+
+  <p>ถ้าจะพูดถึงเรื่องราวที่น่าทึ่งที่สุดในยุค 1000cc MotoGP Aprilia ต้องติดอันดับต้น จากค่ายที่ไม่เคยชนะเลยในยุคนี้ จนมาถึงจุดที่ RS-GP กลายเป็นรถที่เร็วที่สุดอันดับสองในกริด การพัฒนาภายใน 5 ปีที่ผ่านมาถือว่าน่าตกใจที่สุดในวงการ</p>
+
+  <div class="specs">
+    <div class="spec-item">
+      <div class="spec-key">เครื่องยนต์</div>
+      <div class="spec-val">V4 <em>65°</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">ความจุกระบอกสูบ</div>
+      <div class="spec-val">1,000 <em>cc</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">กำลังสูงสุด</div>
+      <div class="spec-val">~280 <em>hp</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">น้ำหนักขั้นต่ำ</div>
+      <div class="spec-val">157 <em>kg</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">มุมเครื่อง V4</div>
+      <div class="spec-val">65<em>°</em> (แคบกว่า Ducati)</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">Concession Status</div>
+      <div class="spec-val"><em>บางส่วน</em></div>
+    </div>
+  </div>
+
+  <div class="img-full">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/d/d4/MotoGP_2025_Malaysian_Grand_Prix_-_Aprilia_Racing_-_Marco_Bezzecchi.jpg"
+      alt="Marco Bezzecchi Aprilia RS-GP 2025 Malaysian Grand Prix"
+      loading="lazy"
+    >
+    <div class="img-caption">
+      Marco Bezzecchi aboard the Aprilia RS-GP at the 2025 Malaysian Grand Prix ·
+      <a href="https://commons.wikimedia.org/wiki/File:MotoGP_2025_Malaysian_Grand_Prix_-_Aprilia_Racing_-_Marco_Bezzecchi.jpg" target="_blank" rel="noopener">Liauzh</a> /
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · Wikimedia Commons
+    </div>
+  </div>
+
+  <p>มุม V4 ที่แคบกว่า (65° เทียบกับ 90° ของ Ducati) ทำให้ Aprilia ได้รถที่มีจุดศูนย์ถ่วงต่ำกว่า และมีพฤติกรรมเข้าโค้งที่แตกต่างออกไป นักบิดหลายคนบอกว่า RS-GP ให้ Feeling ที่ "เป็นธรรมชาติ" กว่า แม้จะไม่เร็วสูงสุดเท่า Ducati ในทางตรง</p>
+
+  <p>การย้ายของ Marco Bezzecchi จาก VR46 Ducati มาร่วม Factory Aprilia ในปี 2025 คือการเสริมทัพครั้งสำคัญ Bezzecchi ที่ขึ้นชื่อเรื่องการโจมตีและสไตล์การขี่ที่ก้าวร้าว น่าจะเข้ากับ RS-GP ได้ดี</p>
+
+  <div class="sw-grid">
+    <div class="sw-col strength">
+      <h4>จุดแข็ง</h4>
+      <ul>
+        <li>Balance ของรถดีเยี่ยม เข้าโค้งนุ่มนวล</li>
+        <li>Top Speed แข่งขันกับ Ducati ได้</li>
+        <li>Aero พัฒนาเร็วมากในช่วง 3 ปีหลัง</li>
+        <li>Trackhouse เสริม Data จาก 2 ทีม</li>
+      </ul>
+    </div>
+    <div class="sw-col weakness">
+      <h4>จุดอ่อน</h4>
+      <ul>
+        <li>ยังตามหลัง Ducati ในทางตรง</li>
+        <li>ยังต้องพิสูจน์ในทุกสภาพสนาม</li>
+        <li>ขาดนักบิดที่ "ครองแชมป์" มาแล้ว</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">คาดการณ์ 2026</div>
+    <p>Aprilia คือภัยคุกคามที่แท้จริงของ Ducati ถ้า Bezzecchi หรือ Viñales จุดติด RS-GP มีรถที่ชนะแชมป์ได้ ปี 2026 อาจเป็นปีแรกที่ Aprilia ท้าชิงแชมป์โลกอย่างจริงจัง</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===== KTM ===== -->
+  <div class="section-label">ค่ายที่ 3 of 5</div>
+  <h2 class="bike-title">KTM<br><em>RC16</em><br>2026</h2>
+  <div class="bike-subtitle">Mattighofen, Austria · V4 75° · รอดวิกฤติ กลับมาแข็งแกร่ง</div>
+
+  <div class="riders-row">
+    <div class="rider-chip"><span class="num">33</span><span class="name">Brad Binder</span></div>
+    <div class="rider-chip"><span class="num">88</span><span class="name">Miguel Oliveira</span></div>
+    <div class="rider-chip"><span class="num">37</span><span class="name">Augusto Fernández</span></div>
+    <div class="rider-chip"><span class="num">10</span><span class="name">Enea Bastianini</span></div>
+  </div>
+
+  <p>เรื่องราวของ KTM ในช่วงปลายปี 2024 คือหนึ่งในดราม่าที่ใหญ่ที่สุดในโลก MotoGP Pierer Mobility AG บริษัทแม่ของ KTM ยื่นขอล้มละลายท่ามกลางความไม่แน่นอนครั้งยิ่งใหญ่ หลายคนถึงกับมองว่า KTM อาจถอนตัวจากการแข่งขัน แต่ทีมงานยังยืนหยัด และ RC16 ยังอยู่บนกริดในปี 2026</p>
+
+  <div class="specs">
+    <div class="spec-item">
+      <div class="spec-key">เครื่องยนต์</div>
+      <div class="spec-val">V4 <em>75°</em> LC8c</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">ความจุกระบอกสูบ</div>
+      <div class="spec-val">1,000 <em>cc</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">กำลังสูงสุด</div>
+      <div class="spec-val">~275 <em>hp</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">น้ำหนักขั้นต่ำ</div>
+      <div class="spec-val">157 <em>kg</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">สี</div>
+      <div class="spec-val">Orange <em>/ เอกลักษณ์</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">Concession Status</div>
+      <div class="spec-val"><em>มีสิทธิ์</em> Concession บางส่วน</div>
+    </div>
+  </div>
+
+  <div class="img-full">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/b/bf/KTM_MotoGP_Bike_RC16.jpg"
+      alt="KTM RC16 MotoGP Bike มอเตอร์ไซค์แข่ง"
+      loading="lazy"
+    >
+    <div class="img-caption">
+      KTM RC16 Grand Prix Racing Motorcycle ·
+      <a href="https://commons.wikimedia.org/wiki/File:KTM_MotoGP_Bike_RC16.jpg" target="_blank" rel="noopener">Rainmaker47</a> /
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · Wikimedia Commons
+    </div>
+  </div>
+
+  <p>RC16 ใช้มุม V4 ที่ "กลาง" ที่สุดในกริด 75° ให้ Balance ระหว่างพลังงานของเครื่องยนต์กับน้ำหนักที่กระจายตัว KTM เป็นค่ายที่กล้าทดลองมากที่สุดในวงการ ทั้งเรื่องชุดอากาศพลศาสตร์ และการพัฒนา Chassis ใหม่ แม้ผลลัพธ์บางครั้งไม่สม่ำเสมอ</p>
+
+  <p>Brad Binder คือกระดูกสันหลังของทีม — นักบิดที่อยู่กับ KTM มาตั้งแต่วันแรก เขารู้จัก RC16 ดีกว่าใครในโลก และหลายครั้งที่ Binder ดึงผลลัพธ์ออกมาได้ในสนามที่รถไม่ได้อยู่ในฟอร์มที่ดี</p>
+
+  <div class="sw-grid">
+    <div class="sw-col strength">
+      <h4>จุดแข็ง</h4>
+      <ul>
+        <li>Braking Performance ดีที่สุดในกริด</li>
+        <li>ทดลองเทคโนโลยีใหม่เร็วที่สุด</li>
+        <li>Brad Binder — Loyalty & Speed</li>
+        <li>Concession ช่วยพัฒนาได้มากขึ้น</li>
+      </ul>
+    </div>
+    <div class="sw-col weakness">
+      <h4>จุดอ่อน</h4>
+      <ul>
+        <li>ความไม่สม่ำเสมอระหว่างสนาม</li>
+        <li>วิกฤติการเงินสร้างความไม่แน่นอน</li>
+        <li>ยังตามหลังในแง่ Aero Package</li>
+        <li>ขาด Top Speed ในบางสนาม</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">คาดการณ์ 2026</div>
+    <p>KTM ที่รอดชีวิตจากวิกฤติมักกลับมาแข็งแกร่งกว่าเดิม — ถ้าฝ่ายพัฒนาใช้สิทธิ Concession ได้เต็มที่ RC16 ปี 2026 อาจน่ากลัวกว่าเดิมมาก</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===== HONDA ===== -->
+  <div class="section-label">ค่ายที่ 4 of 5</div>
+  <h2 class="bike-title">HONDA<br><em>RC213V</em><br>2026</h2>
+  <div class="bike-subtitle">Tokyo, Japan · V4 90° · ยุคมืดที่กำลังสิ้นสุด?</div>
+
+  <div class="riders-row">
+    <div class="rider-chip"><span class="num">36</span><span class="name">Joan Mir</span></div>
+    <div class="rider-chip"><span class="num">10</span><span class="name">Luca Marini</span></div>
+    <div class="rider-chip"><span class="num">30</span><span class="name">Takaaki Nakagami</span></div>
+  </div>
+
+  <p>Honda Wing ที่เคยเป็นสัญลักษณ์แห่งความยิ่งใหญ่ในยุค 990cc และ 800cc กำลังเผชิญกับความท้าทายครั้งใหญ่ที่สุดในรอบ 20 ปี หลังจาก Marc Márquez ย้ายไป Ducati ในปี 2024 HRC ต้องเริ่มต้นนับหนึ่งใหม่อย่างแท้จริง</p>
+
+  <div class="specs">
+    <div class="spec-item">
+      <div class="spec-key">เครื่องยนต์</div>
+      <div class="spec-val">V4 <em>90°</em> NR Series</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">ความจุกระบอกสูบ</div>
+      <div class="spec-val">1,000 <em>cc</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">กำลังสูงสุด</div>
+      <div class="spec-val">~275 <em>hp</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">น้ำหนักขั้นต่ำ</div>
+      <div class="spec-val">157 <em>kg</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">แชมป์โลกสุดท้าย</div>
+      <div class="spec-val">Marc Márquez <em>2019</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">Concession Status</div>
+      <div class="spec-val"><em>เต็มรูปแบบ</em> — ทดสอบได้ไม่จำกัด</div>
+    </div>
+  </div>
+
+  <div class="img-full">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/a/a7/2024_Honda_RC213V.jpg"
+      alt="Honda RC213V 2024 Goodwood Festival of Speed"
+      loading="lazy"
+    >
+    <div class="img-caption">
+      Honda RC213V (2024) ที่งาน Goodwood Festival of Speed ประเทศอังกฤษ ·
+      <a href="https://commons.wikimedia.org/wiki/File:2024_Honda_RC213V.jpg" target="_blank" rel="noopener">Calreyn88</a> /
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · Wikimedia Commons
+    </div>
+  </div>
+
+  <p>ปัญหาหลักของ Honda ในช่วงปี 2022-2025 ไม่ได้อยู่ที่เครื่องยนต์ แต่อยู่ที่ปรัชญาการพัฒนา RC213V ถูกสร้างมาให้ "เหมาะกับ Marc Márquez" มานานหลายปี จนเมื่อ Márquez จากไป นักบิดคนอื่นไม่สามารถดึงศักยภาพออกมาได้เต็มที่</p>
+
+  <p>ปี 2026 คือปีที่ HRC ประกาศ "New Chapter" อย่างจริงจัง ทีมวิศวกรชุดใหม่จาก Kalex และ Alpinestars เข้ามาเสริม มีการปรับ Chassis พื้นฐานใหม่ และ Honda ได้รับสิทธิ์ Concession เต็มรูปแบบ — ทดสอบได้ไม่จำกัดตลอดฤดูกาล ซึ่งเป็นโอกาสทองในการพัฒนา</p>
+
+  <div class="pullquote">
+    <p>"Honda ไม่เคยนิ่งอยู่กับความพ่ายแพ้ พวกเขาเคยหายไปในยุค 800cc แล้วกลับมาด้วย RC213V ที่ชนะ 6 แชมป์ในทศวรรษเดียว"</p>
+    <cite>— บทวิเคราะห์วงการ MotoGP</cite>
+  </div>
+
+  <div class="sw-grid">
+    <div class="sw-col strength">
+      <h4>จุดแข็ง</h4>
+      <ul>
+        <li>Concession เต็มรูปแบบ — ทดสอบไม่จำกัด</li>
+        <li>งบพัฒนาที่ไม่จำกัดจาก HRC</li>
+        <li>ประสบการณ์ย้อนกลับมาแข็งแกร่งเสมอ</li>
+        <li>Engine Reliability ดีที่สุดในวงการ</li>
+      </ul>
+    </div>
+    <div class="sw-col weakness">
+      <h4>จุดอ่อน</h4>
+      <ul>
+        <li>ตามหลังคู่แข่งด้าน Aero มากที่สุด</li>
+        <li>ขาดนักบิด Top-Tier ในปัจจุบัน</li>
+        <li>วัฒนธรรมองค์กรที่เปลี่ยนช้า</li>
+        <li>ยังไม่ชัดเจนว่า "ปรัชญาใหม่" คืออะไร</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">คาดการณ์ 2026</div>
+    <p>Honda จะยังไม่ชนะแชมป์ในปี 2026 — แต่ถ้าการพัฒนาเป็นไปตามแผน เราน่าจะเห็น Honda กลับมาแข่งขันได้ในปี 2027-2028 ช่วงนี้คือช่วงวางรากฐาน</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===== YAMAHA ===== -->
+  <div class="section-label">ค่ายที่ 5 of 5</div>
+  <h2 class="bike-title">YAMAHA<br><em>YZR-M1</em><br>2026</h2>
+  <div class="bike-subtitle">Iwata, Japan · Inline-4 · เอกลักษณ์ที่ไม่เปลี่ยน</div>
+
+  <div class="riders-row">
+    <div class="rider-chip"><span class="num">20</span><span class="name">Fabio Quartararo</span></div>
+    <div class="rider-chip"><span class="num">5</span><span class="name">Jorge Martin</span></div>
+    <div class="rider-chip"><span class="num">23</span><span class="name">Celestino Vietti</span></div>
+  </div>
+
+  <p>Yamaha เป็นค่ายเดียวในปัจจุบันที่ยังยึดมั่นกับเครื่องยนต์ Inline-4 แบบวางตรง ซึ่งตรงข้ามกับ V4 ที่คู่แข่งทุกค่ายเลือกใช้ ปรัชญาของ YZR-M1 มาตลอดคือรถที่ "ขี่ง่าย" มีพฤติกรรมที่คาดเดาได้ และสร้างแชมป์โลกจากทักษะของนักบิดมากกว่าพลังเครื่อง</p>
+
+  <div class="specs">
+    <div class="spec-item">
+      <div class="spec-key">เครื่องยนต์</div>
+      <div class="spec-val">Inline-4 <em>(วางตรง)</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">ความจุกระบอกสูบ</div>
+      <div class="spec-val">1,000 <em>cc</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">กำลังสูงสุด</div>
+      <div class="spec-val">~265 <em>hp</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">น้ำหนักขั้นต่ำ</div>
+      <div class="spec-val">157 <em>kg</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">จุดเด่น</div>
+      <div class="spec-val">Handling <em>/ Cornering</em></div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-key">Concession Status</div>
+      <div class="spec-val"><em>เต็มรูปแบบ</em> — ทดสอบได้ไม่จำกัด</div>
+    </div>
+  </div>
+
+  <div class="img-full">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/d/d1/2024_Yamaha_YZR-M1_of_Fabio_Quartararo_%284%29.jpg"
+      alt="2024 Yamaha YZR-M1 ของ Fabio Quartararo งาน MotoGP in Tokyo 2024"
+      loading="lazy"
+    >
+    <div class="img-caption">
+      Yamaha YZR-M1 (#20 Fabio Quartararo) ที่งาน MotoGP in Tokyo 2024 ·
+      <a href="https://commons.wikimedia.org/wiki/File:2024_Yamaha_YZR-M1_of_Fabio_Quartararo_(4).jpg" target="_blank" rel="noopener">NickeldimeC</a> /
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · Wikimedia Commons
+    </div>
+  </div>
+
+  <p>จุดเปลี่ยนครั้งสำคัญของ Yamaha ในยุคนี้คือการดึง Pramac Racing เข้ามาเป็นทีม Satellite ในปี 2025 แทนที่จะไปกับ Ducati ต่อ — นี่คือสัญญาณว่า Yamaha เริ่มสร้างโครงสร้างสนับสนุนที่แข็งแกร่งขึ้น เพราะ Data จาก 4 รถจะช่วยเร่งการพัฒนาได้มากกว่า 2 รถ</p>
+
+  <p>Fabio Quartararo ยังคือหัวใจของ Yamaha เขาพิสูจน์แล้วว่าสามารถเอาชนะ Ducati ได้ในสนามที่เหมาะกับ M1 และปี 2026 ถ้า Yamaha เร่งพัฒนา Top Speed ให้ทัด Quartararo อาจกลายเป็นผู้ท้าชิงแชมป์อีกครั้ง</p>
+
+  <div class="sw-grid">
+    <div class="sw-col strength">
+      <h4>จุดแข็ง</h4>
+      <ul>
+        <li>Cornering Speed ดีที่สุดในกริด</li>
+        <li>Fuel Efficiency จากเครื่อง Inline-4</li>
+        <li>Quartararo — พรสวรรค์ระดับ Elite</li>
+        <li>Pramac เพิ่ม Data และงบพัฒนา</li>
+      </ul>
+    </div>
+    <div class="sw-col weakness">
+      <h4>จุดอ่อน</h4>
+      <ul>
+        <li>Top Speed ต่ำกว่าคู่แข่งชัดเจน</li>
+        <li>Aero ยังตามหลัง Ducati มาก</li>
+        <li>Inline-4 มีข้อจำกัดด้านการจัด Weight Distribution</li>
+        <li>ยังไม่มีชัยชนะในสนามทางตรง</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">คาดการณ์ 2026</div>
+    <p>Yamaha อยู่ในทิศทางที่ถูกต้อง ถ้าพัฒนา Top Speed ได้อีก 5-8 km/h YZR-M1 2026 อาจเป็นรถที่แข่งขันได้ในทุกสนาม Quartararo จะให้ตั้งแต่ 3 ชัยชนะขึ้นไปถ้าเครื่องตามทัน</p>
+  </div>
+
+  <div class="divider divider-red"></div>
+
+  <!-- ===== CLOSING ===== -->
+  <div class="section-label">บทสรุป</div>
+  <h2 class="bike-title">ใครจะ<br><em>ครองยุค</em><br>1000cc?</h2>
+
+  <div class="img-full">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/9/90/Marc_M%C3%A1rquez_during_the_2025_Aragon_motorcycle_Grand_Prix.jpg"
+      alt="Marc Márquez ขับ Ducati Desmosedici GP25 สนาม Aragon 2025"
+      loading="lazy"
+    >
+    <div class="img-caption">
+      Marc Márquez aboard the Ducati Desmosedici GP25 at the 2025 Aragon motorcycle Grand Prix ·
+      <a href="https://commons.wikimedia.org/wiki/File:Marc_M%C3%A1rquez_during_the_2025_Aragon_motorcycle_Grand_Prix.jpg" target="_blank" rel="noopener">TeamEG00</a> /
+      Public Domain · Wikimedia Commons
+    </div>
+  </div>
+
+  <p>ยุค 1000cc MotoGP ไม่มีคำตอบที่ง่าย ห้าค่ายรถมีห้าปรัชญา และแต่ละปรัชญามีทั้งจุดเด่นและข้อด้อยของตัวเอง Ducati ยังคือเต็งหนึ่ง แต่ Aprilia กำลังปิดช่องว่าง KTM กำลังฟื้นตัว และ Honda กับ Yamaha กำลังสร้างรากฐานใหม่</p>
+
+  <p>สิ่งที่แน่นอนคือปี 2026 จะเป็นปีที่น่าติดตามที่สุดในรอบหลายปี Marc Márquez บน Ducati ในวันฟอร์มดีนั้นเร็วกว่าทุกคน แต่ Aprilia กับ Bezzecchi และ Yamaha กับ Quartararo ก็ไม่ใช่ทีมที่จะยอมแพ้ง่ายๆ</p>
+
+  <p>ยุค 1000cc ยังไม่จบ — มันยังไม่ถึงจุดที่น่าตื่นเต้นที่สุดด้วยซ้ำ</p>
+
+  <div style="margin-top:48px;padding:24px;background:#0e0e0e;border:1px solid #1a1a1a;text-align:center;">
+    <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">อ่านเพิ่มเติม</div>
+    <a href="news-motogp-800cc-era.html" style="font-family:var(--font-display);font-size:24px;color:var(--white);text-decoration:none;letter-spacing:.04em;">ยุครถ 800cc MotoGP: จุดเริ่มต้นของการปฏิวัติ →</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Life of Bike — ข่าว MotoGP ภาษาไทย | ไม่ใช่เว็บทางการของ MotoGP</p>
+    <p><a href="index.html" style="color:#555;text-decoration:none;">← กลับหน้าแรก</a></p>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// Mobile menu
+function toggleMM() {
+  const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger');
+  m.classList.toggle('open'); b.classList.toggle('open');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+}
+function closeMM() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>
