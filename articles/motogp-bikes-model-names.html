@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="รถแข่ง MotoGP มีทั้งหมดกี่แบรนด์ ใช้ชื่อรหัสว่าอะไรบ้าง Ducati Desmosedici, KTM RC16, Aprilia RS-GP, Honda RC213V, Yamaha YZR-M1 มีความหมายอะไร?">
+  <meta name="keywords" content="MotoGP รถแข่ง, Ducati Desmosedici GP, KTM RC16, Aprilia RS-GP, Honda RC213V, Yamaha YZR-M1, ชื่อรหัสรถ MotoGP">
+  <meta property="og:title" content="รถแข่ง MotoGP มีรุ่นอะไรบ้าง ? — Life of Bike">
+  <meta property="og:description" content="เคยสงสัยไหมว่ารถแข่ง MotoGP มีทั้งหมดกี่แบรนด์ ใช้ชื่อรหัสว่าอะไรบ้าง มีความหมายอะไร?">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Life of Bike">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="รถแข่ง MotoGP มีรุ่นอะไรบ้าง ? — Life of Bike">
+  <meta name="twitter:description" content="เคยสงสัยไหมว่ารถแข่ง MotoGP มีทั้งหมดกี่แบรนด์ ใช้ชื่อรหัสว่าอะไรบ้าง มีความหมายอะไร?">
+<title>รถแข่ง MotoGP มีรุ่นอะไรบ้าง ? — Life of Bike</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E8132A;
+    --black: #0A0A0A;
+    --white: #F5F0E8;
+    --gray: #1C1C1C;
+    --mid: #2E2E2E;
+    --gold: #C9A84C;
+    --text-muted: #888;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-serif: 'DM Serif Display', serif;
+    --font-body: 'IBM Plex Sans Thai', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── TICKER ─── */
+  .ticker-wrap {
+    background: var(--red);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 6px 0;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 28px; left: 0; right: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 40px;
+    background: rgba(10,10,10,.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #222;
+  }
+  .logo { font-family: var(--font-display); font-size: 30px; letter-spacing: .04em; color: var(--white); text-decoration: none; }
+  .logo span { color: var(--red); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta { background: var(--red); color: #fff !important; padding: 8px 18px; }
+
+  /* ─── PAGE WRAPPER ─── */
+  .page { padding-top: 96px; }
+
+  /* ─── AD LEADERBOARD ─── */
+  .ad-slot {
+    border: 1px dashed #2a2a2a;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 11px; color: #3a3a3a;
+    letter-spacing: .08em; text-transform: uppercase;
+    background: #0f0f0f; position: relative;
+  }
+  .ad-slot::before { content: 'AD'; position: absolute; top: 6px; left: 8px; font-size: 9px; color: #2a2a2a; }
+  .ad-top { padding: 0 120px; margin-bottom: 0; }
+  .ad-top .ad-slot { height: 90px; }
+
+  /* ─── ARTICLE HERO ─── */
+  .article-hero {
+    padding: 40px 40px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    display: flex; gap: 8px; align-items: center;
+  }
+  .breadcrumb span { color: var(--red); }
+  .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--white); }
+
+  .article-category {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .article-category::before { content: ''; display: block; width: 24px; height: 2px; background: var(--red); }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 76px);
+    line-height: 1;
+    letter-spacing: .02em;
+    color: var(--white);
+    margin-bottom: 24px;
+    max-width: 860px;
+  }
+
+  .article-deck {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-style: italic;
+    color: #bbb;
+    line-height: 1.5;
+    max-width: 720px;
+    margin-bottom: 28px;
+    border-left: 3px solid var(--red);
+    padding-left: 20px;
+  }
+
+  .article-meta-bar { display:flex; align-items:center; gap:16px; padding:10px 0; border-top:1px solid #222; border-bottom:1px solid #222; margin-bottom:0; flex-wrap:wrap; }
+  .author-block { display: flex; align-items: center; gap: 10px; }
+  .meta-divider { width:1px; height:20px; background:#333; }
+  .meta-item { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: var(--text-muted); text-transform: uppercase; }
+  .meta-item strong { display: block; color: var(--white); font-size: 12px; margin-bottom: 2px; }
+  .share-bar { margin-left: auto; display: flex; gap: 8px; }
+  .share-btn {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid #333;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: border-color .2s, color .2s;
+    text-decoration: none;
+  }
+  .share-btn:hover { border-color: var(--white); color: var(--white); }
+
+  /* ─── MAIN LAYOUT ─── */
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 48px;
+    padding: 0 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* ─── ARTICLE BODY ─── */
+  .article-body { padding-top: 40px; }
+
+  .hero-image {
+    width: 100%;
+    aspect-ratio: 16/7;
+    background: linear-gradient(135deg, #0a0510 0%, #1a0a2a 30%, #0d1520 70%, #050a15 100%);
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-image .big-num {
+    font-family: var(--font-display);
+    font-size: 200px;
+    color: rgba(232,19,42,.06);
+    line-height: 1;
+    user-select: none;
+    letter-spacing: -.02em;
+  }
+  .hero-image .image-label {
+    position: absolute;
+    bottom: 12px; right: 16px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: rgba(255,255,255,.3);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .image-caption {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: .04em;
+    margin-bottom: 40px;
+    padding-left: 12px;
+    border-left: 2px solid #333;
+  }
+
+  .article-body p {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #ccc;
+    margin-bottom: 28px;
+  }
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: 34px;
+    letter-spacing: .04em;
+    color: var(--white);
+    margin: 48px 0 16px;
+    padding-top: 48px;
+    border-top: 1px solid #222;
+  }
+  .article-body h3 {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--white);
+    margin: 32px 0 12px;
+  }
+
+  /* brand card */
+  .brand-card {
+    background: var(--gray);
+    border-left: 4px solid var(--red);
+    padding: 28px 32px;
+    margin: 40px 0;
+  }
+  .brand-number {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 40px;
+    letter-spacing: .04em;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .brand-model {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: .08em;
+    margin-bottom: 16px;
+  }
+  .brand-card p {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 12px;
+    line-height: 1.8;
+  }
+  .brand-card p:last-child { margin-bottom: 0; }
+
+  /* pull quote */
+  .pull-quote {
+    margin: 40px 0;
+    padding: 32px 40px;
+    background: var(--gray);
+    border-left: 4px solid var(--red);
+    position: relative;
+  }
+  .pull-quote::before {
+    content: '"';
+    font-family: var(--font-display);
+    font-size: 80px;
+    color: var(--red);
+    opacity: .3;
+    position: absolute;
+    top: -10px; left: 20px;
+    line-height: 1;
+  }
+  .pull-quote p {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .pull-quote cite {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  /* stat box */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    margin: 40px 0;
+  }
+  .stat-box {
+    background: var(--gray);
+    padding: 24px 16px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-num span { color: var(--red); }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-muted);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* in-content ad */
+  .ad-inline { margin: 40px 0; }
+  .ad-inline .ad-slot { height: 90px; }
+
+  /* tag list */
+  .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 48px 0 32px;
+    padding-top: 32px;
+    border-top: 1px solid #222;
+  }
+  .tag-item {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid #333;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: border-color .2s, color .2s;
+  }
+  .tag-item:hover { border-color: var(--red); color: var(--white); }
+
+  /* related articles */
+  .related-section { margin-top: 48px; }
+  .related-section .section-label {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 10px;
+  }
+  .related-section .section-label h2 { font-family: var(--font-display); font-size: 20px; letter-spacing: .06em; }
+  .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .related-card { cursor: pointer; text-decoration: none; display: block; }
+  .related-thumb {
+    width: 100%; aspect-ratio: 16/9;
+    background: var(--gray);
+    margin-bottom: 10px;
+    position: relative; overflow: hidden;
+  }
+  .related-thumb .r-bg { width: 100%; height: 100%; transition: transform .5s; }
+  .related-card:hover .r-bg { transform: scale(1.06); }
+  .related-card h3 { font-family: var(--font-serif); font-size: 15px; color: var(--white); line-height: 1.4; margin-bottom: 6px; }
+  .related-card .news-meta { font-family: var(--font-mono); font-size: 10px; color: #555; letter-spacing: .06em; }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar { padding-top: 40px; }
+  .sidebar-block { margin-bottom: 28px; }
+  .sidebar-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: .06em;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+  }
+
+  .recent-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1e1e1e; cursor: pointer; text-decoration: none; }
+  .recent-item:last-child { border-bottom: none; }
+  .recent-thumb { width: 64px; height: 48px; background: var(--gray); flex-shrink: 0; overflow: hidden; }
+  .recent-thumb div { width: 100%; height: 100%; transition: transform .4s; }
+  .recent-item:hover .recent-thumb div { transform: scale(1.1); }
+  .recent-item h4 { font-family: var(--font-serif); font-size: 13px; color: var(--white); line-height: 1.4; margin-bottom: 4px; }
+  .recent-item span { font-family: var(--font-mono); font-size: 10px; color: #555; letter-spacing: .04em; }
+
+  /* progress bar */
+  .reading-bar { position: fixed; top: 28px; left: 0; height: 3px; background: var(--red); z-index: 200; transition: width .1s linear; width: 0%; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #050505;
+    padding: 40px 40px 24px;
+    border-top: 1px solid #1a1a1a;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+  .footer-brand .logo-f { font-family: var(--font-display); font-size: 26px; color: var(--white); display: block; margin-bottom: 8px; }
+  .footer-brand p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+  .footer-col h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #222; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1a1a1a; padding-top: 18px; }
+  .footer-bottom p { font-family: var(--font-mono); font-size: 10px; color: #444; }
+
+  @media (max-width: 900px) {
+    .article-layout { grid-template-columns: 1fr; }
+    nav { padding: 10px 20px; }
+    .nav-links { display: none; }
+    .article-hero { padding: 24px 20px 0; }
+    .article-layout { padding: 0 20px 40px; }
+    .ad-top { padding: 0 20px; }
+    .stat-grid { grid-template-columns: repeat(3, 1fr); }
+    .related-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- READING PROGRESS -->
+<div class="reading-bar" id="readBar"></div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <span class="ticker-inner">
+    &nbsp;&nbsp;🏁 MotoGP 2026 — Ducati · KTM · Aprilia · Honda · Yamaha ✦ 5 แบรนด์ 5 ชื่อรหัส ✦ แต่ละชื่อมีความหมายอะไร? ✦ อ่านได้ที่ LIFE OF BIKE ✦ ลงโฆษณากับเรา ผู้อ่านกว่า 50,000 คน/เดือน ✦ &nbsp;&nbsp;🏁 MotoGP 2026 — Ducati · KTM · Aprilia · Honda · Yamaha ✦ 5 แบรนด์ 5 ชื่อรหัส ✦ แต่ละชื่อมีความหมายอะไร? ✦ อ่านได้ที่ LIFE OF BIKE ✦ ลงโฆษณากับเรา ผู้อ่านกว่า 50,000 คน/เดือน ✦
+  </span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">LIFE OF <span>BIKE</span></a>
+  <ul class="nav-links">
+    <li><a href="#">ข่าวสาร</a></li>
+    <li><a href="#">ผลการแข่งขัน</a></li>
+    <li><a href="#">ตาราง</a></li>
+    <li><a href="#">สคริปต์</a></li>
+    <li><a href="#">วิเคราะห์</a></li>
+    <li><a href="advertise.html" class="nav-cta">ลงโฆษณา</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- TOP AD -->
+  <div class="ad-top">
+    <div class="ad-slot" style="height:90px;">728 × 90 — Leaderboard</div>
+  </div>
+
+  <!-- ARTICLE HEADER -->
+  <div class="article-hero">
+    <div class="breadcrumb">
+      <a href="index.html">หน้าหลัก</a> › <a href="#">MotoGP</a> › <span>เกร็ดความรู้</span>
+    </div>
+    <div class="article-category">เกร็ดความรู้ — MotoGP Prototype Machines</div>
+    <h1 class="article-title">รถแข่ง MotoGP มีรุ่นอะไรบ้าง ?</h1>
+    <p class="article-deck">เพื่อนๆ เคยสงสัยไหมว่า รถแข่ง MotoGP มีทั้งหมดกี่แบรนด์ ใช้ชื่อรหัสว่าอะไรบ้าง และแต่ละชื่อมีความหมายอะไรซ่อนอยู่?</p>
+    <div class="article-meta-bar">
+      <div class="author-block">
+        <img src="images/Logo Red.png" alt="Life of Bike" style="width:28px;height:28px;border-radius:50%;object-fit:cover;flex-shrink:0;">
+        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);">LIFE OF BIKE</span>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><strong>24 มิ.ย. 2569</strong>เวลาเผยแพร่</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><strong>5 นาที</strong>เวลาอ่าน</div>
+      <div class="share-bar">
+        <a href="https://www.facebook.com/share/1Hs3Re2a6D/?mibextid=wwXIfr" target="_blank" rel="noopener" class="share-btn">Facebook</a>
+        <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href)">Copy Link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE + SIDEBAR -->
+  <div class="article-layout">
+    <article class="article-body">
+
+      <!-- HERO IMAGE -->
+      <div class="hero-image">
+        <div class="big-num">MOTOGP</div>
+        <div class="image-label">© Life of Bike — MotoGP Prototype Guide 2026</div>
+      </div>
+      <div class="image-caption">รถแข่ง MotoGP ทั้ง 5 แบรนด์บนกริดสตาร์ท — Ducati · KTM · Aprilia · Honda · Yamaha</div>
+
+      <p>ในการแข่งขัน MotoGP ระดับสูงสุดของโลก รถที่ลงสนามแต่ละคันไม่ได้มีแค่ชื่อแบรนด์ แต่ยังมี <strong style="color:var(--white);">รหัสรุ่น</strong> ที่บรรจุความหมายไว้เต็มๆ ไม่ว่าจะเป็นปรัชญาทางวิศวกรรม ประวัติศาสตร์ หรือแนวทางการพัฒนาของแต่ละค่าย มาถอดรหัสไปด้วยกันทีละแบรนด์กันเลยครับ</p>
+
+      <!-- STAT GRID - 5 brands -->
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="stat-num" style="font-size:24px;">GP<span>26</span></div>
+          <div class="stat-label">Ducati<br>Desmosedici</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">RC<span>16</span></div>
+          <div class="stat-label">KTM<br>RC16</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" style="font-size:24px;">RS<span>-GP</span></div>
+          <div class="stat-label">Aprilia<br>RS-GP</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" style="font-size:24px;">RC<span>213V</span></div>
+          <div class="stat-label">Honda<br>RC213V</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" style="font-size:24px;">YZR<span>-M1</span></div>
+          <div class="stat-label">Yamaha<br>YZR-M1</div>
+        </div>
+      </div>
+
+      <!-- DUCATI -->
+      <div class="brand-card">
+        <div class="brand-number">แบรนด์ที่ 1</div>
+        <div class="brand-name">Ducati</div>
+        <div class="brand-model">ดูคาติ — Ducati Desmosedici GP26</div>
+        <p>คำว่า <strong style="color:var(--white);">Desmosedici</strong> (เดส-โม-เซ-ดิ-ชิ) เป็นการรวมคำภาษาอิตาลี 2 คำ คือ <strong style="color:var(--gold);">"Desmodromic"</strong> — ระบบวาล์วแปรผันอัจฉริยะอันเป็นเอกลักษณ์ของดูคาติ และ <strong style="color:var(--gold);">"Sedici"</strong> แปลว่า 16</p>
+        <p>รวมๆ แปลว่า <em>รถแข่งเครื่องยนต์ระบบวาล์วเดสโมโดรมิกที่มี 16 วาล์ว</em> ส่วนคำว่า <strong style="color:var(--white);">GP</strong> ย่อมาจาก Grand Prix และเลขท้ายจะเปลี่ยนตามปี เช่น ปีนี้ใช้ <strong style="color:var(--red);">Desmosedici GP26</strong></p>
+      </div>
+
+      <!-- KTM -->
+      <div class="brand-card" style="border-left-color: #FF6600;">
+        <div class="brand-number" style="color:#FF6600;">แบรนด์ที่ 2</div>
+        <div class="brand-name">KTM</div>
+        <div class="brand-model">เคทีเอ็ม — KTM RC16</div>
+        <p><strong style="color:var(--white);">RC</strong> ย่อมาจาก <strong style="color:var(--gold);">"Race Competition"</strong> (คอม-เพ็ท-ทิ-ชัน) แปลว่า การแข่งขันความเร็ว ซึ่งเป็นคำนำหน้ารหัสรถสปอร์ตสายพันธุ์สนามแข่งของค่าย KTM ทั้งหมด เช่น รถบ้านอย่าง RC390</p>
+        <p>ส่วนเลข <strong style="color:var(--white);">16</strong> มาจากปีคริสต์ศักราช 2016 ซึ่งเป็นปีแรกที่รถแข่งต้นแบบโปรโตไทป์คันนี้ถูกสร้าง พัฒนา และเปิดตัวสู่สาธารณชนก่อนจะเริ่มส่งลงแข่งจริง</p>
+      </div>
+
+      <!-- APRILIA -->
+      <div class="brand-card" style="border-left-color: #00AAFF;">
+        <div class="brand-number" style="color:#00AAFF;">แบรนด์ที่ 3</div>
+        <div class="brand-name">Aprilia</div>
+        <div class="brand-model">อาพริเลีย — Aprilia RS-GP26</div>
+        <p><strong style="color:var(--white);">RS</strong> ย่อมาจาก <strong style="color:var(--gold);">"Racing Sport"</strong> ซึ่งเป็นรหัสระดับตำนานของ Aprilia ที่ใช้กับรถสายสนามมาตั้งแต่ยุค 2 จังหวะ</p>
+        <p><strong style="color:var(--white);">GP</strong> ย่อมาจาก Grand Prix เพื่อระบุว่าเป็นตัวแข่งในลีกสูงสุด เลขท้ายเปลี่ยนตามปี อย่างปีนี้ <strong style="color:var(--red);">Aprilia RS-GP26</strong></p>
+      </div>
+
+      <div class="ad-inline">
+        <div class="ad-slot" style="height:90px;">728 × 90 — In-Content Banner</div>
+      </div>
+
+      <!-- HONDA -->
+      <div class="brand-card" style="border-left-color: #CC0000;">
+        <div class="brand-number" style="color:#CC0000;">แบรนด์ที่ 4</div>
+        <div class="brand-name">Honda</div>
+        <div class="brand-model">ฮอนด้า — Honda RC213V</div>
+        <p><strong style="color:var(--white);">RC</strong> ย่อมาจาก <strong style="color:var(--gold);">"Racing Cycle"</strong> ซึ่งเป็นรหัสภายในที่ฮอนด้าใช้เรียกตระกูลรถแข่งประเภท 4 จังหวะมาตั้งแต่ยุคอดีต</p>
+        <p><strong style="color:var(--white);">21</strong> หมายถึง ศตวรรษที่ 21 · <strong style="color:var(--white);">3</strong> หมายถึง รถแข่งคันนี้เป็น เจเนอเรชันที่ 3 ในศตวรรษนี้ (ต่อจากรุ่น RC211V และ RC212V) · <strong style="color:var(--white);">V</strong> หมายถึง ลักษณะการวางสูบของเครื่องยนต์แบบ <strong style="color:var(--gold);">V4 (V-Engine)</strong></p>
+      </div>
+
+      <!-- YAMAHA -->
+      <div class="brand-card" style="border-left-color: #003399;">
+        <div class="brand-number" style="color:#6699FF;">แบรนด์ที่ 5</div>
+        <div class="brand-name">Yamaha</div>
+        <div class="brand-model">ยามาฮ่า — Yamaha YZR-M1</div>
+        <p><strong style="color:var(--white);">YZR</strong> เป็นรหัสประวัติศาสตร์ของ Yamaha โดย <strong style="color:var(--gold);">YZ</strong> หมายถึง รถแข่งต้นแบบ (Prototype) ของยามาฮ่า ส่วนตัว <strong style="color:var(--gold);">R</strong> ท้ายย่อมาจาก "Racing"</p>
+        <p><strong style="color:var(--white);">M1</strong> — คำว่า M ย่อมาจาก <strong style="color:var(--gold);">"Mission"</strong> (ภารกิจ) และ Mission One (ภารกิจที่ 1) คือการส่งรถแข่งคันนี้ลงสนามเพื่อทวงคืนตำแหน่งแชมป์โลกในยุคเปลี่ยนผ่านจากเครื่องยนต์ 2 จังหวะมาเป็น 4 จังหวะ (เปิดตัวครั้งแรกปี 2002)</p>
+        <p>ความหมายรวม: <em style="color:#aaa;">รถแข่งโปรโตไทป์สายแข่งของ Yamaha ที่ถูกสร้างขึ้นมาเพื่อปฏิบัติภารกิจอันดับหนึ่งในการคว้าชัยชนะ</em></p>
+      </div>
+
+      <div class="pull-quote">
+        <p>ถ้าเพื่อนๆ ชอบคอนเทนต์แบบนี้ อย่าลืมกดหัวใจและกดติดตามจะได้ไม่พลาดเกร็ดความรู้ดีๆ ที่ผมจะนำมาเสริฟนะครับ</p>
+        <cite>— Life of Bike</cite>
+      </div>
+
+      <!-- TAGS -->
+      <div class="article-tags">
+        <a href="#" class="tag-item">MotoGP</a>
+        <a href="#" class="tag-item">Ducati Desmosedici</a>
+        <a href="#" class="tag-item">KTM RC16</a>
+        <a href="#" class="tag-item">Aprilia RS-GP</a>
+        <a href="#" class="tag-item">Honda RC213V</a>
+        <a href="#" class="tag-item">Yamaha YZR-M1</a>
+        <a href="#" class="tag-item">เกร็ดความรู้</a>
+        <a href="#" class="tag-item">รถแข่ง</a>
+      </div>
+
+      <!-- RELATED -->
+      <div class="related-section">
+        <div class="section-label">
+          <h2>บทความที่เกี่ยวข้อง</h2>
+        </div>
+        <div class="related-grid">
+          <a href="motogp-article.html" class="related-card">
+            <div class="related-thumb">
+              <div class="r-bg" style="background:linear-gradient(135deg,#1a0505,#2a1010);width:100%;height:100%;"></div>
+            </div>
+            <h3>Márquez บิดครบทุกรอบ คว้า Pole ที่อิตาลี GP</h3>
+            <span class="news-meta">31 MAY 2026 &nbsp;·&nbsp; 8 MIN READ</span>
+          </a>
+          <a href="motogp-history-origin.html" class="related-card">
+            <div class="related-thumb">
+              <div class="r-bg" style="background:linear-gradient(135deg,#0e1a0e,#152a15);width:100%;height:100%;"></div>
+            </div>
+            <h3>ประวัติความเป็นมาของ MotoGP ตั้งแต่เริ่มต้นจนถึงปัจจุบัน</h3>
+            <span class="news-meta">HISTORY &nbsp;·&nbsp; 10 MIN READ</span>
+          </a>
+          <a href="motogp-article-aero-wings.html" class="related-card">
+            <div class="related-thumb">
+              <div class="r-bg" style="background:linear-gradient(135deg,#0e0e1a,#15152a);width:100%;height:100%;"></div>
+            </div>
+            <h3>Aero Wings บน MotoGP คืออะไร? ทำไมถึงสำคัญ</h3>
+            <span class="news-meta">TECH &nbsp;·&nbsp; 6 MIN READ</span>
+          </a>
+          <a href="news-motogp-bikes-2026.html" class="related-card">
+            <div class="related-thumb">
+              <div class="r-bg" style="background:linear-gradient(135deg,#1a1000,#2a1a00);width:100%;height:100%;"></div>
+            </div>
+            <h3>รถ MotoGP ปี 2026 มีอะไรใหม่บ้าง?</h3>
+            <span class="news-meta">2026 SEASON &nbsp;·&nbsp; 5 MIN READ</span>
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-block">
+        <div class="ad-slot" style="height:250px;">300 × 250 — Medium Rectangle</div>
+      </div>
+
+      <div class="sidebar-block" style="background:var(--gray);padding:20px;margin-top:24px;">
+        <div class="sidebar-title">📰 ข่าวล่าสุด</div>
+        <a href="motogp-article.html" class="recent-item">
+          <div class="recent-thumb"><div style="background:linear-gradient(135deg,#1a0505,#2a1010);"></div></div>
+          <div>
+            <h4>Márquez คว้า Pole ที่ Italian GP 2026</h4>
+            <span>31 MAY 2026</span>
+          </div>
+        </a>
+        <a href="news-hungary-2026.html" class="recent-item">
+          <div class="recent-thumb"><div style="background:linear-gradient(135deg,#0e1a0e,#152a15);"></div></div>
+          <div>
+            <h4>ผลการแข่งขัน Hungarian GP 2026</h4>
+            <span>RACE RESULT</span>
+          </div>
+        </a>
+        <a href="motogp-article-martin-topspeed.html" class="recent-item">
+          <div class="recent-thumb"><div style="background:linear-gradient(135deg,#1a1000,#2a1a00);"></div></div>
+          <div>
+            <h4>Martin ทำ Top Speed สูงสุดในฤดูกาล</h4>
+            <span>TECH DATA</span>
+          </div>
+        </a>
+      </div>
+
+    </aside>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-f">LIFE OF BIKE</span>
+      <p>สื่อมอเตอร์สปอร์ตภาษาไทย ครอบคลุม MotoGP, WSBK และข่าวสารวงการจักรยานยนต์ระดับโลก</p>
+    </div>
+    <div class="footer-col">
+      <h4>เนื้อหา</h4>
+      <ul>
+        <li><a href="#">ข่าวสาร</a></li>
+        <li><a href="#">ผลการแข่งขัน</a></li>
+        <li><a href="#">ตารางคะแนน</a></li>
+        <li><a href="#">วิเคราะห์</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>เกี่ยวกับ</h4>
+      <ul>
+        <li><a href="#">เกี่ยวกับเรา</a></li>
+        <li><a href="advertise.html">ลงโฆษณา</a></li>
+        <li><a href="#">ติดต่อ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>ติดตาม</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/share/1Hs3Re2a6D/?mibextid=wwXIfr" target="_blank">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Life of Bike. All rights reserved.</p>
+    <p>LIFEOFBIKE.GITHUB.IO</p>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('readBar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    bar.style.width = pct + '%';
+  });
+</script>
+</body>
+</html>
