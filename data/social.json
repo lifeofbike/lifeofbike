@@ -1,5 +1,11 @@
 {
-  "updatedAt": "2026-06-04T00:00:00Z",
+  "updatedAt": "2026-07-01T13:57:02Z",
+  "source": {
+    "youtube": "fallback",
+    "instagram": "manual",
+    "facebook": "manual",
+    "tiktok": "manual"
+  },
   "channels": {
     "youtube": {
       "url": "https://www.youtube.com/@Lifeofbike_",
