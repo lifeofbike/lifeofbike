@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-12T13:36:34Z",
+  "updatedAt": "2026-09-12T16:29:44Z",
   "source": "scraped",
   "season": 2026,
   "riders": [
@@ -8,7 +8,7 @@
       "num": "18",
       "name": "J. Martin\n                                                            \n                                                                                        Aprilia Racing Team",
       "team": "",
-      "pts": 256,
+      "pts": 263,
       "flag": "🇪🇸"
     },
     {
@@ -16,7 +16,7 @@
       "num": "9",
       "name": "M. Marquez\n                                                            \n                                                                                        Ducati Team",
       "team": "",
-      "pts": 237,
+      "pts": 249,
       "flag": "🇪🇸"
     },
     {
@@ -24,7 +24,7 @@
       "num": "25",
       "name": "M. Bezzecchi\n                                                            \n                                                                                        Aprilia Racing Team",
       "team": "",
-      "pts": 232,
+      "pts": 241,
       "flag": "🇮🇹"
     },
     {
@@ -32,7 +32,7 @@
       "num": "12",
       "name": "F. Di Giannantonio\n                                                            \n                                                                                        Team VR46",
       "team": "",
-      "pts": 208,
+      "pts": 214,
       "flag": "🇮🇹"
     },
     {
@@ -48,7 +48,7 @@
       "num": "10",
       "name": "P. Acosta\n                                                            \n                                                                                        Red Bull KTM Factory Racing",
       "team": "",
-      "pts": 189,
+      "pts": 193,
       "flag": "🇪🇸"
     },
     {
@@ -56,7 +56,7 @@
       "num": "23",
       "name": "R. Fernández\n                                                            \n                                                                                        Trackhouse Racing Team",
       "team": "",
-      "pts": 186,
+      "pts": 189,
       "flag": ""
     },
     {
@@ -72,7 +72,7 @@
       "num": "13",
       "name": "A. Marquez\n                                                            \n                                                                                        Gresini Racing",
       "team": "",
-      "pts": 128,
+      "pts": 133,
       "flag": "🇪🇸"
     },
     {
@@ -80,7 +80,7 @@
       "num": "8",
       "name": "F. Aldeguer\n                                                            \n                                                                                        Gresini Racing",
       "team": "",
-      "pts": 90,
+      "pts": 92,
       "flag": "🇪🇸"
     },
     {
@@ -88,7 +88,7 @@
       "num": "6",
       "name": "L. Marini\n                                                            \n                                                                                        Honda HRC",
       "team": "",
-      "pts": 88,
+      "pts": 89,
       "flag": ""
     },
     {
