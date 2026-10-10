@@ -1,22 +1,22 @@
 {
-  "updatedAt": "2026-10-10T00:29:25Z",
+  "updatedAt": "2026-10-10T11:55:28Z",
   "source": "scraped",
   "season": 2026,
   "riders": [
     {
       "pos": 1,
-      "num": "18",
-      "name": "J. Martin\n                                                            \n                                                                                        Aprilia Racing Team",
+      "num": "9",
+      "name": "M. Marquez\n                                                            \n                                                                                        Ducati Team",
       "team": "",
-      "pts": 333,
+      "pts": 343,
       "flag": "🇪🇸"
     },
     {
       "pos": 2,
-      "num": "9",
-      "name": "M. Marquez\n                                                            \n                                                                                        Ducati Team",
+      "num": "18",
+      "name": "J. Martin\n                                                            \n                                                                                        Aprilia Racing Team",
       "team": "",
-      "pts": 331,
+      "pts": 339,
       "flag": "🇪🇸"
     },
     {
@@ -32,7 +32,7 @@
       "num": "10",
       "name": "P. Acosta\n                                                            \n                                                                                        Red Bull KTM Factory Racing",
       "team": "",
-      "pts": 243,
+      "pts": 247,
       "flag": "🇪🇸"
     },
     {
@@ -40,7 +40,7 @@
       "num": "17",
       "name": "A. Ogura\n                                                            \n                                                                                        Trackhouse Racing Team",
       "team": "",
-      "pts": 237,
+      "pts": 246,
       "flag": "🇯🇵"
     },
     {
@@ -48,7 +48,7 @@
       "num": "12",
       "name": "F. Di Giannantonio\n                                                            \n                                                                                        Team VR46",
       "team": "",
-      "pts": 230,
+      "pts": 237,
       "flag": "🇮🇹"
     },
     {
@@ -64,7 +64,7 @@
       "num": "8",
       "name": "F. Bagnaia\n                                                            \n                                                                                        Ducati Team",
       "team": "",
-      "pts": 164,
+      "pts": 166,
       "flag": "🇮🇹"
     },
     {
@@ -72,7 +72,7 @@
       "num": "13",
       "name": "A. Marquez\n                                                            \n                                                                                        Gresini Racing",
       "team": "",
-      "pts": 158,
+      "pts": 163,
       "flag": "🇪🇸"
     },
     {
@@ -80,7 +80,7 @@
       "num": "8",
       "name": "F. Aldeguer\n                                                            \n                                                                                        Gresini Racing",
       "team": "",
-      "pts": 122,
+      "pts": 125,
       "flag": "🇪🇸"
     },
     {
@@ -120,7 +120,7 @@
       "num": "2",
       "name": "F. Quartararo\n                                                            \n                                                                                        Yamaha Factory Racing",
       "team": "",
-      "pts": 66,
+      "pts": 67,
       "flag": "🇫🇷"
     },
     {
