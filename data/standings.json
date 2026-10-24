@@ -1,10 +1,18 @@
 {
-  "updatedAt": "2026-10-24T00:16:33Z",
+  "updatedAt": "2026-10-24T10:17:43Z",
   "source": "scraped",
   "season": 2026,
   "riders": [
     {
       "pos": 1,
+      "num": "9",
+      "name": "M. Marquez\n                                                            \n                                                                                        Ducati Team",
+      "team": "",
+      "pts": 365,
+      "flag": "🇪🇸"
+    },
+    {
+      "pos": 2,
       "num": "18",
       "name": "J. Martin\n                                                            \n                                                                                        Aprilia Racing Team",
       "team": "",
@@ -12,43 +20,35 @@
       "flag": "🇪🇸"
     },
     {
-      "pos": 2,
-      "num": "9",
-      "name": "M. Marquez\n                                                            \n                                                                                        Ducati Team",
-      "team": "",
-      "pts": 353,
-      "flag": "🇪🇸"
-    },
-    {
       "pos": 3,
       "num": "25",
       "name": "M. Bezzecchi\n                                                            \n                                                                                        Aprilia Racing Team",
       "team": "",
-      "pts": 309,
+      "pts": 315,
       "flag": "🇮🇹"
     },
     {
       "pos": 4,
-      "num": "17",
-      "name": "A. Ogura\n                                                            \n                                                                                        Trackhouse Racing Team",
-      "team": "",
-      "pts": 259,
-      "flag": "🇯🇵"
-    },
-    {
-      "pos": 5,
       "num": "10",
       "name": "P. Acosta\n                                                            \n                                                                                        Red Bull KTM Factory Racing",
       "team": "",
-      "pts": 258,
+      "pts": 263,
       "flag": "🇪🇸"
+    },
+    {
+      "pos": 5,
+      "num": "17",
+      "name": "A. Ogura\n                                                            \n                                                                                        Trackhouse Racing Team",
+      "team": "",
+      "pts": 263,
+      "flag": "🇯🇵"
     },
     {
       "pos": 6,
       "num": "12",
       "name": "F. Di Giannantonio\n                                                            \n                                                                                        Team VR46",
       "team": "",
-      "pts": 245,
+      "pts": 252,
       "flag": "🇮🇹"
     },
     {
@@ -64,7 +64,7 @@
       "num": "13",
       "name": "A. Marquez\n                                                            \n                                                                                        Gresini Racing",
       "team": "",
-      "pts": 172,
+      "pts": 181,
       "flag": "🇪🇸"
     },
     {
@@ -104,24 +104,24 @@
       "num": "13",
       "name": "B. Binder\n                                                            \n                                                                                        Red Bull KTM Factory Racing",
       "team": "",
-      "pts": 104,
+      "pts": 107,
       "flag": "🇿🇦"
     },
     {
       "pos": 14,
+      "num": "3",
+      "name": "D. Moreira\n                                                            \n                                                                                        Team LCR",
+      "team": "",
+      "pts": 75,
+      "flag": ""
+    },
+    {
+      "pos": 15,
       "num": "2",
       "name": "F. Quartararo\n                                                            \n                                                                                        Yamaha Factory Racing",
       "team": "",
       "pts": 74,
       "flag": "🇫🇷"
-    },
-    {
-      "pos": 15,
-      "num": "3",
-      "name": "D. Moreira\n                                                            \n                                                                                        Team LCR",
-      "team": "",
-      "pts": 74,
-      "flag": ""
     },
     {
       "pos": 16,
@@ -152,7 +152,7 @@
       "num": "1",
       "name": "J. Miller\n                                                            \n                                                                                        Pramac Racing",
       "team": "",
-      "pts": 28,
+      "pts": 30,
       "flag": "🇦🇺"
     },
     {
