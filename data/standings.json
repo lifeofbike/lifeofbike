@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T00:23:59Z",
+  "updatedAt": "2026-10-31T11:41:52Z",
   "source": "scraped",
   "season": 2026,
   "riders": [
@@ -8,7 +8,7 @@
       "num": "9",
       "name": "M. Marquez\n                                                            \n                                                                                        Ducati Team",
       "team": "",
-      "pts": 365,
+      "pts": 374,
       "flag": "🇪🇸"
     },
     {
@@ -24,7 +24,7 @@
       "num": "25",
       "name": "M. Bezzecchi\n                                                            \n                                                                                        Aprilia Racing Team",
       "team": "",
-      "pts": 315,
+      "pts": 322,
       "flag": "🇮🇹"
     },
     {
@@ -32,7 +32,7 @@
       "num": "10",
       "name": "P. Acosta\n                                                            \n                                                                                        Red Bull KTM Factory Racing",
       "team": "",
-      "pts": 263,
+      "pts": 275,
       "flag": "🇪🇸"
     },
     {
@@ -40,7 +40,7 @@
       "num": "17",
       "name": "A. Ogura\n                                                            \n                                                                                        Trackhouse Racing Team",
       "team": "",
-      "pts": 263,
+      "pts": 269,
       "flag": "🇯🇵"
     },
     {
@@ -48,7 +48,7 @@
       "num": "12",
       "name": "F. Di Giannantonio\n                                                            \n                                                                                        Team VR46",
       "team": "",
-      "pts": 252,
+      "pts": 257,
       "flag": "🇮🇹"
     },
     {
@@ -72,7 +72,7 @@
       "num": "8",
       "name": "F. Bagnaia\n                                                            \n                                                                                        Ducati Team",
       "team": "",
-      "pts": 166,
+      "pts": 170,
       "flag": "🇮🇹"
     },
     {
@@ -88,11 +88,19 @@
       "num": "4",
       "name": "E. Bastianini\n                                                            \n                                                                                        Tech 3",
       "team": "",
-      "pts": 122,
+      "pts": 123,
       "flag": "🇮🇹"
     },
     {
       "pos": 12,
+      "num": "13",
+      "name": "B. Binder\n                                                            \n                                                                                        Red Bull KTM Factory Racing",
+      "team": "",
+      "pts": 110,
+      "flag": "🇿🇦"
+    },
+    {
+      "pos": 13,
       "num": "6",
       "name": "L. Marini\n                                                            \n                                                                                        Honda HRC",
       "team": "",
@@ -100,19 +108,11 @@
       "flag": ""
     },
     {
-      "pos": 13,
-      "num": "13",
-      "name": "B. Binder\n                                                            \n                                                                                        Red Bull KTM Factory Racing",
-      "team": "",
-      "pts": 107,
-      "flag": "🇿🇦"
-    },
-    {
       "pos": 14,
       "num": "3",
       "name": "D. Moreira\n                                                            \n                                                                                        Team LCR",
       "team": "",
-      "pts": 75,
+      "pts": 77,
       "flag": ""
     },
     {
