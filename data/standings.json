@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T14:12:53Z",
+  "updatedAt": "2026-11-21T20:32:47Z",
   "source": "scraped",
   "season": 2026,
   "riders": [
@@ -16,7 +16,7 @@
       "num": "18",
       "name": "J. Martin\n                                                            \n                                                                                                                            Aprilia Racing Team",
       "team": "",
-      "pts": 371,
+      "pts": 376,
       "flag": "🇪🇸"
     },
     {
@@ -24,7 +24,7 @@
       "num": "25",
       "name": "M. Bezzecchi\n                                                            \n                                                                                                                            Aprilia Racing Team",
       "team": "",
-      "pts": 357,
+      "pts": 369,
       "flag": "🇮🇹"
     },
     {
@@ -32,7 +32,7 @@
       "num": "10",
       "name": "P. Acosta\n                                                            \n                                                                                                                            Red Bull KTM Factory Racing",
       "team": "",
-      "pts": 309,
+      "pts": 315,
       "flag": "🇪🇸"
     },
     {
@@ -40,7 +40,7 @@
       "num": "17",
       "name": "A. Ogura\n                                                            \n                                                                                                                            Trackhouse Racing Team",
       "team": "",
-      "pts": 294,
+      "pts": 298,
       "flag": "🇯🇵"
     },
     {
@@ -48,7 +48,7 @@
       "num": "12",
       "name": "F. Di Giannantonio\n                                                            \n                                                                                                                            Team VR46",
       "team": "",
-      "pts": 282,
+      "pts": 285,
       "flag": "🇮🇹"
     },
     {
@@ -56,7 +56,7 @@
       "num": "23",
       "name": "R. Fernández\n                                                            \n                                                                                                                            Trackhouse Racing Team",
       "team": "",
-      "pts": 258,
+      "pts": 267,
       "flag": ""
     },
     {
@@ -64,7 +64,7 @@
       "num": "13",
       "name": "A. Marquez\n                                                            \n                                                                                                                            Gresini Racing",
       "team": "",
-      "pts": 197,
+      "pts": 204,
       "flag": "🇪🇸"
     },
     {
@@ -112,7 +112,7 @@
       "num": "2",
       "name": "F. Quartararo\n                                                            \n                                                                                                                            Yamaha Factory Racing",
       "team": "",
-      "pts": 79,
+      "pts": 81,
       "flag": "🇫🇷"
     },
     {
