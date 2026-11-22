@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T20:32:47Z",
+  "updatedAt": "2026-11-22T14:02:48Z",
   "source": "scraped",
   "season": 2026,
   "riders": [
@@ -16,7 +16,7 @@
       "num": "18",
       "name": "J. Martin\n                                                            \n                                                                                                                            Aprilia Racing Team",
       "team": "",
-      "pts": 376,
+      "pts": 396,
       "flag": "🇪🇸"
     },
     {
@@ -24,7 +24,7 @@
       "num": "25",
       "name": "M. Bezzecchi\n                                                            \n                                                                                                                            Aprilia Racing Team",
       "team": "",
-      "pts": 369,
+      "pts": 394,
       "flag": "🇮🇹"
     },
     {
@@ -40,7 +40,7 @@
       "num": "17",
       "name": "A. Ogura\n                                                            \n                                                                                                                            Trackhouse Racing Team",
       "team": "",
-      "pts": 298,
+      "pts": 309,
       "flag": "🇯🇵"
     },
     {
@@ -48,7 +48,7 @@
       "num": "12",
       "name": "F. Di Giannantonio\n                                                            \n                                                                                                                            Team VR46",
       "team": "",
-      "pts": 285,
+      "pts": 298,
       "flag": "🇮🇹"
     },
     {
@@ -56,7 +56,7 @@
       "num": "23",
       "name": "R. Fernández\n                                                            \n                                                                                                                            Trackhouse Racing Team",
       "team": "",
-      "pts": 267,
+      "pts": 283,
       "flag": ""
     },
     {
@@ -80,7 +80,7 @@
       "num": "4",
       "name": "E. Bastianini\n                                                            \n                                                                                                                            Tech 3",
       "team": "",
-      "pts": 147,
+      "pts": 152,
       "flag": "🇮🇹"
     },
     {
@@ -88,7 +88,7 @@
       "num": "8",
       "name": "F. Aldeguer\n                                                            \n                                                                                                                            Gresini Racing",
       "team": "",
-      "pts": 129,
+      "pts": 139,
       "flag": "🇪🇸"
     },
     {
@@ -96,7 +96,7 @@
       "num": "13",
       "name": "B. Binder\n                                                            \n                                                                                                                            Red Bull KTM Factory Racing",
       "team": "",
-      "pts": 118,
+      "pts": 127,
       "flag": "🇿🇦"
     },
     {
@@ -104,7 +104,7 @@
       "num": "6",
       "name": "L. Marini\n                                                            \n                                                                                                                            Honda HRC",
       "team": "",
-      "pts": 117,
+      "pts": 124,
       "flag": ""
     },
     {
@@ -112,7 +112,7 @@
       "num": "2",
       "name": "F. Quartararo\n                                                            \n                                                                                                                            Yamaha Factory Racing",
       "team": "",
-      "pts": 81,
+      "pts": 85,
       "flag": "🇫🇷"
     },
     {
@@ -128,7 +128,7 @@
       "num": "8",
       "name": "F. Morbidelli\n                                                            \n                                                                                                                            Team VR46",
       "team": "",
-      "pts": 70,
+      "pts": 71,
       "flag": "🇮🇹"
     },
     {
@@ -141,6 +141,14 @@
     },
     {
       "pos": 18,
+      "num": "1",
+      "name": "J. Miller\n                                                            \n                                                                                                                            Pramac Racing",
+      "team": "",
+      "pts": 34,
+      "flag": "🇦🇺"
+    },
+    {
+      "pos": 19,
       "num": "3",
       "name": "J. Mir\n                                                            \n                                                                                                                            Honda HRC",
       "team": "",
@@ -148,19 +156,11 @@
       "flag": "🇪🇸"
     },
     {
-      "pos": 19,
-      "num": "1",
-      "name": "J. Miller\n                                                            \n                                                                                                                            Pramac Racing",
-      "team": "",
-      "pts": 31,
-      "flag": "🇦🇺"
-    },
-    {
       "pos": 20,
       "num": "1",
       "name": "A. Rins\n                                                            \n                                                                                                                            Yamaha Factory Racing",
       "team": "",
-      "pts": 29,
+      "pts": 31,
       "flag": "🇪🇸"
     }
   ],
