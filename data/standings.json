@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-28T04:32:19Z",
+  "updatedAt": "2026-11-28T15:02:39Z",
   "source": "scraped",
   "season": 2026,
   "riders": [
@@ -13,26 +13,26 @@
     },
     {
       "pos": 2,
-      "num": "18",
-      "name": "J. Martin\n                                                            \n                                                                                                                            Aprilia Racing Team",
-      "team": "",
-      "pts": 396,
-      "flag": "🇪🇸"
-    },
-    {
-      "pos": 3,
       "num": "25",
       "name": "M. Bezzecchi\n                                                            \n                                                                                                                            Aprilia Racing Team",
       "team": "",
-      "pts": 394,
+      "pts": 31,
       "flag": "🇮🇹"
+    },
+    {
+      "pos": 3,
+      "num": "18",
+      "name": "J. Martin\n                                                            \n                                                                                                                            Aprilia Racing Team",
+      "team": "",
+      "pts": 27,
+      "flag": "🇪🇸"
     },
     {
       "pos": 4,
       "num": "10",
       "name": "P. Acosta\n                                                            \n                                                                                                                            Red Bull KTM Factory Racing",
       "team": "",
-      "pts": 315,
+      "pts": 318,
       "flag": "🇪🇸"
     },
     {
@@ -40,7 +40,7 @@
       "num": "17",
       "name": "A. Ogura\n                                                            \n                                                                                                                            Trackhouse Racing Team",
       "team": "",
-      "pts": 309,
+      "pts": 315,
       "flag": "🇯🇵"
     },
     {
@@ -48,7 +48,7 @@
       "num": "12",
       "name": "F. Di Giannantonio\n                                                            \n                                                                                                                            Team VR46",
       "team": "",
-      "pts": 298,
+      "pts": 303,
       "flag": "🇮🇹"
     },
     {
@@ -64,7 +64,7 @@
       "num": "13",
       "name": "A. Marquez\n                                                            \n                                                                                                                            Gresini Racing",
       "team": "",
-      "pts": 204,
+      "pts": 208,
       "flag": "🇪🇸"
     },
     {
@@ -80,7 +80,7 @@
       "num": "4",
       "name": "E. Bastianini\n                                                            \n                                                                                                                            Tech 3",
       "team": "",
-      "pts": 152,
+      "pts": 159,
       "flag": "🇮🇹"
     },
     {
@@ -96,7 +96,7 @@
       "num": "13",
       "name": "B. Binder\n                                                            \n                                                                                                                            Red Bull KTM Factory Racing",
       "team": "",
-      "pts": 127,
+      "pts": 129,
       "flag": "🇿🇦"
     },
     {
